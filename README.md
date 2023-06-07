@@ -1,6 +1,6 @@
-# foodCourier
+# Food Courier app
 
-A new Flutter project.
+A flutter app for restaurants, dine in and delivery.
 
 ## Getting Started
 

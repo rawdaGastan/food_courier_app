@@ -79,12 +79,14 @@ class PushNotification {
     var view = notificationData['view'];
 
     if (view != null) {
-      if (view == 'track order')
+      if (view == 'track order') {
         displayTrackOrderDialog(
             _navigationService.navigationKey.currentState.overlay.context);
-      if (view == 'rate order')
+      }
+      if (view == 'rate order') {
         displayRateOrderDialog(
             _navigationService.navigationKey.currentState.overlay.context);
+      }
     }
   }
 
@@ -103,7 +105,7 @@ class PushNotification {
                       children: <Widget>[
                         Positioned.fill(
                           child: Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 shape: BoxShape.circle, color: blackColor),
                             margin: EdgeInsets.all(1.5 *
                                 SizeConfig
@@ -111,7 +113,8 @@ class PushNotification {
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.close_rounded, color: whiteColor),
+                          icon: const Icon(Icons.close_rounded,
+                              color: whiteColor),
                           onPressed: () => Navigator.pop(context),
                         ),
                       ],
@@ -125,7 +128,7 @@ class PushNotification {
                     child: CircleAvatar(
                       radius: 12 * SizeConfig.blockSizeHorizontal,
                       backgroundColor: backgroundImages,
-                      backgroundImage: AssetImage(
+                      backgroundImage: const AssetImage(
                         'assets/icons/temp.png',
                       ),
                     ),
@@ -162,7 +165,7 @@ class PushNotification {
                     children: <Widget>[
                       Positioned.fill(
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle, color: blackColor),
                           margin: EdgeInsets.all(1.5 *
                               SizeConfig
@@ -170,7 +173,8 @@ class PushNotification {
                         ),
                       ),
                       IconButton(
-                        icon: Icon(Icons.close_rounded, color: whiteColor),
+                        icon:
+                            const Icon(Icons.close_rounded, color: whiteColor),
                         onPressed: () => Navigator.pop(context),
                       ),
                     ],
@@ -183,7 +187,7 @@ class PushNotification {
                   //mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'We care about your feedback !',
                       style: rateOrderNotificationDialog,
                       textAlign: TextAlign.center,
@@ -191,7 +195,7 @@ class PushNotification {
                     SizedBox(
                       height: SizeConfig.blockSizeVertical,
                     ),
-                    AutoSizeText(
+                    const AutoSizeText(
                       'How was your last order ?',
                       style: pickUpTime,
                       textAlign: TextAlign.center,

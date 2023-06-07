@@ -14,16 +14,16 @@ class Networking {
   Future<String> register(String email, String password1, String password2,
       String invitation) async {
     var jsonBody = jsonEncode({
-      "email": email,
-      "password1": password1,
-      "password2": password2,
-      "customer": true,
-      "invitation": invitation,
+      'email': email,
+      'password1': password1,
+      'password2': password2,
+      'customer': true,
+      'invitation': invitation,
     });
 
     var response = await http.post(
-        Uri.parse("${apiUrl}dj-rest-auth/registration/"),
-        headers: {"Content-Type": "application/json"},
+        Uri.parse('${apiUrl}dj-rest-auth/registration/'),
+        headers: {'Content-Type': 'application/json'},
         body: jsonBody);
     if (response.statusCode == 200) {
       print('success');
@@ -35,8 +35,8 @@ class Networking {
   }
 
   Future<String> login(String email, String password) async {
-    var response = await http.post(Uri.parse("${apiUrl}dj-rest-auth/login/"),
-        body: {"email": email, "password": password});
+    var response = await http.post(Uri.parse('${apiUrl}dj-rest-auth/login/'),
+        body: {'email': email, 'password': password});
     print(response.body);
     if (response.statusCode == 200) {
       print('success');
@@ -49,35 +49,35 @@ class Networking {
 
   Future<String> refreshToken(String refresh) async {
     var response = await http
-        .post(Uri.parse("${apiUrl}dj-rest-auth/token/refresh/"), body: {
-      "refresh": refresh,
+        .post(Uri.parse('${apiUrl}dj-rest-auth/token/refresh/'), body: {
+      'refresh': refresh,
     });
     if (response.statusCode == 200) {
       print('success');
       return response.body;
     } else {
       print('Request failed with status: ${response.statusCode}.');
-      return null;
+      return response.body;
     }
   }
 
   Future<String> confirmEmail(String key) async {
     var response = await http.post(
-        Uri.parse("${apiUrl}users/dj-rest-auth/registration/verify-email/"),
-        body: {"key": key});
+        Uri.parse('${apiUrl}users/dj-rest-auth/registration/verify-email/'),
+        body: {'key': key});
     if (response.statusCode == 200) {
       print('success');
       return response.body;
     } else {
       print('Request failed with status: ${response.statusCode}.');
-      return null;
+      return response.body;
     }
   }
 
   Future<String> resetPassWithEmail(String email) async {
     var response = await http
-        .post(Uri.parse("${apiUrl}dj-rest-auth/password/reset/"), body: {
-      "email": email,
+        .post(Uri.parse('${apiUrl}dj-rest-auth/password/reset/'), body: {
+      'email': email,
     });
     if (response.statusCode == 200) {
       print('success');
@@ -91,12 +91,12 @@ class Networking {
   Future<String> changePass(
       String password, String password2, String uid, String token) async {
     var response = await http.post(
-        Uri.parse("${apiUrl}dj-rest-auth/password/reset/confirm/"),
+        Uri.parse('${apiUrl}dj-rest-auth/password/reset/confirm/'),
         body: {
-          "new_password1": password,
-          "new_password2": password2,
-          "uid": uid,
-          "token": token,
+          'new_password1': password,
+          'new_password2': password2,
+          'uid': uid,
+          'token': token,
         });
     if (response.statusCode == 200) {
       print('success');
@@ -129,10 +129,10 @@ class Networking {
     var response = await http.post(Uri.parse(url), headers: {
       'Authorization': 'Bearer $token',
     }, body: {
-      "first_name": firstName,
-      "last_name": lastName,
-      "date_of_birth": dateOfBirth,
-      "duration_of_diet": durationOfDiet,
+      'first_name': firstName,
+      'last_name': lastName,
+      'date_of_birth': dateOfBirth,
+      'duration_of_diet': durationOfDiet,
     });
     if (response.statusCode == 200) {
       print('success');
