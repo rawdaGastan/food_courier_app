@@ -1,0 +1,111 @@
+name: foodCourier
+description: A new Flutter project.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  dropdown_textfield: ^1.0.8
+  provider: ^6.0.5
+  cached_network_image: ^3.2.3
+  geolocator: ^9.0.2
+  auto_size_text: ^3.0.0
+  http: ^0.13.0
+  flutter_secure_storage: ^8.0.0
+  form_field_validator: ^1.1.0
+  sms_autofill: ^2.3.0
+  country_code_picker: ^3.0.0
+  flutter_sticky_header: ^0.6.5
+  get_it: ^7.6.0
+  firebase_messaging: ^14.6.1
+  firebase_remote_config: ^4.2.1
+  dots_indicator: ^3.0.0
+  google_maps_flutter: ^2.2.6
+  google_maps_place_picker_mb: ^3.0.2
+  flutter_chat_bubble: ^2.0.2
+  flutter_emoji_feedback: ^0.1.2
+  vector_math: ^2.1.4
+  geocode: ^1.0.3
+  #intl_translation: ^0.17.10+1
+  intl_utils: ^2.8.2
+  dart_style: ^2.0.0
+  showcaseview: ^2.0.3
+  flutter_facebook_auth: ^5.0.11
+  google_sign_in: ^6.1.1
+  firebase_core: ^2.13.0
+  firebase_auth:
+  firebase_dynamic_links:
+  firebase_crashlytics:
+  firebase_analytics:
+  pin_code_fields: ^7.4.0
+  google_tag_manager: ^0.1.0
+  flutter_uxcam: ^2.4.0
+  scroll_snap_list: ^0.9.1
+  shared_preferences: ^2.1.1
+  #flutter_svg: 0.20.0-nullsafety.3
+  facebook_app_events: ^0.19.0
+  flutter_sliding_up_panel: ^2.0.1
+
+  flutter_localizations:
+    sdk: flutter
+
+dependency_overrides:
+  intl: ^0.18.1-nullsafety.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter_intl:
+  enabled: true # Required. Must be set to true to activate the package. Default: false
+  #class_name: S # Optional. Sets the name for the generated localization class. Default: S
+  main_locale: en # Optional. Sets the main locale used for generating localization files. Provided value should consist of language code and optional script and country codes separated with underscore (e.g. 'en', 'en_GB', 'zh_Hans', 'zh_Hans_CN'). Default: en
+  arb_dir: lib/l10n # Optional. Sets the directory of your ARB resource files. Provided value should be a valid path on your system. Default: lib/l10n
+  output_dir: lib/generated # Optional. Sets the directory of generated localization files. Provided value should be a valid path on your system. Default: lib/generated
+  use_deferred_loading: false # Optional. Must be set to true to generate localization code that is loaded with deferred loading. Default: false
+  localizely: # Optional settings if you use Localizely platform. Read more: https://localizely.com/flutter-localization-workflow
+    project_id: # Get it from the https://app.localizely.com/projects page.
+    branch: # Get it from the “Branches” page on the Localizely platform, in case branching is enabled and you want to use a non-main branch.
+    upload_overwrite: # Set to true if you want to overwrite translations with upload. Default: false
+    upload_as_reviewed: # Set to true if you want to mark uploaded translations as reviewed. Default: false
+    download_empty_as: # Set to empty|main|skip, to configure how empty translations should be exported from the Localizely platform. Default: empty
+    ota_enabled: # Set to true if you want to use Localizely Over-the-air functionality. Default: false
+
+flutter:
+  uses-material-design: true
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/logos/logo.png
+    - assets/icons/filter.png
+    - assets/icons/menu.png
+    - assets/icons/facebook.png
+    - assets/icons/google.png
+    - assets/icons/gluten.png
+    - assets/icons/protein.png
+    - assets/icons/vegetarian.png
+    - assets/icons/vegan.png
+    - assets/icons/normal.png
+    - assets/icons/good.png
+    - assets/icons/excellent.png
+    - assets/icons/bad.png
+    - assets/icons/horrible.png
+    - assets/icons/distance.png
+    - assets/icons/delivery.png
+    - assets/icons/balloons.png
+    - assets/icons/serves.png
+    - assets/icons/calories.png
+
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+    - family: Lora
+      fonts:
+        - asset: assets/fonts/Lora-Regular.ttf

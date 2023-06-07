@@ -1,0 +1,19 @@
+<svg id="Component_32_1" data-name="Component 32 – 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Ellipse_115" data-name="Ellipse 115" cx="20" cy="20" r="20" transform="translate(113 715)" fill="#d7ddda"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_2" data-name="Mask Group 2" transform="translate(-113 -715)" clip-path="url(#clip-path)">
+    <g id="suspicious" transform="translate(113 715)">
+      <circle id="Ellipse_119" data-name="Ellipse 119" cx="20" cy="20" r="20" transform="translate(0 0)" fill="#ffc10e"/>
+      <g id="Group_423" data-name="Group 423">
+        <circle id="Ellipse_120" data-name="Ellipse 120" cx="3.141" cy="3.141" r="3.141" transform="translate(10.78 14.383)" fill="#333"/>
+        <ellipse id="Ellipse_121" data-name="Ellipse 121" cx="3.141" cy="4.769" rx="3.141" ry="4.769" transform="translate(23.33 11.126)" fill="#333"/>
+        <path id="Path_2474" data-name="Path 2474" d="M16.487,8.67l-3.154,3.689H14.45L8.084,7.25c-.786-.631-1.911.479-1.116,1.116l6.366,5.108a.8.8,0,0,0,1.116,0L17.6,9.786c.658-.769-.453-1.892-1.116-1.116Z" fill="#333"/>
+        <path id="Path_2475" data-name="Path 2475" d="M23.668,10.529,26.822,6.84H25.706l6.366,5.108c.786.631,1.911-.479,1.116-1.116L26.822,5.723a.8.8,0,0,0-1.116,0L22.552,9.412c-.658.769.454,1.892,1.116,1.116Z" fill="#333"/>
+        <path id="Path_2476" data-name="Path 2476" d="M15.062,32.64h9.515a.79.79,0,0,0,0-1.579H15.062a.79.79,0,0,0,0,1.579Z" fill="#333"/>
+      </g>
+    </g>
+  </g>
+</svg>

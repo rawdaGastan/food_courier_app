@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "660699901750",
+    "project_id": "vegoodeg-a2fcd",
+    "storage_bucket": "vegoodeg-a2fcd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660699901750:android:c0946a1a9d538b803b4d97",
+        "android_client_info": {
+          "package_name": "com.example.vegood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660699901750-0h0no4j8e9n34v8i3r542gho46rdmhf8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4kVCvsZ_0LlSRqQdDTkmCxxFvuzJebmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660699901750-0h0no4j8e9n34v8i3r542gho46rdmhf8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

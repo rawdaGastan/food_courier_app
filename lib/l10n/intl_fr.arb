@@ -1,0 +1,132 @@
+{
+	"@@locale": "fr",
+	"appName": "foodCourier",
+	"CreateAccount": "Créer un compte",
+	"CreateAccountDescription": "Inscrivez-vous à Lorem Ipsum est tout simplement factice",
+	"faceBook": "  Facebook",
+	"google": "  Google",
+	"email": "Email",
+	"phone": "Numéro de téléphone",
+	"emailOrPhone": "Email / numéro de téléphone",
+	"password": "Mot de passe",
+	"errorRequiredMailOrPhone": "Email ou téléphone est requis",
+	"errorInvalidMailOrPhone": "Adresse e-mail ou numéro de téléphone non valide",
+	"errorRequiredPassword": "Mot de passe requis",
+	"errorMinLengthPassword": "le mot de passe doit comporter au moins 8 chiffres",
+	"errorSpecialCharacterPassword": "les mots de passe doivent avoir au moins un caractère spécial",
+	"agreeOf": "Je suis d'accord avec notre ",
+	"terms": "Termes",
+	"and": " et ",
+	"conditions": "Conditions",
+	"alreadyHaveAccount": "Vous avez déjà un compte? ",
+	"signIn": "se connecter",
+	"signUp": "S'inscrire",
+	"welcome": "Bienvenue",
+	"loginDescription": "Se connecter à Lorem Ipsum est tout simplement factice",
+	"forgetPassword": "Mot de passe oublié ?",
+	"doNotHaveAccount": "Vous n'avez pas de compte? ",
+	"enterEmailOrPhoneToReset": "Entrez votre e-mail / téléphone pour réinitialiser votre mot de passe",
+	"continueButton": "Continuer",
+	"forgotPassword": "Mot de passe oublié",
+	"feedback": "Retour d'information",
+	"dayFeedback": "Mardi  ",
+	"timeFeedback": "20:21",
+	"satisfied": "Êtes-vous satisfait du service?",
+	"enterMsg": "Tapez votre message ici...",
+	"seen": "Lire 16:26",
+	"delivery": "Livraison",
+	"grocery": "Épicerie",
+	"dineOut": "Dîner à l'extérieur",
+	"Ve": "Ve",
+	"Good": "Good",
+	"menu": "menu",
+	"myProfile": "Profil",
+	"wishList": "Liste de souhaits",
+	"sendFeedback": "Envoyer des commentaires",
+	"aboutUs": "À propos de nous",
+	"howItWorks": "Comment ça marche",
+	"language": "La langue",
+	"selectRegion": "Choisissez une région",
+	"filter": "Filtre",
+	"clear": "Clair",
+	"sortBy": "Trier par :",
+	"apply": "appliquer",
+	"search": "Trouver un restaurant, un repas ...",
+	"distance": "{distance} km",
+	"@distance": {
+		"placeholders": {
+			"distance": {}
+		}
+	},
+	"rating": "{rating}",
+	"@rating": {
+		"placeholders": {
+			"rating": {}
+		}
+	},
+	"name": "{name}",
+	"@name": {
+		"placeholders": {
+			"name": {}
+		}
+	},
+	"city": "{city}",
+	"@city": {
+		"placeholders": {
+			"city": {}
+		}
+	},
+	"town": "{town}",
+	"@town": {
+		"placeholders": {
+			"town": {}
+		}
+	},
+	"labels": "{labels}",
+	"@labels": {
+		"placeholders": {
+			"labels": {}
+		}
+	},
+	"arabic": "Arabe",
+	"english": "Anglais",
+	"french": "français",
+	"Deutsch": "deutsch",
+	"skip": "Sauter",
+	"back": "Retour",
+	"personalInfo": "Informations personnelles",
+	"userName": "Prénom",
+	"userAge": "âge",
+	"userAddress": "Adresse",
+	"userWorkAddress": "Adresse de travail",
+	"chooseLocation": "Choisissez un emplacement spécifique",
+	"dietPeriod": "Depuis combien de temps suivez-vous un régime?",
+	"now": "À présent",
+	"week": "La semaine",
+	"month": "mois",
+	"year": "année",
+	"preferences": "Préférences et restrictions",
+	"changePicture": "Modifier la photo de profil",
+	"resetPass": "Réinitialiser le mot de passe",
+	"newPassword": "Nouveau mot de passe",
+	"verifyPassword": "vérifier le mot de passe",
+	"errorRequiredField": "Champ obligatoire",
+	"splashText": "Lorem Ipsum est simplement un texte factice de l'industrie de l'impression et de la composition. Lorem Ipsum est le texte factice standard de l'industrie depuis les années 1500,",
+	"verifyAccount": "Vérifier le compte",
+	"enterVerificationCode": "Veuillez saisir le code de vérification que nous avons envoyé à votre adresse e-mail / numéro de téléphone",
+	"codeWillExpireIn": "Le code de vérification expirera dans ",
+	"sentToMobile": "Envoyé à {mobile}",
+	"@sentToMobile": {
+		"placeholders": {
+			"mobile": {}
+		}
+	},
+	"enterFullCode": "Veuillez saisir le code complet",
+	"didNotReceiveCode": "Je n'ai pas reçu de code",
+	"resend": "Renvoyer",
+	"restaurant": "Restaurant",
+	"meal": "Repas",
+	"restaurantInfo": "Info",
+	"reviews": "Avis",
+	"save": "sauvegarder"
+}

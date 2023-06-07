@@ -1,0 +1,132 @@
+{
+	"@@locale": "en",
+	"appName": "foodCourier",
+	"CreateAccount": "Create account",
+	"CreateAccountDescription": "Sign up to Lorem Ipsum is simply dummy",
+	"faceBook": "  Facebook",
+	"google": "  Google",
+	"email": "Email",
+	"phone": "Phone Number",
+	"emailOrPhone": "Email/Phone Number",
+	"password": "Password",
+	"errorRequiredMailOrPhone": "Email or Phone is required",
+	"errorInvalidMailOrPhone": "Invalid Email or Phone Number",
+	"errorRequiredPassword": "password is required",
+	"errorMinLengthPassword": "password must be at least 8 digits",
+	"errorSpecialCharacterPassword": "passwords must have at least one special character",
+	"agreeOf": "I Agree with our ",
+	"terms": "Terms",
+	"and": " and ",
+	"conditions": "Conditions",
+	"alreadyHaveAccount": "Already have an account? ",
+	"signIn": "Sign in",
+	"signUp": "Sign up",
+	"welcome": "Welcome",
+	"loginDescription": "Sign in to Lorem Ipsum is simply dummy",
+	"forgetPassword": "Forgot Password ?",
+	"doNotHaveAccount": "Don't have an account ? ",
+	"enterEmailOrPhoneToReset": "Enter your mail/phone to reset your password",
+	"continueButton": "Continue",
+	"forgotPassword": "Forgot Password",
+	"feedback": "Feedback",
+	"dayFeedback": "Tuesday  ",
+	"timeFeedback": "20:21",
+	"satisfied": "How satisfied are you with the service?",
+	"enterMsg": "Type your message here...",
+	"seen": "Read 16:26",
+	"delivery": "Delivery",
+	"grocery": "Grocery",
+	"dineOut": "Dine out",
+	"Ve": "Ve",
+	"Good": "Good",
+	"menu": "Menu",
+	"myProfile": "Profile",
+	"wishList": "Wish List",
+	"sendFeedback": "Send Feedback",
+	"aboutUs": "About Us",
+	"howItWorks": "How it Works",
+	"language": "Language",
+	"selectRegion": "select region",
+	"filter": "Filter",
+	"clear": "Clear",
+	"sortBy": "Sort By :",
+	"apply": "Apply",
+	"search": "Find restaurant, meal...",
+	"distance": "{distance} km",
+	"@distance": {
+		"placeholders": {
+			"distance": {}
+		}
+	},
+	"rating": "{rating}",
+	"@rating": {
+		"placeholders": {
+			"rating": {}
+		}
+	},
+	"name": "{name}",
+	"@name": {
+		"placeholders": {
+			"name": {}
+		}
+	},
+	"city": "{city}",
+	"@city": {
+		"placeholders": {
+			"city": {}
+		}
+	},
+	"town": "{town}",
+	"@town": {
+		"placeholders": {
+			"town": {}
+		}
+	},
+	"labels": "{labels}",
+	"@labels": {
+		"placeholders": {
+			"labels": {}
+		}
+	},
+	"arabic": "Arabic",
+	"english": "English",
+	"french": "French",
+	"Deutsch": "Deutsch",
+	"skip": "skip",
+	"back": "Back",
+	"personalInfo": "Personal Information",
+	"userName": "Name",
+	"userAge": "Age",
+	"userAddress": "Address",
+	"userWorkAddress": "Work Address",
+	"chooseLocation": "Choose specific location",
+	"dietPeriod": "How long have been following Diet ?",
+	"now": "Now",
+	"week": "Week",
+	"month": "Month",
+	"year": "Year",
+	"preferences": "Preferences & Restrictions",
+	"changePicture": "Change profile picture",
+	"resetPass": "Reset Password",
+	"newPassword": "New Password",
+	"verifyPassword": "Verify Password",
+	"errorRequiredField": "Field required",
+	"splashText": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
+	"verifyAccount": "Verify Account",
+	"enterVerificationCode": "Please enter the verification code we sent to your Email/phone number",
+	"codeWillExpireIn": "Verification code will expire in ",
+	"sentToMobile": "Sent to {mobile}",
+	"@sentToMobile": {
+		"placeholders": {
+			"mobile": {}
+		}
+	},
+	"enterFullCode": "Please enter full code",
+	"didNotReceiveCode": "Didn't receive a code ",
+	"resend": "Resend",
+	"restaurant": "Restaurant",
+	"meal": "Meal",
+	"reviews": "Reviews",
+	"restaurantInfo": "Info",
+	"save": "save"
+}

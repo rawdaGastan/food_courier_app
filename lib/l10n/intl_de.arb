@@ -1,0 +1,132 @@
+{
+	"@@locale": "de",
+	"appName": "foodCourier",
+	"CreateAccount": "Benutzerkonto anlegen",
+	"CreateAccountDescription": "Melden Sie sich bei Lorem Ipsum ist einfach Dummy",
+	"faceBook": "  Facebook",
+	"google": "  Google",
+	"email": "Email",
+	"phone": "Telefonnummer",
+	"emailOrPhone": "E-Mail / Telefonnummer",
+	"password": "Passwort",
+	"errorRequiredMailOrPhone": "E-Mail oder Telefon ist erforderlich",
+	"errorInvalidMailOrPhone": "Ungültige E-Mail-Adresse oder Telefonnummer",
+	"errorRequiredPassword": "Passwort wird benötigt",
+	"errorMinLengthPassword": "Das Passwort muss mindestens 8-stellig sein",
+	"errorSpecialCharacterPassword": "Passwörter müssen mindestens ein Sonderzeichen haben",
+	"agreeOf": "Ich stimme unserem zu ",
+	"terms": "Bedingungen",
+	"and": " und ",
+	"conditions": "Bedingungen",
+	"alreadyHaveAccount": "Hast du schon ein Konto? ",
+	"signIn": "Einloggen",
+	"signUp": "Anmelden",
+	"welcome": "Herzlich willkommen",
+	"loginDescription": "Anmelden bei Lorem Ipsum ist einfach Dummy",
+	"forgetPassword": "Passwort vergessen ?",
+	"doNotHaveAccount": "Sie haben noch keinen Account? ",
+	"enterEmailOrPhoneToReset": "Geben Sie Ihre E-Mail-Adresse / Ihr Telefon ein, um Ihr Passwort zurückzusetzen",
+	"continueButton": "Fortsetzen",
+	"forgotPassword": "Passwort vergessen",
+	"feedback": "Feedback",
+	"dayFeedback": "Dienstag",
+	"timeFeedback": "20:21",
+	"satisfied": "Wie zufrieden sind Sie mit dem Service?",
+	"enterMsg": "Schreiben Sie ihre Nachricht hier...",
+	"seen": "Lesen Sie 16:26",
+	"delivery": "Lieferung",
+	"grocery": "Lebensmittelgeschäft",
+	"dineOut": "Essen gehen",
+	"Ve": "Ve",
+	"Good": "Good",
+	"menu": "Speisekarte",
+	"myProfile": "Profil",
+	"wishList": "Wunschzettel",
+	"sendFeedback": "Feedback abschicken",
+	"aboutUs": "Über uns",
+	"howItWorks": "Wie es funktioniert",
+	"language": "Sprache",
+	"selectRegion": "Region wählen",
+	"filter": "Filter",
+	"clear": "klar",
+	"sortBy": "Sortiere nach :",
+	"apply": "Sich bewerben",
+	"search": "Finden Sie Restaurant, Essen ...",
+	"distance": "{distance} km",
+	"@distance": {
+		"placeholders": {
+			"distance": {}
+		}
+	},
+	"rating": "{rating}",
+	"@rating": {
+		"placeholders": {
+			"rating": {}
+		}
+	},
+	"name": "{name}",
+	"@name": {
+		"placeholders": {
+			"name": {}
+		}
+	},
+	"city": "{city}",
+	"@city": {
+		"placeholders": {
+			"city": {}
+		}
+	},
+	"town": "{town}",
+	"@town": {
+		"placeholders": {
+			"town": {}
+		}
+	},
+	"labels": "{labels}",
+	"@labels": {
+		"placeholders": {
+			"labels": {}
+		}
+	},
+	"arabic": "Arabisch",
+	"english": "Englisch",
+	"french": "Französisch",
+	"Deutsch": "Deutsch",
+	"skip": "Überspringen",
+	"back": "Zurück",
+	"personalInfo": "Persönliche Angaben",
+	"userName": "Name",
+	"userAge": "Alter",
+	"userAddress": "Adresse",
+	"userWorkAddress": "Arbeitsadresse",
+	"chooseLocation": "Wählen Sie einen bestimmten Ort",
+	"dietPeriod": "Wie lange haben Sie Diät befolgt?",
+	"now": "Jetzt",
+	"week": "Woche",
+	"month": "Monat",
+	"year": "Jahr",
+	"preferences": "Einstellungen und Einschränkungen",
+	"changePicture": "Profilbild ändern",
+	"resetPass": "Passwort zurücksetzen",
+	"newPassword": "Neues Kennwort",
+	"verifyPassword": "Passwort bestätigen",
+	"errorRequiredField": "Pflichtfeld",
+	"splashText": "Lorem Ipsum ist einfach Dummy-Text der Druck- und Satzindustrie. Lorem Ipsum ist seit dem 16. Jahrhundert der Standard-Dummy-Text der Branche.",
+	"verifyAccount": "Konto überprüfen",
+	"enterVerificationCode": "Bitte geben Sie den Bestätigungscode ein, den wir an Ihre E-Mail- / Telefonnummer gesendet haben",
+	"codeWillExpireIn": "Der Bestätigungscode läuft in ab",
+	"sentToMobile": "Gesendet an {mobile}",
+	"@sentToMobile": {
+		"placeholders": {
+			"mobile": {}
+		}
+	},
+	"enterFullCode": "Bitte geben Sie den vollständigen Code ein",
+	"didNotReceiveCode": "Ich habe keinen Code erhalten ",
+	"resend": "Erneut senden",
+	"restaurant": "Restaurant",
+	"meal": "MAHLZEIT",
+	"restaurantInfo": "Info",
+	"reviews": "Bewertungen",
+	"save": "sparen"
+}

@@ -1,0 +1,132 @@
+{
+	"@@locale": "ar",
+	"appName": "foodCourier",
+	"CreateAccount": "إنشاء حساب",
+	"CreateAccountDescription": "التسجيل في Lorem Ipsum هو مجرد دمية",
+	"faceBook": "  فيسبوك",
+	"google": "  جوجل",
+	"email": "البريد الإلكتروني",
+	"phone": "رقم الهاتف",
+	"emailOrPhone": "البريد الإلكتروني / رقم الهاتف",
+	"password": "كلمه السر",
+	"errorRequiredMailOrPhone": "البريد الإلكتروني أو الهاتف مطلوب",
+	"errorInvalidMailOrPhone": "البريد الإلكتروني أو رقم الهاتف غير صالح",
+	"errorRequiredPassword": "كلمة المرور مطلوبة",
+	"errorMinLengthPassword": "يجب أن تتكون كلمة المرور من 8 أرقام على الأقل",
+	"errorSpecialCharacterPassword": "يجب أن تحتوي كلمات المرور على حرف خاص واحد على الأقل",
+	"agreeOf": "أنا أتفق مع ",
+	"terms": "الشروط",
+	"and": " و ",
+	"conditions": "الظروف",
+	"alreadyHaveAccount": " هل لديك حساب؟ ",
+	"signIn": "تسجيل الدخول",
+	"signUp": "سجل",
+	"welcome": "أهلا بك",
+	"loginDescription": "تسجيل الدخول إلى Lorem Ipsum هو مجرد دمية",
+	"forgetPassword": "هل نسيت كلمة المرور ؟",
+	"doNotHaveAccount": "ليس لديك حساب؟ ",
+	"enterEmailOrPhoneToReset": "أدخل بريدك / هاتفك لإعادة تعيين كلمة المرور الخاصة بك",
+	"continueButton": "استمر",
+	"forgotPassword": "نسيت كلمة المرور",
+	"feedback": "ردود الفعل",
+	"dayFeedback": "الثلاثاء  ",
+	"timeFeedback": "20:21",
+	"satisfied": "ما مدى رضاك عن الخدمة؟",
+	"enterMsg": "اكتب رسالتك هنا...",
+	"seen": "قرأت 16:26",
+	"delivery": "توصيل",
+	"grocery": "بقالة",
+	"dineOut": "تناول العشاء خارجا",
+	"Ve": "Ve",
+	"Good": "Good",
+	"menu": "قائمة طعام",
+	"myProfile": "الملف الشخصي",
+	"wishList": "الأماني",
+	"sendFeedback": "ارسل رأيك",
+	"aboutUs": "معلومات عنا",
+	"howItWorks": "كيف تعمل",
+	"language": "لغة",
+	"selectRegion": "اختر المنطقة",
+	"filter": "منقي",
+	"clear": "امسح",
+	"sortBy": "ترتيب حسب :",
+	"apply": "تطبيق",
+	"search": "ابحث عن مطعم ووجبة ...",
+	"distance": "{distance} كم",
+	"@distance": {
+		"placeholders": {
+			"distance": {}
+		}
+	},
+	"rating": "{rating}",
+	"@rating": {
+		"placeholders": {
+			"rating": {}
+		}
+	},
+	"name": "{name}",
+	"@name": {
+		"placeholders": {
+			"name": {}
+		}
+	},
+	"city": "{city}",
+	"@city": {
+		"placeholders": {
+			"city": {}
+		}
+	},
+	"town": "{town}",
+	"@town": {
+		"placeholders": {
+			"town": {}
+		}
+	},
+	"labels": "{labels}",
+	"@labels": {
+		"placeholders": {
+			"labels": {}
+		}
+	},
+	"arabic": "العربية",
+	"english": "الإنجليزية",
+	"french": "الفرنسية",
+	"Deutsch": "الألمانية",
+	"skip": "تخطى",
+	"back": "الرجوع",
+	"personalInfo": "معلومات شخصية",
+	"userName": "الاسم",
+	"userAge": "السن",
+	"userAddress": "العنوان",
+	"userWorkAddress": "عنوان العمل",
+	"chooseLocation": "اختر موقعًا محددًا",
+	"dietPeriod": "منذ متى وانت تنبع النظام الغذائي؟",
+	"now": "الآن",
+	"week": "أسبوع",
+	"month": "شهر",
+	"year": "عام",
+	"preferences": "التفضيلات والقيود",
+	"changePicture": "تغيير صورة الملف الشخصي",
+	"resetPass": "إعادة تعيين كلمة المرور",
+	"newPassword": "كلمة السر الجديدة",
+	"verifyPassword": "اكد كلمة المرور",
+	"errorRequiredField": "حقل مطلوب",
+	"splashText": "لوريم إيبسوم هو ببساطة نص شكلي يستخدم في صناعة الطباعة والتنضيد. لوريم إيبسوم هو النص الوهمي القياسي في الصناعة منذ القرن الخامس عشر الميلادي ،",
+	"verifyAccount": "التحقق من الحساب",
+	"enterVerificationCode": "الرجاء إدخال رمز التحقق الذي أرسلناه إلى بريدك الإلكتروني / رقم هاتفك",
+	"sentToMobile": "مرسلة إلى {mobile}",
+	"codeWillExpireIn": "ستنتهي صلاحية رمز التحقق في ",
+	"@sentToMobile": {
+		"placeholders": {
+			"mobile": {}
+		}
+	},
+	"enterFullCode": "الرجاء إدخال الرمز الكامل",
+	"didNotReceiveCode": "لم أتلق رمز",
+	"resend": "إعادة إرسال",
+	"restaurant": "مطعم",
+	"meal": "وجبة",
+	"restaurantInfo": "معلومات",
+	"reviews": "التعليقات",
+	"save": "حفظ"
+}
