@@ -71,7 +71,7 @@ class _MealReviewState extends State<MealReview> {
               style: mealSubTitles,
             ),
             SizedBox(
-              height: 2 * SizeConfig.blockSizeVertical,
+              height: 2 * SizeConfig.blockSizeVertical!,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,14 +86,14 @@ class _MealReviewState extends State<MealReview> {
                       ],
                     ),
                     SizedBox(
-                      height: 1 * SizeConfig.blockSizeVertical,
+                      height: 1 * SizeConfig.blockSizeVertical!,
                     ),
                     Text(
                       '30 Reviews',
                       style: mealInfo,
                     ),
                     SizedBox(
-                      height: 1 * SizeConfig.blockSizeVertical,
+                      height: 1 * SizeConfig.blockSizeVertical!,
                     ),
                     Text(
                       '400 Votes',
@@ -133,9 +133,9 @@ class _MealReviewState extends State<MealReview> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                              left: 1 * SizeConfig.blockSizeHorizontal),
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 30 * SizeConfig.blockSizeHorizontal,
+                              left: 1 * SizeConfig.blockSizeHorizontal!),
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 30 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
@@ -144,8 +144,8 @@ class _MealReviewState extends State<MealReview> {
                           ),
                         ),
                         Container(
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 10 * SizeConfig.blockSizeHorizontal,
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 10 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
@@ -179,9 +179,9 @@ class _MealReviewState extends State<MealReview> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                              left: 1 * SizeConfig.blockSizeHorizontal),
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 30 * SizeConfig.blockSizeHorizontal,
+                              left: 1 * SizeConfig.blockSizeHorizontal!),
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 30 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
@@ -190,8 +190,8 @@ class _MealReviewState extends State<MealReview> {
                           ),
                         ),
                         Container(
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 10 * SizeConfig.blockSizeHorizontal,
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 10 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
@@ -220,9 +220,9 @@ class _MealReviewState extends State<MealReview> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                              left: 1 * SizeConfig.blockSizeHorizontal),
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 30 * SizeConfig.blockSizeHorizontal,
+                              left: 1 * SizeConfig.blockSizeHorizontal!),
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 30 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
@@ -231,8 +231,8 @@ class _MealReviewState extends State<MealReview> {
                           ),
                         ),
                         Container(
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 10 * SizeConfig.blockSizeHorizontal,
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 10 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
@@ -256,9 +256,9 @@ class _MealReviewState extends State<MealReview> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                              left: 1 * SizeConfig.blockSizeHorizontal),
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 30 * SizeConfig.blockSizeHorizontal,
+                              left: 1 * SizeConfig.blockSizeHorizontal!),
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 30 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
@@ -267,8 +267,8 @@ class _MealReviewState extends State<MealReview> {
                           ),
                         ),
                         Container(
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 10 * SizeConfig.blockSizeHorizontal,
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 10 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
@@ -287,9 +287,9 @@ class _MealReviewState extends State<MealReview> {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                              left: 1 * SizeConfig.blockSizeHorizontal),
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 30 * SizeConfig.blockSizeHorizontal,
+                              left: 1 * SizeConfig.blockSizeHorizontal!),
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 30 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
@@ -298,8 +298,8 @@ class _MealReviewState extends State<MealReview> {
                           ),
                         ),
                         Container(
-                          height: 1 * SizeConfig.blockSizeVertical,
-                          width: 10 * SizeConfig.blockSizeHorizontal,
+                          height: 1 * SizeConfig.blockSizeVertical!,
+                          width: 10 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
@@ -313,7 +313,7 @@ class _MealReviewState extends State<MealReview> {
                 ),
               ],
             ),
-            SizedBox(height: SizeConfig.blockSizeVertical),
+            SizedBox(height: SizeConfig.blockSizeVertical!),
             Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -374,7 +374,7 @@ class _MealReviewState extends State<MealReview> {
               ],
             ),
             SizedBox(
-              height: 1 * SizeConfig.blockSizeVertical,
+              height: 1 * SizeConfig.blockSizeVertical!,
             ),
             Row(
               children: [
@@ -382,7 +382,7 @@ class _MealReviewState extends State<MealReview> {
                   Icons.add_comment,
                   color: greyTextColor87,
                 ),
-                SizedBox(width: SizeConfig.blockSizeHorizontal),
+                SizedBox(width: SizeConfig.blockSizeHorizontal!),
                 Text(
                   'Write a Review',
                   style: mealSubTitles,
@@ -390,31 +390,32 @@ class _MealReviewState extends State<MealReview> {
               ],
             ),
             SizedBox(
-              height: 1 * SizeConfig.blockSizeVertical,
+              height: 1 * SizeConfig.blockSizeVertical!,
             ),
             Container(
               padding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
               color: secondaryColor,
-              height: 10 * SizeConfig.blockSizeVertical,
-              margin: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical),
+              height: 10 * SizeConfig.blockSizeVertical!,
+              margin: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical!),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Row(
                     children: [
                       Padding(
-                        padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal),
+                        padding:
+                            EdgeInsets.all(SizeConfig.blockSizeHorizontal!),
                         child: CircleAvatar(
-                          radius: 3 * SizeConfig.blockSizeVertical,
+                          radius: 3 * SizeConfig.blockSizeVertical!,
                           backgroundImage: AssetImage(
                             'assets/icons/temp.png',
                           ),
                         ),
                       ),
                       Container(
-                        height: 5 * SizeConfig.blockSizeVertical,
-                        width: 60 * SizeConfig.blockSizeHorizontal,
+                        height: 5 * SizeConfig.blockSizeVertical!,
+                        width: 60 * SizeConfig.blockSizeHorizontal!,
                         child: TextFormField(
                           cursorColor: whiteColor,
                           controller: inputController,
@@ -438,18 +439,18 @@ class _MealReviewState extends State<MealReview> {
             ),
             Padding(
               padding:
-                  EdgeInsets.only(bottom: 6 * SizeConfig.blockSizeVertical),
+                  EdgeInsets.only(bottom: 6 * SizeConfig.blockSizeVertical!),
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: 3,
                 itemBuilder: (context, index) {
                   return Container(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                        horizontal: 3 * SizeConfig.blockSizeHorizontal!),
                     color: secondaryColor,
-                    height: 15 * SizeConfig.blockSizeVertical,
+                    height: 15 * SizeConfig.blockSizeVertical!,
                     margin:
-                        EdgeInsets.only(bottom: SizeConfig.blockSizeVertical),
+                        EdgeInsets.only(bottom: SizeConfig.blockSizeVertical!),
                     child: Column(
                       children: [
                         Row(
@@ -459,9 +460,9 @@ class _MealReviewState extends State<MealReview> {
                               children: [
                                 Padding(
                                   padding: EdgeInsets.all(
-                                      SizeConfig.blockSizeHorizontal),
+                                      SizeConfig.blockSizeHorizontal!),
                                   child: CircleAvatar(
-                                    radius: 3 * SizeConfig.blockSizeVertical,
+                                    radius: 3 * SizeConfig.blockSizeVertical!,
                                     backgroundImage: AssetImage(
                                       'assets/icons/temp.png',
                                     ),
@@ -474,7 +475,7 @@ class _MealReviewState extends State<MealReview> {
                                     Padding(
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 1 *
-                                              SizeConfig.blockSizeHorizontal),
+                                              SizeConfig.blockSizeHorizontal!),
                                       child: AutoSizeText(
                                         'Noor ALshaer',
                                         style: RestaurantDescription,

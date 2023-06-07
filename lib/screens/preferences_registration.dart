@@ -51,9 +51,10 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
                   markShape: BoxShape.rectangle,
                   children: [
                     Positioned(
-                        top: markRect.top - (10 * SizeConfig.blockSizeVertical),
-                        right: 5 * SizeConfig.blockSizeHorizontal,
-                        left: 5 * SizeConfig.blockSizeHorizontal,
+                        top:
+                            markRect.top - (10 * SizeConfig.blockSizeVertical!),
+                        right: 5 * SizeConfig.blockSizeHorizontal!,
+                        left: 5 * SizeConfig.blockSizeHorizontal!,
                         child: Text(
                           "click here to choose type of the restaurant",
                           style: const TextStyle(
@@ -85,8 +86,8 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
       children: [
         Positioned(
             top: markRect.bottom + 15.0,
-            right: 2 * SizeConfig.blockSizeHorizontal,
-            left: 2 * SizeConfig.blockSizeHorizontal,
+            right: 2 * SizeConfig.blockSizeHorizontal!,
+            left: 2 * SizeConfig.blockSizeHorizontal!,
             child: Text(
               "click here to set your food restrictions",
               style: const TextStyle(
@@ -120,7 +121,7 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
               Icon(
                 Icons.arrow_back_ios,
                 color: blackColor,
-                size: 2.5 * SizeConfig.blockSizeHorizontal,
+                size: 2.5 * SizeConfig.blockSizeHorizontal!,
               ),
               Text(S().back, style: blackSmallText14),
             ],
@@ -133,8 +134,8 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
           decorator: DotsDecorator(
             color: primaryColor, // Inactive color
             activeColor: primaryColor,
-            activeSize: Size(8 * SizeConfig.blockSizeHorizontal,
-                SizeConfig.blockSizeVertical),
+            activeSize: Size(8 * SizeConfig.blockSizeHorizontal!,
+                SizeConfig.blockSizeVertical!),
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
           ),
@@ -157,8 +158,8 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
                 children: <Widget>[
                   Padding(
                     padding: EdgeInsets.only(
-                      left: 3 * SizeConfig.blockSizeHorizontal,
-                      right: 3 * SizeConfig.blockSizeHorizontal,
+                      left: 3 * SizeConfig.blockSizeHorizontal!,
+                      right: 3 * SizeConfig.blockSizeHorizontal!,
                     ),
                     child: Text(
                       S().preferences,
@@ -170,8 +171,8 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
                     key: _fabKey,
                     child: FilterByList(),
                     margin: EdgeInsets.only(
-                        top: 4 * SizeConfig.blockSizeVertical,
-                        bottom: SizeConfig.blockSizeVertical),
+                        top: 4 * SizeConfig.blockSizeVertical!,
+                        bottom: SizeConfig.blockSizeVertical!),
                     /*decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
                       color: secondaryColor

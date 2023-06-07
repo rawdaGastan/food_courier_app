@@ -21,9 +21,9 @@ class _OrderInfoState extends State<OrderInfo> {
         context: context,
         builder: (context) => AlertDialog(
           content: Container(
-              height: 31 * SizeConfig.blockSizeVertical,
+              height: 31 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
               child: Column(
                 children: [
                   Text(
@@ -54,7 +54,7 @@ class _OrderInfoState extends State<OrderInfo> {
               color: secondaryColor,
               borderRadius: BorderRadius.all(Radius.circular(25.0)),
             ),
-            height: 6 * SizeConfig.blockSizeVertical,
+            height: 6 * SizeConfig.blockSizeVertical!,
             child: TabBar(
               tabs: [
                 Tab(
@@ -86,16 +86,16 @@ class _OrderInfoState extends State<OrderInfo> {
               indicatorColor: primaryColor,
               indicatorWeight: 4,
               labelPadding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
             ),
           ),
         ),
         SizedBox(
-          height: 2 * SizeConfig.blockSizeVertical,
+          height: 2 * SizeConfig.blockSizeVertical!,
         ),
         (deliveryOrPick == 0)
             ? Container(
-                height: 10 * SizeConfig.blockSizeVertical,
+                height: 10 * SizeConfig.blockSizeVertical!,
                 decoration: BoxDecoration(
                   border: Border.all(width: 1.0, color: lightTextColor),
                 ),
@@ -111,7 +111,7 @@ class _OrderInfoState extends State<OrderInfo> {
                     ),
                     Container(
                         alignment: Alignment.center,
-                        height: 7 * SizeConfig.blockSizeVertical,
+                        height: 7 * SizeConfig.blockSizeVertical!,
                         child: VerticalDivider(
                           thickness: 1,
                           color: lightTextColor,
@@ -130,7 +130,7 @@ class _OrderInfoState extends State<OrderInfo> {
                 ),
               )
             : Container(
-                height: 10 * SizeConfig.blockSizeVertical,
+                height: 10 * SizeConfig.blockSizeVertical!,
                 decoration: BoxDecoration(
                   border: Border.all(width: 1.0, color: lightTextColor),
                 ),
@@ -139,15 +139,15 @@ class _OrderInfoState extends State<OrderInfo> {
                   children: [
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: 2.5 * SizeConfig.blockSizeHorizontal),
+                          horizontal: 2.5 * SizeConfig.blockSizeHorizontal!),
                       child: Text('6 Pm', style: pickUpAndDeliveryTime),
                     ),
                     Container(
                       alignment: Alignment.center,
-                      height: 10 * SizeConfig.blockSizeVertical,
+                      height: 10 * SizeConfig.blockSizeVertical!,
                       padding: EdgeInsets.symmetric(
-                          horizontal: 3 * SizeConfig.blockSizeHorizontal),
-                      width: 60 * SizeConfig.blockSizeHorizontal,
+                          horizontal: 3 * SizeConfig.blockSizeHorizontal!),
+                      width: 60 * SizeConfig.blockSizeHorizontal!,
                       color: secondaryColor,
                       child: AutoSizeText(
                         'This is a Pickup order Today at 6pm You\'ll need to go to Mid Atlantic Seafood to pick up this order: 6500 New Hampshire Avenue',
@@ -155,8 +155,8 @@ class _OrderInfoState extends State<OrderInfo> {
                       ),
                     ),
                     Container(
-                      width: 12 * SizeConfig.blockSizeHorizontal,
-                      height: 10 * SizeConfig.blockSizeVertical,
+                      width: 12 * SizeConfig.blockSizeHorizontal!,
+                      height: 10 * SizeConfig.blockSizeVertical!,
                       color: primaryColor,
                       child: IconButton(
                           icon: Icon(
@@ -171,7 +171,7 @@ class _OrderInfoState extends State<OrderInfo> {
                 ),
               ),
         SizedBox(
-          height: 2 * SizeConfig.blockSizeVertical,
+          height: 2 * SizeConfig.blockSizeVertical!,
         ),
         DefaultTabController(
           length: 3,
@@ -180,7 +180,7 @@ class _OrderInfoState extends State<OrderInfo> {
               color: secondaryColor,
               borderRadius: BorderRadius.all(Radius.circular(25.0)),
             ),
-            height: 6 * SizeConfig.blockSizeVertical,
+            height: 6 * SizeConfig.blockSizeVertical!,
             child: TabBar(
               tabs: [
                 Tab(
@@ -220,12 +220,12 @@ class _OrderInfoState extends State<OrderInfo> {
               indicatorColor: primaryColor,
               indicatorWeight: 4,
               labelPadding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
             ),
           ),
         ),
         SizedBox(
-          height: 2 * SizeConfig.blockSizeVertical,
+          height: 2 * SizeConfig.blockSizeVertical!,
         ),
         (addressIndex == 0)
             ? AddressContainer(
@@ -242,7 +242,7 @@ class _OrderInfoState extends State<OrderInfo> {
                         'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
                     controller: TextEditingController()),
         SizedBox(
-          height: 2 * SizeConfig.blockSizeVertical,
+          height: 2 * SizeConfig.blockSizeVertical!,
         ),
       ],
     );

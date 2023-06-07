@@ -13,19 +13,21 @@ import 'package:foodCourier/generated/l10n.dart';
 //import 'package:google_tag_manager/google_tag_manager.dart' as gtm;
 
 class ForgotPass extends StatefulWidget {
+  const ForgotPass({Key? key}) : super(key: key);
+
   @override
-  _ForgotPassState createState() => _ForgotPassState();
+  ForgotPassState createState() => ForgotPassState();
 }
 
-class _ForgotPassState extends State<ForgotPass> {
+class ForgotPassState extends State<ForgotPass> {
   final TextEditingController _controller = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final numericRegex = RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
   bool isMobile = false;
   String phoneOrEmail = S().emailOrPhone;
-  String emailOrPhoneValue = "";
-  CountryCode countryCode;
+  String emailOrPhoneValue = '';
+  late CountryCode countryCode;
 
   displayDialog(context, title, text) => showDialog(
         context: context,
@@ -36,7 +38,7 @@ class _ForgotPassState extends State<ForgotPass> {
       );
 
   sendResetPasswordEmail() async {
-    if (emailOrPhoneValue != null && isMobile == true) {
+    if (emailOrPhoneValue == '' && isMobile == true) {
     } else {
       var email = _controller.text;
       var response =
@@ -49,20 +51,22 @@ class _ForgotPassState extends State<ForgotPass> {
       ];
 
       if (response != null) {
-        if (response == responseList[0])
+        if (response == responseList[0]) {
           Navigator.pushNamed(context, 'reset pass');
-        else {
+        } else {
           List<String> errorDialogContent = [];
           for (int i = 1; i < responseList.length; i++) {
-            if (response[responseList[i]] != null)
+            if (response[responseList[i]] != null) {
               errorDialogContent.add(
                   '${responseList[i]} : ${response[responseList[i]].join('\n')}');
+            }
           }
           displayDialog(
-              context, "Invalid reset", errorDialogContent.join('\n'));
+              context, 'Invalid reset', errorDialogContent.join('\n'));
         }
-      } else
-        displayDialog(context, "Error", "An unknown error occurred.");
+      } else {
+        displayDialog(context, 'Error', 'An unknown error occurred.');
+      }
     }
   }
 
@@ -76,7 +80,7 @@ class _ForgotPassState extends State<ForgotPass> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
-                  top: 2 * SizeConfig.blockSizeVertical,
+                  top: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -91,7 +95,7 @@ class _ForgotPassState extends State<ForgotPass> {
                           Icon(
                             Icons.arrow_back_ios,
                             color: blackColor,
-                            size: 4 * SizeConfig.blockSizeHorizontal,
+                            size: 4 * SizeConfig.blockSizeHorizontal!,
                           ),
                           Text(S().back, style: blackSmallText14),
                         ],
@@ -102,8 +106,8 @@ class _ForgotPassState extends State<ForgotPass> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: 3 * SizeConfig.blockSizeVertical,
-                  bottom: 2 * SizeConfig.blockSizeVertical,
+                  top: 3 * SizeConfig.blockSizeVertical!,
+                  bottom: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 child: Center(
                   child: Text(
@@ -115,7 +119,7 @@ class _ForgotPassState extends State<ForgotPass> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                    horizontal: 5 * SizeConfig.blockSizeHorizontal),
+                    horizontal: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Center(
                   child: AutoSizeText(
                     S().enterEmailOrPhoneToReset,
@@ -128,9 +132,9 @@ class _ForgotPassState extends State<ForgotPass> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    top: 6 * SizeConfig.blockSizeVertical,
-                    left: 5 * SizeConfig.blockSizeHorizontal,
-                    right: 5 * SizeConfig.blockSizeHorizontal),
+                    top: 6 * SizeConfig.blockSizeVertical!,
+                    left: 5 * SizeConfig.blockSizeHorizontal!,
+                    right: 5 * SizeConfig.blockSizeHorizontal!),
                 child: InputField(
                   onChanged: (text) {
                     emailOrPhoneValue = text;
@@ -152,23 +156,23 @@ class _ForgotPassState extends State<ForgotPass> {
                     }
                   },
                   prefix: isMobile
-                      ? Container(
-                          height: 3 * SizeConfig.blockSizeVertical,
-                          width: 30 * SizeConfig.blockSizeHorizontal,
+                      ? SizedBox(
+                          height: 3 * SizeConfig.blockSizeVertical!,
+                          width: 30 * SizeConfig.blockSizeHorizontal!,
                           child: CountryCodePicker(
                             onInit: (countryCode) {
-                              this.countryCode = countryCode;
+                              this.countryCode = countryCode!;
                             },
                             onChanged: (countryCode) {},
                             initialSelection: 'EG',
-                            favorite: ['+20', 'EG'],
+                            favorite: const ['+20', 'EG'],
                             showCountryOnly: false,
                             showOnlyCountryWhenClosed: false,
                             alignLeft: false,
                             textStyle: fillFieldText,
                           ),
                         )
-                      : null,
+                      : const SizedBox(),
                   controller: _controller,
                   isObscure: false,
                   label: phoneOrEmail,
@@ -186,7 +190,7 @@ class _ForgotPassState extends State<ForgotPass> {
               MainButton(
                 label: S().continueButton,
                 action: () async {
-                  if (formKey.currentState.validate()) {
+                  if (formKey.currentState!.validate()) {
                     sendResetPasswordEmail();
                     //gtm.pushEvent('button1-click');
                     /*Navigator.push(

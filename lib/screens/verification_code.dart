@@ -77,7 +77,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(
-                top: 15 * SizeConfig.blockSizeVertical,
+                top: 15 * SizeConfig.blockSizeVertical!,
               ),
               child: Text(
                 S().verifyAccount,
@@ -87,8 +87,8 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: 5 * SizeConfig.blockSizeHorizontal,
-                  vertical: 3 * SizeConfig.blockSizeVertical),
+                  horizontal: 5 * SizeConfig.blockSizeHorizontal!,
+                  vertical: 3 * SizeConfig.blockSizeVertical!),
               child: Text(
                 S().enterVerificationCode,
                 //'Please enter the verification code we sent to your Email/phone number',
@@ -99,8 +99,8 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: 5 * SizeConfig.blockSizeHorizontal,
-                  vertical: 1 * SizeConfig.blockSizeVertical),
+                  horizontal: 5 * SizeConfig.blockSizeHorizontal!,
+                  vertical: 1 * SizeConfig.blockSizeVertical!),
               child: Text(
                 S().sentToMobile(emailOrPhoneValue),
                 //'send to $emailOrPhoneValue',
@@ -111,9 +111,9 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
             ),
             Padding(
               padding: EdgeInsets.only(
-                  left: 5 * SizeConfig.blockSizeHorizontal,
-                  right: 5 * SizeConfig.blockSizeHorizontal,
-                  bottom: 3 * SizeConfig.blockSizeVertical),
+                  left: 5 * SizeConfig.blockSizeHorizontal!,
+                  right: 5 * SizeConfig.blockSizeHorizontal!,
+                  bottom: 3 * SizeConfig.blockSizeVertical!),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -135,7 +135,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: 10 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 10 * SizeConfig.blockSizeHorizontal!),
               child: PinCodeTextField(
                 length: 6,
                 controller: _controller,
@@ -148,7 +148,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                   borderRadius: BorderRadius.circular(10),
                   disabledColor: lightTextColor,
                   //fieldHeight: 60,
-                  fieldWidth: 5 * SizeConfig.blockSizeVertical,
+                  fieldWidth: 5 * SizeConfig.blockSizeVertical!,
                   inactiveColor: lightTextColor,
                   activeColor: secondaryColor,
                   selectedColor: primaryColor,
@@ -188,7 +188,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
               ),
             ),
             SizedBox(
-              height: 4 * SizeConfig.blockSizeVertical,
+              height: 4 * SizeConfig.blockSizeVertical!,
             ),
             RichText(
               text: TextSpan(
@@ -202,7 +202,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
               ),
             ),
             SizedBox(
-              height: 2 * SizeConfig.blockSizeVertical,
+              height: 2 * SizeConfig.blockSizeVertical!,
             ),
             RichText(
               text: TextSpan(

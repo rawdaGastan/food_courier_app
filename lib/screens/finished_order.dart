@@ -24,26 +24,26 @@ class _FinishedOrderScreenState extends State<FinishedOrderScreen> {
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(
-              horizontal: 3 * SizeConfig.blockSizeVertical,
-              vertical: 2 * SizeConfig.blockSizeVertical),
+              horizontal: 3 * SizeConfig.blockSizeVertical!,
+              vertical: 2 * SizeConfig.blockSizeVertical!),
           children: [
-            SizedBox(height: 10 * SizeConfig.blockSizeVertical),
+            SizedBox(height: 10 * SizeConfig.blockSizeVertical!),
             Container(
-              width: 30 * SizeConfig.blockSizeHorizontal,
-              height: 30 * SizeConfig.blockSizeVertical,
+              width: 30 * SizeConfig.blockSizeHorizontal!,
+              height: 30 * SizeConfig.blockSizeVertical!,
               child: Image(
                 image: AssetImage(
                   'assets/icons/balloons.png',
                 ),
               ),
             ),
-            SizedBox(height: 2 * SizeConfig.blockSizeVertical),
+            SizedBox(height: 2 * SizeConfig.blockSizeVertical!),
             Text(
               'Thank you',
               style: ThankYou,
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 2 * SizeConfig.blockSizeVertical),
+            SizedBox(height: 2 * SizeConfig.blockSizeVertical!),
             Text(
               'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
               ' Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,',

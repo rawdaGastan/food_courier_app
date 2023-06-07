@@ -25,9 +25,9 @@ class RestaurantName extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical),
+      margin: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical!),
       child: SizedBox(
-        //height: 9 * SizeConfig.blockSizeVertical,
+        //height: 9 * SizeConfig.blockSizeVertical!,
         child: Column(
           children: [
             Row(
@@ -36,9 +36,9 @@ class RestaurantName extends StatelessWidget {
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal),
+                      padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal!),
                       child: CircleAvatar(
-                        radius: 8 * SizeConfig.blockSizeHorizontal,
+                        radius: 8 * SizeConfig.blockSizeHorizontal!,
                         backgroundImage:
                             CachedNetworkImageProvider(restaurant.logoUrl),
                       ),
@@ -49,7 +49,7 @@ class RestaurantName extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 1 * SizeConfig.blockSizeHorizontal),
+                              horizontal: 1 * SizeConfig.blockSizeHorizontal!),
                           child: AutoSizeText(
                             restaurant.name,
                             style: restaurantName,
@@ -57,10 +57,10 @@ class RestaurantName extends StatelessWidget {
                         ),
                         Container(
                           margin: EdgeInsets.symmetric(
-                            vertical: 0.5 * SizeConfig.blockSizeVertical,
-                            horizontal: 1 * SizeConfig.blockSizeHorizontal,
+                            vertical: 0.5 * SizeConfig.blockSizeVertical!,
+                            horizontal: 1 * SizeConfig.blockSizeHorizontal!,
                           ),
-                          width: 40 * SizeConfig.blockSizeHorizontal,
+                          width: 40 * SizeConfig.blockSizeHorizontal!,
                           child: RichText(
                             text: TextSpan(
                               children: [
@@ -83,8 +83,8 @@ class RestaurantName extends StatelessWidget {
                 Column(
                   children: [
                     Container(
-                      width: 15 * SizeConfig.blockSizeHorizontal,
-                      height: 6 * SizeConfig.blockSizeVertical,
+                      width: 15 * SizeConfig.blockSizeHorizontal!,
+                      height: 6 * SizeConfig.blockSizeVertical!,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: whiteColor,
@@ -99,23 +99,23 @@ class RestaurantName extends StatelessWidget {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(
-                              top: SizeConfig.blockSizeVertical,
-                              left: SizeConfig.blockSizeHorizontal,
+                              top: SizeConfig.blockSizeVertical!,
+                              left: SizeConfig.blockSizeHorizontal!,
                             ),
                             child: Icon(Icons.attach_money, color: orangeColor),
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                              top: SizeConfig.blockSizeVertical,
-                              left: 4 * SizeConfig.blockSizeHorizontal,
+                              top: SizeConfig.blockSizeVertical!,
+                              left: 4 * SizeConfig.blockSizeHorizontal!,
                             ),
                             child:
                                 Icon(Icons.attach_money, color: lightTextColor),
                           ),
                           Padding(
                             padding: EdgeInsets.only(
-                              top: SizeConfig.blockSizeVertical,
-                              left: 7 * SizeConfig.blockSizeHorizontal,
+                              top: SizeConfig.blockSizeVertical!,
+                              left: 7 * SizeConfig.blockSizeHorizontal!,
                             ),
                             child:
                                 Icon(Icons.attach_money, color: lightTextColor),
@@ -132,14 +132,14 @@ class RestaurantName extends StatelessWidget {
               children: [
                 Padding(
                   padding: EdgeInsets.only(
-                    left: 20 * SizeConfig.blockSizeHorizontal,
+                    left: 20 * SizeConfig.blockSizeHorizontal!,
                   ),
                   child: Row(
                     children: [
                       Image.asset('assets/icons/distance.png',
-                          width: 6 * SizeConfig.blockSizeHorizontal,
+                          width: 6 * SizeConfig.blockSizeHorizontal!,
                           color: lightTextColor),
-                      Container(width: 1 * SizeConfig.blockSizeHorizontal),
+                      Container(width: 1 * SizeConfig.blockSizeHorizontal!),
                       Text(
                         restaurant.type == 'GRCR'
                             ? duration
@@ -160,16 +160,16 @@ class RestaurantName extends StatelessWidget {
                   children: [
                     Container(
                       margin: EdgeInsets.symmetric(
-                          horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                          vertical: SizeConfig.blockSizeVertical),
-                      height: 4 * SizeConfig.blockSizeVertical,
-                      width: 22 * SizeConfig.blockSizeHorizontal,
+                          horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                          vertical: SizeConfig.blockSizeVertical!),
+                      height: 4 * SizeConfig.blockSizeVertical!,
+                      width: 22 * SizeConfig.blockSizeHorizontal!,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Icon(
                             Icons.brightness_1,
-                            size: 4 * SizeConfig.blockSizeHorizontal,
+                            size: 4 * SizeConfig.blockSizeHorizontal!,
                             color: primaryColor,
                           ),
                           Text(
@@ -182,14 +182,14 @@ class RestaurantName extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.symmetric(
-                          horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                          vertical: SizeConfig.blockSizeVertical),
+                          horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                          vertical: SizeConfig.blockSizeVertical!),
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: BorderRadius.circular(3.0),
                       ),
-                      height: 4 * SizeConfig.blockSizeVertical,
-                      width: 16 * SizeConfig.blockSizeHorizontal,
+                      height: 4 * SizeConfig.blockSizeVertical!,
+                      width: 16 * SizeConfig.blockSizeHorizontal!,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[

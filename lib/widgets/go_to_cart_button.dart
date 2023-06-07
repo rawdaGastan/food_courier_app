@@ -39,10 +39,10 @@ class _GoToCartButton extends State<GoToCartButton> {
   Widget build(BuildContext context) {
     return foodCourier().remoteConfigService.orderingFeature
         ? Container(
-            height: 8 * SizeConfig.blockSizeVertical,
+            height: 8 * SizeConfig.blockSizeVertical!,
             padding: EdgeInsets.symmetric(
-                horizontal: 5 * SizeConfig.blockSizeHorizontal),
-            margin: EdgeInsets.only(top: 83 * SizeConfig.blockSizeVertical),
+                horizontal: 5 * SizeConfig.blockSizeHorizontal!),
+            margin: EdgeInsets.only(top: 83 * SizeConfig.blockSizeVertical!),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
@@ -58,11 +58,11 @@ class _GoToCartButton extends State<GoToCartButton> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: SizeConfig.blockSizeVertical,
+                    width: SizeConfig.blockSizeVertical!,
                   ),
                   Container(
-                    height: 5 * SizeConfig.blockSizeVertical,
-                    width: 5 * SizeConfig.blockSizeVertical,
+                    height: 5 * SizeConfig.blockSizeVertical!,
+                    width: 5 * SizeConfig.blockSizeVertical!,
                     decoration: new BoxDecoration(
                       color: whiteColor,
                       shape: BoxShape.circle,
@@ -82,7 +82,7 @@ class _GoToCartButton extends State<GoToCartButton> {
                     style: buttonText,
                   ),
                   SizedBox(
-                    width: SizeConfig.blockSizeVertical,
+                    width: SizeConfig.blockSizeVertical!,
                   ),
                 ],
               ),

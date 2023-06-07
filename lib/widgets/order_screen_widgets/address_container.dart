@@ -17,7 +17,7 @@ class _AddressContainerState extends State<AddressContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 6 * SizeConfig.blockSizeVertical,
+      height: 6 * SizeConfig.blockSizeVertical!,
       decoration: BoxDecoration(
         border: Border.all(width: 1.0, color: lightTextColor),
       ),
@@ -26,10 +26,10 @@ class _AddressContainerState extends State<AddressContainer> {
         children: [
           Container(
             alignment: Alignment.center,
-            height: 6 * SizeConfig.blockSizeVertical,
+            height: 6 * SizeConfig.blockSizeVertical!,
             padding: EdgeInsets.symmetric(
-                horizontal: 3 * SizeConfig.blockSizeHorizontal),
-            width: 75 * SizeConfig.blockSizeHorizontal,
+                horizontal: 3 * SizeConfig.blockSizeHorizontal!),
+            width: 75 * SizeConfig.blockSizeHorizontal!,
             child: TextFormField(
               controller: widget.controller,
               enabled: widget.editAddress,
@@ -46,8 +46,8 @@ class _AddressContainerState extends State<AddressContainer> {
             ),
           ),
           Container(
-            width: 12 * SizeConfig.blockSizeHorizontal,
-            height: 6 * SizeConfig.blockSizeVertical,
+            width: 12 * SizeConfig.blockSizeHorizontal!,
+            height: 6 * SizeConfig.blockSizeVertical!,
             color: primaryColor,
             child: IconButton(
                 icon: Icon(

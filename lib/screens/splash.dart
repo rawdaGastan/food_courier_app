@@ -69,8 +69,8 @@ class _SplashState extends State<Splash> {
         context: context,
         builder: (context) {
           return Container(
-            padding: EdgeInsets.all(5 * SizeConfig.blockSizeVertical),
-            height: 40 * SizeConfig.blockSizeVertical,
+            padding: EdgeInsets.all(5 * SizeConfig.blockSizeVertical!),
+            height: 40 * SizeConfig.blockSizeVertical!,
             decoration: BoxDecoration(
               color: secondaryColor,
               borderRadius: BorderRadius.only(
@@ -88,9 +88,9 @@ class _SplashState extends State<Splash> {
                   textAlign: TextAlign.center,
                 ),
                 Container(
-                  height: 7 * SizeConfig.blockSizeVertical,
+                  height: 7 * SizeConfig.blockSizeVertical!,
                   margin:
-                      EdgeInsets.only(top: 3 * SizeConfig.blockSizeVertical),
+                      EdgeInsets.only(top: 3 * SizeConfig.blockSizeVertical!),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,

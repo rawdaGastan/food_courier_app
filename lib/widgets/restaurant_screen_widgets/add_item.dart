@@ -43,8 +43,8 @@ void addItemBottomSheet(context, Meal meal, int productID) {
         return StatefulBuilder(builder: (BuildContext context, setState) {
           return Container(
             padding:
-                EdgeInsets.symmetric(horizontal: SizeConfig.blockSizeVertical),
-            height: 90 * SizeConfig.blockSizeVertical,
+                EdgeInsets.symmetric(horizontal: SizeConfig.blockSizeVertical!),
+            height: 90 * SizeConfig.blockSizeVertical!,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: whiteColor,
@@ -55,7 +55,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    vertical: SizeConfig.blockSizeVertical,
+                    vertical: SizeConfig.blockSizeVertical!,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -73,12 +73,12 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: SizeConfig.blockSizeVertical),
+                      horizontal: SizeConfig.blockSizeVertical!),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
-                        width: 70 * SizeConfig.blockSizeHorizontal,
+                        width: 70 * SizeConfig.blockSizeHorizontal!,
                         child: AutoSizeText(
                           meal.name,
                           style: orderMealName,
@@ -94,7 +94,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                 Container(
                   alignment: Alignment.topLeft,
                   padding: EdgeInsets.all(
-                    SizeConfig.blockSizeVertical,
+                    SizeConfig.blockSizeVertical!,
                   ),
                   child: AutoSizeText(
                     showIngredients(meal.ingredients),
@@ -103,9 +103,9 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                 ),
                 Container(
                   padding: EdgeInsets.all(
-                    SizeConfig.blockSizeVertical,
+                    SizeConfig.blockSizeVertical!,
                   ),
-                  height: 25 * SizeConfig.blockSizeVertical,
+                  height: 25 * SizeConfig.blockSizeVertical!,
                   width: SizeConfig.screenWidth,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -120,7 +120,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                     children: <Widget>[
                       Padding(
                         padding:
-                            EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal),
+                            EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal!),
                         child: Text(
                           'lorem ipsed',
                           style: ItemAddOn,
@@ -128,13 +128,13 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                          bottom: 2 * SizeConfig.blockSizeVertical,
+                          bottom: 2 * SizeConfig.blockSizeVertical!,
                         ),
                         child: AddOnItemList(),
                       ),
                       Padding(
                         padding:
-                            EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal),
+                            EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal!),
                         child: Text(
                           'Prefrences',
                           style: ItemAddOn,
@@ -142,7 +142,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                            horizontal: 3 * SizeConfig.blockSizeHorizontal!),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -158,14 +158,14 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                         ),
                       ),
                       SizedBox(
-                        height: SizeConfig.blockSizeVertical,
+                        height: SizeConfig.blockSizeVertical!,
                       ),
                       Container(
                         padding: EdgeInsets.symmetric(
-                            horizontal: 5 * SizeConfig.blockSizeHorizontal),
+                            horizontal: 5 * SizeConfig.blockSizeHorizontal!),
                         margin: EdgeInsets.only(
-                          //top: SizeConfig.blockSizeVertical,
-                          bottom: SizeConfig.blockSizeVertical,
+                          //top: SizeConfig.blockSizeVertical!,
+                          bottom: SizeConfig.blockSizeVertical!,
                         ),
                         child: TextFormField(
                           textAlign: TextAlign.left,
@@ -188,12 +188,12 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                 Row(
                   children: [
                     Container(
-                      width: 47 * SizeConfig.blockSizeHorizontal,
-                      height: 8 * SizeConfig.blockSizeVertical,
+                      width: 47 * SizeConfig.blockSizeHorizontal!,
+                      height: 8 * SizeConfig.blockSizeVertical!,
                       padding: EdgeInsets.symmetric(
-                          horizontal: 5 * SizeConfig.blockSizeHorizontal),
-                      margin:
-                          EdgeInsets.only(left: SizeConfig.blockSizeHorizontal),
+                          horizontal: 5 * SizeConfig.blockSizeHorizontal!),
+                      margin: EdgeInsets.only(
+                          left: SizeConfig.blockSizeHorizontal!),
                       color: secondaryColor,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -218,11 +218,11 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                       ),
                     ),
                     Container(
-                      width: 48 * SizeConfig.blockSizeHorizontal,
-                      height: 8 * SizeConfig.blockSizeVertical,
-                      //padding: EdgeInsets.only(right: SizeConfig.blockSizeHorizontal),
+                      width: 48 * SizeConfig.blockSizeHorizontal!,
+                      height: 8 * SizeConfig.blockSizeVertical!,
+                      //padding: EdgeInsets.only(right: SizeConfig.blockSizeHorizontal!),
                       margin: EdgeInsets.symmetric(
-                          vertical: SizeConfig.blockSizeVertical),
+                          vertical: SizeConfig.blockSizeVertical!),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: primaryColor,

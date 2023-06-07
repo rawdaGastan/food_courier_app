@@ -93,9 +93,9 @@ class PushNotification {
   displayTrackOrderDialog(context) => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical),
+          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
           content: Container(
-            height: 18 * SizeConfig.blockSizeVertical,
+            height: 18 * SizeConfig.blockSizeVertical!,
             child: Stack(
               children: [
                 Row(
@@ -124,9 +124,9 @@ class PushNotification {
                 Center(
                   child: Padding(
                     padding:
-                        EdgeInsets.only(top: 4 * SizeConfig.blockSizeVertical),
+                        EdgeInsets.only(top: 4 * SizeConfig.blockSizeVertical!),
                     child: CircleAvatar(
-                      radius: 12 * SizeConfig.blockSizeHorizontal,
+                      radius: 12 * SizeConfig.blockSizeHorizontal!,
                       backgroundColor: backgroundImages,
                       backgroundImage: const AssetImage(
                         'assets/icons/temp.png',
@@ -138,7 +138,7 @@ class PushNotification {
             ),
           ),
           actionsPadding:
-              EdgeInsets.only(bottom: 3 * SizeConfig.blockSizeVertical),
+              EdgeInsets.only(bottom: 3 * SizeConfig.blockSizeVertical!),
           actions: <Widget>[
             MainButton(
               label: 'Track your order',
@@ -153,9 +153,9 @@ class PushNotification {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical),
+        contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
         content: Container(
-          height: 35 * SizeConfig.blockSizeVertical,
+          height: 35 * SizeConfig.blockSizeVertical!,
           child: Stack(
             children: [
               Row(
@@ -182,7 +182,8 @@ class PushNotification {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.only(top: 8 * SizeConfig.blockSizeVertical),
+                padding:
+                    EdgeInsets.only(top: 8 * SizeConfig.blockSizeVertical!),
                 child: Column(
                   //mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -193,7 +194,7 @@ class PushNotification {
                       textAlign: TextAlign.center,
                     ),
                     SizedBox(
-                      height: SizeConfig.blockSizeVertical,
+                      height: SizeConfig.blockSizeVertical!,
                     ),
                     const AutoSizeText(
                       'How was your last order ?',

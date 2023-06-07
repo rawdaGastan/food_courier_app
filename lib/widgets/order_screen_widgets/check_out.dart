@@ -35,8 +35,8 @@ class _CheckOutState extends State<CheckOut> {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: 2 * SizeConfig.blockSizeVertical,
-          right: 3 * SizeConfig.blockSizeVertical),
+          left: 2 * SizeConfig.blockSizeVertical!,
+          right: 3 * SizeConfig.blockSizeVertical!),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -46,8 +46,8 @@ class _CheckOutState extends State<CheckOut> {
           ),
           Padding(
             padding: EdgeInsets.only(
-              top: SizeConfig.blockSizeVertical,
-              left: 3 * SizeConfig.blockSizeVertical,
+              top: SizeConfig.blockSizeVertical!,
+              left: 3 * SizeConfig.blockSizeVertical!,
             ),
             child: Text(
               "Payment Method",
@@ -56,9 +56,9 @@ class _CheckOutState extends State<CheckOut> {
           ),
           Padding(
             padding: EdgeInsets.only(
-              top: 0.5 * SizeConfig.blockSizeVertical,
-              bottom: SizeConfig.blockSizeVertical,
-              left: SizeConfig.blockSizeVertical,
+              top: 0.5 * SizeConfig.blockSizeVertical!,
+              bottom: SizeConfig.blockSizeVertical!,
+              left: SizeConfig.blockSizeVertical!,
             ),
             child: DefaultTabController(
               length: foodCourier().remoteConfigService.paymentFeature ? 2 : 1,
@@ -67,7 +67,7 @@ class _CheckOutState extends State<CheckOut> {
                   color: secondaryColor,
                   borderRadius: BorderRadius.all(Radius.circular(25.0)),
                 ),
-                height: 6 * SizeConfig.blockSizeVertical,
+                height: 6 * SizeConfig.blockSizeVertical!,
                 child: TabBar(
                   tabs: foodCourier().remoteConfigService.paymentFeature
                       ? [
@@ -116,7 +116,7 @@ class _CheckOutState extends State<CheckOut> {
                   indicatorColor: primaryColor,
                   indicatorWeight: 4,
                   labelPadding: EdgeInsets.symmetric(
-                      horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                      horizontal: 3 * SizeConfig.blockSizeHorizontal!),
                 ),
               ),
             ),
@@ -127,7 +127,7 @@ class _CheckOutState extends State<CheckOut> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 2 * SizeConfig.blockSizeVertical),
+                              horizontal: 2 * SizeConfig.blockSizeVertical!),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -135,7 +135,7 @@ class _CheckOutState extends State<CheckOut> {
                                 'Card number',
                                 style: pickUpAndDeliveryTime,
                               ),
-                              SizedBox(height: SizeConfig.blockSizeVertical),
+                              SizedBox(height: SizeConfig.blockSizeVertical!),
                               TextFormField(
                                 onChanged: (String input) {},
                                 textAlign: TextAlign.left,
@@ -165,10 +165,11 @@ class _CheckOutState extends State<CheckOut> {
                         Row(
                           children: [
                             Container(
-                              width: 25 * SizeConfig.blockSizeHorizontal,
+                              width: 25 * SizeConfig.blockSizeHorizontal!,
                               padding: EdgeInsets.symmetric(
-                                  vertical: SizeConfig.blockSizeVertical,
-                                  horizontal: 2 * SizeConfig.blockSizeVertical),
+                                  vertical: SizeConfig.blockSizeVertical!,
+                                  horizontal:
+                                      2 * SizeConfig.blockSizeVertical!),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -177,7 +178,7 @@ class _CheckOutState extends State<CheckOut> {
                                     style: pickUpAndDeliveryTime,
                                   ),
                                   SizedBox(
-                                      height: SizeConfig.blockSizeVertical),
+                                      height: SizeConfig.blockSizeVertical!),
                                   TextFormField(
                                     onChanged: (String input) {},
                                     textAlign: TextAlign.left,
@@ -206,19 +207,20 @@ class _CheckOutState extends State<CheckOut> {
                             ),
                             Container(
                               margin: EdgeInsets.only(
-                                  top: 4 * SizeConfig.blockSizeVertical),
+                                  top: 4 * SizeConfig.blockSizeVertical!),
                               child: Text(
                                 '/',
                                 style: pickUpAndDeliveryTime,
                               ),
                             ),
                             Container(
-                              width: 25 * SizeConfig.blockSizeHorizontal,
+                              width: 25 * SizeConfig.blockSizeHorizontal!,
                               margin: EdgeInsets.only(
-                                  top: 4 * SizeConfig.blockSizeVertical),
+                                  top: 4 * SizeConfig.blockSizeVertical!),
                               padding: EdgeInsets.symmetric(
-                                  vertical: SizeConfig.blockSizeVertical,
-                                  horizontal: 2 * SizeConfig.blockSizeVertical),
+                                  vertical: SizeConfig.blockSizeVertical!,
+                                  horizontal:
+                                      2 * SizeConfig.blockSizeVertical!),
                               child: TextFormField(
                                 onChanged: (String input) {},
                                 textAlign: TextAlign.left,
@@ -244,10 +246,11 @@ class _CheckOutState extends State<CheckOut> {
                               ),
                             ),
                             Container(
-                              width: 30 * SizeConfig.blockSizeHorizontal,
+                              width: 30 * SizeConfig.blockSizeHorizontal!,
                               padding: EdgeInsets.symmetric(
-                                  vertical: SizeConfig.blockSizeVertical,
-                                  horizontal: 2 * SizeConfig.blockSizeVertical),
+                                  vertical: SizeConfig.blockSizeVertical!,
+                                  horizontal:
+                                      2 * SizeConfig.blockSizeVertical!),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -256,7 +259,7 @@ class _CheckOutState extends State<CheckOut> {
                                     style: pickUpAndDeliveryTime,
                                   ),
                                   SizedBox(
-                                      height: SizeConfig.blockSizeVertical),
+                                      height: SizeConfig.blockSizeVertical!),
                                   TextFormField(
                                     onChanged: (String input) {},
                                     textAlign: TextAlign.left,

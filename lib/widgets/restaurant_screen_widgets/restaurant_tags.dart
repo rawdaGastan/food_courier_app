@@ -16,14 +16,14 @@ class RestaurantTags extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemBuilder: (_, index) => Container(
         margin: EdgeInsets.all(
-          SizeConfig.blockSizeVertical,
+          SizeConfig.blockSizeVertical!,
         ),
         decoration: BoxDecoration(
           color: secondaryColor,
           borderRadius: BorderRadius.circular(8.0),
         ),
-        width: 30 * SizeConfig.blockSizeHorizontal,
-        height: 5 * SizeConfig.blockSizeVertical,
+        width: 30 * SizeConfig.blockSizeHorizontal!,
+        height: 5 * SizeConfig.blockSizeVertical!,
         child: Center(
             child: AutoSizeText(
           //'temporary',

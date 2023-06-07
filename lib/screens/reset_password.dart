@@ -67,8 +67,8 @@ class _ResetPasswordState extends State<ResetPassword> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.only(
-                  top: 10 * SizeConfig.blockSizeVertical,
-                  bottom: 2 * SizeConfig.blockSizeVertical,
+                  top: 10 * SizeConfig.blockSizeVertical!,
+                  bottom: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 child: Center(
                   child: Text(
@@ -79,7 +79,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 3 * SizeConfig.blockSizeVertical),
+                padding:
+                    EdgeInsets.only(top: 3 * SizeConfig.blockSizeVertical!),
                 child: InputField(
                   onChanged: (String input) {},
                   controller: _controller,

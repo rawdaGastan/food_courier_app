@@ -46,7 +46,7 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 30 * SizeConfig.blockSizeVertical,
+      height: 30 * SizeConfig.blockSizeVertical!,
       child: Stack(children: <Widget>[
         Container(
           width: SizeConfig.screenWidth,
@@ -60,7 +60,7 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
         Container(
           alignment: Alignment.topLeft,
           padding: EdgeInsets.only(
-            top: 5 * SizeConfig.blockSizeHorizontal,
+            top: 5 * SizeConfig.blockSizeHorizontal!,
           ),
           child: Stack(
             children: [
@@ -71,12 +71,12 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(
-                  horizontal: SizeConfig.blockSizeHorizontal,
+                  horizontal: SizeConfig.blockSizeHorizontal!,
                 ),
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back_ios,
-                    size: 5 * SizeConfig.blockSizeHorizontal,
+                    size: 5 * SizeConfig.blockSizeHorizontal!,
                   ),
                   color: blackColor,
                   onPressed: () => Navigator.pop(context),
@@ -87,7 +87,7 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
         ),
         Container(
           alignment: Alignment.topRight,
-          padding: EdgeInsets.all(5 * SizeConfig.blockSizeHorizontal),
+          padding: EdgeInsets.all(5 * SizeConfig.blockSizeHorizontal!),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -96,12 +96,12 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
                   Container(
                     child: CircleAvatar(
                       backgroundColor: whiteColor,
-                      radius: 4 * SizeConfig.blockSizeHorizontal,
+                      radius: 4 * SizeConfig.blockSizeHorizontal!,
                     ),
                   ),
                   Container(
-                    width: 8 * SizeConfig.blockSizeHorizontal,
-                    height: 8 * SizeConfig.blockSizeHorizontal,
+                    width: 8 * SizeConfig.blockSizeHorizontal!,
+                    height: 8 * SizeConfig.blockSizeHorizontal!,
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
@@ -121,7 +121,7 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
                   IconButton(
                     icon: Icon(
                       Icons.brightness_1,
-                      size: 9 * SizeConfig.blockSizeHorizontal,
+                      size: 9 * SizeConfig.blockSizeHorizontal!,
                     ),
                     color: whiteColor,
                     onPressed: () {},
@@ -142,19 +142,19 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
                                 },
                               ),
                               Positioned(
-                                bottom: 4 * SizeConfig.blockSizeVertical,
-                                right: 2.5 * SizeConfig.blockSizeHorizontal,
+                                bottom: 4 * SizeConfig.blockSizeVertical!,
+                                right: 2.5 * SizeConfig.blockSizeHorizontal!,
                                 child: Stack(
                                   children: [
                                     Icon(Icons.brightness_1,
                                         size:
-                                            3 * SizeConfig.blockSizeHorizontal,
+                                            3 * SizeConfig.blockSizeHorizontal!,
                                         color: orangeColor),
                                     Positioned(
                                         top: 0.3 *
-                                            SizeConfig.blockSizeHorizontal,
+                                            SizeConfig.blockSizeHorizontal!,
                                         right: 0.3 *
-                                            SizeConfig.blockSizeHorizontal,
+                                            SizeConfig.blockSizeHorizontal!,
                                         child: Center(
                                           child: Text(
                                             myCartLength.toString(),

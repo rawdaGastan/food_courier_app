@@ -35,7 +35,7 @@ class _State extends State<SortByRadioList> {
       shrinkWrap: true,
       itemCount: sortByList.length,
       itemBuilder: (context, index) => SizedBox(
-        height: 6 * SizeConfig.blockSizeVertical,
+        height: 6 * SizeConfig.blockSizeVertical!,
         child: RadioListTile(
           value: index,
           groupValue: selectedRadioTile,

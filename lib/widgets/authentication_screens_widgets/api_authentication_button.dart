@@ -15,9 +15,9 @@ class ApiButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 7 * SizeConfig.blockSizeVertical,
-      margin:
-          EdgeInsets.symmetric(horizontal: 10 * SizeConfig.blockSizeHorizontal),
+      height: 7 * SizeConfig.blockSizeVertical!,
+      margin: EdgeInsets.symmetric(
+          horizontal: 10 * SizeConfig.blockSizeHorizontal!),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(

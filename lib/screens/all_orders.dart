@@ -4,11 +4,13 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class AllOrdersScreen extends StatefulWidget {
+  const AllOrdersScreen({Key? key}) : super(key: key);
+
   @override
-  _AllOrdersScreenState createState() => _AllOrdersScreenState();
+  AllOrdersScreenState createState() => AllOrdersScreenState();
 }
 
-class _AllOrdersScreenState extends State<AllOrdersScreen> {
+class AllOrdersScreenState extends State<AllOrdersScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   bool combined = false;
 
@@ -27,11 +29,12 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
         children: [
           Container(
             margin: EdgeInsets.only(
-              top: 2 * SizeConfig.blockSizeVertical,
-              bottom: 2 * SizeConfig.blockSizeVertical,
-              left: 3 * SizeConfig.blockSizeHorizontal,
+              top: 2 * SizeConfig.blockSizeVertical!,
+              bottom: 2 * SizeConfig.blockSizeVertical!,
+              left: 3 * SizeConfig.blockSizeHorizontal!,
             ),
-            padding: EdgeInsets.only(left: 10 * SizeConfig.blockSizeHorizontal),
+            padding:
+                EdgeInsets.only(left: 10 * SizeConfig.blockSizeHorizontal!),
             decoration: BoxDecoration(
               color: secondaryColor,
               boxShadow: [
@@ -39,7 +42,7 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                   color: shadow,
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, 3), // changes position of shadow
+                  offset: const Offset(0, 3), // changes position of shadow
                 ),
               ],
             ),
@@ -57,16 +60,17 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                   ],
                 ),
                 IconButton(
-                  icon: Icon(Icons.keyboard_arrow_down, color: lightTextColor),
+                  icon: const Icon(Icons.keyboard_arrow_down,
+                      color: lightTextColor),
                   onPressed: () {},
                 ),
               ],
             ),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 2 * SizeConfig.blockSizeVertical),
+            padding: EdgeInsets.only(top: 2 * SizeConfig.blockSizeVertical!),
             child: CircleAvatar(
-              radius: 3 * SizeConfig.blockSizeVertical,
+              radius: 3 * SizeConfig.blockSizeVertical!,
               backgroundImage: AssetImage(
                 restaurantIconUrl,
               ),
@@ -90,11 +94,11 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'My orders',
           style: titleText,
         ),
@@ -103,10 +107,10 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(
-              horizontal: 3 * SizeConfig.blockSizeVertical,
-              vertical: 2 * SizeConfig.blockSizeVertical),
+              horizontal: 3 * SizeConfig.blockSizeVertical!,
+              vertical: 2 * SizeConfig.blockSizeVertical!),
           children: [
-            Text('Current order', style: pickUpAndDeliveryTime),
+            const Text('Current order', style: pickUpAndDeliveryTime),
             !combined
                 ? GestureDetector(
                     //true means current order
@@ -116,12 +120,12 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                       children: [
                         Container(
                           margin: EdgeInsets.only(
-                            top: 2 * SizeConfig.blockSizeVertical,
-                            bottom: 2 * SizeConfig.blockSizeVertical,
-                            left: 8 * SizeConfig.blockSizeHorizontal,
+                            top: 2 * SizeConfig.blockSizeVertical!,
+                            bottom: 2 * SizeConfig.blockSizeVertical!,
+                            left: 8 * SizeConfig.blockSizeHorizontal!,
                           ),
                           padding: EdgeInsets.only(
-                              left: 10 * SizeConfig.blockSizeHorizontal),
+                              left: 10 * SizeConfig.blockSizeHorizontal!),
                           decoration: BoxDecoration(
                             color: whiteColor,
                             boxShadow: [
@@ -129,8 +133,8 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                                 color: shadow,
                                 spreadRadius: 5,
                                 blurRadius: 7,
-                                offset:
-                                    Offset(0, 3), // changes position of shadow
+                                offset: const Offset(
+                                    0, 3), // changes position of shadow
                               ),
                             ],
                           ),
@@ -141,22 +145,22 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Restaurant name',
                                     style: restaurantName,
                                   ),
                                   IconButton(
-                                    icon: Icon(Icons.delete,
+                                    icon: const Icon(Icons.delete,
                                         color: lightTextColor),
                                     onPressed: () {},
                                   ),
                                 ],
                               ),
-                              Text(
+                              const Text(
                                 'Lorem Ipsum is simply dummy text',
                                 style: RestaurantDescription,
                               ),
-                              Row(
+                              const Row(
                                 children: [
                                   Text('3x ', style: ItemAddOn),
                                   Text('18.50 \$', style: deliveryCost),
@@ -168,10 +172,10 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                              top: 4.5 * SizeConfig.blockSizeVertical),
+                              top: 4.5 * SizeConfig.blockSizeVertical!),
                           child: CircleAvatar(
-                            radius: 4 * SizeConfig.blockSizeVertical,
-                            backgroundImage: AssetImage(
+                            radius: 4 * SizeConfig.blockSizeVertical!,
+                            backgroundImage: const AssetImage(
                               'assets/icons/temp.png',
                             ),
                           ),
@@ -186,12 +190,14 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                         children: [
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                              horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                             ),
-                            child: Text('Combined order', style: combinedOrder),
+                            child: const Text('Combined order',
+                                style: combinedOrder),
                           ),
                           IconButton(
-                            icon: Icon(Icons.delete, color: lightTextColor),
+                            icon:
+                                const Icon(Icons.delete, color: lightTextColor),
                             onPressed: () {},
                           ),
                         ],
@@ -202,10 +208,10 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                           'Restaurant name', 3, 18.5, 'assets/icons/temp.png'),
                     ],
                   ),
-            Text('Past orders', style: pastOrders),
+            const Text('Past orders', style: pastOrders),
             SizedBox(height: SizeConfig.blockSizeVertical),
-            Container(
-              height: 4 * 15 * SizeConfig.blockSizeVertical,
+            SizedBox(
+              height: 4 * 15 * SizeConfig.blockSizeVertical!,
               child: ListView.builder(
                 itemBuilder: (_, index) => GestureDetector(
                   //false means pastOrder
@@ -215,12 +221,12 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                     children: [
                       Container(
                         margin: EdgeInsets.only(
-                          top: 2 * SizeConfig.blockSizeVertical,
-                          bottom: 2 * SizeConfig.blockSizeVertical,
-                          left: 8 * SizeConfig.blockSizeHorizontal,
+                          top: 2 * SizeConfig.blockSizeVertical!,
+                          bottom: 2 * SizeConfig.blockSizeVertical!,
+                          left: 8 * SizeConfig.blockSizeHorizontal!,
                         ),
                         padding: EdgeInsets.only(
-                            left: 10 * SizeConfig.blockSizeHorizontal),
+                            left: 10 * SizeConfig.blockSizeHorizontal!),
                         decoration: BoxDecoration(
                           color: secondaryColor,
                           boxShadow: [
@@ -228,8 +234,8 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                               color: shadow,
                               spreadRadius: 5,
                               blurRadius: 7,
-                              offset:
-                                  Offset(0, 3), // changes position of shadow
+                              offset: const Offset(
+                                  0, 3), // changes position of shadow
                             ),
                           ],
                         ),
@@ -239,22 +245,22 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   'Restaurant name',
                                   style: restaurantName,
                                 ),
                                 IconButton(
-                                  icon:
-                                      Icon(Icons.delete, color: lightTextColor),
+                                  icon: const Icon(Icons.delete,
+                                      color: lightTextColor),
                                   onPressed: () {},
                                 ),
                               ],
                             ),
-                            Text(
+                            const Text(
                               'Lorem Ipsum is simply dummy text',
                               style: RestaurantDescription,
                             ),
-                            Row(
+                            const Row(
                               children: [
                                 Text('3x ', style: ItemAddOn),
                                 Text('18.50 \$', style: deliveryCost),
@@ -266,10 +272,10 @@ class _AllOrdersScreenState extends State<AllOrdersScreen> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            top: 4.5 * SizeConfig.blockSizeVertical),
+                            top: 4.5 * SizeConfig.blockSizeVertical!),
                         child: CircleAvatar(
-                          radius: 4 * SizeConfig.blockSizeVertical,
-                          backgroundImage: AssetImage(
+                          radius: 4 * SizeConfig.blockSizeVertical!,
+                          backgroundImage: const AssetImage(
                             'assets/icons/temp.png',
                           ),
                         ),

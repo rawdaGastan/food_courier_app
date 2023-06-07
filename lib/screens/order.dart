@@ -64,7 +64,7 @@ class _OrderState extends State<Order> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -85,12 +85,12 @@ class _OrderState extends State<Order> {
           children: [
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeVertical,
-                  vertical: 2 * SizeConfig.blockSizeVertical),
+                  horizontal: 3 * SizeConfig.blockSizeVertical!,
+                  vertical: 2 * SizeConfig.blockSizeVertical!),
               child: OrderInfo(),
             ),
             SizedBox(
-              height: 2 * SizeConfig.blockSizeVertical,
+              height: 2 * SizeConfig.blockSizeVertical!,
             ),
             CheckOut(),
             Container(
@@ -101,10 +101,10 @@ class _OrderState extends State<Order> {
                 ),
               ),
               margin: EdgeInsets.only(
-                  top: 2 * SizeConfig.blockSizeVertical,
-                  left: 3 * SizeConfig.blockSizeVertical,
-                  right: 3 * SizeConfig.blockSizeVertical),
-              padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
+                  top: 2 * SizeConfig.blockSizeVertical!,
+                  left: 3 * SizeConfig.blockSizeVertical!,
+                  right: 3 * SizeConfig.blockSizeVertical!),
+              padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
               child: StreamBuilder(
                   stream: _stream,
                   builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -115,8 +115,8 @@ class _OrderState extends State<Order> {
                           Text('Summery', style: paymentSummary),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 2 * SizeConfig.blockSizeVertical,
-                                vertical: SizeConfig.blockSizeVertical),
+                                horizontal: 2 * SizeConfig.blockSizeVertical!,
+                                vertical: SizeConfig.blockSizeVertical!),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -133,7 +133,7 @@ class _OrderState extends State<Order> {
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 2 * SizeConfig.blockSizeVertical),
+                                horizontal: 2 * SizeConfig.blockSizeVertical!),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -150,8 +150,8 @@ class _OrderState extends State<Order> {
                           ),
                           Padding(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 2 * SizeConfig.blockSizeVertical,
-                                vertical: SizeConfig.blockSizeVertical),
+                                horizontal: 2 * SizeConfig.blockSizeVertical!,
+                                vertical: SizeConfig.blockSizeVertical!),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -179,7 +179,7 @@ class _OrderState extends State<Order> {
               label: 'Place order',
               action: () => createOrder(),
             ),
-            SizedBox(height: SizeConfig.blockSizeVertical),
+            SizedBox(height: SizeConfig.blockSizeVertical!),
           ],
         ),
       ),

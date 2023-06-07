@@ -51,7 +51,7 @@ class _State extends State<FilterByList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 18 * SizeConfig.blockSizeVertical,
+      height: 18 * SizeConfig.blockSizeVertical!,
       width: double.infinity,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
@@ -59,7 +59,7 @@ class _State extends State<FilterByList> {
         itemBuilder: (_, index) => Row(
           children: <Widget>[
             Padding(
-              padding: EdgeInsets.all(SizeConfig.blockSizeVertical),
+              padding: EdgeInsets.all(SizeConfig.blockSizeVertical!),
               child: SelectionButton(
                 //typeFilter: filtersList[index],
                 typeFilter: TypeFilter(

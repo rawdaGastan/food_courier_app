@@ -67,7 +67,7 @@ class _ItemsListState extends State<ItemsList> {
                 Container(
                   height: snapshot.data.items.length *
                       6 *
-                      SizeConfig.blockSizeVertical,
+                      SizeConfig.blockSizeVertical!,
                   child: ListView.builder(
                     itemBuilder: (_, index) => GestureDetector(
                       onTap: () {},
@@ -86,7 +86,7 @@ class _ItemsListState extends State<ItemsList> {
                                 style: ItemAddOn,
                               ),
                               Container(
-                                width: 15 * SizeConfig.blockSizeHorizontal,
+                                width: 15 * SizeConfig.blockSizeHorizontal!,
                                 child: Text(
                                   snapshot
                                       .data

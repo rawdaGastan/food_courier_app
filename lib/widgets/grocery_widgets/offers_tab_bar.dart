@@ -24,8 +24,8 @@ class _TabBarState extends State<OffersTabBar> {
       children: [
         Container(
           padding: EdgeInsets.only(
-            left: 12 * SizeConfig.blockSizeHorizontal,
-            top: 2 * SizeConfig.blockSizeVertical,
+            left: 12 * SizeConfig.blockSizeHorizontal!,
+            top: 2 * SizeConfig.blockSizeVertical!,
           ),
           child: DefaultTabController(
             length: offers.length,
@@ -41,7 +41,7 @@ class _TabBarState extends State<OffersTabBar> {
                   ),
                 ],
               ),
-              height: 7 * SizeConfig.blockSizeVertical,
+              height: 7 * SizeConfig.blockSizeVertical!,
               child: TabBar(
                 tabs: [
                   for (int i = 0; i < offers.length; i++)
@@ -57,17 +57,17 @@ class _TabBarState extends State<OffersTabBar> {
                 indicatorColor: primaryColor,
                 indicatorWeight: 4,
                 labelPadding: EdgeInsets.symmetric(
-                    horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                    horizontal: 3 * SizeConfig.blockSizeHorizontal!),
               ),
             ),
           ),
         ),
         Container(
-          height: 7 * SizeConfig.blockSizeVertical,
-          width: 12 * SizeConfig.blockSizeHorizontal,
+          height: 7 * SizeConfig.blockSizeVertical!,
+          width: 12 * SizeConfig.blockSizeHorizontal!,
           color: whiteColor,
           margin: EdgeInsets.only(
-            top: 2 * SizeConfig.blockSizeVertical,
+            top: 2 * SizeConfig.blockSizeVertical!,
           ),
           child: IconButton(
               icon: Icon(Icons.menu, color: primaryColor),
@@ -80,11 +80,11 @@ class _TabBarState extends State<OffersTabBar> {
         Visibility(
           visible: showOffersMenu,
           child: Container(
-            height: 7 * offers.length * SizeConfig.blockSizeVertical,
+            height: 7 * offers.length * SizeConfig.blockSizeVertical!,
             margin: EdgeInsets.only(
-              top: 9 * SizeConfig.blockSizeVertical,
-              left: 2 * SizeConfig.blockSizeHorizontal,
-              right: 2 * SizeConfig.blockSizeHorizontal,
+              top: 9 * SizeConfig.blockSizeVertical!,
+              left: 2 * SizeConfig.blockSizeHorizontal!,
+              right: 2 * SizeConfig.blockSizeHorizontal!,
             ),
             child: Expanded(
               child: ListView.builder(
@@ -92,12 +92,12 @@ class _TabBarState extends State<OffersTabBar> {
                   onTap: () {},
                   child: Container(
                     padding: EdgeInsets.only(
-                      top: 2 * SizeConfig.blockSizeVertical,
-                      left: 3 * SizeConfig.blockSizeHorizontal,
-                      right: 3 * SizeConfig.blockSizeHorizontal,
+                      top: 2 * SizeConfig.blockSizeVertical!,
+                      left: 3 * SizeConfig.blockSizeHorizontal!,
+                      right: 3 * SizeConfig.blockSizeHorizontal!,
                     ),
                     color: secondaryColor,
-                    height: 7 * SizeConfig.blockSizeVertical,
+                    height: 7 * SizeConfig.blockSizeVertical!,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

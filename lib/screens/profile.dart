@@ -37,9 +37,9 @@ class _ProfileState extends State<Profile> {
   displayDialog(context) => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeHorizontal),
+          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeHorizontal!),
           content: Container(
-            height: 24 * SizeConfig.blockSizeVertical,
+            height: 24 * SizeConfig.blockSizeVertical!,
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: dietPeriods.length,
@@ -63,8 +63,8 @@ class _ProfileState extends State<Profile> {
                       ),
                     ),
                     padding: EdgeInsets.symmetric(
-                        horizontal: 3 * SizeConfig.blockSizeHorizontal),
-                    height: 6 * SizeConfig.blockSizeVertical,
+                        horizontal: 3 * SizeConfig.blockSizeHorizontal!),
+                    height: 6 * SizeConfig.blockSizeVertical!,
                     child: Text(
                       dietPeriods[index],
                     ),
@@ -145,7 +145,7 @@ class _ProfileState extends State<Profile> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -173,10 +173,10 @@ class _ProfileState extends State<Profile> {
               Center(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    vertical: 2 * SizeConfig.blockSizeVertical,
+                    vertical: 2 * SizeConfig.blockSizeVertical!,
                   ),
                   child: CircleAvatar(
-                    radius: 10 * SizeConfig.blockSizeHorizontal,
+                    radius: 10 * SizeConfig.blockSizeHorizontal!,
                     backgroundColor: backgroundImages,
                     backgroundImage: AssetImage(
                       'assets/icons/temp.png',
@@ -201,9 +201,9 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: 5 * SizeConfig.blockSizeHorizontal,
-                    top: 2 * SizeConfig.blockSizeVertical,
-                    right: 5 * SizeConfig.blockSizeHorizontal),
+                    left: 5 * SizeConfig.blockSizeHorizontal!,
+                    top: 2 * SizeConfig.blockSizeVertical!,
+                    right: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Text(
                   S().userName,
                   //'Name',
@@ -219,9 +219,9 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: 5 * SizeConfig.blockSizeHorizontal,
-                    top: 2 * SizeConfig.blockSizeVertical,
-                    right: 5 * SizeConfig.blockSizeHorizontal),
+                    left: 5 * SizeConfig.blockSizeHorizontal!,
+                    top: 2 * SizeConfig.blockSizeVertical!,
+                    right: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Text(
                   S().userAge,
                   //'Age',
@@ -237,8 +237,8 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    right: 5 * SizeConfig.blockSizeHorizontal,
-                    left: 5 * SizeConfig.blockSizeHorizontal),
+                    right: 5 * SizeConfig.blockSizeHorizontal!,
+                    left: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Text(
                   S().phone,
                   style: blackSmallText15,
@@ -253,8 +253,8 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    right: 5 * SizeConfig.blockSizeHorizontal,
-                    left: 5 * SizeConfig.blockSizeHorizontal),
+                    right: 5 * SizeConfig.blockSizeHorizontal!,
+                    left: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Text(
                   S().email,
                   style: blackSmallText15,
@@ -269,9 +269,9 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: 5 * SizeConfig.blockSizeHorizontal,
-                    top: 2 * SizeConfig.blockSizeVertical,
-                    right: 5 * SizeConfig.blockSizeHorizontal),
+                    left: 5 * SizeConfig.blockSizeHorizontal!,
+                    top: 2 * SizeConfig.blockSizeVertical!,
+                    right: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -317,9 +317,9 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: 5 * SizeConfig.blockSizeHorizontal,
-                    top: 2 * SizeConfig.blockSizeVertical,
-                    right: 5 * SizeConfig.blockSizeHorizontal),
+                    left: 5 * SizeConfig.blockSizeHorizontal!,
+                    top: 2 * SizeConfig.blockSizeVertical!,
+                    right: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
@@ -365,9 +365,9 @@ class _ProfileState extends State<Profile> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    left: 5 * SizeConfig.blockSizeHorizontal,
-                    top: 2 * SizeConfig.blockSizeVertical,
-                    right: 5 * SizeConfig.blockSizeHorizontal),
+                    left: 5 * SizeConfig.blockSizeHorizontal!,
+                    top: 2 * SizeConfig.blockSizeVertical!,
+                    right: 5 * SizeConfig.blockSizeHorizontal!),
                 child: Text(
                   S().dietPeriod,
                   //'How long have been following Diet ?',
@@ -376,8 +376,8 @@ class _ProfileState extends State<Profile> {
               ),
               Container(
                 margin:
-                    EdgeInsets.only(right: 5 * SizeConfig.blockSizeHorizontal),
-                height: 9 * SizeConfig.blockSizeVertical,
+                    EdgeInsets.only(right: 5 * SizeConfig.blockSizeHorizontal!),
+                height: 9 * SizeConfig.blockSizeVertical!,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

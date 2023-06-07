@@ -121,20 +121,20 @@ class StoreWishList extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.only(
-                top: 4 * SizeConfig.blockSizeVertical,
-                left: 85 * SizeConfig.blockSizeHorizontal,
+                top: 4 * SizeConfig.blockSizeVertical!,
+                left: 85 * SizeConfig.blockSizeHorizontal!,
               ),
               child: Stack(
                 children: [
                   Container(
                     child: CircleAvatar(
                       backgroundColor: whiteColor,
-                      radius: 4 * SizeConfig.blockSizeHorizontal,
+                      radius: 4 * SizeConfig.blockSizeHorizontal!,
                     ),
                   ),
                   Container(
-                    width: 8 * SizeConfig.blockSizeHorizontal,
-                    height: 8 * SizeConfig.blockSizeHorizontal,
+                    width: 8 * SizeConfig.blockSizeHorizontal!,
+                    height: 8 * SizeConfig.blockSizeHorizontal!,
                     child: Icon(
                       isFavourite ? Icons.turned_in : Icons.turned_in_not,
                       color: orangeColor,

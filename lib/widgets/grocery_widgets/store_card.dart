@@ -79,35 +79,35 @@ class _State extends State<StoreCard> {
     return Container(
       child: Container(
         margin: EdgeInsets.only(
-          left: SizeConfig.blockSizeHorizontal,
-          right: SizeConfig.blockSizeHorizontal,
+          left: SizeConfig.blockSizeHorizontal!,
+          right: SizeConfig.blockSizeHorizontal!,
         ),
-        width: 65 * SizeConfig.blockSizeHorizontal,
+        width: 65 * SizeConfig.blockSizeHorizontal!,
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.circular(10.0),
           border: Border.all(
               color: lightTextColor,
-              width: 0.2 * SizeConfig.blockSizeHorizontal),
+              width: 0.2 * SizeConfig.blockSizeHorizontal!),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                vertical: SizeConfig.blockSizeVertical,
+                horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                vertical: SizeConfig.blockSizeVertical!,
               ),
               child: Row(
                 children: [
                   CircleAvatar(
-                    radius: 3.5 * SizeConfig.blockSizeVertical,
+                    radius: 3.5 * SizeConfig.blockSizeVertical!,
                     backgroundImage:
                         CachedNetworkImageProvider(widget.restaurant.logoUrl),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                      left: 2 * SizeConfig.blockSizeHorizontal,
+                      left: 2 * SizeConfig.blockSizeHorizontal!,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -117,7 +117,7 @@ class _State extends State<StoreCard> {
                           style: restaurantName,
                         ),
                         SizedBox(
-                          height: SizeConfig.blockSizeVertical,
+                          height: SizeConfig.blockSizeVertical!,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -125,11 +125,11 @@ class _State extends State<StoreCard> {
                             Icon(
                               Icons.star,
                               color: orangeColor,
-                              size: 4 * SizeConfig.blockSizeHorizontal,
+                              size: 4 * SizeConfig.blockSizeHorizontal!,
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: SizeConfig.blockSizeHorizontal,
+                                left: SizeConfig.blockSizeHorizontal!,
                               ),
                               child: AutoSizeText(
                                 S().rating(widget.restaurant.rating),
@@ -138,7 +138,7 @@ class _State extends State<StoreCard> {
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                left: SizeConfig.blockSizeHorizontal,
+                                left: SizeConfig.blockSizeHorizontal!,
                               ),
                               child: AutoSizeText(
                                 '|',
@@ -150,26 +150,26 @@ class _State extends State<StoreCard> {
                                 Icon(
                                   Icons.attach_money,
                                   color: primaryColor,
-                                  size: 4 * SizeConfig.blockSizeHorizontal,
+                                  size: 4 * SizeConfig.blockSizeHorizontal!,
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                    left: 2 * SizeConfig.blockSizeHorizontal,
+                                    left: 2 * SizeConfig.blockSizeHorizontal!,
                                   ),
                                   child: Icon(
                                     Icons.attach_money,
                                     color: lightTextColor,
-                                    size: 4 * SizeConfig.blockSizeHorizontal,
+                                    size: 4 * SizeConfig.blockSizeHorizontal!,
                                   ),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.only(
-                                    left: 4 * SizeConfig.blockSizeHorizontal,
+                                    left: 4 * SizeConfig.blockSizeHorizontal!,
                                   ),
                                   child: Icon(
                                     Icons.attach_money,
                                     color: lightTextColor,
-                                    size: 4 * SizeConfig.blockSizeHorizontal,
+                                    size: 4 * SizeConfig.blockSizeHorizontal!,
                                   ),
                                 ),
                               ],
@@ -177,7 +177,7 @@ class _State extends State<StoreCard> {
                           ],
                         ),
                         SizedBox(
-                          height: 0.5 * SizeConfig.blockSizeVertical,
+                          height: 0.5 * SizeConfig.blockSizeVertical!,
                         ),
                         Row(
                           children: [
@@ -206,7 +206,7 @@ class _State extends State<StoreCard> {
                                 ],
                               ),
                         SizedBox(
-                          height: 0.5 * SizeConfig.blockSizeVertical,
+                          height: 0.5 * SizeConfig.blockSizeVertical!,
                         ),
                         RichText(
                           text: TextSpan(
@@ -215,7 +215,7 @@ class _State extends State<StoreCard> {
                                 child: Icon(
                                   Icons.location_on,
                                   color: primaryColor,
-                                  size: 4 * SizeConfig.blockSizeHorizontal,
+                                  size: 4 * SizeConfig.blockSizeHorizontal!,
                                 ),
                               ),
                               TextSpan(
@@ -226,7 +226,7 @@ class _State extends State<StoreCard> {
                             ],
                           ),
                         ),
-                        SizedBox(height: 0.45 * SizeConfig.blockSizeVertical),
+                        SizedBox(height: 0.45 * SizeConfig.blockSizeVertical!),
                         freeDelivery
                             ? RichText(
                                 text: TextSpan(
@@ -236,7 +236,7 @@ class _State extends State<StoreCard> {
                                         Icons.outlined_flag,
                                         color: orangeColor,
                                         size:
-                                            5 * SizeConfig.blockSizeHorizontal,
+                                            5 * SizeConfig.blockSizeHorizontal!,
                                       ),
                                     ),
                                     TextSpan(

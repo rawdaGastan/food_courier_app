@@ -24,8 +24,8 @@ class _State extends State<CuisineFilterButton> {
   @override
   Widget build(BuildContext context) {
     SizeConfig();
-    double hBlock = SizeConfig.blockSizeHorizontal,
-        vBlock = SizeConfig.blockSizeVertical;
+    double hBlock = SizeConfig.blockSizeHorizontal!,
+        vBlock = SizeConfig.blockSizeVertical!;
     return GestureDetector(
       onTap: () {
         setState(() {

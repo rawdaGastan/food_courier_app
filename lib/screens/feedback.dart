@@ -8,20 +8,22 @@ import 'package:foodCourier/widgets/feedback_widgets/messageContainer.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class FeedBack extends StatefulWidget {
+  const FeedBack({Key? key}) : super(key: key);
+
   @override
-  _FeedBackState createState() => _FeedBackState();
+  FeedBackState createState() => FeedBackState();
 }
 
-class _FeedBackState extends State<FeedBack> {
+class FeedBackState extends State<FeedBack> {
   List<Widget> messageList = [];
   final inputController = TextEditingController();
-  String messageText;
+  String messageText = '';
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   addMessage(message, isMe) {
     inputController.clear();
-    Widget messageContainer = new MessageContainer(
+    Widget messageContainer = MessageContainer(
       text: message,
       isMe: isMe,
     );
@@ -51,7 +53,7 @@ class _FeedBackState extends State<FeedBack> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -61,7 +63,7 @@ class _FeedBackState extends State<FeedBack> {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.error_outline, color: lightTextColor),
+            icon: const Icon(Icons.error_outline, color: lightTextColor),
             onPressed: () {},
           ),
         ],
@@ -72,8 +74,8 @@ class _FeedBackState extends State<FeedBack> {
           children: <Widget>[
             Padding(
               padding: EdgeInsets.only(
-                top: 2 * SizeConfig.blockSizeVertical,
-                bottom: SizeConfig.blockSizeVertical,
+                top: 2 * SizeConfig.blockSizeVertical!,
+                bottom: SizeConfig.blockSizeVertical!,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -97,14 +99,14 @@ class _FeedBackState extends State<FeedBack> {
             Expanded(
               child: Container(
                 margin: EdgeInsets.symmetric(
-                    horizontal: 2 * SizeConfig.blockSizeVertical),
+                    horizontal: 2 * SizeConfig.blockSizeVertical!),
                 color: whiteColor,
                 child: ListView(
                   key: UniqueKey(),
                   shrinkWrap: true,
                   reverse: true,
                   padding: EdgeInsets.symmetric(
-                      vertical: 2 * SizeConfig.blockSizeVertical),
+                      vertical: 2 * SizeConfig.blockSizeVertical!),
                   children: messageList,
                 ),
               ),
@@ -112,16 +114,16 @@ class _FeedBackState extends State<FeedBack> {
             FeedbackReview(),
             Container(
               color: secondaryColor,
-              height: 8 * SizeConfig.blockSizeVertical,
+              height: 8 * SizeConfig.blockSizeVertical!,
               margin: EdgeInsets.only(
-                  bottom: 2 * SizeConfig.blockSizeVertical,
-                  right: 2 * SizeConfig.blockSizeVertical,
-                  left: 2 * SizeConfig.blockSizeVertical),
+                  bottom: 2 * SizeConfig.blockSizeVertical!,
+                  right: 2 * SizeConfig.blockSizeVertical!,
+                  left: 2 * SizeConfig.blockSizeVertical!),
               padding: EdgeInsets.only(
-                  left: 4 * SizeConfig.blockSizeHorizontal,
-                  top: 1.5 * SizeConfig.blockSizeVertical,
-                  bottom: 1.5 * SizeConfig.blockSizeVertical,
-                  right: 2 * SizeConfig.blockSizeHorizontal),
+                  left: 4 * SizeConfig.blockSizeHorizontal!,
+                  top: 1.5 * SizeConfig.blockSizeVertical!,
+                  bottom: 1.5 * SizeConfig.blockSizeVertical!,
+                  right: 2 * SizeConfig.blockSizeHorizontal!),
               //decoration: kMessageContainerDecoration,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -145,7 +147,7 @@ class _FeedBackState extends State<FeedBack> {
                           addMessage(messageText, true);
                         });
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.send,
                         color: blueTextColor,
                       ),

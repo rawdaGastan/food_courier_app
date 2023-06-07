@@ -175,15 +175,15 @@ class _State extends State<AllStores> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      top: 9 * SizeConfig.blockSizeVertical,
+                      top: 9 * SizeConfig.blockSizeVertical!,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 3 * SizeConfig.blockSizeHorizontal,
-                            vertical: SizeConfig.blockSizeVertical,
+                            horizontal: 3 * SizeConfig.blockSizeHorizontal!,
+                            vertical: SizeConfig.blockSizeVertical!,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -200,7 +200,7 @@ class _State extends State<AllStores> {
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 3 * SizeConfig.blockSizeHorizontal,
+                            horizontal: 3 * SizeConfig.blockSizeHorizontal!,
                           ),
                           child: widget.offers
                               ? Text('Free Delivery',

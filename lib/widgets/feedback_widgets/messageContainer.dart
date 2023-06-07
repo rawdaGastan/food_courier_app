@@ -19,15 +19,15 @@ class MessageContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(
-          left: SizeConfig.blockSizeHorizontal,
-          bottom: 2 * SizeConfig.blockSizeHorizontal,
-          right: SizeConfig.blockSizeHorizontal),
+          left: SizeConfig.blockSizeHorizontal!,
+          bottom: 2 * SizeConfig.blockSizeHorizontal!,
+          right: SizeConfig.blockSizeHorizontal!),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             margin:
-                EdgeInsets.symmetric(vertical: SizeConfig.blockSizeVertical),
+                EdgeInsets.symmetric(vertical: SizeConfig.blockSizeVertical!),
             /*decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
                 topLeft: isMe ? Radius.circular(20.0) : Radius.zero,
@@ -47,7 +47,7 @@ class MessageContainer extends StatelessWidget {
                             ChatBubbleClipper3(type: BubbleType.sendBubble),
                         alignment: Alignment.topRight,
                         margin: EdgeInsets.only(
-                            bottom: SizeConfig.blockSizeVertical),
+                            bottom: SizeConfig.blockSizeVertical!),
                         backGroundColor: blueTextColor,
                         child: Text(
                           '$text',
@@ -56,7 +56,7 @@ class MessageContainer extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(
-                            horizontal: 2 * SizeConfig.blockSizeHorizontal),
+                            horizontal: 2 * SizeConfig.blockSizeHorizontal!),
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: AutoSizeText(
@@ -72,7 +72,7 @@ class MessageContainer extends StatelessWidget {
                     clipper:
                         ChatBubbleClipper3(type: BubbleType.receiverBubble),
                     backGroundColor: msgContainerFromColor,
-                    //margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical),
+                    //margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical!),
                     child: Text(
                       '$text',
                       style: messageStyle.copyWith(color: Colors.black),

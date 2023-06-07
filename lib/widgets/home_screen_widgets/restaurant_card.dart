@@ -136,11 +136,11 @@ class _RestaurantCardState extends State<RestaurantCard> {
       visible: visibilityFilters,
       child: Container(
         margin: EdgeInsets.only(
-          top: 1.5 * SizeConfig.blockSizeVertical,
-          left: 1.5 * SizeConfig.blockSizeVertical,
-          right: 1.5 * SizeConfig.blockSizeVertical,
+          top: 1.5 * SizeConfig.blockSizeVertical!,
+          left: 1.5 * SizeConfig.blockSizeVertical!,
+          right: 1.5 * SizeConfig.blockSizeVertical!,
         ),
-        //height: 50 * SizeConfig.blockSizeVertical,
+        //height: 50 * SizeConfig.blockSizeVertical!,
         decoration: BoxDecoration(
           color: whiteColor,
           borderRadius: BorderRadius.all(Radius.circular(12.0)),
@@ -155,7 +155,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Container(
-              height: 25 * SizeConfig.blockSizeVertical,
+              height: 25 * SizeConfig.blockSizeVertical!,
               width: double.infinity,
               child: Stack(
                 children: [
@@ -176,19 +176,19 @@ class _RestaurantCardState extends State<RestaurantCard> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                        top: 1 * SizeConfig.blockSizeVertical,
-                        left: 82 * SizeConfig.blockSizeHorizontal),
+                        top: 1 * SizeConfig.blockSizeVertical!,
+                        left: 82 * SizeConfig.blockSizeHorizontal!),
                     child: Stack(
                       children: [
                         Container(
                           child: CircleAvatar(
                             backgroundColor: whiteColor,
-                            radius: 4 * SizeConfig.blockSizeHorizontal,
+                            radius: 4 * SizeConfig.blockSizeHorizontal!,
                           ),
                         ),
                         Container(
-                          width: 8 * SizeConfig.blockSizeHorizontal,
-                          height: 8 * SizeConfig.blockSizeHorizontal,
+                          width: 8 * SizeConfig.blockSizeHorizontal!,
+                          height: 8 * SizeConfig.blockSizeHorizontal!,
                           child: GestureDetector(
                             onTap: () {
                               setState(() {
@@ -207,17 +207,17 @@ class _RestaurantCardState extends State<RestaurantCard> {
                     ),
                   ),
                   Positioned(
-                    bottom: 2 * SizeConfig.blockSizeVertical,
-                    //left: 70 * SizeConfig.blockSizeHorizontal,
-                    left: 3 * SizeConfig.blockSizeHorizontal,
-                    right: 3 * SizeConfig.blockSizeHorizontal,
+                    bottom: 2 * SizeConfig.blockSizeVertical!,
+                    //left: 70 * SizeConfig.blockSizeHorizontal!,
+                    left: 3 * SizeConfig.blockSizeHorizontal!,
+                    right: 3 * SizeConfig.blockSizeHorizontal!,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           alignment: Alignment.centerLeft,
-                          height: 5 * SizeConfig.blockSizeVertical,
-                          width: 16 * SizeConfig.blockSizeHorizontal,
+                          height: 5 * SizeConfig.blockSizeVertical!,
+                          width: 16 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             color: whiteColor,
                             borderRadius: BorderRadius.circular(8.0),
@@ -229,24 +229,24 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.only(
-                                      top: 0.5 * SizeConfig.blockSizeVertical,
+                                      top: 0.5 * SizeConfig.blockSizeVertical!,
                                     ),
                                     child: Icon(Icons.attach_money,
                                         color: orangeColor),
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(
-                                      top: 0.5 * SizeConfig.blockSizeVertical,
+                                      top: 0.5 * SizeConfig.blockSizeVertical!,
                                       left:
-                                          3.5 * SizeConfig.blockSizeHorizontal,
+                                          3.5 * SizeConfig.blockSizeHorizontal!,
                                     ),
                                     child: Icon(Icons.attach_money,
                                         color: lightTextColor),
                                   ),
                                   Padding(
                                     padding: EdgeInsets.only(
-                                      top: 0.5 * SizeConfig.blockSizeVertical,
-                                      left: 7 * SizeConfig.blockSizeHorizontal,
+                                      top: 0.5 * SizeConfig.blockSizeVertical!,
+                                      left: 7 * SizeConfig.blockSizeHorizontal!,
                                     ),
                                     child: Icon(Icons.attach_money,
                                         color: lightTextColor),
@@ -257,8 +257,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
                           ),
                         ),
                         Container(
-                          height: 5 * SizeConfig.blockSizeVertical,
-                          width: 25 * SizeConfig.blockSizeHorizontal,
+                          height: 5 * SizeConfig.blockSizeVertical!,
+                          width: 25 * SizeConfig.blockSizeHorizontal!,
                           decoration: BoxDecoration(
                             color: whiteColor,
                             borderRadius: BorderRadius.circular(8.0),
@@ -274,7 +274,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                         ? Image.asset(
                                             'assets/icons/distance.png',
                                             width: 7 *
-                                                SizeConfig.blockSizeHorizontal,
+                                                SizeConfig.blockSizeHorizontal!,
                                             color: orangeColor)
                                         : widget.isDineOut == true
                                             ? Image.asset(
@@ -284,7 +284,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                                         .blockSizeHorizontal,
                                                 color: orangeColor)
                                             : null,
-                                //Image.asset('assets/icons/distance.png', width: 7 * SizeConfig.blockSizeHorizontal, color: orangeColor),
+                                //Image.asset('assets/icons/distance.png', width: 7 * SizeConfig.blockSizeHorizontal!, color: orangeColor),
                               ),
                               AutoSizeText(
                                 widget.restaurantType == 'GRCR'
@@ -314,14 +314,14 @@ class _RestaurantCardState extends State<RestaurantCard> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(
-                    left: 2 * SizeConfig.blockSizeHorizontal,
-                    right: 2 * SizeConfig.blockSizeHorizontal,
-                    top: 2 * SizeConfig.blockSizeVertical,
+                    left: 2 * SizeConfig.blockSizeHorizontal!,
+                    right: 2 * SizeConfig.blockSizeHorizontal!,
+                    top: 2 * SizeConfig.blockSizeVertical!,
                   ),
                   child: Row(
                     children: [
                       CircleAvatar(
-                        radius: 4 * SizeConfig.blockSizeVertical,
+                        radius: 4 * SizeConfig.blockSizeVertical!,
                         backgroundImage: CachedNetworkImageProvider(
                             widget.restaurant.logoUrl),
                       ),
@@ -330,7 +330,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                         children: [
                           Padding(
                             padding: EdgeInsets.only(
-                                left: 3 * SizeConfig.blockSizeHorizontal),
+                                left: 3 * SizeConfig.blockSizeHorizontal!),
                             child: AutoSizeText(
                               S().name(widget.restaurant.name),
                               style: restaurantName,
@@ -342,8 +342,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                 WidgetSpan(
                                   child: Padding(
                                     padding: EdgeInsets.only(
-                                        left:
-                                            2 * SizeConfig.blockSizeHorizontal),
+                                        left: 2 *
+                                            SizeConfig.blockSizeHorizontal!),
                                     child: Icon(Icons.location_on,
                                         color: primaryColor, size: 20),
                                   ),
@@ -363,12 +363,12 @@ class _RestaurantCardState extends State<RestaurantCard> {
                 ),
                 Container(
                   margin: EdgeInsets.only(
-                    top: SizeConfig.blockSizeVertical,
-                    left: 2 * SizeConfig.blockSizeHorizontal,
-                    right: 3 * SizeConfig.blockSizeHorizontal,
+                    top: SizeConfig.blockSizeVertical!,
+                    left: 2 * SizeConfig.blockSizeHorizontal!,
+                    right: 3 * SizeConfig.blockSizeHorizontal!,
                   ),
-                  height: 5 * SizeConfig.blockSizeVertical,
-                  width: 16 * SizeConfig.blockSizeHorizontal,
+                  height: 5 * SizeConfig.blockSizeVertical!,
+                  width: 16 * SizeConfig.blockSizeHorizontal!,
                   decoration: BoxDecoration(
                     color: secondaryColor,
                     borderRadius: BorderRadius.circular(8.0),
@@ -391,8 +391,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
             ),
             Padding(
               padding: EdgeInsets.symmetric(
-                  horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                  vertical: SizeConfig.blockSizeVertical),
+                  horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                  vertical: SizeConfig.blockSizeVertical!),
               child: AutoSizeText(
                 'is simply dummy text of the printing and typesetting industry',
                 overflow: TextOverflow.ellipsis,
@@ -401,18 +401,18 @@ class _RestaurantCardState extends State<RestaurantCard> {
               ),
             ),
             SizedBox(
-              height: 7 * SizeConfig.blockSizeVertical,
+              height: 7 * SizeConfig.blockSizeVertical!,
               child: ListView.builder(
                 padding: EdgeInsets.symmetric(
-                    vertical: SizeConfig.blockSizeVertical,
-                    horizontal: 2 * SizeConfig.blockSizeHorizontal),
+                    vertical: SizeConfig.blockSizeVertical!,
+                    horizontal: 2 * SizeConfig.blockSizeHorizontal!),
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
                 itemCount: widget.restaurant.labelNames.length,
                 itemBuilder: (_, index) => Container(
-                  margin: EdgeInsets.only(right: SizeConfig.blockSizeVertical),
-                  height: 5 * SizeConfig.blockSizeVertical,
-                  width: 28 * SizeConfig.blockSizeHorizontal,
+                  margin: EdgeInsets.only(right: SizeConfig.blockSizeVertical!),
+                  height: 5 * SizeConfig.blockSizeVertical!,
+                  width: 28 * SizeConfig.blockSizeHorizontal!,
                   decoration: BoxDecoration(
                     color: secondaryColor,
                     borderRadius: BorderRadius.circular(8.0),

@@ -10,13 +10,13 @@ class FeedbackReview extends StatelessWidget {
     return Container(
       color: secondaryColor,
       width: SizeConfig.screenWidth,
-      height: 18 * SizeConfig.blockSizeVertical,
-      margin: EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
+      height: 18 * SizeConfig.blockSizeVertical!,
+      margin: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
       padding: EdgeInsets.only(
-          left: SizeConfig.blockSizeHorizontal,
-          top: 2 * SizeConfig.blockSizeVertical,
-          //bottom: 2 * SizeConfig.blockSizeVertical,
-          right: SizeConfig.blockSizeHorizontal),
+          left: SizeConfig.blockSizeHorizontal!,
+          top: 2 * SizeConfig.blockSizeVertical!,
+          //bottom: 2 * SizeConfig.blockSizeVertical!,
+          right: SizeConfig.blockSizeHorizontal!),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -26,41 +26,41 @@ class FeedbackReview extends StatelessWidget {
             style: feedbackSatisfiedStyle,
           ),
           Container(
-            height: 3 * SizeConfig.blockSizeVertical,
+            height: 3 * SizeConfig.blockSizeVertical!,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircleAvatar(
-                radius: 7 * SizeConfig.blockSizeHorizontal,
+                radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
                 backgroundImage: AssetImage(
                   'assets/icons/horrible.png',
                 ),
               ),
               CircleAvatar(
-                radius: 7 * SizeConfig.blockSizeHorizontal,
+                radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
                 backgroundImage: AssetImage(
                   'assets/icons/bad.png',
                 ),
               ),
               CircleAvatar(
-                radius: 7 * SizeConfig.blockSizeHorizontal,
+                radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
                 backgroundImage: AssetImage(
                   'assets/icons/normal.png',
                 ),
               ),
               CircleAvatar(
-                radius: 7 * SizeConfig.blockSizeHorizontal,
+                radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
                 backgroundImage: AssetImage(
                   'assets/icons/good.png',
                 ),
               ),
               CircleAvatar(
-                radius: 7 * SizeConfig.blockSizeHorizontal,
+                radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
                 backgroundImage: AssetImage(
                   'assets/icons/excellent.png',

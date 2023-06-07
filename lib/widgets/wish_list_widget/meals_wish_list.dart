@@ -48,9 +48,9 @@ class _MealsWishListState extends State<MealsWishList> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 5 * SizeConfig.blockSizeVertical,
+      height: 5 * SizeConfig.blockSizeVertical!,
       child: ListView.builder(
-        padding: EdgeInsets.only(bottom: 8 * SizeConfig.blockSizeVertical),
+        padding: EdgeInsets.only(bottom: 8 * SizeConfig.blockSizeVertical!),
         itemCount: meals.length,
         itemBuilder: (_, i) => new MealCard(
           meal: meals[i],

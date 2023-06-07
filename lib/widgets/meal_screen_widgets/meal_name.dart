@@ -34,9 +34,9 @@ class _MealNameState extends State<MealName> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical),
+      margin: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical!),
       child: SizedBox(
-        //height: 9 * SizeConfig.blockSizeVertical,
+        //height: 9 * SizeConfig.blockSizeVertical!,
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,17 +47,17 @@ class _MealNameState extends State<MealName> {
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal),
+                      padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal!),
                       child: CircleAvatar(
-                        radius: 3 * SizeConfig.blockSizeVertical,
+                        radius: 3 * SizeConfig.blockSizeVertical!,
                         backgroundImage:
                             CachedNetworkImageProvider(widget.logoUrl),
                       ),
                     ),
                     Container(
-                      width: 55 * SizeConfig.blockSizeHorizontal,
+                      width: 55 * SizeConfig.blockSizeHorizontal!,
                       padding: EdgeInsets.symmetric(
-                          horizontal: 1 * SizeConfig.blockSizeHorizontal),
+                          horizontal: 1 * SizeConfig.blockSizeHorizontal!),
                       child: AutoSizeText(
                         widget.meal.name,
                         style: restaurantName,
@@ -67,16 +67,16 @@ class _MealNameState extends State<MealName> {
                 ),
                 Container(
                   padding: EdgeInsets.symmetric(
-                      horizontal: 1 * SizeConfig.blockSizeHorizontal),
+                      horizontal: 1 * SizeConfig.blockSizeHorizontal!),
                   margin: EdgeInsets.symmetric(
-                      horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                      vertical: 2 * SizeConfig.blockSizeVertical),
+                      horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                      vertical: 2 * SizeConfig.blockSizeVertical!),
                   decoration: BoxDecoration(
                     color: secondaryColor,
                     borderRadius: BorderRadius.circular(3.0),
                   ),
-                  height: 5 * SizeConfig.blockSizeVertical,
-                  width: 18 * SizeConfig.blockSizeHorizontal,
+                  height: 5 * SizeConfig.blockSizeVertical!,
+                  width: 18 * SizeConfig.blockSizeHorizontal!,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -108,12 +108,12 @@ class _MealNameState extends State<MealName> {
                           style: mealSubTitles,
                         ),
                         SizedBox(
-                          height: SizeConfig.blockSizeVertical,
+                          height: SizeConfig.blockSizeVertical!,
                         ),
                         Container(
-                          width: 75 * SizeConfig.blockSizeHorizontal,
+                          width: 75 * SizeConfig.blockSizeHorizontal!,
                           padding: EdgeInsets.symmetric(
-                            horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                            horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                           ),
                           child: AutoSizeText(
                             widget.meal.price.toString(),
@@ -121,13 +121,13 @@ class _MealNameState extends State<MealName> {
                           ),
                         ),
                         SizedBox(
-                          height: SizeConfig.blockSizeVertical,
+                          height: SizeConfig.blockSizeVertical!,
                         ),
                       ],
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                          horizontal: 2 * SizeConfig.blockSizeHorizontal),
+                          horizontal: 2 * SizeConfig.blockSizeHorizontal!),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
@@ -164,19 +164,19 @@ class _MealNameState extends State<MealName> {
                             style: mealIngredientsStyle,
                           ),
                           SizedBox(
-                            height: SizeConfig.blockSizeVertical,
+                            height: SizeConfig.blockSizeVertical!,
                           ),
                           Container(
-                            //width: 75 * SizeConfig.blockSizeHorizontal,
+                            //width: 75 * SizeConfig.blockSizeHorizontal!,
                             padding: EdgeInsets.symmetric(
-                              horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                              horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                             ),
                             child: AutoSizeText(
                               showIngredients(widget.meal.ingredients),
                               style: mealPrice,
                             ),
                           ),
-                          SizedBox(height: SizeConfig.blockSizeVertical),
+                          SizedBox(height: SizeConfig.blockSizeVertical!),
                         ]),
                   ],
                 ),
@@ -185,7 +185,7 @@ class _MealNameState extends State<MealName> {
                   style: mealSubTitles,
                 ),
                 SizedBox(
-                  height: SizeConfig.blockSizeVertical,
+                  height: SizeConfig.blockSizeVertical!,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -198,10 +198,10 @@ class _MealNameState extends State<MealName> {
                             Image(
                               image: AssetImage('assets/icons/serves.png'),
                               color: darkTextColor,
-                              width: 5 * SizeConfig.blockSizeHorizontal,
+                              width: 5 * SizeConfig.blockSizeHorizontal!,
                             ),
                             //Icon(Icons.room_service, color: darkTextColor),
-                            SizedBox(width: SizeConfig.blockSizeHorizontal),
+                            SizedBox(width: SizeConfig.blockSizeHorizontal!),
                             Text(
                               serves.toString(),
                               style: fillFieldText,
@@ -222,10 +222,10 @@ class _MealNameState extends State<MealName> {
                             Image(
                               image: AssetImage('assets/icons/calories.png'),
                               color: darkTextColor,
-                              width: 5 * SizeConfig.blockSizeHorizontal,
+                              width: 5 * SizeConfig.blockSizeHorizontal!,
                             ),
                             //Icon(Icons.local_fire_department, color: darkTextColor),
-                            SizedBox(width: SizeConfig.blockSizeHorizontal),
+                            SizedBox(width: SizeConfig.blockSizeHorizontal!),
                             Text(
                               calories.toString(),
                               style: fillFieldText,

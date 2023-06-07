@@ -172,15 +172,15 @@ class _State extends State<AllCoffee> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                      top: 9 * SizeConfig.blockSizeVertical,
+                      top: 9 * SizeConfig.blockSizeVertical!,
                     ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
                         Padding(
                           padding: EdgeInsets.symmetric(
-                            horizontal: 3 * SizeConfig.blockSizeHorizontal,
-                            vertical: SizeConfig.blockSizeVertical,
+                            horizontal: 3 * SizeConfig.blockSizeHorizontal!,
+                            vertical: SizeConfig.blockSizeVertical!,
                           ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,

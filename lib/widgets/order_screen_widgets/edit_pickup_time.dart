@@ -59,7 +59,7 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
 
     if (_focusedIndex == index)
       return Container(
-        width: 16 * SizeConfig.blockSizeVertical,
+        width: 16 * SizeConfig.blockSizeVertical!,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -76,7 +76,7 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
       );
     else
       return Container(
-        width: 16 * SizeConfig.blockSizeVertical,
+        width: 16 * SizeConfig.blockSizeVertical!,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -95,23 +95,23 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
 
   Widget _timeBuildListItem(BuildContext context, int index) {
     return Container(
-      height: 5 * SizeConfig.blockSizeVertical,
+      height: 5 * SizeConfig.blockSizeVertical!,
       child: InkWell(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               alignment: Alignment.center,
-              width: 20 * SizeConfig.blockSizeHorizontal,
-              height: 5 * SizeConfig.blockSizeVertical,
+              width: 20 * SizeConfig.blockSizeHorizontal!,
+              height: 5 * SizeConfig.blockSizeVertical!,
               color: _focusedIndexTime == index ? secondaryColor : whiteColor,
               child: Text(times.keys.elementAt(index), style: pickUpTime),
             ),
             Text(' : ', style: pickUpTime),
             Container(
               alignment: Alignment.center,
-              width: 20 * SizeConfig.blockSizeHorizontal,
-              height: 5 * SizeConfig.blockSizeVertical,
+              width: 20 * SizeConfig.blockSizeHorizontal!,
+              height: 5 * SizeConfig.blockSizeVertical!,
               color: _focusedIndexTime == index ? secondaryColor : whiteColor,
               child: Text(times.values.elementAt(index), style: pickUpTime),
             ),
@@ -127,13 +127,13 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 25 * SizeConfig.blockSizeVertical,
+      height: 25 * SizeConfig.blockSizeVertical!,
       child: Column(
         children: <Widget>[
           Expanded(
             child: ScrollSnapList(
               onItemFocus: _onItemFocus,
-              itemSize: 16 * SizeConfig.blockSizeVertical,
+              itemSize: 16 * SizeConfig.blockSizeVertical!,
               itemBuilder: _buildListItem,
               itemCount: days.length,
               dynamicItemSize: true,
@@ -142,10 +142,10 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
           Divider(),
           Container(
             alignment: Alignment.center,
-            height: 15 * SizeConfig.blockSizeVertical,
+            height: 15 * SizeConfig.blockSizeVertical!,
             child: ScrollSnapList(
               onItemFocus: _onItemFocusTime,
-              itemSize: 5 * SizeConfig.blockSizeVertical,
+              itemSize: 5 * SizeConfig.blockSizeVertical!,
               // selectedItemAnchor: SelectedItemAnchor.START, //to change item anchor uncomment this line
               // dynamicItemOpacity: 0.3, //to set unselected item opacity uncomment this line
               itemBuilder: _timeBuildListItem,

@@ -90,16 +90,16 @@ class _State extends State<CoffeeCard> {
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical),
+        contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
         content: Container(
-          height: 35 * SizeConfig.blockSizeVertical,
+          height: 35 * SizeConfig.blockSizeVertical!,
           child: Stack(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Container(
-                    margin: EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
+                    margin: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
                     child: AutoSizeText(
                       'Labels',
                       style: restaurantName,
@@ -126,9 +126,9 @@ class _State extends State<CoffeeCard> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                  top: 8 * SizeConfig.blockSizeVertical,
-                  left: 4 * SizeConfig.blockSizeHorizontal,
-                  right: 4 * SizeConfig.blockSizeHorizontal,
+                  top: 8 * SizeConfig.blockSizeVertical!,
+                  left: 4 * SizeConfig.blockSizeHorizontal!,
+                  right: 4 * SizeConfig.blockSizeHorizontal!,
                 ),
                 child: Expanded(
                   child: GridView.builder(
@@ -151,13 +151,13 @@ class _State extends State<CoffeeCard> {
                         children: [
                           Container(
                             margin:
-                                EdgeInsets.all(SizeConfig.blockSizeHorizontal),
+                                EdgeInsets.all(SizeConfig.blockSizeHorizontal!),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(8.0),
                               color: secondaryColor,
                             ),
-                            width: 15 * SizeConfig.blockSizeHorizontal,
-                            height: 2 * SizeConfig.blockSizeVertical,
+                            width: 15 * SizeConfig.blockSizeHorizontal!,
+                            height: 2 * SizeConfig.blockSizeVertical!,
                             child: Center(
                               child: Text(
                                 /*widget.restaurant.labelNames*/ labelNames[
@@ -179,7 +179,8 @@ class _State extends State<CoffeeCard> {
                     type: BubbleType.sendBubble,
                   ),
                   alignment: Alignment.center,
-                  margin: EdgeInsets.only(bottom: SizeConfig.blockSizeVertical),
+                  margin:
+                      EdgeInsets.only(bottom: SizeConfig.blockSizeVertical!),
                   backGroundColor: detailsColor,
                   child: Row(
                     children: [
@@ -207,18 +208,18 @@ class _State extends State<CoffeeCard> {
 
     return Container(
       margin: EdgeInsets.only(
-        left: SizeConfig.blockSizeHorizontal,
-        right: SizeConfig.blockSizeHorizontal,
+        left: SizeConfig.blockSizeHorizontal!,
+        right: SizeConfig.blockSizeHorizontal!,
       ),
-      width: 50 * SizeConfig.blockSizeHorizontal,
+      width: 50 * SizeConfig.blockSizeHorizontal!,
       height: /*widget.restaurant.labelNames.length*/ labelNames.length != 0
-          ? 43 * SizeConfig.blockSizeVertical
-          : 33 * SizeConfig.blockSizeVertical,
+          ? 43 * SizeConfig.blockSizeVertical!
+          : 33 * SizeConfig.blockSizeVertical!,
       decoration: BoxDecoration(
         color: whiteColor,
         borderRadius: BorderRadius.circular(10.0),
         border: Border.all(
-            color: whiteColor, width: 0.2 * SizeConfig.blockSizeHorizontal),
+            color: whiteColor, width: 0.2 * SizeConfig.blockSizeHorizontal!),
         boxShadow: [
           BoxShadow(
             color: secondaryColor,
@@ -232,15 +233,15 @@ class _State extends State<CoffeeCard> {
             children: [
               ClipRRect(
                 child: Container(
-                  width: 50 * SizeConfig.blockSizeHorizontal,
-                  height: 15 * SizeConfig.blockSizeVertical,
+                  width: 50 * SizeConfig.blockSizeHorizontal!,
+                  height: 15 * SizeConfig.blockSizeVertical!,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(
                       top: Radius.circular(10.0),
                     ),
                     border: Border.all(
                         color: whiteColor,
-                        width: 0.2 * SizeConfig.blockSizeHorizontal),
+                        width: 0.2 * SizeConfig.blockSizeHorizontal!),
                     image: DecorationImage(
                       image: CachedNetworkImageProvider(
                           widget.restaurant.photoUrls[0]),
@@ -251,28 +252,28 @@ class _State extends State<CoffeeCard> {
               ),
               Padding(
                 padding: EdgeInsets.only(
-                    top: 1 * SizeConfig.blockSizeVertical,
-                    left: 3 * SizeConfig.blockSizeHorizontal),
+                    top: 1 * SizeConfig.blockSizeVertical!,
+                    left: 3 * SizeConfig.blockSizeHorizontal!),
                 child: Stack(
                   children: [
                     Container(
                       child: CircleAvatar(
                         backgroundColor: whiteColor,
-                        radius: 4 * SizeConfig.blockSizeHorizontal,
+                        radius: 4 * SizeConfig.blockSizeHorizontal!,
                       ),
                     ),
                     widget.seeAllCoffee
                         ? Container(
-                            width: 8 * SizeConfig.blockSizeHorizontal,
-                            height: 8 * SizeConfig.blockSizeHorizontal,
+                            width: 8 * SizeConfig.blockSizeHorizontal!,
+                            height: 8 * SizeConfig.blockSizeHorizontal!,
                             child: Icon(
                               Icons.playlist_add,
                               color: lightTextColor,
                             ),
                           )
                         : Container(
-                            width: 8 * SizeConfig.blockSizeHorizontal,
-                            height: 8 * SizeConfig.blockSizeHorizontal,
+                            width: 8 * SizeConfig.blockSizeHorizontal!,
+                            height: 8 * SizeConfig.blockSizeHorizontal!,
                             child: Icon(
                               Icons.playlist_add_check,
                               color: orangeColor,
@@ -284,10 +285,10 @@ class _State extends State<CoffeeCard> {
             ],
           ),
           Container(
-            height: 27 * SizeConfig.blockSizeVertical,
+            height: 27 * SizeConfig.blockSizeVertical!,
             padding: EdgeInsets.symmetric(
-              horizontal: 2 * SizeConfig.blockSizeHorizontal,
-              vertical: SizeConfig.blockSizeVertical,
+              horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+              vertical: SizeConfig.blockSizeVertical!,
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -297,18 +298,18 @@ class _State extends State<CoffeeCard> {
                   style: restaurantName,
                 ),
                 SizedBox(
-                  height: SizeConfig.blockSizeVertical,
+                  height: SizeConfig.blockSizeVertical!,
                 ),
                 Row(
                   children: [
                     Icon(
                       Icons.star,
                       color: orangeColor,
-                      size: 4 * SizeConfig.blockSizeHorizontal,
+                      size: 4 * SizeConfig.blockSizeHorizontal!,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        left: SizeConfig.blockSizeHorizontal,
+                        left: SizeConfig.blockSizeHorizontal!,
                       ),
                       child: AutoSizeText(
                         S().rating(widget.restaurant.rating),
@@ -317,7 +318,7 @@ class _State extends State<CoffeeCard> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        left: SizeConfig.blockSizeHorizontal,
+                        left: SizeConfig.blockSizeHorizontal!,
                       ),
                       child: AutoSizeText(
                         '|',
@@ -326,7 +327,7 @@ class _State extends State<CoffeeCard> {
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        left: SizeConfig.blockSizeHorizontal,
+                        left: SizeConfig.blockSizeHorizontal!,
                       ),
                       child: AutoSizeText(
                         'Multi supplier',
@@ -336,7 +337,7 @@ class _State extends State<CoffeeCard> {
                   ],
                 ),
                 SizedBox(
-                  height: 0.5 * SizeConfig.blockSizeVertical,
+                  height: 0.5 * SizeConfig.blockSizeVertical!,
                 ),
                 AutoSizeText(
                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
@@ -344,7 +345,7 @@ class _State extends State<CoffeeCard> {
                   maxLines: 2,
                 ),
                 SizedBox(
-                  height: 0.5 * SizeConfig.blockSizeVertical,
+                  height: 0.5 * SizeConfig.blockSizeVertical!,
                 ),
                 /*widget.restaurant.labelNames.length*/ labelNames.length != 0
                     ? Expanded(
@@ -368,7 +369,7 @@ class _State extends State<CoffeeCard> {
                               labelNames.length > 4 && index > 2
                                   ? Container(
                                       margin: EdgeInsets.all(
-                                          SizeConfig.blockSizeHorizontal),
+                                          SizeConfig.blockSizeHorizontal!),
                                       decoration: BoxDecoration(
                                           border: Border.all(
                                               color: greyTextColor87,
@@ -386,15 +387,15 @@ class _State extends State<CoffeeCard> {
                                     )
                                   : Container(
                                       margin: EdgeInsets.all(
-                                          SizeConfig.blockSizeHorizontal),
+                                          SizeConfig.blockSizeHorizontal!),
                                       decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                         color: secondaryColor,
                                       ),
                                       width:
-                                          15 * SizeConfig.blockSizeHorizontal,
-                                      height: 2 * SizeConfig.blockSizeVertical,
+                                          15 * SizeConfig.blockSizeHorizontal!,
+                                      height: 2 * SizeConfig.blockSizeVertical!,
                                       child: Center(
                                         child: Text(
                                           /*widget.restaurant.labelNames*/ labelNames[
@@ -407,7 +408,7 @@ class _State extends State<CoffeeCard> {
                       )
                     : Container(),
                 SizedBox(
-                  height: 0.5 * SizeConfig.blockSizeVertical,
+                  height: 0.5 * SizeConfig.blockSizeVertical!,
                 ),
                 specialOffers
                     ? RichText(
@@ -417,7 +418,7 @@ class _State extends State<CoffeeCard> {
                               child: Icon(
                                 Icons.outlined_flag,
                                 color: orangeColor,
-                                size: 5 * SizeConfig.blockSizeHorizontal,
+                                size: 5 * SizeConfig.blockSizeHorizontal!,
                               ),
                             ),
                             TextSpan(

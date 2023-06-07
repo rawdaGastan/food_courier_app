@@ -166,15 +166,15 @@ class _State extends State<Offers> {
               return Column(
                 children: [
                   Container(
-                    height: 19 * SizeConfig.blockSizeVertical,
-                    width: 95 * SizeConfig.blockSizeHorizontal,
+                    height: 19 * SizeConfig.blockSizeVertical!,
+                    width: 95 * SizeConfig.blockSizeHorizontal!,
                     decoration: BoxDecoration(
                       color: shadow,
                       borderRadius: BorderRadius.circular(
-                          2 * SizeConfig.blockSizeVertical),
+                          2 * SizeConfig.blockSizeVertical!),
                       border: Border.all(
                           color: whiteColor,
-                          width: 0.2 * SizeConfig.blockSizeHorizontal),
+                          width: 0.2 * SizeConfig.blockSizeHorizontal!),
                       boxShadow: [
                         BoxShadow(
                           color: secondaryColor,
@@ -191,10 +191,10 @@ class _State extends State<Offers> {
                           return Container(
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(
-                                  2 * SizeConfig.blockSizeVertical),
+                                  2 * SizeConfig.blockSizeVertical!),
                               border: Border.all(
                                   color: whiteColor,
-                                  width: 0.2 * SizeConfig.blockSizeHorizontal),
+                                  width: 0.2 * SizeConfig.blockSizeHorizontal!),
                               image: DecorationImage(
                                 image: CachedNetworkImageProvider(
                                   snapshot.data[index].photoUrls[0],
@@ -207,7 +207,7 @@ class _State extends State<Offers> {
                   ),
                   Container(
                     margin: EdgeInsets.only(
-                      top: SizeConfig.blockSizeVertical,
+                      top: SizeConfig.blockSizeVertical!,
                     ),
                     alignment: Alignment.bottomCenter,
                     child: DotsIndicator(

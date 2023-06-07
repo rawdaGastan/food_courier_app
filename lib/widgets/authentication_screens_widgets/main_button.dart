@@ -12,11 +12,11 @@ class MainButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 90 * SizeConfig.blockSizeHorizontal,
-      height: 8 * SizeConfig.blockSizeVertical,
+      width: 90 * SizeConfig.blockSizeHorizontal!,
+      height: 8 * SizeConfig.blockSizeVertical!,
       padding:
-          EdgeInsets.symmetric(horizontal: 5 * SizeConfig.blockSizeHorizontal),
-      margin: EdgeInsets.only(top: 2 * SizeConfig.blockSizeVertical),
+          EdgeInsets.symmetric(horizontal: 5 * SizeConfig.blockSizeHorizontal!),
+      margin: EdgeInsets.only(top: 2 * SizeConfig.blockSizeVertical!),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: primaryColor,

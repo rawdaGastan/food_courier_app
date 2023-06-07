@@ -33,7 +33,7 @@ class _AddOnItemListState extends State<AddOnItemList> {
                 });
               }),
           Container(
-            width: 40 * SizeConfig.blockSizeHorizontal,
+            width: 40 * SizeConfig.blockSizeHorizontal!,
             child: Text(
               addOnItemsList.keys.elementAt(index),
             ),

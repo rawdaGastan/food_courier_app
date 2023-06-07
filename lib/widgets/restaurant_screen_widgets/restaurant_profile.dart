@@ -18,18 +18,18 @@ class RestaurantProfile extends StatelessWidget {
     return SingleChildScrollView(
       controller: _controller,
       child: Container(
-          //height: 25 * SizeConfig.blockSizeVertical,
-          padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical),
+          //height: 25 * SizeConfig.blockSizeVertical!,
+          padding: EdgeInsets.only(top: SizeConfig.blockSizeVertical!),
           margin: EdgeInsets.symmetric(
-            vertical: 1 * SizeConfig.blockSizeVertical,
-            horizontal: 4 * SizeConfig.blockSizeHorizontal,
+            vertical: 1 * SizeConfig.blockSizeVertical!,
+            horizontal: 4 * SizeConfig.blockSizeHorizontal!,
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               restaurant.labelNames.length > 0
                   ? SizedBox(
-                      height: 7 * SizeConfig.blockSizeVertical,
+                      height: 7 * SizeConfig.blockSizeVertical!,
                       child: RestaurantTags(restaurant.labelNames),
                     )
                   : Container(),

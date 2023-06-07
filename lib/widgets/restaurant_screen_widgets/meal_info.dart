@@ -76,13 +76,13 @@ class _MealCardState extends State<MealCard> {
         context: context,
         builder: (context) => AlertDialog(
           content: Container(
-            height: 20 * SizeConfig.blockSizeVertical,
+            height: 20 * SizeConfig.blockSizeVertical!,
             child: Column(
               children: [
                 Icon(
                   Icons.warning,
                   color: orangeColor,
-                  size: 8 * SizeConfig.blockSizeVertical,
+                  size: 8 * SizeConfig.blockSizeVertical!,
                 ),
                 Text(text, textAlign: TextAlign.center),
               ],
@@ -91,7 +91,7 @@ class _MealCardState extends State<MealCard> {
           actions: <Widget>[
             Padding(
               padding: EdgeInsets.symmetric(
-                horizontal: 4 * SizeConfig.blockSizeHorizontal,
+                horizontal: 4 * SizeConfig.blockSizeHorizontal!,
               ),
               child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -109,7 +109,7 @@ class _MealCardState extends State<MealCard> {
                         ),
                         onPressed: () {}),
                     SizedBox(
-                      width: 5 * SizeConfig.blockSizeVertical,
+                      width: 5 * SizeConfig.blockSizeVertical!,
                     ),
                     ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -129,8 +129,8 @@ class _MealCardState extends State<MealCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(2 * SizeConfig.blockSizeHorizontal),
-      height: 30 * SizeConfig.blockSizeVertical,
+      margin: EdgeInsets.all(2 * SizeConfig.blockSizeHorizontal!),
+      height: 30 * SizeConfig.blockSizeVertical!,
       decoration: BoxDecoration(
         color: whiteColor,
         borderRadius: BorderRadius.circular(8.0),
@@ -153,9 +153,9 @@ class _MealCardState extends State<MealCard> {
                   children: <Widget>[
                     Container(
                       margin: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
-                      width: 30 * SizeConfig.blockSizeHorizontal,
+                      width: 30 * SizeConfig.blockSizeHorizontal!,
                       decoration: BoxDecoration(
                         color: shadow,
                         borderRadius: BorderRadius.circular(8.0),
@@ -175,7 +175,7 @@ class _MealCardState extends State<MealCard> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: 40 * SizeConfig.blockSizeHorizontal,
+                                width: 40 * SizeConfig.blockSizeHorizontal!,
                                 child: AutoSizeText(
                                   snapshot.data.name,
                                   style: mealName,
@@ -207,9 +207,9 @@ class _MealCardState extends State<MealCard> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                width: 60 * SizeConfig.blockSizeHorizontal,
+                                width: 60 * SizeConfig.blockSizeHorizontal!,
                                 margin: EdgeInsets.only(
-                                    bottom: SizeConfig.blockSizeHorizontal),
+                                    bottom: SizeConfig.blockSizeHorizontal!),
                                 child: AutoSizeText(
                                   'is simply dummy text of the printing and typesetting industry.',
                                   style: RestaurantDescription,
@@ -244,16 +244,16 @@ class _MealCardState extends State<MealCard> {
                                         ),
                                         itemBuilder: (_, index) => Container(
                                           margin: EdgeInsets.all(
-                                              SizeConfig.blockSizeHorizontal),
+                                              SizeConfig.blockSizeHorizontal!),
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(8.0),
                                             color: secondaryColor,
                                           ),
                                           width: 15 *
-                                              SizeConfig.blockSizeHorizontal,
+                                              SizeConfig.blockSizeHorizontal!,
                                           height:
-                                              3 * SizeConfig.blockSizeVertical,
+                                              3 * SizeConfig.blockSizeVertical!,
                                           child: Center(
                                             child: Text(
                                               snapshot.data.labelNames[index],
@@ -277,7 +277,7 @@ class _MealCardState extends State<MealCard> {
                               Padding(
                                 padding: EdgeInsets.symmetric(
                                     horizontal:
-                                        3 * SizeConfig.blockSizeHorizontal),
+                                        3 * SizeConfig.blockSizeHorizontal!),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [

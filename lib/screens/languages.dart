@@ -7,11 +7,13 @@ import 'package:foodCourier/constants/text_styles.dart';
 
 class Languages extends StatelessWidget {
   Map<String, Locale> languagesSupported = {
-    S().arabic: Locale.fromSubtags(languageCode: 'ar'),
-    S().english: Locale.fromSubtags(languageCode: 'en'),
-    S().Deutsch: Locale.fromSubtags(languageCode: 'de'),
-    S().french: Locale.fromSubtags(languageCode: 'fr'),
+    S().arabic: const Locale.fromSubtags(languageCode: 'ar'),
+    S().english: const Locale.fromSubtags(languageCode: 'en'),
+    S().Deutsch: const Locale.fromSubtags(languageCode: 'de'),
+    S().french: const Locale.fromSubtags(languageCode: 'fr'),
   };
+
+  Languages({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +27,7 @@ class Languages extends StatelessWidget {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -36,14 +38,14 @@ class Languages extends StatelessWidget {
       ),
       body: ListView.separated(
           itemCount: languagesSupported.length,
-          separatorBuilder: (context, int) {
-            return Divider(
+          separatorBuilder: (context, n) {
+            return const Divider(
               color: primaryColor,
             );
           },
           itemBuilder: (BuildContext context, int index) {
             return ListTile(
-              leading: Icon(Icons.language, color: primaryColor),
+              leading: const Icon(Icons.language, color: primaryColor),
               title: Text(
                 languagesSupported.keys.elementAt(index),
                 style: titleText,

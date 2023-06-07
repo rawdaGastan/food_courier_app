@@ -167,8 +167,8 @@ class _State extends State<GroceryView> {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                      vertical: SizeConfig.blockSizeVertical,
+                      horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                      vertical: SizeConfig.blockSizeVertical!,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -209,8 +209,8 @@ class _State extends State<GroceryView> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                      vertical: SizeConfig.blockSizeVertical,
+                      horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                      vertical: SizeConfig.blockSizeVertical!,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -251,8 +251,8 @@ class _State extends State<GroceryView> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                      vertical: SizeConfig.blockSizeVertical,
+                      horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                      vertical: SizeConfig.blockSizeVertical!,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

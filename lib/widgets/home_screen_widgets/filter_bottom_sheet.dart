@@ -34,9 +34,9 @@ void showCoachMarkFAB() async {
                 markShape: BoxShape.rectangle,
                 children: [
                   Positioned(
-                      top: markRect.top - (10 * SizeConfig.blockSizeVertical),
-                      right: 5 * SizeConfig.blockSizeHorizontal,
-                      left: 5 * SizeConfig.blockSizeHorizontal,
+                      top: markRect.top - (10 * SizeConfig.blockSizeVertical!),
+                      right: 5 * SizeConfig.blockSizeHorizontal!,
+                      left: 5 * SizeConfig.blockSizeHorizontal!,
                       child: Text(
                         "click here to set your favourite cuisines",
                         style: const TextStyle(
@@ -68,8 +68,8 @@ void showCoachMarkTile() {
     children: [
       Positioned(
           top: markRect.bottom + 15.0,
-          right: 2 * SizeConfig.blockSizeHorizontal,
-          left: 2 * SizeConfig.blockSizeHorizontal,
+          right: 2 * SizeConfig.blockSizeHorizontal!,
+          left: 2 * SizeConfig.blockSizeHorizontal!,
           child: Text(
             "click here to set your food restrictions",
             style: const TextStyle(
@@ -93,8 +93,8 @@ void filterBottomSheet(
       context: context,
       builder: (context) {
         return Container(
-          padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
-          height: 74 * SizeConfig.blockSizeVertical,
+          padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
+          height: 74 * SizeConfig.blockSizeVertical!,
           alignment: Alignment.center,
           color: whiteColor,
           child: Column(
@@ -124,21 +124,21 @@ void filterBottomSheet(
               Expanded(
                 child: ListView(
                   padding: EdgeInsets.only(
-                    top: 4 * SizeConfig.blockSizeHorizontal,
-                    left: 3 * SizeConfig.blockSizeHorizontal,
+                    top: 4 * SizeConfig.blockSizeHorizontal!,
+                    left: 3 * SizeConfig.blockSizeHorizontal!,
                   ),
                   children: <Widget>[
                     Container(
                       key: _cuisineKey,
                       padding: EdgeInsets.only(
-                        bottom: 2 * SizeConfig.blockSizeVertical,
+                        bottom: 2 * SizeConfig.blockSizeVertical!,
                       ),
                       child: CuisineButtonList(),
                     ),
                     Container(
                       key: _restrictionKey,
                       padding: EdgeInsets.only(
-                        bottom: 2 * SizeConfig.blockSizeVertical,
+                        bottom: 2 * SizeConfig.blockSizeVertical!,
                       ),
                       child: RestrictionsList(callbackRestriction),
                     ),
@@ -149,8 +149,8 @@ void filterBottomSheet(
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                        left: 10 * SizeConfig.blockSizeHorizontal,
-                        bottom: 2 * SizeConfig.blockSizeVertical,
+                        left: 10 * SizeConfig.blockSizeHorizontal!,
+                        bottom: 2 * SizeConfig.blockSizeVertical!,
                       ),
                       child: SortByRadioList(callbackFun),
                     ),
@@ -158,7 +158,7 @@ void filterBottomSheet(
                 ),
               ),
               Container(
-                width: 47 * SizeConfig.blockSizeHorizontal,
+                width: 47 * SizeConfig.blockSizeHorizontal!,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: primaryColor,

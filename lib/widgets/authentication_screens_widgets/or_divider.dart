@@ -10,10 +10,10 @@ class OrDivider extends StatelessWidget {
       Expanded(
         child: Container(
             margin: EdgeInsets.only(
-              top: 4 * SizeConfig.blockSizeVertical,
-              bottom: 2 * SizeConfig.blockSizeVertical,
-              left: 10 * SizeConfig.blockSizeHorizontal,
-              right: 5 * SizeConfig.blockSizeHorizontal,
+              top: 4 * SizeConfig.blockSizeVertical!,
+              bottom: 2 * SizeConfig.blockSizeVertical!,
+              left: 10 * SizeConfig.blockSizeHorizontal!,
+              right: 5 * SizeConfig.blockSizeHorizontal!,
             ),
             //margin: const EdgeInsets.only(left: 10.0, right: 20.0),
             child: Divider(
@@ -23,18 +23,18 @@ class OrDivider extends StatelessWidget {
       ),
       Padding(
         padding: EdgeInsets.only(
-          top: 4 * SizeConfig.blockSizeVertical,
-          bottom: 2 * SizeConfig.blockSizeVertical,
+          top: 4 * SizeConfig.blockSizeVertical!,
+          bottom: 2 * SizeConfig.blockSizeVertical!,
         ),
         child: Text("OR", style: fieldText),
       ),
       Expanded(
         child: Container(
             margin: EdgeInsets.only(
-              top: 4 * SizeConfig.blockSizeVertical,
-              bottom: 2 * SizeConfig.blockSizeVertical,
-              right: 10 * SizeConfig.blockSizeHorizontal,
-              left: 5 * SizeConfig.blockSizeHorizontal,
+              top: 4 * SizeConfig.blockSizeVertical!,
+              bottom: 2 * SizeConfig.blockSizeVertical!,
+              right: 10 * SizeConfig.blockSizeHorizontal!,
+              left: 5 * SizeConfig.blockSizeHorizontal!,
             ),
             //margin: const EdgeInsets.only(left: 20.0, right: 10.0),
             child: Divider(

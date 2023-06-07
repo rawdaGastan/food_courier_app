@@ -31,13 +31,13 @@ class InputField extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: validator == null
-          ? 7 * SizeConfig.blockSizeVertical
-          : 9 * SizeConfig.blockSizeVertical,
+          ? 7 * SizeConfig.blockSizeVertical!
+          : 9 * SizeConfig.blockSizeVertical!,
       padding:
-          EdgeInsets.symmetric(horizontal: 5 * SizeConfig.blockSizeHorizontal),
+          EdgeInsets.symmetric(horizontal: 5 * SizeConfig.blockSizeHorizontal!),
       margin: EdgeInsets.only(
-        //top: SizeConfig.blockSizeVertical,
-        bottom: SizeConfig.blockSizeVertical,
+        //top: SizeConfig.blockSizeVertical!,
+        bottom: SizeConfig.blockSizeVertical!,
       ),
       child: TextFormField(
         onChanged: (String input) {

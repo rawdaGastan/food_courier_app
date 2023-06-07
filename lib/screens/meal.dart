@@ -13,15 +13,15 @@ import 'package:foodCourier/widgets/meal_screen_widgets/meal_reviews.dart';
 
 class MealScreen extends StatefulWidget {
   @override
-  _MealScreenState createState() => _MealScreenState();
+  MealScreenState createState() => MealScreenState();
 }
 
-class _MealScreenState extends State<MealScreen> {
-  bool isFavourite = false;
+class MealScreenState extends State<MealScreen> {
+  bool isFavorite = false;
 
-  int selectedIndexOfBottomBar;
+  int selectedIndexOfBottomBar = 0;
   bool gotIndexFromNavigationBar = false;
-  Function callbackNavigationBottomBar;
+  late Function callbackNavigationBottomBar;
 
   int tabBarIndex = 0;
   SlidingUpPanelController panelController = SlidingUpPanelController();
@@ -37,7 +37,7 @@ class _MealScreenState extends State<MealScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List defaults = ModalRoute.of(context).settings.arguments;
+    List defaults = ModalRoute.of(context)!.settings.arguments as List;
     Meal meal = defaults[0];
     String restaurantLogoUrl = defaults[3];
     int restaurantID = defaults[4];
@@ -55,21 +55,21 @@ class _MealScreenState extends State<MealScreen> {
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               activeIcon: Image.asset('assets/icons/delivery.png',
-                  width: 8 * SizeConfig.blockSizeHorizontal),
+                  width: 8 * SizeConfig.blockSizeHorizontal!),
               icon: Image.asset('assets/icons/delivery.png',
                   color: lightTextColor,
-                  width: 8 * SizeConfig.blockSizeHorizontal),
+                  width: 8 * SizeConfig.blockSizeHorizontal!),
               //icon: Icon(Icons.delivery_dining),
               label: S().delivery,
               //'Delivery',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.local_grocery_store),
+              icon: const Icon(Icons.local_grocery_store),
               label: S().grocery,
               //'Grocery',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.room_service),
+              icon: const Icon(Icons.room_service),
               label: S().dineOut,
               //'Dineout',
             ),
@@ -85,16 +85,16 @@ class _MealScreenState extends State<MealScreen> {
             SlidingUpPanelWidget(
               panelController: panelController,
               anchor: 0.67,
-              controlHeight: 100 * SizeConfig.blockSizeVertical,
+              controlHeight: 100 * SizeConfig.blockSizeVertical!,
               /*borderRadius: BorderRadius.vertical(
                 top: Radius.circular(18.0),
               ),
-              minHeight: 67 * SizeConfig.blockSizeVertical,
-              maxHeight: 100 * SizeConfig.blockSizeVertical,*/
+              minHeight: 67 * SizeConfig.blockSizeVertical!,
+              maxHeight: 100 * SizeConfig.blockSizeVertical!,*/
               child: Stack(
                 children: [
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: whiteColor,
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(25.0),
@@ -104,17 +104,17 @@ class _MealScreenState extends State<MealScreen> {
                   ),
                   Padding(
                     //was 49
-                    padding: meal.labelNames.length > 0
+                    padding: meal.labelNames.isNotEmpty
                         ? EdgeInsets.only(
-                            top: 45 * SizeConfig.blockSizeVertical)
+                            top: 45 * SizeConfig.blockSizeVertical!)
                         : EdgeInsets.only(
-                            top: 37 * SizeConfig.blockSizeVertical),
+                            top: 37 * SizeConfig.blockSizeVertical!),
                     child: DefaultTabController(
                       length: 2,
                       child: Column(
                         children: <Widget>[
                           Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               color: whiteColor,
                               boxShadow: [
                                 BoxShadow(
@@ -126,10 +126,10 @@ class _MealScreenState extends State<MealScreen> {
                                 ),
                               ],
                             ),
-                            height: 7 * SizeConfig.blockSizeVertical,
+                            height: 7 * SizeConfig.blockSizeVertical!,
                             child: TabBar(
                               tabs: [
-                                Tab(
+                                const Tab(
                                   child: AutoSizeText(
                                     'Description',
                                     maxLines: 1,
@@ -154,10 +154,10 @@ class _MealScreenState extends State<MealScreen> {
                               indicatorWeight: 4,
                               indicatorPadding: EdgeInsets.symmetric(
                                   horizontal:
-                                      3 * SizeConfig.blockSizeHorizontal),
+                                      3 * SizeConfig.blockSizeHorizontal!),
                               labelPadding: EdgeInsets.symmetric(
                                   horizontal:
-                                      3 * SizeConfig.blockSizeHorizontal),
+                                      3 * SizeConfig.blockSizeHorizontal!),
                             ),
                           ),
                           Expanded(
@@ -174,19 +174,19 @@ class _MealScreenState extends State<MealScreen> {
                   ),
                   DraggableScrollableSheet(
                     // was 45
-                    minChildSize: meal.labelNames.length > 0 ? 0.525 : 0.595,
+                    minChildSize: meal.labelNames.isNotEmpty ? 0.525 : 0.595,
                     initialChildSize:
-                        meal.labelNames.length > 0 ? 0.525 : 0.595,
+                        meal.labelNames.isNotEmpty ? 0.525 : 0.595,
                     maxChildSize: 1.0,
                     expand: true,
                     builder: (_, scrollController) => ListView(
                       controller: scrollController,
                       children: [
                         Container(
-                          height: 95 * SizeConfig.blockSizeVertical,
+                          height: 95 * SizeConfig.blockSizeVertical!,
                           padding: EdgeInsets.symmetric(
-                            vertical: 1 * SizeConfig.blockSizeVertical,
-                            horizontal: 4 * SizeConfig.blockSizeHorizontal,
+                            vertical: 1 * SizeConfig.blockSizeVertical!,
+                            horizontal: 4 * SizeConfig.blockSizeHorizontal!,
                           ),
                           width: double.infinity,
                           color: whiteColor,
@@ -203,7 +203,8 @@ class _MealScreenState extends State<MealScreen> {
           ],
         ),
       );
-    } else
+    } else {
       return Container();
+    }
   }
 }

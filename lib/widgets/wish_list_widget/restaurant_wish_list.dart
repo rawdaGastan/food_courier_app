@@ -8,11 +8,11 @@ class RestaurantWishList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: EdgeInsets.only(bottom: 8 * SizeConfig.blockSizeVertical),
+      padding: EdgeInsets.only(bottom: 8 * SizeConfig.blockSizeVertical!),
       itemCount: 5,
       itemBuilder: (_, index) => Container(
-        margin: EdgeInsets.all(2 * SizeConfig.blockSizeHorizontal),
-        height: 23 * SizeConfig.blockSizeVertical,
+        margin: EdgeInsets.all(2 * SizeConfig.blockSizeHorizontal!),
+        height: 23 * SizeConfig.blockSizeVertical!,
         decoration: BoxDecoration(
           color: whiteColor,
         ),
@@ -25,7 +25,7 @@ class RestaurantWishList extends StatelessWidget {
                 children: [
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 1.5 * SizeConfig.blockSizeVertical),
+                        horizontal: 1.5 * SizeConfig.blockSizeVertical!),
                     child: Image.asset(
                       'assets/icons/ribbon.png',
                       scale: 1.2,
@@ -33,14 +33,14 @@ class RestaurantWishList extends StatelessWidget {
                   ),
                   Container(
                     margin: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
-                        vertical: 1 * SizeConfig.blockSizeVertical),
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+                        vertical: 1 * SizeConfig.blockSizeVertical!),
                     decoration: BoxDecoration(
                       color: secondaryColor,
                       borderRadius: BorderRadius.circular(3.0),
                     ),
-                    //height: 5 * SizeConfig.blockSizeVertical,
-                    width: 16 * SizeConfig.blockSizeHorizontal,
+                    //height: 5 * SizeConfig.blockSizeVertical!,
+                    width: 16 * SizeConfig.blockSizeHorizontal!,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
@@ -58,8 +58,8 @@ class RestaurantWishList extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 15 * SizeConfig.blockSizeHorizontal,
-                    height: 6 * SizeConfig.blockSizeVertical,
+                    width: 15 * SizeConfig.blockSizeHorizontal!,
+                    height: 6 * SizeConfig.blockSizeVertical!,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       color: whiteColor,
@@ -74,23 +74,23 @@ class RestaurantWishList extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(
-                            top: SizeConfig.blockSizeVertical,
-                            left: SizeConfig.blockSizeHorizontal,
+                            top: SizeConfig.blockSizeVertical!,
+                            left: SizeConfig.blockSizeHorizontal!,
                           ),
                           child: Icon(Icons.attach_money, color: primaryColor),
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                            top: SizeConfig.blockSizeVertical,
-                            left: 4 * SizeConfig.blockSizeHorizontal,
+                            top: SizeConfig.blockSizeVertical!,
+                            left: 4 * SizeConfig.blockSizeHorizontal!,
                           ),
                           child:
                               Icon(Icons.attach_money, color: lightTextColor),
                         ),
                         Padding(
                           padding: EdgeInsets.only(
-                            top: SizeConfig.blockSizeVertical,
-                            left: 7 * SizeConfig.blockSizeHorizontal,
+                            top: SizeConfig.blockSizeVertical!,
+                            left: 7 * SizeConfig.blockSizeHorizontal!,
                           ),
                           child:
                               Icon(Icons.attach_money, color: lightTextColor),
@@ -106,9 +106,9 @@ class RestaurantWishList extends StatelessWidget {
                 Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal),
+                      padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal!),
                       child: CircleAvatar(
-                        radius: 4 * SizeConfig.blockSizeVertical,
+                        radius: 4 * SizeConfig.blockSizeVertical!,
                         backgroundImage: AssetImage(
                           'assets/icons/temp.png',
                         ),
@@ -120,7 +120,7 @@ class RestaurantWishList extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(
-                              horizontal: 1 * SizeConfig.blockSizeHorizontal),
+                              horizontal: 1 * SizeConfig.blockSizeHorizontal!),
                           child: AutoSizeText(
                             'Restaurants name',
                             style: restaurantName,
@@ -128,10 +128,10 @@ class RestaurantWishList extends StatelessWidget {
                         ),
                         Container(
                           margin: EdgeInsets.symmetric(
-                            vertical: 0.5 * SizeConfig.blockSizeVertical,
-                            horizontal: 1 * SizeConfig.blockSizeHorizontal,
+                            vertical: 0.5 * SizeConfig.blockSizeVertical!,
+                            horizontal: 1 * SizeConfig.blockSizeHorizontal!,
                           ),
-                          width: 40 * SizeConfig.blockSizeHorizontal,
+                          width: 40 * SizeConfig.blockSizeHorizontal!,
                           child: RichText(
                             text: TextSpan(
                               children: [
@@ -153,8 +153,8 @@ class RestaurantWishList extends StatelessWidget {
                 ),
                 Container(
                   margin: EdgeInsets.only(
-                      left: 4 * SizeConfig.blockSizeHorizontal,
-                      right: 4 * SizeConfig.blockSizeHorizontal),
+                      left: 4 * SizeConfig.blockSizeHorizontal!,
+                      right: 4 * SizeConfig.blockSizeHorizontal!),
                   child: AutoSizeText(
                     'is simply dummy text of the printing and typesetting industry.',
                     style: RestaurantDescription,
@@ -163,20 +163,20 @@ class RestaurantWishList extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 7 * SizeConfig.blockSizeVertical,
+                  height: 7 * SizeConfig.blockSizeVertical!,
                   child: ListView.builder(
                     padding: EdgeInsets.symmetric(
-                        vertical: SizeConfig.blockSizeVertical,
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal),
+                        vertical: SizeConfig.blockSizeVertical!,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!),
                     scrollDirection: Axis.horizontal,
                     shrinkWrap: true,
                     itemCount: 2,
                     //widget.restaurant.labelNames.length,
                     itemBuilder: (_, index) => Container(
                       margin:
-                          EdgeInsets.only(right: SizeConfig.blockSizeVertical),
-                      height: 5 * SizeConfig.blockSizeVertical,
-                      width: 28 * SizeConfig.blockSizeHorizontal,
+                          EdgeInsets.only(right: SizeConfig.blockSizeVertical!),
+                      height: 5 * SizeConfig.blockSizeVertical!,
+                      width: 28 * SizeConfig.blockSizeHorizontal!,
                       decoration: BoxDecoration(
                         color: secondaryColor,
                         borderRadius: BorderRadius.circular(8.0),

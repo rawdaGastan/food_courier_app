@@ -16,24 +16,26 @@ import 'package:foodCourier/widgets/grocery_widgets/stores_all.dart';
 import 'package:foodCourier/widgets/grocery_widgets/coffee_all.dart';
 
 class GrocerySeeAll extends StatefulWidget {
+  const GrocerySeeAll({Key? key}) : super(key: key);
+
   @override
-  _State createState() => _State();
+  GrocerySeeAllState createState() => GrocerySeeAllState();
 }
 
-class _State extends State<GrocerySeeAll> {
-  GlobalKey _navigationBarKey = GlobalObjectKey("nav");
+class GrocerySeeAllState extends State<GrocerySeeAll> {
+  final GlobalKey _navigationBarKey = const GlobalObjectKey('nav');
 
-  GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
   bool dropDownLocationsVisibility = false;
   String regionSelected = 'no region';
-  String regionSelectedType;
+  String regionSelectedType = '';
 
-  int selectedIndexOfBottomBar;
+  int selectedIndexOfBottomBar = 0;
   bool gotIndexFromNavigationBar = false;
-  Function callbackNavigationBottomBar;
+  late Function callbackNavigationBottomBar;
 
-  AllStores allStoresWidget;
-  String groceryView;
+  late AllStores allStoresWidget;
+  String groceryView = '';
 
   @override
   void initState() {
@@ -49,7 +51,6 @@ class _State extends State<GrocerySeeAll> {
   }
 
   void showNotification() async {
-    print('again');
     if (PushNotification().onBackground) {
       sharedPreferencesClass
           .setBackgroundNotification(PushNotification().onBackground);
@@ -58,7 +59,7 @@ class _State extends State<GrocerySeeAll> {
     print(PushNotification().onBackground);
     await sharedPreferencesClass.showBackgroundNotification().then(
         (showNotification) => {
-              (showNotification)
+              (showNotification!)
                   ? displayTrackOrderDialog(context)
                   : print(showNotification)
             });
@@ -67,9 +68,9 @@ class _State extends State<GrocerySeeAll> {
   displayTrackOrderDialog(context) => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical),
-          content: Container(
-            height: 18 * SizeConfig.blockSizeVertical,
+          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
+          content: SizedBox(
+            height: 18 * SizeConfig.blockSizeVertical!,
             child: Stack(
               children: [
                 Row(
@@ -79,15 +80,16 @@ class _State extends State<GrocerySeeAll> {
                       children: <Widget>[
                         Positioned.fill(
                           child: Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 shape: BoxShape.circle, color: blackColor),
                             margin: EdgeInsets.all(1.5 *
                                 SizeConfig
-                                    .blockSizeVertical), // Modify this till it fills the color properly
+                                    .blockSizeVertical!), // Modify this till it fills the color properly
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.close_rounded, color: whiteColor),
+                          icon: const Icon(Icons.close_rounded,
+                              color: whiteColor),
                           onPressed: () => Navigator.pop(context),
                         ),
                       ],
@@ -97,11 +99,11 @@ class _State extends State<GrocerySeeAll> {
                 Center(
                   child: Padding(
                     padding:
-                        EdgeInsets.only(top: 4 * SizeConfig.blockSizeVertical),
+                        EdgeInsets.only(top: 4 * SizeConfig.blockSizeVertical!),
                     child: CircleAvatar(
-                      radius: 12 * SizeConfig.blockSizeHorizontal,
+                      radius: 12 * SizeConfig.blockSizeHorizontal!,
                       backgroundColor: backgroundImages,
-                      backgroundImage: AssetImage(
+                      backgroundImage: const AssetImage(
                         'assets/icons/temp.png',
                       ),
                     ),
@@ -111,7 +113,7 @@ class _State extends State<GrocerySeeAll> {
             ),
           ),
           actionsPadding:
-              EdgeInsets.only(bottom: 3 * SizeConfig.blockSizeVertical),
+              EdgeInsets.only(bottom: 3 * SizeConfig.blockSizeVertical!),
           actions: <Widget>[
             MainButton(
               label: 'Track your order',
@@ -135,18 +137,18 @@ class _State extends State<GrocerySeeAll> {
       bool visibility,
       String selectedCity,
       String selectedCityType) {
-    this.setState(() {
-      if (selectedCity != null) {
+    setState(() {
+      if (selectedCity != '') {
         regionSelected = selectedCity;
       }
-      if (selectedCityType != null) {
+      if (selectedCityType != '') {
         regionSelectedType = selectedCityType;
       }
-      if (visibility != null) {
+      if (!visibility) {
         dropDownLocationsVisibility = visibility;
       }
       if (addressSelectedPlace != null) {
-        this.allStoresWidget = AllStores(
+        allStoresWidget = AllStores(
           addressSelectedPlace: addressSelectedPlace,
           selectedRegion: allStoresWidget.selectedRegion,
           selectedRegionType: allStoresWidget.selectedRegionType,
@@ -161,7 +163,7 @@ class _State extends State<GrocerySeeAll> {
           callbackRestriction: allStoresWidget.callbackRestriction,
         );
       } else if (currentLocation != null) {
-        this.allStoresWidget = AllStores(
+        allStoresWidget = AllStores(
           currentLocation: currentLocation,
           selectedRegion: allStoresWidget.selectedRegion,
           selectedRegionType: allStoresWidget.selectedRegionType,
@@ -180,8 +182,8 @@ class _State extends State<GrocerySeeAll> {
   }
 
   callbackSearch(String searchInput) {
-    this.setState(() {
-      this.allStoresWidget = AllStores(
+    setState(() {
+      allStoresWidget = AllStores(
         searchInput: searchInput,
         selectedRegion: allStoresWidget.selectedRegion,
         selectedRegionType: allStoresWidget.selectedRegionType,
@@ -201,7 +203,7 @@ class _State extends State<GrocerySeeAll> {
   callbackFilters(String sortBy) {
     if (sortBy != null) {
       setState(() {
-        this.allStoresWidget = AllStores(
+        allStoresWidget = AllStores(
           sortBy: sortBy,
           selectedRegion: allStoresWidget.selectedRegion,
           selectedRegionType: allStoresWidget.selectedRegionType,
@@ -232,9 +234,9 @@ class _State extends State<GrocerySeeAll> {
   }
 
   showRestaurantsByLocation() {
-    if (regionSelected != 'no region' && regionSelected != null)
-      this.setState(() {
-        this.allStoresWidget = AllStores(
+    if (regionSelected != 'no region' && regionSelected != null) {
+      setState(() {
+        allStoresWidget = AllStores(
           selectedRegion: regionSelected,
           selectedRegionType: regionSelectedType,
           searchInput: allStoresWidget.searchInput,
@@ -249,6 +251,7 @@ class _State extends State<GrocerySeeAll> {
           callbackRestriction: allStoresWidget.callbackRestriction,
         );
       });
+    }
   }
 
   @override
@@ -258,7 +261,7 @@ class _State extends State<GrocerySeeAll> {
     // _getFullStorySession();
     SizeConfig().init(context);
 
-    List defaults = ModalRoute.of(context).settings.arguments;
+    List defaults = ModalRoute.of(context)!.settings.arguments as List;
     if (!gotIndexFromNavigationBar) {
       selectedIndexOfBottomBar = defaults[0];
       callbackNavigationBottomBar = defaults[1];
@@ -266,21 +269,21 @@ class _State extends State<GrocerySeeAll> {
     }
     groceryView = defaults[2];
 
-    EdgeInsets _widgetOptionsPadding = EdgeInsets.only(
+    EdgeInsets widgetOptionsPadding = EdgeInsets.only(
       top: dropDownLocationsVisibility
-          ? 17 * SizeConfig.blockSizeVertical
-          : 9 * SizeConfig.blockSizeVertical,
+          ? 17 * SizeConfig.blockSizeVertical!
+          : 9 * SizeConfig.blockSizeVertical!,
     );
 
     allStoresWidget.offers = false;
 
     List<Widget> allWidgets = <Widget>[
       Container(
-        padding: _widgetOptionsPadding,
+        padding: widgetOptionsPadding,
         child: allStoresWidget,
       ),
       Container(
-        padding: _widgetOptionsPadding,
+        padding: widgetOptionsPadding,
         child: AllStores(
           selectedRegion: regionSelected,
           selectedRegionType: regionSelectedType,
@@ -298,7 +301,7 @@ class _State extends State<GrocerySeeAll> {
         ),
       ),
       Container(
-        padding: _widgetOptionsPadding,
+        padding: widgetOptionsPadding,
         child: AllCoffee(
           selectedRegion: regionSelected,
           selectedRegionType: regionSelectedType,
@@ -323,11 +326,11 @@ class _State extends State<GrocerySeeAll> {
         backgroundColor: whiteColor,
         leading: TextButton(
           onPressed: () {
-            _drawerKey.currentState.openDrawer();
+            _drawerKey.currentState!.openDrawer();
           },
           child: Image(
-            image: AssetImage('assets/icons/menu.png'),
-            width: 6 * SizeConfig.blockSizeHorizontal,
+            image: const AssetImage('assets/icons/menu.png'),
+            width: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -364,15 +367,19 @@ class _State extends State<GrocerySeeAll> {
           'assets/icons/filter.svg',
           color: whiteColor,
         ),*/
-        child: Image(
-          image: AssetImage('assets/icons/filter.png'),
-          color: whiteColor,
-          width: 7 * SizeConfig.blockSizeHorizontal,
-        ),
         backgroundColor: primaryColor,
         onPressed: () {
           filterBottomSheet(context, callbackFilters, callbackRestriction);
         },
+        /*child: SvgPicture.asset(
+          'assets/icons/filter.svg',
+          color: whiteColor,
+        ),*/
+        child: Image(
+          image: const AssetImage('assets/icons/filter.png'),
+          color: whiteColor,
+          width: 7 * SizeConfig.blockSizeHorizontal!,
+        ),
         //Navigator.pushNamed(context, 'filter'),
       ),
       drawer: Drawer(
@@ -387,24 +394,24 @@ class _State extends State<GrocerySeeAll> {
           BottomNavigationBarItem(
             activeIcon: Image.asset(
               'assets/icons/delivery.png',
-              width: 8 * SizeConfig.blockSizeHorizontal,
+              width: 8 * SizeConfig.blockSizeHorizontal!,
             ),
             icon: Image.asset(
               'assets/icons/delivery.png',
               color: lightTextColor,
-              width: 8 * SizeConfig.blockSizeHorizontal,
+              width: 8 * SizeConfig.blockSizeHorizontal!,
             ),
             //icon: Icon(Icons.delivery_dining),
             label: S().delivery,
             //'Delivery',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_grocery_store),
+            icon: const Icon(Icons.local_grocery_store),
             label: S().grocery,
             //'Grocery',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.room_service),
+            icon: const Icon(Icons.room_service),
             label: S().dineOut,
             //'Dineout',
           ),
@@ -424,12 +431,11 @@ class _State extends State<GrocerySeeAll> {
                   child: Padding(
                     // dropdown menu textfield
                     padding: EdgeInsets.only(
-                      left: 10 * SizeConfig.blockSizeHorizontal,
-                      right: 10 * SizeConfig.blockSizeHorizontal,
-                      top: 2 * SizeConfig.blockSizeVertical,
+                      left: 10 * SizeConfig.blockSizeHorizontal!,
+                      right: 10 * SizeConfig.blockSizeHorizontal!,
+                      top: 2 * SizeConfig.blockSizeVertical!,
                     ),
-                    child: DropdownLocationsTextField(
-                        this.callbackDropDownLocation),
+                    child: DropdownLocationsTextField(callbackDropDownLocation),
                   ),
                 ),
                 Stack(
@@ -437,20 +443,20 @@ class _State extends State<GrocerySeeAll> {
                     Padding(
                       // search field
                       padding: EdgeInsets.only(
-                        top: 1.5 * SizeConfig.blockSizeVertical,
+                        top: 1.5 * SizeConfig.blockSizeVertical!,
                       ),
                       child: IconButton(
-                          icon: Icon(Icons.arrow_back),
+                          icon: const Icon(Icons.arrow_back),
                           onPressed: () => Navigator.pop(context)),
                     ),
                     Padding(
                       // search field
                       padding: EdgeInsets.only(
-                        left: 12 * SizeConfig.blockSizeHorizontal,
-                        right: 2 * SizeConfig.blockSizeHorizontal,
-                        top: 2 * SizeConfig.blockSizeVertical,
+                        left: 12 * SizeConfig.blockSizeHorizontal!,
+                        right: 2 * SizeConfig.blockSizeHorizontal!,
+                        top: 2 * SizeConfig.blockSizeVertical!,
                       ),
-                      child: SearchField(this.callbackSearch),
+                      child: SearchField(callbackSearch),
                     ),
                   ],
                 ),

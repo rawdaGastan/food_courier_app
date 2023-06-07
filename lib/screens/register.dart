@@ -65,7 +65,7 @@ class _State extends State<Registration> {
         context: context,
         builder: (context) => Dialog(
           child: SizedBox(
-            height: 75 * SizeConfig.blockSizeVertical,
+            height: 75 * SizeConfig.blockSizeVertical!,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -157,7 +157,7 @@ class _State extends State<Registration> {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(
-                    top: 2 * SizeConfig.blockSizeVertical,
+                    top: 2 * SizeConfig.blockSizeVertical!,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -172,7 +172,7 @@ class _State extends State<Registration> {
                             Icon(
                               Icons.arrow_back_ios,
                               color: blackColor,
-                              size: 4 * SizeConfig.blockSizeHorizontal,
+                              size: 4 * SizeConfig.blockSizeHorizontal!,
                             ),
                             Text(S().back, style: blackSmallText14),
                           ],
@@ -182,11 +182,11 @@ class _State extends State<Registration> {
                   ),
                 ),
                 CircleAvatar(
-                  radius: 5 * SizeConfig.blockSizeVertical,
+                  radius: 5 * SizeConfig.blockSizeVertical!,
                   backgroundColor: backgroundImages,
                 ),
                 SizedBox(
-                  height: 2 * SizeConfig.blockSizeVertical,
+                  height: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 Text(
                   S().CreateAccount,
@@ -200,21 +200,21 @@ class _State extends State<Registration> {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: 4 * SizeConfig.blockSizeVertical,
+                  height: 4 * SizeConfig.blockSizeVertical!,
                 ),
                 ApiButton(
                   leading: Image.asset('assets/icons/facebook.png',
-                      width: 8 * SizeConfig.blockSizeHorizontal),
+                      width: 8 * SizeConfig.blockSizeHorizontal!),
                   action: () {},
                   label: S().faceBook,
                   //'  Facebook',
                 ),
                 SizedBox(
-                  height: 2 * SizeConfig.blockSizeVertical,
+                  height: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 ApiButton(
                   leading: Image.asset('assets/icons/google.png',
-                      width: 8 * SizeConfig.blockSizeHorizontal),
+                      width: 8 * SizeConfig.blockSizeHorizontal!),
                   action: () {},
                   label: S().google,
                   //'  Google',
@@ -222,7 +222,7 @@ class _State extends State<Registration> {
                 OrDivider(),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: 5 * SizeConfig.blockSizeHorizontal),
+                      horizontal: 5 * SizeConfig.blockSizeHorizontal!),
                   child: InputField(
                     onChanged: (text) {
                       //emailOrPhoneValue = text;
@@ -245,8 +245,8 @@ class _State extends State<Registration> {
                     },
                     prefix: isMobile
                         ? Container(
-                            height: 3 * SizeConfig.blockSizeVertical,
-                            width: 30 * SizeConfig.blockSizeHorizontal,
+                            height: 3 * SizeConfig.blockSizeVertical!,
+                            width: 30 * SizeConfig.blockSizeHorizontal!,
                             child: CountryCodePicker(
                               onInit: (countryCode) {
                                 this.countryCode = countryCode;
@@ -277,7 +277,7 @@ class _State extends State<Registration> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: 5 * SizeConfig.blockSizeHorizontal),
+                      horizontal: 5 * SizeConfig.blockSizeHorizontal!),
                   child: InputField(
                     onChanged: (String input) {},
                     prefix: null,
@@ -323,7 +323,7 @@ class _State extends State<Registration> {
                         }),
                     Padding(
                       padding: EdgeInsets.only(
-                          right: SizeConfig.blockSizeHorizontal),
+                          right: SizeConfig.blockSizeHorizontal!),
                       child: RichText(
                         //maxLines: 2,
                         overflow: TextOverflow.clip,
@@ -360,7 +360,7 @@ class _State extends State<Registration> {
                   ],
                 ),
                 SizedBox(
-                  height: SizeConfig.blockSizeVertical,
+                  height: SizeConfig.blockSizeVertical!,
                 ),
                 RichText(
                   text: TextSpan(

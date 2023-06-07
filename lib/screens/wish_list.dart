@@ -47,7 +47,7 @@ class _WishListState extends State<WishList> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -62,12 +62,12 @@ class _WishListState extends State<WishList> {
           BottomNavigationBarItem(
             activeIcon: Image.asset(
               'assets/icons/delivery.png',
-              width: 8 * SizeConfig.blockSizeHorizontal,
+              width: 8 * SizeConfig.blockSizeHorizontal!,
             ),
             icon: Image.asset(
               'assets/icons/delivery.png',
               color: lightTextColor,
-              width: 8 * SizeConfig.blockSizeHorizontal,
+              width: 8 * SizeConfig.blockSizeHorizontal!,
             ),
             //icon: Icon(Icons.delivery_dining),
             label: S().delivery,
@@ -96,8 +96,8 @@ class _WishListState extends State<WishList> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               SizedBox(
-                //height: 80 * SizeConfig.blockSizeVertical,
-                height: 85 * SizeConfig.blockSizeVertical,
+                //height: 80 * SizeConfig.blockSizeVertical!,
+                height: 85 * SizeConfig.blockSizeVertical!,
                 width: double.infinity,
                 child: DefaultTabController(
                   length: 3,
@@ -147,7 +147,7 @@ class _WishListState extends State<WishList> {
                           indicatorColor: primaryColor,
                           indicatorWeight: 5,
                           labelPadding: EdgeInsets.symmetric(
-                              horizontal: 7 * SizeConfig.blockSizeHorizontal),
+                              horizontal: 7 * SizeConfig.blockSizeHorizontal!),
                         ),
                       ),
                       Expanded(

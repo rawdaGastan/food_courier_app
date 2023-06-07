@@ -39,9 +39,9 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
   displayDialog(context) => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeHorizontal),
+          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeHorizontal!),
           content: Container(
-            height: 24 * SizeConfig.blockSizeVertical,
+            height: 24 * SizeConfig.blockSizeVertical!,
             child: ListView.builder(
               shrinkWrap: true,
               itemCount: dietPeriods.length,
@@ -65,8 +65,8 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                       ),
                     ),
                     padding: EdgeInsets.symmetric(
-                        horizontal: 3 * SizeConfig.blockSizeHorizontal),
-                    height: 6 * SizeConfig.blockSizeVertical,
+                        horizontal: 3 * SizeConfig.blockSizeHorizontal!),
+                    height: 6 * SizeConfig.blockSizeVertical!,
                     child: Text(
                       dietPeriods[index],
                     ),
@@ -131,7 +131,7 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
               Icon(
                 Icons.arrow_back_ios,
                 color: blackColor,
-                size: 2.5 * SizeConfig.blockSizeHorizontal,
+                size: 2.5 * SizeConfig.blockSizeHorizontal!,
               ),
               Text(S().back, style: blackSmallText14),
             ],
@@ -144,8 +144,8 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
           decorator: DotsDecorator(
             color: primaryColor, // Inactive color
             activeColor: primaryColor,
-            activeSize: Size(8 * SizeConfig.blockSizeHorizontal,
-                SizeConfig.blockSizeVertical),
+            activeSize: Size(8 * SizeConfig.blockSizeHorizontal!,
+                SizeConfig.blockSizeVertical!),
             activeShape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(5.0)),
           ),
@@ -168,10 +168,10 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(
-                    top: 3 * SizeConfig.blockSizeVertical,
-                    bottom: 3 * SizeConfig.blockSizeVertical,
-                    left: 5 * SizeConfig.blockSizeHorizontal,
-                    right: 5 * SizeConfig.blockSizeHorizontal,
+                    top: 3 * SizeConfig.blockSizeVertical!,
+                    bottom: 3 * SizeConfig.blockSizeVertical!,
+                    left: 5 * SizeConfig.blockSizeHorizontal!,
+                    right: 5 * SizeConfig.blockSizeHorizontal!,
                   ),
                   child: Text(
                     S().personalInfo,
@@ -181,9 +181,9 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 5 * SizeConfig.blockSizeHorizontal,
-                      top: 2 * SizeConfig.blockSizeVertical,
-                      right: 5 * SizeConfig.blockSizeHorizontal),
+                      left: 5 * SizeConfig.blockSizeHorizontal!,
+                      top: 2 * SizeConfig.blockSizeVertical!,
+                      right: 5 * SizeConfig.blockSizeHorizontal!),
                   child: Text(
                     S().userName,
                     //'Name',
@@ -199,9 +199,9 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 5 * SizeConfig.blockSizeHorizontal,
-                      top: 2 * SizeConfig.blockSizeVertical,
-                      right: 5 * SizeConfig.blockSizeHorizontal),
+                      left: 5 * SizeConfig.blockSizeHorizontal!,
+                      top: 2 * SizeConfig.blockSizeVertical!,
+                      right: 5 * SizeConfig.blockSizeHorizontal!),
                   child: Text(
                     S().userAge,
                     //'Age',
@@ -217,8 +217,8 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      right: 5 * SizeConfig.blockSizeHorizontal,
-                      left: 5 * SizeConfig.blockSizeHorizontal),
+                      right: 5 * SizeConfig.blockSizeHorizontal!,
+                      left: 5 * SizeConfig.blockSizeHorizontal!),
                   child: Text(
                     S().phone,
                     style: blackSmallText15,
@@ -233,8 +233,8 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      right: 5 * SizeConfig.blockSizeHorizontal,
-                      left: 5 * SizeConfig.blockSizeHorizontal),
+                      right: 5 * SizeConfig.blockSizeHorizontal!,
+                      left: 5 * SizeConfig.blockSizeHorizontal!),
                   child: Text(
                     S().email,
                     style: blackSmallText15,
@@ -249,9 +249,9 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 5 * SizeConfig.blockSizeHorizontal,
-                      top: 2 * SizeConfig.blockSizeVertical,
-                      right: 5 * SizeConfig.blockSizeHorizontal),
+                      left: 5 * SizeConfig.blockSizeHorizontal!,
+                      top: 2 * SizeConfig.blockSizeVertical!,
+                      right: 5 * SizeConfig.blockSizeHorizontal!),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -297,9 +297,9 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 5 * SizeConfig.blockSizeHorizontal,
-                      top: 2 * SizeConfig.blockSizeVertical,
-                      right: 5 * SizeConfig.blockSizeHorizontal),
+                      left: 5 * SizeConfig.blockSizeHorizontal!,
+                      top: 2 * SizeConfig.blockSizeVertical!,
+                      right: 5 * SizeConfig.blockSizeHorizontal!),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -345,9 +345,9 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Padding(
                   padding: EdgeInsets.only(
-                      left: 5 * SizeConfig.blockSizeHorizontal,
-                      top: 2 * SizeConfig.blockSizeVertical,
-                      right: 5 * SizeConfig.blockSizeHorizontal),
+                      left: 5 * SizeConfig.blockSizeHorizontal!,
+                      top: 2 * SizeConfig.blockSizeVertical!,
+                      right: 5 * SizeConfig.blockSizeHorizontal!),
                   child: Text(
                     S().dietPeriod,
                     //'How long have been following Diet ?',
@@ -356,8 +356,8 @@ class _PersonalInfoRegistrationState extends State<PersonalInfoRegistration> {
                 ),
                 Container(
                   margin: EdgeInsets.only(
-                      right: 5 * SizeConfig.blockSizeHorizontal),
-                  height: 9 * SizeConfig.blockSizeVertical,
+                      right: 5 * SizeConfig.blockSizeHorizontal!),
+                  height: 9 * SizeConfig.blockSizeVertical!,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

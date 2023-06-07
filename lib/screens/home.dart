@@ -21,21 +21,23 @@ import 'package:foodCourier/widgets/grocery_widgets/grocery_tab_bar.dart';
 import 'package:foodCourier/widgets/grocery_widgets/grocery_view.dart';
 
 class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
+
   @override
-  _HomeState createState() => _HomeState();
+  HomeState createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
-  GlobalKey _navigationBarKey = GlobalObjectKey("navigationBar");
+class HomeState extends State<Home> {
+  final GlobalKey _navigationBarKey = const GlobalObjectKey('navigationBar');
 
-  GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
   bool filtersVisibility = true;
   bool dropDownLocationsVisibility = true;
   String regionSelected = 'no region';
-  String regionSelectedType;
+  String regionSelectedType = '';
   int _selectedIndex = 0;
 
-  RestaurantsMenu restaurantsMenuWidget;
+  late RestaurantsMenu restaurantsMenuWidget;
 
   bool bottomBarTapped = false;
 
@@ -63,7 +65,7 @@ class _HomeState extends State<Home> {
     print(PushNotification().onBackground);
     await sharedPreferencesClass.showBackgroundNotification().then(
         (showNotification) => {
-              (showNotification)
+              (showNotification!)
                   ? displayTrackOrderDialog(context)
                   : print(showNotification)
             });
@@ -72,9 +74,9 @@ class _HomeState extends State<Home> {
   displayTrackOrderDialog(context) => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical),
-          content: Container(
-            height: 18 * SizeConfig.blockSizeVertical,
+          contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
+          content: SizedBox(
+            height: 18 * SizeConfig.blockSizeVertical!,
             child: Stack(
               children: [
                 Row(
@@ -84,15 +86,16 @@ class _HomeState extends State<Home> {
                       children: <Widget>[
                         Positioned.fill(
                           child: Container(
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 shape: BoxShape.circle, color: blackColor),
                             margin: EdgeInsets.all(1.5 *
                                 SizeConfig
-                                    .blockSizeVertical), // Modify this till it fills the color properly
+                                    .blockSizeVertical!), // Modify this till it fills the color properly
                           ),
                         ),
                         IconButton(
-                          icon: Icon(Icons.close_rounded, color: whiteColor),
+                          icon: const Icon(Icons.close_rounded,
+                              color: whiteColor),
                           onPressed: () => Navigator.pop(context),
                         ),
                       ],
@@ -102,11 +105,11 @@ class _HomeState extends State<Home> {
                 Center(
                   child: Padding(
                     padding:
-                        EdgeInsets.only(top: 4 * SizeConfig.blockSizeVertical),
+                        EdgeInsets.only(top: 4 * SizeConfig.blockSizeVertical!),
                     child: CircleAvatar(
-                      radius: 12 * SizeConfig.blockSizeHorizontal,
+                      radius: 12 * SizeConfig.blockSizeHorizontal!,
                       backgroundColor: backgroundImages,
-                      backgroundImage: AssetImage(
+                      backgroundImage: const AssetImage(
                         'assets/icons/temp.png',
                       ),
                     ),
@@ -116,7 +119,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           actionsPadding:
-              EdgeInsets.only(bottom: 3 * SizeConfig.blockSizeVertical),
+              EdgeInsets.only(bottom: 3 * SizeConfig.blockSizeVertical!),
           actions: <Widget>[
             MainButton(
               label: 'Track your order',
@@ -128,8 +131,8 @@ class _HomeState extends State<Home> {
 
   void showCoachMarkFAB() async {
     CoachMark coachMarkFAB = CoachMark();
-    RenderBox target = _navigationBarKey.currentContext.findRenderObject();
-    Rect markRect = target.localToGlobal(Offset.zero) & target.size;
+    RenderObject? target = _navigationBarKey.currentContext?.findRenderObject();
+    Rect markRect = target?.localToGlobal(Offset.zero) & target.size;
     markRect = markRect.inflate(5.0);
 
     await sharedPreferencesClass.isFirstTime().then((isFirstTime) => {
@@ -140,12 +143,13 @@ class _HomeState extends State<Home> {
                   markShape: BoxShape.rectangle,
                   children: [
                     Positioned(
-                        top: markRect.top - (10 * SizeConfig.blockSizeVertical),
-                        right: 5 * SizeConfig.blockSizeHorizontal,
-                        left: 5 * SizeConfig.blockSizeHorizontal,
-                        child: Text(
-                          "click here to choose type of the restaurant",
-                          style: const TextStyle(
+                        top:
+                            markRect.top - (10 * SizeConfig.blockSizeVertical!),
+                        right: 5 * SizeConfig.blockSizeHorizontal!,
+                        left: 5 * SizeConfig.blockSizeHorizontal!,
+                        child: const Text(
+                          'click here to choose type of the restaurant',
+                          style: TextStyle(
                             fontSize: 24.0,
                             color: whiteColor,
                           ),
@@ -174,18 +178,16 @@ class _HomeState extends State<Home> {
       bool visibility,
       String selectedCity,
       String selectedCityType) {
-    this.setState(() {
-      if (selectedCity != null) {
+    setState(() {
+      if (selectedCity != '') {
         regionSelected = selectedCity;
       }
-      if (selectedCityType != null) {
+      if (selectedCityType != '') {
         regionSelectedType = selectedCityType;
       }
-      if (visibility != null) {
-        dropDownLocationsVisibility = visibility;
-      }
+      dropDownLocationsVisibility = visibility;
       if (addressSelectedPlace != null) {
-        this.restaurantsMenuWidget = RestaurantsMenu(
+        restaurantsMenuWidget = RestaurantsMenu(
           addressSelectedPlace: addressSelectedPlace,
           selectedRegion: restaurantsMenuWidget.selectedRegion,
           selectedRegionType: restaurantsMenuWidget.selectedRegionType,
@@ -202,7 +204,7 @@ class _HomeState extends State<Home> {
           bottomBarTapped: bottomBarTapped,
         );
       } else if (currentLocation != null) {
-        this.restaurantsMenuWidget = RestaurantsMenu(
+        restaurantsMenuWidget = RestaurantsMenu(
           currentLocation: currentLocation,
           selectedRegion: restaurantsMenuWidget.selectedRegion,
           selectedRegionType: restaurantsMenuWidget.selectedRegionType,
@@ -223,8 +225,8 @@ class _HomeState extends State<Home> {
   }
 
   callbackSearch(String searchInput) {
-    this.setState(() {
-      this.restaurantsMenuWidget = RestaurantsMenu(
+    setState(() {
+      restaurantsMenuWidget = RestaurantsMenu(
         searchInput: searchInput,
         selectedRegion: restaurantsMenuWidget.selectedRegion,
         selectedRegionType: restaurantsMenuWidget.selectedRegionType,
@@ -246,7 +248,7 @@ class _HomeState extends State<Home> {
   callbackFilters(String sortBy) {
     if (sortBy != null) {
       setState(() {
-        this.restaurantsMenuWidget = RestaurantsMenu(
+        restaurantsMenuWidget = RestaurantsMenu(
           sortBy: sortBy,
           selectedRegion: restaurantsMenuWidget.selectedRegion,
           selectedRegionType: restaurantsMenuWidget.selectedRegionType,
@@ -298,9 +300,9 @@ class _HomeState extends State<Home> {
   }*/
 
   showRestaurantsByLocation() {
-    if (regionSelected != 'no region' && regionSelected != null)
-      this.setState(() {
-        this.restaurantsMenuWidget = RestaurantsMenu(
+    if (regionSelected != 'no region' && regionSelected != null) {
+      setState(() {
+        restaurantsMenuWidget = RestaurantsMenu(
           selectedRegion: regionSelected,
           selectedRegionType: regionSelectedType,
           searchInput: restaurantsMenuWidget.searchInput,
@@ -317,42 +319,43 @@ class _HomeState extends State<Home> {
           bottomBarTapped: bottomBarTapped,
         );
       });
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     showRestaurantsByLocation();
-    Timer(Duration(seconds: 1), () => showCoachMarkFAB());
+    Timer(const Duration(seconds: 1), () => showCoachMarkFAB());
     showNotification();
     // _getFullStorySession();
     SizeConfig().init(context);
 
-    EdgeInsets _groceryTabBarPadding = EdgeInsets.only(
+    EdgeInsets groceryTabBarPadding = EdgeInsets.only(
       top: filtersVisibility & dropDownLocationsVisibility
-          ? 35 * SizeConfig.blockSizeVertical
+          ? 35 * SizeConfig.blockSizeVertical!
           : filtersVisibility & !dropDownLocationsVisibility
-              ? 27 * SizeConfig.blockSizeVertical
+              ? 27 * SizeConfig.blockSizeVertical!
               : !filtersVisibility & dropDownLocationsVisibility
-                  ? 17 * SizeConfig.blockSizeVertical
-                  : 9 * SizeConfig.blockSizeVertical,
+                  ? 17 * SizeConfig.blockSizeVertical!
+                  : 9 * SizeConfig.blockSizeVertical!,
     );
 
     double extraPadding = 0;
     foodCourier().remoteConfigService.groceryFeature && _selectedIndex == 1
-        ? extraPadding = 10 * SizeConfig.blockSizeVertical
+        ? extraPadding = 10 * SizeConfig.blockSizeVertical!
         : extraPadding = 0;
-    EdgeInsets _widgetOptionsPadding = EdgeInsets.only(
+    EdgeInsets widgetOptionsPadding = EdgeInsets.only(
       top: filtersVisibility & dropDownLocationsVisibility
-          ? 35 * SizeConfig.blockSizeVertical + extraPadding
+          ? 35 * SizeConfig.blockSizeVertical! + extraPadding
           : filtersVisibility & !dropDownLocationsVisibility
-              ? 27 * SizeConfig.blockSizeVertical + extraPadding
+              ? 27 * SizeConfig.blockSizeVertical! + extraPadding
               : !filtersVisibility & dropDownLocationsVisibility
-                  ? 17 * SizeConfig.blockSizeVertical + extraPadding
-                  : 9 * SizeConfig.blockSizeVertical + extraPadding,
+                  ? 17 * SizeConfig.blockSizeVertical! + extraPadding
+                  : 9 * SizeConfig.blockSizeVertical! + extraPadding,
     );
-    List<Widget> _widgetOptions = <Widget>[
+    List<Widget> widgetOptions = <Widget>[
       Container(
-        padding: _widgetOptionsPadding,
+        padding: widgetOptionsPadding,
         child: restaurantsMenuWidget,
       ),
       /*Container(
@@ -374,7 +377,7 @@ class _HomeState extends State<Home> {
       ),*/
       foodCourier().remoteConfigService.groceryFeature
           ? Container(
-              padding: _widgetOptionsPadding,
+              padding: widgetOptionsPadding,
               child: GroceryView(
                 currentLocation: restaurantsMenuWidget.currentLocation,
                 addressSelectedPlace:
@@ -394,7 +397,7 @@ class _HomeState extends State<Home> {
             )
           : Container(),
       Container(
-        padding: _widgetOptionsPadding,
+        padding: widgetOptionsPadding,
         child: RestaurantsMenu(
           currentLocation: restaurantsMenuWidget.currentLocation,
           addressSelectedPlace: restaurantsMenuWidget.addressSelectedPlace,
@@ -421,11 +424,11 @@ class _HomeState extends State<Home> {
         backgroundColor: whiteColor,
         leading: TextButton(
           onPressed: () {
-            _drawerKey.currentState.openDrawer();
+            _drawerKey.currentState!.openDrawer();
           },
           child: Image(
-            image: AssetImage('assets/icons/menu.png'),
-            width: 6 * SizeConfig.blockSizeHorizontal,
+            image: const AssetImage('assets/icons/menu.png'),
+            width: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -462,15 +465,19 @@ class _HomeState extends State<Home> {
           'assets/icons/filter.svg',
           color: whiteColor,
         ),*/
-        child: Image(
-          image: AssetImage('assets/icons/filter.png'),
-          color: whiteColor,
-          width: 7 * SizeConfig.blockSizeHorizontal,
-        ),
         backgroundColor: primaryColor,
         onPressed: () {
           filterBottomSheet(context, callbackFilters, callbackRestriction);
         },
+        /*child: SvgPicture.asset(
+          'assets/icons/filter.svg',
+          color: whiteColor,
+        ),*/
+        child: Image(
+          image: const AssetImage('assets/icons/filter.png'),
+          color: whiteColor,
+          width: 7 * SizeConfig.blockSizeHorizontal!,
+        ),
         //Navigator.pushNamed(context, 'filter'),
       ),
       drawer: Drawer(
@@ -485,24 +492,24 @@ class _HomeState extends State<Home> {
           BottomNavigationBarItem(
             activeIcon: Image.asset(
               'assets/icons/delivery.png',
-              width: 8 * SizeConfig.blockSizeHorizontal,
+              width: 8 * SizeConfig.blockSizeHorizontal!,
             ),
             icon: Image.asset(
               'assets/icons/delivery.png',
               color: lightTextColor,
-              width: 8 * SizeConfig.blockSizeHorizontal,
+              width: 8 * SizeConfig.blockSizeHorizontal!,
             ),
             //icon: Icon(Icons.delivery_dining),
             label: S().delivery,
             //'Delivery',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_grocery_store),
+            icon: const Icon(Icons.local_grocery_store),
             label: S().grocery,
             //'Grocery',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.room_service),
+            icon: const Icon(Icons.room_service),
             label: S().dineOut,
             //'Dineout',
           ),
@@ -522,12 +529,11 @@ class _HomeState extends State<Home> {
                   child: Padding(
                     // dropdown menu textfield
                     padding: EdgeInsets.only(
-                      left: 10 * SizeConfig.blockSizeHorizontal,
-                      right: 10 * SizeConfig.blockSizeHorizontal,
-                      top: 2 * SizeConfig.blockSizeVertical,
+                      left: 10 * SizeConfig.blockSizeHorizontal!,
+                      right: 10 * SizeConfig.blockSizeHorizontal!,
+                      top: 2 * SizeConfig.blockSizeVertical!,
                     ),
-                    child: DropdownLocationsTextField(
-                        this.callbackDropDownLocation),
+                    child: DropdownLocationsTextField(callbackDropDownLocation),
                   ),
                 ),
                 Stack(
@@ -535,31 +541,31 @@ class _HomeState extends State<Home> {
                     Padding(
                       // search field
                       padding: EdgeInsets.only(
-                        left: 10 * SizeConfig.blockSizeHorizontal,
-                        right: 22 * SizeConfig.blockSizeHorizontal,
-                        top: 2 * SizeConfig.blockSizeVertical,
+                        left: 10 * SizeConfig.blockSizeHorizontal!,
+                        right: 22 * SizeConfig.blockSizeHorizontal!,
+                        top: 2 * SizeConfig.blockSizeVertical!,
                       ),
-                      child: SearchField(this.callbackSearch),
+                      child: SearchField(callbackSearch),
                     ),
                     Padding(
                       // filter button
                       padding: EdgeInsets.only(
-                        left: 80 * SizeConfig.blockSizeHorizontal,
-                        right: 10 * SizeConfig.blockSizeHorizontal,
-                        top: 2 * SizeConfig.blockSizeVertical,
+                        left: 80 * SizeConfig.blockSizeHorizontal!,
+                        right: 10 * SizeConfig.blockSizeHorizontal!,
+                        top: 2 * SizeConfig.blockSizeVertical!,
                       ),
                       child: Container(
-                        height: 6 * SizeConfig.blockSizeVertical,
-                        width: 6 * SizeConfig.blockSizeVertical,
+                        height: 6 * SizeConfig.blockSizeVertical!,
+                        width: 6 * SizeConfig.blockSizeVertical!,
                         decoration: BoxDecoration(
                           color: secondaryColor,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: IconButton(
                           icon: Image(
-                            image: AssetImage('assets/icons/filter.png'),
+                            image: const AssetImage('assets/icons/filter.png'),
                             color: primaryColor,
-                            width: 5 * SizeConfig.blockSizeHorizontal,
+                            width: 5 * SizeConfig.blockSizeHorizontal!,
                           ),
                           onPressed: () {
                             setState(() {
@@ -575,16 +581,16 @@ class _HomeState extends State<Home> {
                   visible: filtersVisibility,
                   child: Padding(
                     padding: EdgeInsets.only(
-                      top: 2 * SizeConfig.blockSizeVertical,
+                      top: 2 * SizeConfig.blockSizeVertical!,
                     ),
                     child: FilterByList(),
                   ),
                 ), // navigation body
               ],
             ),
-            _widgetOptions.elementAt(_selectedIndex),
+            widgetOptions.elementAt(_selectedIndex),
             Padding(
-              padding: _groceryTabBarPadding,
+              padding: groceryTabBarPadding,
               child: foodCourier().remoteConfigService.groceryFeature &&
                       _selectedIndex == 1
                   ? GroceryTabBar()

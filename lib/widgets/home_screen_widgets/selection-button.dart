@@ -54,8 +54,8 @@ class _State extends State<SelectionButton> {
         : blackColor;
 
     SizeConfig();
-    double hBlock = SizeConfig.blockSizeHorizontal,
-        vBlock = SizeConfig.blockSizeVertical;
+    double hBlock = SizeConfig.blockSizeHorizontal!,
+        vBlock = SizeConfig.blockSizeVertical!;
 
     return GestureDetector(
       onTap: onPressed,

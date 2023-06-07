@@ -64,36 +64,36 @@ class _MealDescriptionState extends State<MealDescription> {
               style: mealSubTitles,
             ),
             SizedBox(
-              height: SizeConfig.blockSizeVertical,
+              height: SizeConfig.blockSizeVertical!,
             ),
             Row(
               children: [
                 Container(
-                  height: 2 * SizeConfig.blockSizeVertical,
-                  width: 30 * SizeConfig.blockSizeHorizontal,
+                  height: 2 * SizeConfig.blockSizeVertical!,
+                  width: 30 * SizeConfig.blockSizeHorizontal!,
                   color: orangeColor,
                 ),
                 Container(
-                  height: 2 * SizeConfig.blockSizeVertical,
-                  width: 30 * SizeConfig.blockSizeHorizontal,
+                  height: 2 * SizeConfig.blockSizeVertical!,
+                  width: 30 * SizeConfig.blockSizeHorizontal!,
                   color: greyTextColor,
                 ),
                 Container(
-                  height: 2 * SizeConfig.blockSizeVertical,
-                  width: 32 * SizeConfig.blockSizeHorizontal,
+                  height: 2 * SizeConfig.blockSizeVertical!,
+                  width: 32 * SizeConfig.blockSizeHorizontal!,
                   color: primaryColor,
                 ),
               ],
             ),
-            SizedBox(height: SizeConfig.blockSizeVertical),
+            SizedBox(height: SizeConfig.blockSizeVertical!),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
                     Container(
-                      height: 2 * SizeConfig.blockSizeHorizontal,
-                      width: 2 * SizeConfig.blockSizeHorizontal,
+                      height: 2 * SizeConfig.blockSizeHorizontal!,
+                      width: 2 * SizeConfig.blockSizeHorizontal!,
                       decoration: new BoxDecoration(
                         color: orangeColor,
                         shape: BoxShape.circle,
@@ -112,8 +112,8 @@ class _MealDescriptionState extends State<MealDescription> {
                 Row(
                   children: [
                     Container(
-                      height: 2 * SizeConfig.blockSizeHorizontal,
-                      width: 2 * SizeConfig.blockSizeHorizontal,
+                      height: 2 * SizeConfig.blockSizeHorizontal!,
+                      width: 2 * SizeConfig.blockSizeHorizontal!,
                       decoration: new BoxDecoration(
                         color: greyTextColor,
                         shape: BoxShape.circle,
@@ -132,8 +132,8 @@ class _MealDescriptionState extends State<MealDescription> {
                 Row(
                   children: [
                     Container(
-                      height: 2 * SizeConfig.blockSizeHorizontal,
-                      width: 2 * SizeConfig.blockSizeHorizontal,
+                      height: 2 * SizeConfig.blockSizeHorizontal!,
+                      width: 2 * SizeConfig.blockSizeHorizontal!,
                       decoration: new BoxDecoration(
                         color: primaryColor,
                         shape: BoxShape.circle,
@@ -152,7 +152,7 @@ class _MealDescriptionState extends State<MealDescription> {
               ],
             ),
             SizedBox(
-              height: SizeConfig.blockSizeVertical,
+              height: SizeConfig.blockSizeVertical!,
             ),
             Row(
               children: [
@@ -171,12 +171,12 @@ class _MealDescriptionState extends State<MealDescription> {
               style: mealSubTitles,
             ),
             SizedBox(
-              height: SizeConfig.blockSizeVertical,
+              height: SizeConfig.blockSizeVertical!,
             ),
             Container(
-              height: 8 * SizeConfig.blockSizeVertical,
+              height: 8 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
               decoration: BoxDecoration(
                 color: secondaryColor,
                 border: Border(
@@ -199,9 +199,9 @@ class _MealDescriptionState extends State<MealDescription> {
               ),
             ),
             Container(
-              height: 6 * SizeConfig.blockSizeVertical,
+              height: 6 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
               decoration: BoxDecoration(
                 color: secondaryColor,
                 border: Border(
@@ -224,7 +224,7 @@ class _MealDescriptionState extends State<MealDescription> {
             ),
             Container(
               padding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
               decoration: BoxDecoration(
                 color: secondaryColor,
                 border: Border(
@@ -237,7 +237,7 @@ class _MealDescriptionState extends State<MealDescription> {
                 itemCount: mealValues.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    height: 6 * SizeConfig.blockSizeVertical,
+                    height: 6 * SizeConfig.blockSizeVertical!,
                     child: Stack(
                       children: [
                         Align(
@@ -278,9 +278,9 @@ class _MealDescriptionState extends State<MealDescription> {
               ),
             ),
             Container(
-              height: 10 * SizeConfig.blockSizeVertical,
+              height: 10 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
-                  horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                  horizontal: 3 * SizeConfig.blockSizeHorizontal!),
               decoration: BoxDecoration(
                 color: secondaryColor,
                 border: Border(

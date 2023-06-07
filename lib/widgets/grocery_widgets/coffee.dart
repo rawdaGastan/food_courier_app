@@ -154,7 +154,7 @@ class _State extends State<Coffee> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 43 * SizeConfig.blockSizeVertical,
+      height: 43 * SizeConfig.blockSizeVertical!,
       width: double.infinity,
       child: StreamBuilder(
           stream: _stream,

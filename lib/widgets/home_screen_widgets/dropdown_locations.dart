@@ -91,8 +91,8 @@ class _State extends State<DropdownLocationsTextField> {
       children: [
         Expanded(
           child: Container(
-            margin: EdgeInsets.only(right: SizeConfig.blockSizeVertical),
-            height: 6 * SizeConfig.blockSizeVertical,
+            margin: EdgeInsets.only(right: SizeConfig.blockSizeVertical!),
+            height: 6 * SizeConfig.blockSizeVertical!,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: secondaryColor,
@@ -113,7 +113,7 @@ class _State extends State<DropdownLocationsTextField> {
                   Icon(
                     Icons.arrow_drop_down,
                     color: primaryColor,
-                    size: 4 * SizeConfig.blockSizeVertical,
+                    size: 4 * SizeConfig.blockSizeVertical!,
                   ),
                 ],
               ),
@@ -122,8 +122,8 @@ class _State extends State<DropdownLocationsTextField> {
         ),
         //Spacer(),
         Container(
-          height: 6 * SizeConfig.blockSizeVertical,
-          width: 6 * SizeConfig.blockSizeVertical,
+          height: 6 * SizeConfig.blockSizeVertical!,
+          width: 6 * SizeConfig.blockSizeVertical!,
           decoration: BoxDecoration(
             color: secondaryColor,
             borderRadius: BorderRadius.circular(8.0),
@@ -151,8 +151,8 @@ class _State extends State<DropdownLocationsTextField> {
         builder: (context) {
           return Container(
             padding: EdgeInsets.symmetric(
-                horizontal: 2 * SizeConfig.blockSizeVertical),
-            height: 75 * SizeConfig.blockSizeVertical,
+                horizontal: 2 * SizeConfig.blockSizeVertical!),
+            height: 75 * SizeConfig.blockSizeVertical!,
             alignment: Alignment.center,
             child: ListView.separated(
                 itemCount: dropDownCities.length,
@@ -161,7 +161,7 @@ class _State extends State<DropdownLocationsTextField> {
                 },
                 itemBuilder: (context, index) {
                   return SizedBox(
-                    height: 5 * SizeConfig.blockSizeVertical,
+                    height: 5 * SizeConfig.blockSizeVertical!,
                     child: Align(
                       alignment: Alignment.centerLeft,
                       child: GestureDetector(
@@ -175,8 +175,8 @@ class _State extends State<DropdownLocationsTextField> {
                                     Icon(Icons.person_pin_circle,
                                         color: primaryColor),
                                     SizedBox(
-                                        width:
-                                            5 * SizeConfig.blockSizeHorizontal),
+                                        width: 5 *
+                                            SizeConfig.blockSizeHorizontal!),
                                     Text(dropDownCities.keys.elementAt(index))
                                   ],
                                 )),

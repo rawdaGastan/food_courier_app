@@ -75,12 +75,12 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
     // get index of occurrence for current scroll position
     for (int i = 0; i < tags.length - 1; i++) {
       currentOffset =
-          (tags.values.elementAt(i) * 32 * SizeConfig.blockSizeVertical) +
-              (i * 4.22 * SizeConfig.blockSizeVertical) +
+          (tags.values.elementAt(i) * 32 * SizeConfig.blockSizeVertical!) +
+              (i * 4.22 * SizeConfig.blockSizeVertical!) +
               (i * 16);
       nextOffset =
-          (tags.values.elementAt(i + 1) * 32 * SizeConfig.blockSizeVertical) +
-              ((i + 1) * 4.22 * SizeConfig.blockSizeVertical) +
+          (tags.values.elementAt(i + 1) * 32 * SizeConfig.blockSizeVertical!) +
+              ((i + 1) * 4.22 * SizeConfig.blockSizeVertical!) +
               ((i + 1) * 16);
 
       if (scrollInfo.metrics.pixels >= currentOffset &&
@@ -88,8 +88,8 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
 
       lastOffset = (tags.values.elementAt(tags.length - 1) *
               32 *
-              SizeConfig.blockSizeVertical) +
-          ((tags.length - 1) * 4.22 * SizeConfig.blockSizeVertical) +
+              SizeConfig.blockSizeVertical!) +
+          ((tags.length - 1) * 4.22 * SizeConfig.blockSizeVertical!) +
           ((tags.length - 1) * 16);
       if (scrollInfo.metrics.pixels >= lastOffset)
         currentIndex = tags.length - 1;
@@ -113,11 +113,11 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
               controller: widget._controller,
               children: [
                 Container(
-                  padding:
-                      EdgeInsets.only(bottom: 8 * SizeConfig.blockSizeVertical),
-                  //height: 70 * SizeConfig.blockSizeVertical,
-                  //height: 63 * SizeConfig.blockSizeVertical,
-                  height: 95 * SizeConfig.blockSizeVertical,
+                  padding: EdgeInsets.only(
+                      bottom: 8 * SizeConfig.blockSizeVertical!),
+                  //height: 70 * SizeConfig.blockSizeVertical!,
+                  //height: 63 * SizeConfig.blockSizeVertical!,
+                  height: 95 * SizeConfig.blockSizeVertical!,
                   child: StreamBuilder(
                       stream: _stream,
                       builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -128,11 +128,11 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                               SliverStickyHeader(
                                 overlapsContent: false,
                                 header: Container(
-                                  //margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical),
+                                  //margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical!),
                                   padding: EdgeInsets.symmetric(
                                       horizontal:
-                                          2 * SizeConfig.blockSizeHorizontal),
-                                  height: 6 * SizeConfig.blockSizeVertical,
+                                          2 * SizeConfig.blockSizeHorizontal!),
+                                  height: 6 * SizeConfig.blockSizeVertical!,
                                   decoration: BoxDecoration(
                                     color: secondaryColor,
                                   ),
@@ -143,7 +143,8 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                                       child: Padding(
                                         padding: EdgeInsets.symmetric(
                                             horizontal: 2 *
-                                                SizeConfig.blockSizeHorizontal),
+                                                SizeConfig
+                                                    .blockSizeHorizontal!),
                                         child: TagTab(
                                           tag: tags.keys.elementAt(i),
                                           isSelected: i == selectedTabIndex
@@ -156,8 +157,8 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                                             // 32 is the size of meal card and the 12 is profile size + tab bar size
                                             /*double index = (tags.values.elementAt(i) *
                                   32 *
-                                  SizeConfig.blockSizeVertical) +
-                                  12 * SizeConfig.blockSizeVertical;*/
+                                  SizeConfig.blockSizeVertical!) +
+                                  12 * SizeConfig.blockSizeVertical!;*/
                                             // 32 is the size of meal card and the 4.22 is title size + 16 of padding for title
                                             double index = (tags.values
                                                         .elementAt(i) *

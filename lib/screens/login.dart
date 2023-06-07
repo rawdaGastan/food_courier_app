@@ -18,17 +18,17 @@ class LoginScreen extends StatefulWidget {
   final TextEditingController _passwordController = TextEditingController();
 
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  LoginScreenState createState() => LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final numericRegex = RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
   bool isMobile = false;
   String phoneOrEmail = S().emailOrPhone;
-  String emailOrPhoneValue = "";
-  CountryCode countryCode;
+  String emailOrPhoneValue = '';
+  late CountryCode countryCode;
 
   @override
   void initState() {
@@ -49,18 +49,20 @@ class _LoginScreenState extends State<LoginScreen> {
             .login(email, password);
 
     if (response != null) {
-      if (response == "jwt")
+      if (response == 'jwt') {
         Navigator.pushNamed(context, 'home');
-      else if (response['email'] != null)
-        displayDialog(context, "Invalid login", response['email'].join('\n'));
-      else if (response['password'] != null)
+      } else if (response['email'] != null) {
+        displayDialog(context, 'Invalid login', response['email'].join('\n'));
+      } else if (response['password'] != null) {
         displayDialog(
-            context, "Invalid login", response['password'].join('\n'));
-      else if (response['non_field_errors'] != null)
+            context, 'Invalid login', response['password'].join('\n'));
+      } else if (response['non_field_errors'] != null) {
         displayDialog(
-            context, "Invalid login", response['non_field_errors'].join('\n'));
-    } else
-      displayDialog(context, "Error", "An unknown error occurred.");
+            context, 'Invalid login', response['non_field_errors'].join('\n'));
+      }
+    } else {
+      displayDialog(context, 'Error', 'An unknown error occurred.');
+    }
   }
 
   @override
@@ -75,7 +77,7 @@ class _LoginScreenState extends State<LoginScreen> {
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(
-                    top: 2 * SizeConfig.blockSizeVertical,
+                    top: 2 * SizeConfig.blockSizeVertical!,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -90,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Icon(
                               Icons.arrow_back_ios,
                               color: blackColor,
-                              size: 4 * SizeConfig.blockSizeHorizontal,
+                              size: 4 * SizeConfig.blockSizeHorizontal!,
                             ),
                             Text(S().back, style: blackSmallText14),
                           ],
@@ -100,11 +102,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                 ),
                 CircleAvatar(
-                  radius: 5 * SizeConfig.blockSizeVertical,
+                  radius: 5 * SizeConfig.blockSizeVertical!,
                   backgroundColor: backgroundImages,
                 ),
                 SizedBox(
-                  height: 2 * SizeConfig.blockSizeVertical,
+                  height: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 Text(
                   S().welcome,
@@ -118,11 +120,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   textAlign: TextAlign.center,
                 ),
                 SizedBox(
-                  height: 4 * SizeConfig.blockSizeVertical,
+                  height: 4 * SizeConfig.blockSizeVertical!,
                 ),
                 ApiButton(
                   leading: Image.asset('assets/icons/facebook.png',
-                      width: 8 * SizeConfig.blockSizeHorizontal),
+                      width: 8 * SizeConfig.blockSizeHorizontal!),
                   action: () async {
                     await Provider.of<AuthenticationProvider>(context,
                             listen: false)
@@ -133,11 +135,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   //color: Colors.lightBlueAccent,
                 ),
                 SizedBox(
-                  height: 2 * SizeConfig.blockSizeVertical,
+                  height: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 ApiButton(
                   leading: Image.asset('assets/icons/google.png',
-                      width: 8 * SizeConfig.blockSizeHorizontal),
+                      width: 8 * SizeConfig.blockSizeHorizontal!),
                   action: () async {
                     await Provider.of<AuthenticationProvider>(context,
                             listen: false)
@@ -150,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 OrDivider(),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: 5 * SizeConfig.blockSizeHorizontal),
+                      horizontal: 5 * SizeConfig.blockSizeHorizontal!),
                   child: InputField(
                     controller: widget._emailController,
                     onChanged: (text) {
@@ -173,23 +175,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
                     },
                     prefix: isMobile
-                        ? Container(
-                            height: 3 * SizeConfig.blockSizeVertical,
-                            width: 30 * SizeConfig.blockSizeHorizontal,
+                        ? SizedBox(
+                            height: 3 * SizeConfig.blockSizeVertical!,
+                            width: 30 * SizeConfig.blockSizeHorizontal!,
                             child: CountryCodePicker(
                               onInit: (countryCode) {
-                                this.countryCode = countryCode;
+                                this.countryCode = countryCode!;
                               },
                               onChanged: (countryCode) {},
                               initialSelection: 'EG',
-                              favorite: ['+20', 'EG'],
+                              favorite: const ['+20', 'EG'],
                               showCountryOnly: false,
                               showOnlyCountryWhenClosed: false,
                               alignLeft: false,
                               textStyle: fillFieldText,
                             ),
                           )
-                        : null,
+                        : const SizedBox(),
                     isObscure: false,
                     label: phoneOrEmail,
                     validator: MultiValidator([
@@ -206,11 +208,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                      horizontal: 5 * SizeConfig.blockSizeHorizontal),
+                      horizontal: 5 * SizeConfig.blockSizeHorizontal!),
                   child: InputField(
                     controller: widget._passwordController,
                     onChanged: (String input) {},
-                    prefix: null,
                     label: S().password,
                     //'Password',
                     type: TextInputType.text,
@@ -225,7 +226,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   alignment: Alignment.centerRight,
                   padding: EdgeInsets.only(
-                      right: 5 * SizeConfig.blockSizeHorizontal),
+                      right: 5 * SizeConfig.blockSizeHorizontal!),
                   child: RichText(
                     text: TextSpan(
                       text: S().forgetPassword,
@@ -241,13 +242,13 @@ class _LoginScreenState extends State<LoginScreen> {
                 MainButton(
                   label: S().signIn,
                   action: () async {
-                    if (formKey.currentState.validate()) {
+                    if (formKey.currentState!.validate()) {
                       signIn();
                     }
                   },
                 ),
                 SizedBox(
-                  height: 5 * SizeConfig.blockSizeVertical,
+                  height: 5 * SizeConfig.blockSizeVertical!,
                 ),
                 RichText(
                   text: TextSpan(

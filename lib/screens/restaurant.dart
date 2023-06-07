@@ -57,7 +57,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
           child: Image(
             image: AssetImage('assets/icons/filter.png'),
             color: whiteColor,
-            width: 7 * SizeConfig.blockSizeHorizontal,
+            width: 7 * SizeConfig.blockSizeHorizontal!,
           ),
           backgroundColor: primaryColor,
           onPressed: () {
@@ -71,12 +71,12 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
             BottomNavigationBarItem(
               activeIcon: Image.asset(
                 'assets/icons/delivery.png',
-                width: 8 * SizeConfig.blockSizeHorizontal,
+                width: 8 * SizeConfig.blockSizeHorizontal!,
               ),
               icon: Image.asset(
                 'assets/icons/delivery.png',
                 color: lightTextColor,
-                width: 8 * SizeConfig.blockSizeHorizontal,
+                width: 8 * SizeConfig.blockSizeHorizontal!,
               ),
               //icon: Icon(Icons.delivery_dining),
               label: S().delivery,
@@ -111,9 +111,9 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                 ),
               ),*/
               anchor: 0.67,
-              controlHeight: 100 * SizeConfig.blockSizeVertical,
-              //minHeight: 67 * SizeConfig.blockSizeVertical,
-              //maxHeight: 100 * SizeConfig.blockSizeVertical,
+              controlHeight: 100 * SizeConfig.blockSizeVertical!,
+              //minHeight: 67 * SizeConfig.blockSizeVertical!,
+              //maxHeight: 100 * SizeConfig.blockSizeVertical!,
               child: Stack(
                 children: [
                   Container(
@@ -128,9 +128,9 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                   Padding(
                     padding: restaurant.labelNames.length > 0
                         ? EdgeInsets.only(
-                            top: 24 * SizeConfig.blockSizeVertical)
+                            top: 24 * SizeConfig.blockSizeVertical!)
                         : EdgeInsets.only(
-                            top: 17 * SizeConfig.blockSizeVertical),
+                            top: 17 * SizeConfig.blockSizeVertical!),
                     child: DefaultTabController(
                       length: 3,
                       child: Column(
@@ -148,7 +148,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                                 ),
                               ],
                             ),
-                            height: 7 * SizeConfig.blockSizeVertical,
+                            height: 7 * SizeConfig.blockSizeVertical!,
                             child: TabBar(
                               tabs: [
                                 Tab(
@@ -179,7 +179,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                               indicatorWeight: 4,
                               labelPadding: EdgeInsets.symmetric(
                                   horizontal:
-                                      3 * SizeConfig.blockSizeHorizontal),
+                                      3 * SizeConfig.blockSizeHorizontal!),
                             ),
                           ),
                           Expanded(
@@ -205,7 +205,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                       controller: scrollController,
                       children: [
                         Container(
-                          height: 95 * SizeConfig.blockSizeVertical,
+                          height: 95 * SizeConfig.blockSizeVertical!,
                           width: double.infinity,
                           color: whiteColor,
                           child: RestaurantInsideMenu(

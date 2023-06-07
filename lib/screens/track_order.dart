@@ -28,7 +28,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -47,8 +47,8 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(
-              horizontal: 3 * SizeConfig.blockSizeVertical,
-              vertical: 2 * SizeConfig.blockSizeVertical),
+              horizontal: 3 * SizeConfig.blockSizeVertical!,
+              vertical: 2 * SizeConfig.blockSizeVertical!),
           children: [
             Text('Order number :    3254', style: pickUpAndDeliveryTime),
             Row(
@@ -65,7 +65,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
               ],
             ),
             SizedBox(
-              height: 2 * SizeConfig.blockSizeVertical,
+              height: 2 * SizeConfig.blockSizeVertical!,
             ),
             Divider(),
             Row(
@@ -76,7 +76,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                     Icon(Icons.brightness_1, size: 30.0, color: primaryColor),
                     Container(
                         alignment: Alignment.center,
-                        height: 5 * SizeConfig.blockSizeVertical,
+                        height: 5 * SizeConfig.blockSizeVertical!,
                         child: VerticalDivider(
                           thickness: 2,
                           color: primaryColor,
@@ -84,7 +84,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                     Icon(Icons.brightness_1, size: 30.0, color: primaryColor),
                     Container(
                         alignment: Alignment.center,
-                        height: 5 * SizeConfig.blockSizeVertical,
+                        height: 5 * SizeConfig.blockSizeVertical!,
                         child: VerticalDivider(
                           thickness: 2,
                           color: primaryColor,
@@ -92,7 +92,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                     Icon(Icons.brightness_1, size: 30.0, color: orangeColor),
                     Container(
                         alignment: Alignment.center,
-                        height: 5 * SizeConfig.blockSizeVertical,
+                        height: 5 * SizeConfig.blockSizeVertical!,
                         child: VerticalDivider(
                           thickness: 2,
                           color: orangeColor,
@@ -100,7 +100,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                     Icon(Icons.brightness_1_outlined, size: 30.0),
                     Container(
                         alignment: Alignment.center,
-                        height: 5 * SizeConfig.blockSizeVertical,
+                        height: 5 * SizeConfig.blockSizeVertical!,
                         child:
                             VerticalDivider(thickness: 2, color: blackColor)),
                     Icon(
@@ -111,45 +111,45 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 3 * SizeConfig.blockSizeHorizontal,
+                    horizontal: 3 * SizeConfig.blockSizeHorizontal!,
                   ),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 2 * SizeConfig.blockSizeVertical,
+                      height: 2 * SizeConfig.blockSizeVertical!,
                     ),
                     Text('Order Placed', style: totalPayment),
                     Text('We have received your order', style: deliveryCost),
                     SizedBox(
-                      height: 2 * SizeConfig.blockSizeVertical,
+                      height: 2 * SizeConfig.blockSizeVertical!,
                     ),
                     Text('Order Confirmed ', style: totalPayment),
                     Text('your order has been confirmed', style: deliveryCost),
                     SizedBox(
-                      height: 2 * SizeConfig.blockSizeVertical,
+                      height: 2 * SizeConfig.blockSizeVertical!,
                     ),
                     Text('Order Processed',
                         style: totalPayment.apply(color: orangeColor)),
                     Text('we are preparing your order',
                         style: deliveryCost.apply(color: orangeColor)),
                     SizedBox(
-                      height: 2 * SizeConfig.blockSizeVertical,
+                      height: 2 * SizeConfig.blockSizeVertical!,
                     ),
                     Text('Order Completed',
                         style: totalPayment.apply(color: blackColor)),
                     Text('your order is on the way',
                         style: deliveryCost.apply(color: blackColor)),
                     SizedBox(
-                      height: 2 * SizeConfig.blockSizeVertical,
+                      height: 2 * SizeConfig.blockSizeVertical!,
                     ),
                     Text('Order Delivered',
                         style: totalPayment.apply(color: blackColor)),
                     Text('Enjoy your food',
                         style: deliveryCost.apply(color: blackColor)),
                     SizedBox(
-                      height: 2 * SizeConfig.blockSizeVertical,
+                      height: 2 * SizeConfig.blockSizeVertical!,
                     ),
                   ],
                 ),
@@ -166,10 +166,10 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                       Icon(
                         Icons.error,
                         color: blackColor,
-                        size: 5 * SizeConfig.blockSizeHorizontal,
+                        size: 5 * SizeConfig.blockSizeHorizontal!,
                       ),
                       SizedBox(
-                        width: 2 * SizeConfig.blockSizeHorizontal,
+                        width: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
                       Text('Complaint', style: pickUpAndDeliveryTime),
                     ],
@@ -180,7 +180,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                   textColor: whiteColor,
                   color: primaryColor,
                   child: Icon(Icons.call),
-                  padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
+                  padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
                   shape: CircleBorder(),
                 ),
               ],

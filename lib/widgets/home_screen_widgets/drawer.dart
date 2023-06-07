@@ -16,8 +16,8 @@ class DrawerContents extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        vertical: 4 * SizeConfig.blockSizeVertical,
-        horizontal: 4 * SizeConfig.blockSizeVertical,
+        vertical: 4 * SizeConfig.blockSizeVertical!,
+        horizontal: 4 * SizeConfig.blockSizeVertical!,
       ),
       color: secondaryColor,
       child: SafeArea(
@@ -28,10 +28,10 @@ class DrawerContents extends StatelessWidget {
               onTap: () => Navigator.pop(context),
               child: Container(
                 margin: EdgeInsets.only(
-                  bottom: 2 * SizeConfig.blockSizeVertical,
+                  bottom: 2 * SizeConfig.blockSizeVertical!,
                 ),
                 width: double.infinity,
-                height: 4 * SizeConfig.blockSizeVertical,
+                height: 4 * SizeConfig.blockSizeVertical!,
                 child: Text(
                   S().menu,
                   //'Menu',
@@ -48,8 +48,8 @@ class DrawerContents extends StatelessWidget {
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                        vertical: 2 * SizeConfig.blockSizeVertical,
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                        vertical: 2 * SizeConfig.blockSizeVertical!,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
                       child: Text(
                         S().myProfile,
@@ -74,10 +74,10 @@ class DrawerContents extends StatelessWidget {
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                        vertical: 2 * SizeConfig.blockSizeVertical,
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                        vertical: 2 * SizeConfig.blockSizeVertical!,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
-                      //height: 4 * SizeConfig.blockSizeVertical,
+                      //height: 4 * SizeConfig.blockSizeVertical!,
                       child: Text(
                         S().wishList,
                         //'Wish List',
@@ -97,10 +97,10 @@ class DrawerContents extends StatelessWidget {
                         Icon(Icons.shopping_cart, color: lightTextColor),
                         Flexible(
                           child: Container(
-                            width: 27 * SizeConfig.blockSizeHorizontal,
+                            width: 27 * SizeConfig.blockSizeHorizontal!,
                             margin: EdgeInsets.symmetric(
-                              vertical: 2 * SizeConfig.blockSizeVertical,
-                              horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                              vertical: 2 * SizeConfig.blockSizeVertical!,
+                              horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                             ),
                             child: Stack(
                               children: [
@@ -118,9 +118,9 @@ class DrawerContents extends StatelessWidget {
                                           size: 15.0, color: orangeColor),
                                       Positioned(
                                           top: 0.7 *
-                                              SizeConfig.blockSizeHorizontal,
+                                              SizeConfig.blockSizeHorizontal!,
                                           right: 0.7 *
-                                              SizeConfig.blockSizeHorizontal,
+                                              SizeConfig.blockSizeHorizontal!,
                                           child: Center(
                                             child: Text(
                                               '11',
@@ -147,8 +147,8 @@ class DrawerContents extends StatelessWidget {
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                        vertical: 2 * SizeConfig.blockSizeVertical,
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                        vertical: 2 * SizeConfig.blockSizeVertical!,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
                       child: Text(
                         S().sendFeedback,
@@ -169,10 +169,10 @@ class DrawerContents extends StatelessWidget {
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                        vertical: 2 * SizeConfig.blockSizeVertical,
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                        vertical: 2 * SizeConfig.blockSizeVertical!,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
-                      //height: 4 * SizeConfig.blockSizeVertical,
+                      //height: 4 * SizeConfig.blockSizeVertical!,
                       child: Text(
                         S().aboutUs,
                         //'About Us',
@@ -192,10 +192,10 @@ class DrawerContents extends StatelessWidget {
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                        vertical: 2 * SizeConfig.blockSizeVertical,
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                        vertical: 2 * SizeConfig.blockSizeVertical!,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
-                      //height: 4 * SizeConfig.blockSizeVertical,
+                      //height: 4 * SizeConfig.blockSizeVertical!,
                       child: Text(
                         S().howItWorks,
                         //'How it Works',
@@ -216,10 +216,10 @@ class DrawerContents extends StatelessWidget {
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                        vertical: 2 * SizeConfig.blockSizeVertical,
-                        horizontal: 2 * SizeConfig.blockSizeHorizontal,
+                        vertical: 2 * SizeConfig.blockSizeVertical!,
+                        horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
-                      //height: 4 * SizeConfig.blockSizeVertical,
+                      //height: 4 * SizeConfig.blockSizeVertical!,
                       child: Text(
                         S().language,
                         //'Language',

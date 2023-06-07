@@ -8,10 +8,10 @@ import 'package:foodCourier/widgets/order_screen_widgets/items_list.dart';
 
 class OrderDetailsScreen extends StatefulWidget {
   @override
-  _OrderDetailsScreenState createState() => _OrderDetailsScreenState();
+  OrderDetailsScreenState createState() => OrderDetailsScreenState();
 }
 
-class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
+class OrderDetailsScreenState extends State<OrderDetailsScreen> {
   int activeTabIndex = 0;
   int orderRating = 0;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -23,7 +23,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List defaults = ModalRoute.of(context).settings.arguments;
+    List defaults = ModalRoute.of(context)!.settings.arguments as List;
     bool isActiveOrder = defaults[0];
 
     return Scaffold(
@@ -36,7 +36,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
@@ -60,8 +60,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
       body: SafeArea(
         child: ListView(
           padding: EdgeInsets.symmetric(
-              horizontal: 3 * SizeConfig.blockSizeVertical,
-              vertical: 3 * SizeConfig.blockSizeVertical),
+              horizontal: 3 * SizeConfig.blockSizeVertical!,
+              vertical: 3 * SizeConfig.blockSizeVertical!),
           children: [
             isActiveOrder
                 ? Column(
@@ -74,9 +74,9 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                           ),
                         ),
                         margin: EdgeInsets.symmetric(
-                            horizontal: 2 * SizeConfig.blockSizeHorizontal),
+                            horizontal: 2 * SizeConfig.blockSizeHorizontal!),
                         padding:
-                            EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
+                            EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -85,23 +85,23 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.brightness_1,
-                                    size: 15 * SizeConfig.blockSizeHorizontal,
+                                    size: 15 * SizeConfig.blockSizeHorizontal!,
                                   ),
                                   color: orangeColor,
                                   onPressed: () => Navigator.pop(context),
                                 ),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
-                                    horizontal: SizeConfig.blockSizeHorizontal,
+                                    horizontal: SizeConfig.blockSizeHorizontal!,
                                   ),
                                   child: Text('Icon'),
                                 ),
                               ],
                             ),
                             Container(
-                              width: 60 * SizeConfig.blockSizeHorizontal,
+                              width: 60 * SizeConfig.blockSizeHorizontal!,
                               padding: EdgeInsets.symmetric(
-                                horizontal: 4 * SizeConfig.blockSizeHorizontal,
+                                horizontal: 4 * SizeConfig.blockSizeHorizontal!,
                               ),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +125,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         length: 2,
                         child: Container(
                           color: secondaryColor,
-                          height: 8 * SizeConfig.blockSizeVertical,
+                          height: 8 * SizeConfig.blockSizeVertical!,
                           child: TabBar(
                             tabs: [
                               Tab(
@@ -158,11 +158,12 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                             indicatorColor: primaryColor,
                             indicatorWeight: 4,
                             labelPadding: EdgeInsets.symmetric(
-                                horizontal: 3 * SizeConfig.blockSizeHorizontal),
+                                horizontal:
+                                    3 * SizeConfig.blockSizeHorizontal!),
                           ),
                         ),
                       ),
-                      SizedBox(height: SizeConfig.blockSizeVertical),
+                      SizedBox(height: SizeConfig.blockSizeVertical!),
                       Text(
                         'In this status, You can cancel or modify the order. ',
                         style: mealInfo,
@@ -179,7 +180,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                         textAlign: TextAlign.center,
                       ),
                       SizedBox(
-                        height: SizeConfig.blockSizeVertical,
+                        height: SizeConfig.blockSizeVertical!,
                       ),
                       AutoSizeText(
                         'Rate this order',
@@ -195,7 +196,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ? Icons.star
                                     : Icons.star_border,
                                 color: orangeColor,
-                                size: 10 * SizeConfig.blockSizeHorizontal,
+                                size: 10 * SizeConfig.blockSizeHorizontal!,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -208,7 +209,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ? Icons.star
                                     : Icons.star_border,
                                 color: orangeColor,
-                                size: 10 * SizeConfig.blockSizeHorizontal,
+                                size: 10 * SizeConfig.blockSizeHorizontal!,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -221,7 +222,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ? Icons.star
                                     : Icons.star_border,
                                 color: orangeColor,
-                                size: 10 * SizeConfig.blockSizeHorizontal,
+                                size: 10 * SizeConfig.blockSizeHorizontal!,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -234,7 +235,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ? Icons.star
                                     : Icons.star_border,
                                 color: orangeColor,
-                                size: 10 * SizeConfig.blockSizeHorizontal,
+                                size: 10 * SizeConfig.blockSizeHorizontal!,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -247,7 +248,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                                     ? Icons.star
                                     : Icons.star_border,
                                 color: orangeColor,
-                                size: 10 * SizeConfig.blockSizeHorizontal,
+                                size: 10 * SizeConfig.blockSizeHorizontal!,
                               ),
                               onPressed: () {
                                 setState(() {
@@ -258,14 +259,14 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                       ),
                     ],
                   ),
-            SizedBox(height: 2 * SizeConfig.blockSizeVertical),
+            SizedBox(height: 2 * SizeConfig.blockSizeVertical!),
             Text(
               'Order details',
               style: buttonText,
             ),
-            SizedBox(height: SizeConfig.blockSizeVertical),
+            SizedBox(height: SizeConfig.blockSizeVertical!),
             Container(
-              height: 10 * SizeConfig.blockSizeVertical,
+              height: 10 * SizeConfig.blockSizeVertical!,
               decoration: BoxDecoration(
                 border: Border.all(width: 1.0, color: lightTextColor),
               ),
@@ -288,13 +289,13 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   ),
                   Container(
                       alignment: Alignment.center,
-                      height: 7 * SizeConfig.blockSizeVertical,
+                      height: 7 * SizeConfig.blockSizeVertical!,
                       child: VerticalDivider(
                         thickness: 1,
                         color: lightTextColor,
                       )),
                   Container(
-                    width: 60 * SizeConfig.blockSizeHorizontal,
+                    width: 60 * SizeConfig.blockSizeHorizontal!,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -313,16 +314,16 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 ],
               ),
             ),
-            SizedBox(height: SizeConfig.blockSizeVertical),
+            SizedBox(height: SizeConfig.blockSizeVertical!),
             Text(
               'Order',
               style: buttonText,
             ),
             Padding(
               padding: EdgeInsets.only(
-                  //top: SizeConfig.blockSizeVertical,
-                  bottom: SizeConfig.blockSizeVertical,
-                  left: 2 * SizeConfig.blockSizeVertical),
+                  //top: SizeConfig.blockSizeVertical!,
+                  bottom: SizeConfig.blockSizeVertical!,
+                  left: 2 * SizeConfig.blockSizeVertical!),
               child: ItemsList(),
             ),
             Container(
@@ -332,15 +333,15 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   top: Radius.circular(18.0),
                 ),
               ),
-              padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
+              padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text('Summery', style: paymentSummary),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeVertical,
-                        vertical: SizeConfig.blockSizeVertical),
+                        horizontal: 2 * SizeConfig.blockSizeVertical!,
+                        vertical: SizeConfig.blockSizeVertical!),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -357,7 +358,7 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeVertical),
+                        horizontal: 2 * SizeConfig.blockSizeVertical!),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -374,8 +375,8 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeVertical,
-                        vertical: SizeConfig.blockSizeVertical),
+                        horizontal: 2 * SizeConfig.blockSizeVertical!,
+                        vertical: SizeConfig.blockSizeVertical!),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -393,16 +394,16 @@ class _OrderDetailsScreenState extends State<OrderDetailsScreen> {
                 ],
               ),
             ),
-            SizedBox(height: SizeConfig.blockSizeVertical),
+            SizedBox(height: SizeConfig.blockSizeVertical!),
             Text(
               'Payment',
               style: buttonText,
             ),
             Padding(
               padding: EdgeInsets.only(
-                  //top: SizeConfig.blockSizeVertical,
-                  bottom: SizeConfig.blockSizeVertical,
-                  left: 2 * SizeConfig.blockSizeVertical),
+                  //top: SizeConfig.blockSizeVertical!,
+                  bottom: SizeConfig.blockSizeVertical!,
+                  left: 2 * SizeConfig.blockSizeVertical!),
               child: Text(
                 'Cash',
                 style: pickUpAndDeliveryTime,

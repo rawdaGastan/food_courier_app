@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -13,22 +14,24 @@ import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.d
 import 'package:foodCourier/widgets/order_screen_widgets/items_list.dart';
 
 class OrderCheckout extends StatefulWidget {
+  const OrderCheckout({Key? key}) : super(key: key);
+
   @override
-  _OrderCheckoutState createState() => _OrderCheckoutState();
+  OrderCheckoutState createState() => OrderCheckoutState();
 }
 
-class _OrderCheckoutState extends State<OrderCheckout> {
+class OrderCheckoutState extends State<OrderCheckout> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  StreamController _streamController;
-  Stream _stream;
+  late StreamController _streamController;
+  late Stream _stream;
 
   @override
   void initState() {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getCart);
+    Future.delayed(Duration.zero, getCart);
   }
 
   getCart() async {
@@ -44,9 +47,16 @@ class _OrderCheckoutState extends State<OrderCheckout> {
 
   @override
   Widget build(BuildContext context) {
-    List defaults = ModalRoute.of(context).settings.arguments;
-    Cart cart;
-    if (defaults.length > 0) cart = defaults[0];
+    List defaults = ModalRoute.of(context)!.settings.arguments as List;
+    Cart? cart;
+    Widget cartWidget = Container();
+    if (defaults.isNotEmpty) {
+      cart = defaults[0];
+      cartWidget = IconButton(
+        icon: const Icon(Icons.delete, color: lightTextColor),
+        onPressed: () {},
+      );
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -58,58 +68,51 @@ class _OrderCheckoutState extends State<OrderCheckout> {
           child: Icon(
             Icons.arrow_back,
             color: blackColor,
-            size: 6 * SizeConfig.blockSizeHorizontal,
+            size: 6 * SizeConfig.blockSizeHorizontal!,
           ),
         ),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'My order',
           style: titleText,
         ),
-        actions: [
-          cart != null
-              ? IconButton(
-                  icon: Icon(Icons.delete, color: lightTextColor),
-                  onPressed: () {},
-                )
-              : Container(),
-        ],
+        actions: [cartWidget],
       ),
       backgroundColor: whiteColor,
       body: SafeArea(
-        child: cart != null
+        child: cart.isNull
             ? ListView(
                 children: [
                   SizedBox(
-                    height: 2 * SizeConfig.blockSizeVertical,
+                    height: 2 * SizeConfig.blockSizeVertical!,
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeVertical),
-                    child: Text(
+                        horizontal: 2 * SizeConfig.blockSizeVertical!),
+                    child: const Text(
                       'Order',
                       style: buttonText,
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                        top: SizeConfig.blockSizeVertical,
-                        bottom: SizeConfig.blockSizeVertical,
-                        left: 3 * SizeConfig.blockSizeVertical),
+                        top: SizeConfig.blockSizeVertical!,
+                        bottom: SizeConfig.blockSizeVertical!,
+                        left: 3 * SizeConfig.blockSizeVertical!),
                     child: ItemsList(),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeVertical),
+                        horizontal: 2 * SizeConfig.blockSizeVertical!),
                     child: Row(
                       children: [
                         IconButton(
-                          icon: Icon(Icons.add_circle_outline,
+                          icon: const Icon(Icons.add_circle_outline,
                               color: lightTextColor, size: 20),
                           onPressed: () {},
                         ),
-                        Text(
-                          'Add new item',
+                        const Text(
+                          'Add item',
                           style: ItemAddOn,
                         ),
                       ],
@@ -117,29 +120,29 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(
-                        horizontal: 2 * SizeConfig.blockSizeVertical),
+                        horizontal: 2 * SizeConfig.blockSizeVertical!),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Promo code',
                           style: buttonText,
                         ),
-                        SizedBox(height: SizeConfig.blockSizeVertical),
+                        SizedBox(height: SizeConfig.blockSizeVertical!),
                         TextFormField(
                           onChanged: (String input) {},
                           textAlign: TextAlign.left,
                           style: fillFieldText,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Enter promo code',
                             hintStyle: fieldText,
                             enabledBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: lightTextColor),
+                              borderSide: BorderSide(color: lightTextColor),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: new BorderSide(color: primaryColor),
+                              borderSide: BorderSide(color: primaryColor),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)),
                             ),
@@ -151,10 +154,10 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                     ),
                   ),
                   Container(
-                    height: 6 * SizeConfig.blockSizeVertical,
-                    margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical),
+                    height: 6 * SizeConfig.blockSizeVertical!,
+                    margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical!),
                     padding: EdgeInsets.symmetric(
-                        horizontal: 25 * SizeConfig.blockSizeHorizontal),
+                        horizontal: 25 * SizeConfig.blockSizeHorizontal!),
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: primaryColor,
@@ -172,20 +175,20 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                     ),
                   ),
                   SizedBox(
-                    height: 8 * SizeConfig.blockSizeVertical,
+                    height: 8 * SizeConfig.blockSizeVertical!,
                   ),
                   Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: secondaryColor,
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(18.0),
                       ),
                     ),
                     margin: EdgeInsets.only(
-                        top: 2 * SizeConfig.blockSizeVertical,
-                        left: 3 * SizeConfig.blockSizeVertical,
-                        right: 3 * SizeConfig.blockSizeVertical),
-                    padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical),
+                        top: 2 * SizeConfig.blockSizeVertical!,
+                        left: 3 * SizeConfig.blockSizeVertical!,
+                        right: 3 * SizeConfig.blockSizeVertical!),
+                    padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
                     child: StreamBuilder(
                         stream: _stream,
                         builder:
@@ -194,17 +197,17 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Summery', style: paymentSummary),
+                                const Text('Summery', style: paymentSummary),
                                 Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal:
-                                          2 * SizeConfig.blockSizeVertical,
-                                      vertical: SizeConfig.blockSizeVertical),
+                                          2 * SizeConfig.blockSizeVertical!,
+                                      vertical: SizeConfig.blockSizeVertical!),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Subtotal',
                                         style: pickUpAndDeliveryTime,
                                       ),
@@ -218,8 +221,8 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                                 Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal:
-                                          2 * SizeConfig.blockSizeVertical),
-                                  child: Row(
+                                          2 * SizeConfig.blockSizeVertical!),
+                                  child: const Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
@@ -237,13 +240,13 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                                 Padding(
                                   padding: EdgeInsets.symmetric(
                                       horizontal:
-                                          2 * SizeConfig.blockSizeVertical,
-                                      vertical: SizeConfig.blockSizeVertical),
+                                          2 * SizeConfig.blockSizeVertical!,
+                                      vertical: SizeConfig.blockSizeVertical!),
                                   child: Row(
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text(
+                                      const Text(
                                         'Total',
                                         style: buttonText,
                                       ),
@@ -257,7 +260,7 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                               ],
                             );
                           } else {
-                            return Center(
+                            return const Center(
                               child: CircularProgressIndicator(),
                             );
                           }
@@ -269,31 +272,31 @@ class _OrderCheckoutState extends State<OrderCheckout> {
                       Navigator.pushNamed(context, 'order');
                     },
                   ),
-                  SizedBox(height: SizeConfig.blockSizeVertical),
+                  SizedBox(height: SizeConfig.blockSizeVertical!),
                 ],
               )
             : ListView(
                 padding: EdgeInsets.symmetric(
-                    horizontal: 3 * SizeConfig.blockSizeVertical,
-                    vertical: 2 * SizeConfig.blockSizeVertical),
+                    horizontal: 3 * SizeConfig.blockSizeVertical!,
+                    vertical: 2 * SizeConfig.blockSizeVertical!),
                 children: [
-                  SizedBox(height: 10 * SizeConfig.blockSizeVertical),
-                  Container(
-                    width: 30 * SizeConfig.blockSizeHorizontal,
-                    height: 30 * SizeConfig.blockSizeVertical,
-                    child: Image(
+                  SizedBox(height: 10 * SizeConfig.blockSizeVertical!),
+                  SizedBox(
+                    width: 30 * SizeConfig.blockSizeHorizontal!,
+                    height: 30 * SizeConfig.blockSizeVertical!,
+                    child: const Image(
                       image: AssetImage(
                         'assets/icons/balloons.png',
                       ),
                     ),
                   ),
-                  SizedBox(height: 2 * SizeConfig.blockSizeVertical),
-                  Text(
+                  SizedBox(height: 2 * SizeConfig.blockSizeVertical!),
+                  const Text(
                     'Your cart is Empty',
                     style: greenSmallText17,
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 5 * SizeConfig.blockSizeVertical),
+                  SizedBox(height: 5 * SizeConfig.blockSizeVertical!),
                   MainButton(
                     label: 'Continue Browsing ',
                     action: () => Navigator.pushNamed(context, 'home'),
