@@ -1,5 +1,4 @@
-
-class Cart{
+class Cart {
   List<dynamic> items = [];
   int supplierID;
   String shippingAddress;
@@ -9,14 +8,13 @@ class Cart{
   String taxTotalPrice;
   String totalPrice;
 
-  Cart({
-    this.supplierID,
-    this.items,
-    this.paymentMethod,
-    this.shippingAddress,
-    this.subtotalPrice,
-    this.taxPercentage,
-    this.taxTotalPrice,
-    this.totalPrice
-  });
+  Cart(
+      {required this.supplierID,
+      required this.items,
+      required this.paymentMethod,
+      required this.shippingAddress,
+      required this.subtotalPrice,
+      required this.taxPercentage,
+      required this.taxTotalPrice,
+      required this.totalPrice});
 }

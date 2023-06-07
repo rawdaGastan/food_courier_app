@@ -3,10 +3,10 @@ class MealValue {
   bool isPrimary = true;
 
   MealValue({
-    this.name,
-    this.percentage,
-    this.quantity,
-    this.isPrimary,
+    required this.name,
+    required this.percentage,
+    required this.quantity,
+    required this.isPrimary,
   });
 
   /*String get name => _name;
@@ -16,5 +16,5 @@ class MealValue {
   bool get isFavorite => _isFavorite;
   List<String> get tags => _tags;*/
 
-  void toggleType() => this.isPrimary = !this.isPrimary;
+  void toggleType() => isPrimary = !isPrimary;
 }
