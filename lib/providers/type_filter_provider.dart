@@ -9,7 +9,7 @@ import '../main.dart';
 * */
 
 class TypeFilterProvider extends ChangeNotifier {
-  List<String> _typesPreferred = [
+  final List<String> _typesPreferred = [
     // set to all by default until user changes to specific type
     'Gluten free', // when user changes to particular type this list will include the preferred type only
     'High protein',
@@ -17,7 +17,7 @@ class TypeFilterProvider extends ChangeNotifier {
     'Vegan',
   ];
 
-  List<String> get typesPreferred => this._typesPreferred;
+  List<String> get typesPreferred => _typesPreferred;
 
   /*static List<TypeFilter> _allFilterStatus = [
     TypeFilter('Normal', true), // All types filter is true => show all
@@ -39,14 +39,14 @@ class TypeFilterProvider extends ChangeNotifier {
   static List<String> restrictionListType =
       restrictionListTypeString.split(',');
 
-  static List<TypeFilter> _allFilterStatus = [
+  static final List<TypeFilter> _allFilterStatus = [
     for (int i = 0; i < labelsList.length; i++)
       (labelsList[i] == 'Normal')
           ? TypeFilter(labelsList[i], true)
           : TypeFilter(labelsList[i], false)
   ];
 
-  Map<String, bool> _filterStatus = {
+  final Map<String, bool> _filterStatus = {
     for (int i = 0; i < labelsList.length && labelsList != null; i++)
       _allFilterStatus[i].type: _allFilterStatus[i].preferred
   };
@@ -65,9 +65,12 @@ class TypeFilterProvider extends ChangeNotifier {
     'Vegan':false,*/
 };*/
 
-  final restrictionsList = [
+  final List<Restriction> restrictionsList = [
     for (int i = 0; i < restrictionList.length; i++)
-      Restriction(name: restrictionList[i], type: restrictionListType[i]),
+      Restriction(
+          name: restrictionList[i],
+          type: restrictionListType[i],
+          restricted: false),
   ];
 
   /*final restrictionsList = [
@@ -88,29 +91,30 @@ class TypeFilterProvider extends ChangeNotifier {
     Restriction(name: 'Dairy' , type: 'Vegan'),
   ];*/
 
-  // ignore: missing_return
   bool getRestrictionState(String name) {
-    for (Restriction r in restrictionsList)
+    for (Restriction r in restrictionsList) {
       if (r.name == name) return r.restriction;
-  }
-
-  bool contains(List<String> labels) {
-    for (String label in labels) {
-      if (this._typesPreferred.contains(label)) return true;
     }
     return false;
   }
 
-  Map<String, bool> get filterStatus => this._filterStatus;
+  bool contains(List<String> labels) {
+    for (String label in labels) {
+      if (_typesPreferred.contains(label)) return true;
+    }
+    return false;
+  }
+
+  Map<String, bool> get filterStatus => _filterStatus;
 
   String typeOfCurrentFilterApplied = 'Normal';
 
-  String get getTypeOfCurrentFilterApplied => this.typeOfCurrentFilterApplied;
+  String get getTypeOfCurrentFilterApplied => typeOfCurrentFilterApplied;
 
   void changeFilterState(String key) {
-    this._filterStatus[typeOfCurrentFilterApplied] = false;
-    this._filterStatus[key] = true;
-    this.typeOfCurrentFilterApplied = key;
+    _filterStatus[typeOfCurrentFilterApplied] = false;
+    _filterStatus[key] = true;
+    typeOfCurrentFilterApplied = key;
     notifyListeners();
   }
 
@@ -119,20 +123,20 @@ class TypeFilterProvider extends ChangeNotifier {
   // unPrefer all except particular type
   filterBy(String type) {
     isFirstTime = false;
-    this._typesPreferred.clear();
-    this._typesPreferred.add(type);
+    _typesPreferred.clear();
+    _typesPreferred.add(type);
     restrictByType(type);
     notifyListeners();
   }
 
   filterByRestrict() {
-    this._typesPreferred.clear();
+    _typesPreferred.clear();
 
     isFirstTime = false;
 
     for (Restriction r in restrictionsList) {
       if (r.restriction) {
-        this._typesPreferred.add(r.type);
+        _typesPreferred.add(r.type);
         changeFilterState(r.type);
       }
     }
@@ -140,16 +144,15 @@ class TypeFilterProvider extends ChangeNotifier {
     if (_typesPreferred.isEmpty) showAll();
 
     notifyListeners();
-    print(this._typesPreferred);
-    print(this._filterStatus);
   }
 
   restrictByType(String type) {
     for (Restriction r in restrictionsList) {
-      if (r.type == type)
+      if (r.type == type) {
         r.restrict(); // change restriction state from false to true
-      else if (r.restriction)
+      } else if (r.restriction) {
         r.unRestrict(); // unRestrict all other than the chosen type
+      }
     }
   }
 
@@ -167,6 +170,8 @@ class TypeFilterProvider extends ChangeNotifier {
   }
 
   unRestrictAll() {
-    for (Restriction r in restrictionsList) if (r.restriction) r.unRestrict();
+    for (Restriction r in restrictionsList) {
+      if (r.restriction) r.unRestrict();
+    }
   }
 }

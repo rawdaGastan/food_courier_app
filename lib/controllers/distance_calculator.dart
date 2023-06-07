@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'dart:convert';
 import 'package:vector_math/vector_math.dart';
-import 'package:foodCourier/constants/APIKeys.dart';
+import 'package:foodCourier/config/config.dart';
 import 'package:http/http.dart' as http;
 
 double calculateDistance(latitude1, longitude1, latitude2, longitude2) {

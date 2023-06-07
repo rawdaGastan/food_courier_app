@@ -16,23 +16,26 @@ class MealsProvider extends ChangeNotifier {
 
   Map<int, String> loadLabels(List labels) {
     Map<int, String> temp = {};
-    for (var item in labels)
+    for (var item in labels) {
       temp.putIfAbsent(item['label']['id'], () => item['label']['label']);
+    }
     return temp;
   }
 
   Map<int, String> loadPhotos(List photos) {
     Map<int, String> temp = {};
-    for (var item in photos)
+    for (var item in photos) {
       temp.putIfAbsent(item['photo']['id'], () => item['photo']['photo']);
+    }
     return temp;
   }
 
   Map<int, List<dynamic>> loadSupplierPrices(List supplierPrices) {
     Map<int, List<dynamic>> temp = {};
-    for (var item in supplierPrices)
+    for (var item in supplierPrices) {
       temp.putIfAbsent(
           item['id'], () => [item['supplier'], item['price'], item['active']]);
+    }
     return temp;
   }
 
@@ -49,31 +52,25 @@ class MealsProvider extends ChangeNotifier {
       if (pageIndex == 1) _meals = [];
 
       int nextIndex = response['next'];
-      pageIndex = nextIndex;
-      if (nextIndex != null)
-        pageIndex = nextIndex;
-      else
-        pageIndex = 1;
+      pageIndex = nextIndex ?? 1;
 
       List products = response['products'];
       for (int i = 0; i < products.length; i++) {
-        this._meals.add(Meal(
-              id: products[i]['id'],
-              name: products[i]['product_name'],
-              type: products[i]['product_type'],
-              category: products[i]['category'],
-              price: products[i]['price'],
-              rating: products[i]['rating'],
-              ingredients: [
-                'Gluten free',
-                'High protein',
-                'Vegetarian',
-                'Vegan'
-              ],
-              //products[i]['ingredients'],
-              photos: {},
-              labels: loadLabels(products[i]['labels']),
-            ));
+        _meals.add(Meal(
+          id: products[i]['id'],
+          name: products[i]['product_name'],
+          type: products[i]['product_type'],
+          category: products[i]['category'],
+          price: products[i]['price'],
+          rating: products[i]['rating'],
+          ingredients: ['Gluten free', 'High protein', 'Vegetarian', 'Vegan'],
+          //products[i]['ingredients'],
+          photos: {},
+          labels: loadLabels(products[i]['labels']),
+          description: '',
+          numberOfLikes: 0,
+          supplierPrices: {},
+        ));
       }
       return _meals;
     }
@@ -95,7 +92,7 @@ class MealsProvider extends ChangeNotifier {
       price: product['price'],
       rating: product['rating'],
       ingredients: ['Gluten free', 'High protein', 'Vegetarian', 'Vegan'],
-      //description: product['description'],
+      description: product['description'],
       //products[i]['ingredients'],
       labels: loadLabels(product['labels']),
       photos: loadPhotos(product['photos']),

@@ -30,15 +30,19 @@ class AllFiltersProvider extends ChangeNotifier {
     'restrictions': restrictions,
   };
 
-  Map<String, dynamic> _toJson = {
-    "delivery": true,
-    "labels": ["Vegan"],
+  final Map<String, dynamic> _toJson = {
+    'delivery': true,
+    'labels': ['Vegan'],
   };
 
   void getLabels() {
     if (filterMap['type'] != 'Normal') apiLabels.add(filterMap['type']);
-    for (String restriction in restrictions) apiLabels.add(restriction);
-    for (String cuisine in cuisines) apiLabels.add(cuisine);
+    for (String restriction in restrictions) {
+      apiLabels.add(restriction);
+    }
+    for (String cuisine in cuisines) {
+      apiLabels.add(cuisine);
+    }
   }
 
   void changeType(String value) {
@@ -54,8 +58,9 @@ class AllFiltersProvider extends ChangeNotifier {
   }
 
   void deleteCuisine(String value) {
-    if (cuisines.contains(value.toLowerCase()))
+    if (cuisines.contains(value.toLowerCase())) {
       cuisines.remove(value.toLowerCase());
+    }
   }
 
   void addRestriction(String value) {
@@ -63,40 +68,45 @@ class AllFiltersProvider extends ChangeNotifier {
   }
 
   void deleteRestriction(String value) {
-    if (restrictions.contains(value.toLowerCase()))
+    if (restrictions.contains(value.toLowerCase())) {
       restrictions.remove(value.toLowerCase());
+    }
   }
 
   String jsonFilters() {
-    return json.encode(this._toJson);
+    return json.encode(_toJson);
   }
 
   Map<int, String> loadLabels(List labels) {
     Map<int, String> temp = {};
-    for (var item in labels)
+    for (var item in labels) {
       temp.putIfAbsent(item['label']['id'], () => item['label']['label']);
+    }
     return temp;
   }
 
   Map<int, String> loadPhotos(List photos) {
     Map<int, String> temp = {};
-    for (var item in photos)
+    for (var item in photos) {
       temp.putIfAbsent(item['photo']['id'], () => item['photo']['photo']);
+    }
     return temp;
   }
 
   bool checkEqualSuppliersList(
       List<Restaurant> menu, List<Restaurant> newMenu) {
     bool isEqual = false;
-    if (menu.length == newMenu.length)
+    if (menu.length == newMenu.length) {
       for (int i = 0; i < menu.length; i++) {
-        if (menu[i].id == newMenu[i].id)
+        if (menu[i].id == newMenu[i].id) {
           isEqual = true;
-        else
+        } else {
           isEqual = false;
+        }
       }
-    else
+    } else {
       isEqual = false;
+    }
     return isEqual;
   }
 
@@ -107,45 +117,46 @@ class AllFiltersProvider extends ChangeNotifier {
       for (int x = 1; suppliers[i]['address_line_$x'] != null; x++) {
         addressLines.add(suppliers[i]['address_line_$x']);
       }
-      this._tempMenu.add(Restaurant(
-            name: suppliers[i]['supplier_name'],
-            type: suppliers[i]['supplier_type'],
-            city: suppliers[i]['city'],
-            town: suppliers[i]['town'],
-            email: suppliers[i]['email'],
-            isDelivery: suppliers[i]['delivery'],
-            phone: suppliers[i]['phone'],
-            id: suppliers[i]['id'],
-            rating: suppliers[i]['rating'].toString().substring(0, 3),
-            logoUrl: suppliers[i]['logo'],
-            latitude: suppliers[i]['latitude'],
-            longitude: suppliers[i]['longitude'],
-            rangePrice: suppliers[i]['price_range'],
-            isDineOut: suppliers[i]['dine_out'],
-            addressLines: addressLines,
-            labels: loadLabels(suppliers[i]['labels']),
-            photos: loadPhotos(suppliers[i]['photos']),
-          ));
+      _tempMenu.add(Restaurant(
+        name: suppliers[i]['supplier_name'],
+        type: suppliers[i]['supplier_type'],
+        city: suppliers[i]['city'],
+        town: suppliers[i]['town'],
+        email: suppliers[i]['email'],
+        isDelivery: suppliers[i]['delivery'],
+        phone: suppliers[i]['phone'],
+        id: suppliers[i]['id'],
+        rating: suppliers[i]['rating'].toString().substring(0, 3),
+        logoUrl: suppliers[i]['logo'],
+        latitude: suppliers[i]['latitude'],
+        longitude: suppliers[i]['longitude'],
+        rangePrice: suppliers[i]['price_range'],
+        isDineOut: suppliers[i]['dine_out'],
+        addressLines: addressLines,
+        labels: loadLabels(suppliers[i]['labels']),
+        photos: loadPhotos(suppliers[i]['photos']),
+      ));
     }
-    if (checkEqualSuppliersList(_menu, _tempMenu))
+    if (checkEqualSuppliersList(_menu, _tempMenu)) {
       return _menu;
-    else {
+    } else {
       _menu = _tempMenu;
       return _menu;
     }
   }
 
   Future<List<Restaurant>> loadData(String token, String restaurantType) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response =
         jsonDecode(await net.getSuppliers(pageIndex, token, restaurantType));
     if (pageIndex == 1) _tempMenu = [];
 
     int nextIndex = response['next'];
-    if (nextIndex != null)
+    if (nextIndex != null) {
       pageIndex = nextIndex;
-    else
+    } else {
       pageIndex = 1;
+    }
 
     _menu = renewData(response);
     return _menu;
@@ -153,16 +164,17 @@ class AllFiltersProvider extends ChangeNotifier {
 
   Future<List<Restaurant>> searchRestaurant(
       String searchField, String userToken, String restaurantType) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response = jsonDecode(await net.searchForRestaurant(
         searchField, searchPageIndex, userToken, restaurantType));
     if (searchPageIndex == 1) _tempMenu = [];
 
     int nextIndex = response['next'];
-    if (nextIndex != null)
+    if (nextIndex != null) {
       searchPageIndex = nextIndex;
-    else
+    } else {
       searchPageIndex = 1;
+    }
 
     _menu = renewData(response);
     return _menu;
@@ -170,16 +182,17 @@ class AllFiltersProvider extends ChangeNotifier {
 
   Future<List<Restaurant>> sortRestaurantBy(
       String userToken, String sortBy, String restaurantType) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response = jsonDecode(await net.sortRestaurantBy(
         sortPageIndex, sortBy, userToken, restaurantType));
     if (sortPageIndex == 1) _tempMenu = [];
 
     int nextIndex = response['next'];
-    if (nextIndex != null)
+    if (nextIndex != null) {
       sortPageIndex = nextIndex;
-    else
+    } else {
       sortPageIndex = 1;
+    }
 
     _menu = renewData(response);
     return _menu;
@@ -187,17 +200,18 @@ class AllFiltersProvider extends ChangeNotifier {
 
   Future<List<Restaurant>> sortRestaurantByDistance(
       String userToken, latitude, longitude, String restaurantType) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response = jsonDecode(
         await net.sortRestaurantByDistance(sortDistancePageIndex, latitude,
             longitude, userToken, restaurantType));
     if (sortDistancePageIndex == 1) _tempMenu = [];
 
     int nextIndex = response['next'];
-    if (nextIndex != null)
+    if (nextIndex != null) {
       sortDistancePageIndex = nextIndex;
-    else
+    } else {
       sortDistancePageIndex = 1;
+    }
 
     _menu = renewData(response);
     return _menu;
@@ -205,17 +219,18 @@ class AllFiltersProvider extends ChangeNotifier {
 
   Future<List<Restaurant>> showRestaurantByLocation(String userToken,
       String location, String type, String restaurantType) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response = jsonDecode(
         await net.showSuppliersByLocation(restaurantByCityPageIndex, userToken,
             location, type, restaurantType));
     if (restaurantByCityPageIndex == 1) _tempMenu = [];
 
     int nextIndex = response['next'];
-    if (nextIndex != null)
+    if (nextIndex != null) {
       restaurantByCityPageIndex = nextIndex;
-    else
+    } else {
       restaurantByCityPageIndex = 1;
+    }
 
     _menu = renewData(response);
     return _menu;
@@ -223,7 +238,7 @@ class AllFiltersProvider extends ChangeNotifier {
 
   /* Future<List<Restaurant>> showDeliveryRestaurant(String userToken) async {
     bool sorted = false;
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response = jsonDecode(await net.showDeliverySuppliers(deliveryRestaurantPageIndex, userToken));
     deliveryRestaurantCount = response['count'];
 
