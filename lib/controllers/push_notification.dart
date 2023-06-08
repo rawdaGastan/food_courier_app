@@ -42,7 +42,7 @@ class PushNotification {
     FirebaseMessaging.onMessage.listen(showFlutterNotification);
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       print('A new onMessageOpenedApp event was published!');
-      _serialiseAndNavigate(message);
+      _serializeAndNavigate(message);
       _insideAppNotification(message);
     });
 
@@ -60,7 +60,7 @@ class PushNotification {
     _firebaseMessaging.subscribeToTopic('all');
   }
 
-  void _serialiseAndNavigate(RemoteMessage message) {
+  void _serializeAndNavigate(RemoteMessage message) {
     var notificationData = message.data;
     var view = notificationData['view'];
 
@@ -81,11 +81,11 @@ class PushNotification {
     if (view != null) {
       if (view == 'track order') {
         displayTrackOrderDialog(
-            _navigationService.navigationKey.currentState.overlay.context);
+            _navigationService.navigationKey.currentState!.overlay!.context);
       }
       if (view == 'rate order') {
         displayRateOrderDialog(
-            _navigationService.navigationKey.currentState.overlay.context);
+            _navigationService.navigationKey.currentState!.overlay!.context);
       }
     }
   }
@@ -94,7 +94,7 @@ class PushNotification {
         context: context,
         builder: (context) => AlertDialog(
           contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
-          content: Container(
+          content: SizedBox(
             height: 18 * SizeConfig.blockSizeVertical!,
             child: Stack(
               children: [
@@ -109,7 +109,7 @@ class PushNotification {
                                 shape: BoxShape.circle, color: blackColor),
                             margin: EdgeInsets.all(1.5 *
                                 SizeConfig
-                                    .blockSizeVertical), // Modify this till it fills the color properly
+                                    .blockSizeVertical!), // Modify this till it fills the color properly
                           ),
                         ),
                         IconButton(
@@ -154,7 +154,7 @@ class PushNotification {
       context: context,
       builder: (context) => AlertDialog(
         contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
-        content: Container(
+        content: SizedBox(
           height: 35 * SizeConfig.blockSizeVertical!,
           child: Stack(
             children: [
@@ -169,7 +169,7 @@ class PushNotification {
                               shape: BoxShape.circle, color: blackColor),
                           margin: EdgeInsets.all(1.5 *
                               SizeConfig
-                                  .blockSizeVertical), // Modify this till it fills the color properly
+                                  .blockSizeVertical!), // Modify this till it fills the color properly
                         ),
                       ),
                       IconButton(
@@ -211,7 +211,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState
+                              _navigationService.navigationKey.currentState!
                                   .setState(() {
                                 rateByUser = 1;
                               });
@@ -223,7 +223,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState
+                              _navigationService.navigationKey.currentState!
                                   .setState(() {
                                 rateByUser = 2;
                               });
@@ -235,7 +235,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState
+                              _navigationService.navigationKey.currentState!
                                   .setState(() {
                                 rateByUser = 3;
                               });
@@ -247,7 +247,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState
+                              _navigationService.navigationKey.currentState!
                                   .setState(() {
                                 rateByUser = 4;
                               });
@@ -259,7 +259,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState
+                              _navigationService.navigationKey.currentState!
                                   .setState(() {
                                 rateByUser = 5;
                               });
