@@ -4,16 +4,18 @@ import 'package:provider/provider.dart';
 import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/input_textField.dart';
+import 'package:foodCourier/widgets/authentication_screens_widgets/input_text_field.dart';
 import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class ResetPassword extends StatefulWidget {
+  const ResetPassword({Key? key}) : super(key: key);
+
   @override
-  _ResetPasswordState createState() => _ResetPasswordState();
+  ResetPasswordState createState() => ResetPasswordState();
 }
 
-class _ResetPasswordState extends State<ResetPassword> {
+class ResetPasswordState extends State<ResetPassword> {
   final TextEditingController _controller = TextEditingController();
   final TextEditingController _controller2 = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -31,7 +33,7 @@ class _ResetPasswordState extends State<ResetPassword> {
     var password2 = _controller2.text;
     var response =
         await Provider.of<AuthenticationProvider>(context, listen: false)
-            .changePass(password, password2, "Mw", "5om-458e729ae3512c2851c2");
+            .changePass(password, password2, 'Mw', '5om-458e729ae3512c2851c2');
     List<String> responseList = [
       'passwordChanged',
       'new_password1',
@@ -51,10 +53,10 @@ class _ResetPasswordState extends State<ResetPassword> {
             errorDialogContent.add(
                 '${responseList[i]} : ${response[responseList[i]].join('\n')}');
         }
-        displayDialog(context, "Invalid reset", errorDialogContent.join('\n'));
+        displayDialog(context, 'Invalid reset', errorDialogContent.join('\n'));
       }
     } else
-      displayDialog(context, "Error", "An unknown error occurred.");
+      displayDialog(context, 'Error', 'An unknown error occurred.');
   }
 
   @override

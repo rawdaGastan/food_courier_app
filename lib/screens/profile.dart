@@ -7,7 +7,7 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/models/user.dart';
 import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/input_textField.dart';
+import 'package:foodCourier/widgets/authentication_screens_widgets/input_text_field.dart';
 import 'package:foodCourier/generated/l10n.dart';
 import 'map.dart';
 import 'package:foodCourier/providers/user_provider.dart';

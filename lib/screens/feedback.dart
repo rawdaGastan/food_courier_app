@@ -4,7 +4,7 @@ import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/widgets/feedback_widgets/feedbackReview.dart';
-import 'package:foodCourier/widgets/feedback_widgets/messageContainer.dart';
+import 'package:foodCourier/widgets/feedback_widgets/message_container.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class FeedBack extends StatefulWidget {

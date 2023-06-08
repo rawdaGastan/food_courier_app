@@ -12,14 +12,14 @@ final sortByList = [
 class SortByRadioList extends StatefulWidget {
   final Function callbackFun;
 
-  SortByRadioList(this.callbackFun);
+  const SortByRadioList(this.callbackFun, {Key? key}) : super(key: key);
 
   @override
-  _State createState() => _State();
+  SortByRadioListState createState() => SortByRadioListState();
 }
 
-class _State extends State<SortByRadioList> {
-  int selectedRadioTile;
+class SortByRadioListState extends State<SortByRadioList> {
+  int selectedRadioTile = 0;
 
   // Changes the selected value on 'onChanged' click on each radio button
   setSelectedRadioTile(int val) {
@@ -31,7 +31,7 @@ class _State extends State<SortByRadioList> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: sortByList.length,
       itemBuilder: (context, index) => SizedBox(
@@ -42,12 +42,14 @@ class _State extends State<SortByRadioList> {
           title: Text(sortByList[index],
               textScaleFactor: 1.0, style: sortFiltersText),
           onChanged: (val) {
-            setSelectedRadioTile(val);
+            setSelectedRadioTile(val as int);
             if (val == 0) {
               widget.callbackFun('-rating');
-            } else if (val == 1)
+            } else if (val == 1) {
               widget.callbackFun('price_range');
-            else if (val == 2) widget.callbackFun('distance');
+            } else if (val == 2) {
+              widget.callbackFun('distance');
+            }
           },
           activeColor: orangeColor,
         ),

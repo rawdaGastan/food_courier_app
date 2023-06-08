@@ -10,7 +10,7 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/providers/type_filter_provider.dart';
 import 'package:foodCourier/widgets/filters_screen_widgets/cuisine_filter.dart';
 import 'package:foodCourier/widgets/filters_screen_widgets/restrictions_check_list.dart';
-import 'package:foodCourier/widgets/filters_screen_widgets/sortBy_radio_list.dart';
+import 'package:foodCourier/widgets/filters_screen_widgets/sort_by_radio_list.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 import '../../locator.dart';

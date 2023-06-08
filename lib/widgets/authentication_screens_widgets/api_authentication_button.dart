@@ -4,12 +4,12 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class ApiButton extends StatelessWidget {
-  final Function action;
-  final String label;
-  final Widget leading;
-  final Color color;
+  final void Function()? action;
+  final String? label;
+  final Widget? leading;
+  final Color? color;
 
-  const ApiButton({Key key, this.action, this.label, this.leading, this.color})
+  const ApiButton({Key? key, this.action, this.label, this.leading, this.color})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class ApiButton extends StatelessWidget {
       height: 7 * SizeConfig.blockSizeVertical!,
       margin: EdgeInsets.symmetric(
           horizontal: 10 * SizeConfig.blockSizeHorizontal!),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         boxShadow: [
           BoxShadow(
             color: secondaryColor,
@@ -37,9 +37,9 @@ class ApiButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            leading,
+            leading!,
             Text(
-              label,
+              label!,
               style: blackSmallText15,
             ),
           ],

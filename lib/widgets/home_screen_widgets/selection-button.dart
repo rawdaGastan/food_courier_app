@@ -14,7 +14,7 @@ class SelectionButton extends StatefulWidget {
   final TypeFilter typeFilter;
   final String iconName;
   SelectionButton({
-    @required this.typeFilter,
+    required this.typeFilter,
     this.iconName,
   });
   @override

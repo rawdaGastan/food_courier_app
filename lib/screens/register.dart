@@ -9,7 +9,7 @@ import 'package:foodCourier/screens/verification_code.dart';
 import 'package:foodCourier/widgets/authentication_screens_widgets/api_authentication_button.dart';
 import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
 import 'package:foodCourier/widgets/authentication_screens_widgets/or_divider.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/input_textField.dart';
+import 'package:foodCourier/widgets/authentication_screens_widgets/input_text_field.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:foodCourier/generated/l10n.dart';
 import 'package:foodCourier/providers/authentication_provider.dart';

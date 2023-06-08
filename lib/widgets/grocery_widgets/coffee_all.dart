@@ -14,44 +14,46 @@ import 'package:foodCourier/controllers/location.dart';
 import 'dart:async';
 
 class AllCoffee extends StatefulWidget {
-  final PickResult addressSelectedPlace;
-  final Location currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  final String searchInput;
-  final String sortBy;
-  final String selectedRegion;
-  final String selectedRegionType;
-  final bool isDelivery;
+  final String? searchInput;
+  final String? sortBy;
+  final String? selectedRegion;
+  final String? selectedRegionType;
+  final bool? isDelivery;
 
-  final int bottomNavigationIndex;
-  final Function callbackBottomNavigationBar;
+  final int? bottomNavigationIndex;
+  final Function? callbackBottomNavigationBar;
 
-  final Function callbackFilters;
-  final Function callbackRestriction;
+  final Function? callbackFilters;
+  final Function? callbackRestriction;
 
-  AllCoffee(
-      {this.addressSelectedPlace,
-      this.currentLocation,
-      this.searchInput,
-      this.sortBy,
-      this.isDelivery,
-      this.bottomNavigationIndex,
-      this.callbackBottomNavigationBar,
-      this.selectedRegion,
-      this.selectedRegionType,
-      this.callbackFilters,
-      this.callbackRestriction});
+  const AllCoffee(
+      {Key? key,
+      addressSelectedPlace,
+      currentLocation,
+      searchInput,
+      sortBy,
+      isDelivery,
+      bottomNavigationIndex,
+      callbackBottomNavigationBar,
+      selectedRegion,
+      selectedRegionType,
+      callbackFilters,
+      callbackRestriction})
+      : super(key: key);
 
   @override
-  _State createState() => _State();
+  AllCoffeeState createState() => AllCoffeeState();
 }
 
-class _State extends State<AllCoffee> {
-  StreamController _streamController;
-  Stream _stream;
+class AllCoffeeState extends State<AllCoffee> {
+  late StreamController _streamController;
+  late Stream _stream;
   bool isLoading = false;
 
-  String duration;
+  String duration = '';
   GeoCode geoCode = GeoCode();
 
   @override
@@ -59,11 +61,11 @@ class _State extends State<AllCoffee> {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getDataFromProvider);
+    Future.delayed(Duration.zero, getDataFromProvider);
     //getDummyData();
   }
 
-  callBackDistance(double dis, String dur) {
+  callBackDistance(double dis, String? dur) {
     if (dur != null) {
       duration = dur;
       /* setState(() {
@@ -78,91 +80,90 @@ class _State extends State<AllCoffee> {
             .userToken;
 
     //delivery, grocery or dine out
-    String restaurantType;
-    if (widget.isDelivery != null && widget.isDelivery)
+    String restaurantType = '';
+    if (widget.isDelivery != null && widget.isDelivery == true) {
       restaurantType = 'delivery';
+    }
 
-    print(restaurantType);
-
-    if (userToken != null) {
-      if (widget.searchInput != null) {
-        _streamController.add(await Provider.of<AllFiltersProvider>(context,
-                listen: false)
-            .searchRestaurant(widget.searchInput, userToken, restaurantType));
-      } else if (widget.sortBy != null) {
-        if (widget.sortBy == 'distance')
-          widget.addressSelectedPlace == null
-              ? widget.currentLocation == null
-                  ? _streamController.add(
-                      await Provider.of<AllFiltersProvider>(context, listen: false)
-                          .sortRestaurantByDistance(
-                              userToken, 0, 0, restaurantType))
-                  : _streamController.add(
-                      await Provider.of<AllFiltersProvider>(context, listen: false)
-                          .sortRestaurantByDistance(
-                              userToken,
-                              widget.currentLocation.latitude,
-                              widget.currentLocation.longitude,
-                              restaurantType))
-              : _streamController.add(await Provider.of<AllFiltersProvider>(context, listen: false)
-                  .sortRestaurantByDistance(
-                      userToken,
-                      widget.addressSelectedPlace.geometry.location.lat,
-                      widget.addressSelectedPlace.geometry.location.lng,
-                      restaurantType));
-        else
-          _streamController.add(
-              await Provider.of<AllFiltersProvider>(context, listen: false)
-                  .sortRestaurantBy(userToken, widget.sortBy, restaurantType));
-      } else if (widget.selectedRegion != 'no region' &&
-          widget.selectedRegion != null) {
-        if (widget.selectedRegionType != 'location')
-          _streamController.add(
-              await Provider.of<AllFiltersProvider>(context, listen: false)
-                  .showRestaurantByLocation(userToken, widget.selectedRegion,
-                      widget.selectedRegionType, restaurantType));
-        else {
-          if (widget.addressSelectedPlace != null) {
-            _streamController.add(await Provider.of<AllFiltersProvider>(context,
-                    listen: false)
-                .showRestaurantByLocation(
+    if (widget.searchInput != null) {
+      _streamController.add(await Provider.of<AllFiltersProvider>(context,
+              listen: false)
+          .searchRestaurant(widget.searchInput!, userToken, restaurantType));
+    } else if (widget.sortBy != null) {
+      if (widget.sortBy == 'distance') {
+        widget.addressSelectedPlace == null
+            ? widget.currentLocation == null
+                ? _streamController.add(
+                    await Provider.of<AllFiltersProvider>(context, listen: false)
+                        .sortRestaurantByDistance(
+                            userToken, 0, 0, restaurantType))
+                : _streamController.add(
+                    await Provider.of<AllFiltersProvider>(context, listen: false)
+                        .sortRestaurantByDistance(
+                            userToken,
+                            widget.currentLocation!.latitude,
+                            widget.currentLocation!.longitude,
+                            restaurantType))
+            : _streamController.add(await Provider.of<AllFiltersProvider>(context, listen: false)
+                .sortRestaurantByDistance(
                     userToken,
-                    widget.addressSelectedPlace.addressComponents[3].longName,
-                    'town',
+                    widget.addressSelectedPlace!.geometry!.location.lat,
+                    widget.addressSelectedPlace!.geometry!.location.lng,
                     restaurantType));
-          } else if (widget.currentLocation != null) {
-            var address = await geoCode.reverseGeocoding(
-                latitude: widget.currentLocation.latitude,
-                longitude: widget.currentLocation.longitude);
-            _streamController.add(
-                await Provider.of<AllFiltersProvider>(context, listen: false)
-                    .showRestaurantByLocation(
-                        userToken, address.city, 'town', restaurantType));
-          }
-        }
       } else {
         _streamController.add(
             await Provider.of<AllFiltersProvider>(context, listen: false)
-                .loadData(userToken, restaurantType));
+                .sortRestaurantBy(userToken, widget.sortBy!, restaurantType));
       }
+    } else if (widget.selectedRegion != 'no region' &&
+        widget.selectedRegion != null) {
+      if (widget.selectedRegionType != 'location') {
+        _streamController.add(
+            await Provider.of<AllFiltersProvider>(context, listen: false)
+                .showRestaurantByLocation(userToken, widget.selectedRegion!,
+                    widget.selectedRegionType!, restaurantType));
+      } else {
+        if (widget.addressSelectedPlace != null) {
+          _streamController.add(await Provider.of<AllFiltersProvider>(context,
+                  listen: false)
+              .showRestaurantByLocation(
+                  userToken,
+                  widget.addressSelectedPlace!.addressComponents![3].longName,
+                  'town',
+                  restaurantType));
+        } else if (widget.currentLocation != null) {
+          var address = await geoCode.reverseGeocoding(
+              latitude: widget.currentLocation!.latitude,
+              longitude: widget.currentLocation!.longitude);
+          _streamController.add(
+              await Provider.of<AllFiltersProvider>(context, listen: false)
+                  .showRestaurantByLocation(
+                      userToken, address.city!, 'town', restaurantType));
+        }
+      }
+    } else {
+      _streamController.add(
+          await Provider.of<AllFiltersProvider>(context, listen: false)
+              .loadData(userToken, restaurantType));
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    print('reload data');
-    Future.delayed(Duration.zero, this.getDataFromProvider);
+    Future.delayed(Duration.zero, getDataFromProvider);
 
     return NotificationListener<ScrollNotification>(
       onNotification: (ScrollNotification scrollInfo) {
         if (!isLoading &&
             scrollInfo.metrics.pixels == scrollInfo.metrics.maxScrollExtent) {
           setState(() {
-            this.isLoading = true;
+            isLoading = true;
           });
         } else if (scrollInfo.metrics.pixels !=
-            scrollInfo.metrics.maxScrollExtent) this.isLoading = false;
-        return;
+            scrollInfo.metrics.maxScrollExtent) {
+          isLoading = false;
+        }
+        return isLoading;
       },
       child: StreamBuilder(
           stream: _stream,
@@ -185,7 +186,8 @@ class _State extends State<AllCoffee> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text('All Coffee Products', style: groceryLabels),
+                              const Text('All Coffee Products',
+                                  style: groceryLabels),
                               Text(
                                 '(${snapshot.data.length} items)',
                                 style: grocerySeeAll.copyWith(
@@ -198,7 +200,7 @@ class _State extends State<AllCoffee> {
                           child: GridView.builder(
                             itemCount: snapshot.data.length,
                             shrinkWrap: true,
-                            physics: ScrollPhysics(),
+                            physics: const ScrollPhysics(),
                             gridDelegate:
                                 SliverGridDelegateWithFixedCrossAxisCount(
                               crossAxisCount: 2,
@@ -223,23 +225,23 @@ class _State extends State<AllCoffee> {
                                   ? widget.currentLocation == null
                                       ? CoffeeCard(
                                           restaurant: snapshot.data[index],
-                                          isDelivery: widget.isDelivery,
+                                          isDelivery: widget.isDelivery!,
                                           callbackFun: callBackDistance,
                                           seeAllCoffee: true,
                                         )
                                       : CoffeeCard(
                                           restaurant: snapshot.data[index],
-                                          isDelivery: widget.isDelivery,
+                                          isDelivery: widget.isDelivery!,
                                           currentLocation:
-                                              widget.currentLocation,
+                                              widget.currentLocation!,
                                           callbackFun: callBackDistance,
                                           seeAllCoffee: true,
                                         )
                                   : CoffeeCard(
                                       restaurant: snapshot.data[index],
-                                      isDelivery: widget.isDelivery,
+                                      isDelivery: widget.isDelivery!,
                                       addressSelectedPlace:
-                                          widget.addressSelectedPlace,
+                                          widget.addressSelectedPlace!,
                                       callbackFun: callBackDistance,
                                       seeAllCoffee: true,
                                     ),
@@ -253,7 +255,7 @@ class _State extends State<AllCoffee> {
                 ],
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }

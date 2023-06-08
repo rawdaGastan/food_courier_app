@@ -10,10 +10,11 @@ class MessageContainer extends StatelessWidget {
   final String text;
   final bool isMe;
 
-  MessageContainer({
-    @required this.text,
-    @required this.isMe,
-  });
+  const MessageContainer({
+    Key? key,
+    required this.text,
+    required this.isMe,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

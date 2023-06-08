@@ -11,14 +11,16 @@ import 'package:auto_size_text/auto_size_text.dart';
 class CuisineFilterButton extends StatefulWidget {
   // because this button will be used both for restriction and cuisine filters
   final TypeFilter typeFilter;
-  CuisineFilterButton({
-    @required this.typeFilter,
-  });
+  const CuisineFilterButton({
+    Key? key,
+    required this.typeFilter,
+  }) : super(key: key);
+
   @override
-  _State createState() => _State();
+  CuisineFilterButtonState createState() => CuisineFilterButtonState();
 }
 
-class _State extends State<CuisineFilterButton> {
+class CuisineFilterButtonState extends State<CuisineFilterButton> {
   bool isPreferred = false;
 
   @override

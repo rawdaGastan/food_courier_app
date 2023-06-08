@@ -9,21 +9,23 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 class RestrictionCheckBox extends StatefulWidget {
   final Restriction restriction;
-  final Function callbackFun;
+  final Function? callbackFun;
 
-  const RestrictionCheckBox({@required this.restriction, this.callbackFun});
+  const RestrictionCheckBox(
+      {Key? key, required this.restriction, this.callbackFun})
+      : super(key: key);
 
   @override
-  _RestrictionCheckBoxState createState() => _RestrictionCheckBoxState();
+  RestrictionCheckBoxState createState() => RestrictionCheckBoxState();
 }
 
-class _RestrictionCheckBoxState extends State<RestrictionCheckBox> {
+class RestrictionCheckBoxState extends State<RestrictionCheckBox> {
   bool clicked = false;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(3.0),
+      margin: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(
         color: Provider.of<TypeFilterProvider>(context)
                 .getRestrictionState(widget.restriction.name)
@@ -35,6 +37,26 @@ class _RestrictionCheckBoxState extends State<RestrictionCheckBox> {
         visible: //this will be triggered when a filter type is applied
             !Provider.of<TypeFilterProvider>(context)
                 .getRestrictionState(widget.restriction.name),
+        replacement: GestureDetector(
+          onTap: () {
+            setState(() {
+              widget.restriction.toggle();
+              Provider.of<TypeFilterProvider>(context, listen: false)
+                  .filterByRestrict();
+              widget.callbackFun!();
+            });
+          },
+          child: ListTile(
+            title: AutoSizeText(
+              widget.restriction.name,
+              textAlign: TextAlign.center,
+              style: restrictionBoxText.copyWith(
+                decoration: TextDecoration.lineThrough,
+                height: 0.5,
+              ),
+            ),
+          ),
+        ),
         child: ListTile(
           title: AutoSizeText(
             widget.restriction.name,
@@ -56,30 +78,10 @@ class _RestrictionCheckBoxState extends State<RestrictionCheckBox> {
 
               Provider.of<TypeFilterProvider>(context, listen: false)
                   .filterByRestrict();
-              if (widget.callbackFun != null) widget.callbackFun();
+              widget.callbackFun!();
             });
           },
           dense: true,
-        ),
-        replacement: GestureDetector(
-          onTap: () {
-            setState(() {
-              widget.restriction.toggle();
-              Provider.of<TypeFilterProvider>(context, listen: false)
-                  .filterByRestrict();
-              if (widget.callbackFun != null) widget.callbackFun();
-            });
-          },
-          child: ListTile(
-            title: AutoSizeText(
-              widget.restriction.name,
-              textAlign: TextAlign.center,
-              style: restrictionBoxText.copyWith(
-                decoration: TextDecoration.lineThrough,
-                height: 0.5,
-              ),
-            ),
-          ),
         ),
       ),
     );

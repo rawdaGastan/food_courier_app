@@ -4,10 +4,10 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class MainButton extends StatelessWidget {
-  final Function action;
+  final void Function()? action;
   final String label;
 
-  const MainButton({Key key, this.action, this.label}) : super(key: key);
+  const MainButton({Key? key, this.action, this.label = ''}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
