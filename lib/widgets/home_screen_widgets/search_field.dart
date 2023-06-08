@@ -7,32 +7,32 @@ import 'package:foodCourier/generated/l10n.dart';
 class SearchField extends StatelessWidget {
   final Function callbackFun;
 
-  SearchField(this.callbackFun);
+  const SearchField(this.callbackFun, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 6 * SizeConfig.blockSizeVertical!,
       child: TextField(
-        onSubmitted: (input) {
+        onSubmitted: (String? input) {
           if (input == '') {
             input = null;
           }
-          this.callbackFun(input);
+          callbackFun(input);
         },
         //onChanged: (input) {this.callbackFun(input);} ,
         style: fillFieldText,
         decoration: InputDecoration(
           fillColor: secondaryColor,
           filled: true,
-          border: new OutlineInputBorder(
+          border: const OutlineInputBorder(
             borderSide: BorderSide.none,
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(8.0),
+            borderRadius: BorderRadius.all(
+              Radius.circular(8.0),
             ),
           ),
-          contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-          prefixIcon: Icon(
+          contentPadding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
+          prefixIcon: const Icon(
             Icons.search,
             size: 25.0,
             color: primaryColor,

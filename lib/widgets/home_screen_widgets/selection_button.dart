@@ -11,21 +11,24 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 class SelectionButton extends StatefulWidget {
   // because this button will be used both for restriction and cuisine filters
-  final TypeFilter typeFilter;
-  final String iconName;
+  TypeFilter typeFilter;
+  String iconName;
+
   SelectionButton({
+    Key? key,
     required this.typeFilter,
-    this.iconName,
-  });
+    required this.iconName,
+  }) : super(key: key);
+
   @override
-  _State createState() => _State();
+  SelectionButtonState createState() => SelectionButtonState();
 }
 
-class _State extends State<SelectionButton> {
+class SelectionButtonState extends State<SelectionButton> {
   onPressed() {
     setState(() {
       if (!Provider.of<TypeFilterProvider>(context, listen: false)
-          .filterStatus[widget.typeFilter.type]) {
+          .filterStatus[widget.typeFilter.type]!) {
         Provider.of<TypeFilterProvider>(context, listen: false)
             .changeFilterState(widget.typeFilter.type);
         if (widget.typeFilter.type == 'Normal') {
@@ -44,12 +47,12 @@ class _State extends State<SelectionButton> {
   @override
   Widget build(BuildContext context) {
     Color buttonColor = Provider.of<TypeFilterProvider>(context)
-            .filterStatus[widget.typeFilter.type]
+            .filterStatus[widget.typeFilter.type]!
         ? primaryColor
         : whiteColor;
 
     Color contentColor = Provider.of<TypeFilterProvider>(context)
-            .filterStatus[widget.typeFilter.type]
+            .filterStatus[widget.typeFilter.type]!
         ? whiteColor
         : blackColor;
 
@@ -65,7 +68,7 @@ class _State extends State<SelectionButton> {
           color: buttonColor,
           borderRadius: BorderRadius.circular(10.0),
           border: Border.all(color: secondaryColor, width: .3),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: secondaryColor,
               offset: Offset(3, 5), // changes position of shadow

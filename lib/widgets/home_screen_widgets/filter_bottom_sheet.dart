@@ -15,79 +15,20 @@ import 'package:foodCourier/generated/l10n.dart';
 
 import '../../locator.dart';
 
-GlobalKey _cuisineKey = GlobalObjectKey("cuisine");
-GlobalKey _restrictionKey = GlobalObjectKey("restriction");
+GlobalKey _cuisineKey = const GlobalObjectKey('cuisine');
+GlobalKey _restrictionKey = const GlobalObjectKey('restriction');
+final GlobalKey _showCaseKey = GlobalKey();
+
 final SharedPreferencesClass sharedPreferencesClass =
     locator<SharedPreferencesClass>();
 
-void showCoachMarkFAB() async {
-  CoachMark coachMarkFAB = CoachMark();
-  RenderBox target = _cuisineKey.currentContext.findRenderObject();
-  Rect markRect = target.localToGlobal(Offset.zero) & target.size;
-  markRect = markRect.inflate(5.0);
-
-  await sharedPreferencesClass.isFirstTime().then((isFirstTime) => {
-        (isFirstTime)
-            ? coachMarkFAB.show(
-                targetContext: _cuisineKey.currentContext,
-                markRect: markRect,
-                markShape: BoxShape.rectangle,
-                children: [
-                  Positioned(
-                      top: markRect.top - (10 * SizeConfig.blockSizeVertical!),
-                      right: 5 * SizeConfig.blockSizeHorizontal!,
-                      left: 5 * SizeConfig.blockSizeHorizontal!,
-                      child: Text(
-                        "click here to set your favourite cuisines",
-                        style: const TextStyle(
-                          fontSize: 24.0,
-                          color: whiteColor,
-                        ),
-                        textAlign: TextAlign.center,
-                      ))
-                ],
-                duration: null,
-                onClose: () {
-                  Timer(Duration(seconds: 3), () => showCoachMarkTile());
-                })
-            : null
-      });
-}
-
-void showCoachMarkTile() {
-  CoachMark coachMarkTile = CoachMark();
-  RenderBox target = _restrictionKey.currentContext.findRenderObject();
-
-  Rect markRect = target.localToGlobal(Offset.zero) & target.size;
-  markRect = markRect.inflate(5.0);
-
-  coachMarkTile.show(
-    targetContext: _restrictionKey.currentContext,
-    markRect: markRect,
-    markShape: BoxShape.rectangle,
-    children: [
-      Positioned(
-          top: markRect.bottom + 15.0,
-          right: 2 * SizeConfig.blockSizeHorizontal!,
-          left: 2 * SizeConfig.blockSizeHorizontal!,
-          child: Text(
-            "click here to set your food restrictions",
-            style: const TextStyle(
-              fontSize: 24.0,
-              fontStyle: FontStyle.italic,
-              color: whiteColor,
-            ),
-            textAlign: TextAlign.center,
-          ))
-    ],
-    duration: null,
-    //duration: Duration(seconds: 3)
-  );
-}
-
 void filterBottomSheet(
     context, Function callbackFun, Function callbackRestriction) {
-  Timer(Duration(seconds: 1), () => showCoachMarkFAB());
+  sharedPreferencesClass.isFirstTime().then((isFirstTime) => {
+        Timer(const Duration(seconds: 1),
+            () => ShowCaseWidget.of(context).startShowCase([_showCaseKey]))
+      });
+
   showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -99,6 +40,12 @@ void filterBottomSheet(
           color: whiteColor,
           child: Column(
             children: <Widget>[
+              Showcase(
+                key: _showCaseKey,
+                title: 'Favorite cuisines',
+                description: 'click here to set your favorite cuisines',
+                child: Container(),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -107,7 +54,7 @@ void filterBottomSheet(
                     //'Filter',
                     style: blackSmallText17,
                   ),
-                  new GestureDetector(
+                  GestureDetector(
                     onTap: () async {
                       await Provider.of<TypeFilterProvider>(context,
                               listen: false)
@@ -157,7 +104,7 @@ void filterBottomSheet(
                   ],
                 ),
               ),
-              Container(
+              SizedBox(
                 width: 47 * SizeConfig.blockSizeHorizontal!,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(

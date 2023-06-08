@@ -44,7 +44,7 @@ class AllStores extends StatefulWidget {
       this.selectedRegionType,
       required this.callbackFilters,
       required this.callbackRestriction,
-      required this.offers})
+      this.offers = false})
       : super(key: key);
 
   @override

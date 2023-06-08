@@ -14,47 +14,49 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class RestaurantCard extends StatefulWidget {
-  final PickResult addressSelectedPlace;
-  final Location currentLocation;
+  PickResult? addressSelectedPlace;
+  Location? currentLocation;
 
-  final String restaurantType;
-  final Restaurant restaurant;
-  final bool isDelivery;
-  final bool isDineOut;
+  String restaurantType;
+  Restaurant restaurant;
+  bool isDelivery;
+  bool isDineOut;
 
-  final Function callbackFun;
+  Function callbackFun;
 
   RestaurantCard(
-      {this.restaurant,
+      {Key? key,
+      required this.restaurant,
       this.addressSelectedPlace,
       this.currentLocation,
-      this.restaurantType,
-      this.isDelivery,
-      this.callbackFun,
-      this.isDineOut});
+      required this.restaurantType,
+      required this.isDelivery,
+      required this.callbackFun,
+      required this.isDineOut})
+      : super(key: key);
 
   @override
-  _RestaurantCardState createState() => _RestaurantCardState();
+  RestaurantCardState createState() => RestaurantCardState();
 }
 
-class _RestaurantCardState extends State<RestaurantCard> {
+class RestaurantCardState extends State<RestaurantCard> {
   //dummy
-  LatLng restaurantLocation = new LatLng(31.2696584, 29.9930304);
+  LatLng restaurantLocation = const LatLng(31.2696584, 29.9930304);
   double distance = 1.7;
   double lastDistance = 1.7;
 
-  String duration = "";
-  String lastDuration = "";
+  String duration = '';
+  String lastDuration = '';
 
-  bool isFavourite = false;
+  bool isFavorite = false;
 
   getDistance() async {
     if (widget.addressSelectedPlace != null) {
       var response = await calculateDistanceBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.addressSelectedPlace.geometry.location.lat,
-          widget.addressSelectedPlace.geometry.location.lng);
+          widget.addressSelectedPlace!.geometry!.location.lat,
+          widget.addressSelectedPlace!.geometry!.location.lng);
       distance = double.parse(response);
       if (lastDistance != distance) {
         setState(() {
@@ -66,8 +68,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
       var response = await calculateDistanceBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.currentLocation.latitude,
-          widget.currentLocation.longitude);
+          widget.currentLocation!.latitude,
+          widget.currentLocation!.longitude);
       distance = double.parse(response);
       if (lastDistance != distance) {
         setState(() {
@@ -81,12 +83,12 @@ class _RestaurantCardState extends State<RestaurantCard> {
 
   getDuration() async {
     if (widget.addressSelectedPlace != null) {
-      var response = await calculateTimeBetweenLocations(
+      String? response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.addressSelectedPlace.geometry.location.lat,
-          widget.addressSelectedPlace.geometry.location.lng);
-      duration = response;
+          widget.addressSelectedPlace!.geometry!.location.lat,
+          widget.addressSelectedPlace!.geometry!.location.lng);
+      duration = response!;
       if (lastDuration != duration) {
         setState(() {
           duration = response;
@@ -94,12 +96,12 @@ class _RestaurantCardState extends State<RestaurantCard> {
         });
       }
     } else if (widget.currentLocation != null) {
-      var response = await calculateTimeBetweenLocations(
+      String? response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.currentLocation.latitude,
-          widget.currentLocation.longitude);
-      duration = response;
+          widget.currentLocation!.latitude,
+          widget.currentLocation!.longitude);
+      duration = response!;
       if (lastDuration != duration) {
         setState(() {
           duration = response;
@@ -112,10 +114,12 @@ class _RestaurantCardState extends State<RestaurantCard> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.restaurantType == 'GRCR')
+    if (widget.restaurantType == 'GRCR') {
       getDuration();
-    else if ((widget.isDelivery == true && widget.restaurantType == 'RSTR') ||
-        widget.isDineOut == true) getDistance();
+    } else if ((widget.isDelivery == true && widget.restaurantType == 'RSTR') ||
+        widget.isDineOut == true) {
+      getDistance();
+    }
 
     bool visibilityFilters =
         Provider.of<TypeFilterProvider>(context).isFirstTime
@@ -130,7 +134,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
     if (Provider.of<TypeFilterProvider>(context)
                 .getTypeOfCurrentFilterApplied ==
             'Normal' &&
-        widget.restaurant.labelNames.length == 0) visibilityFilters = true;
+        widget.restaurant.labelNames.isEmpty) visibilityFilters = true;
 
     return Visibility(
       visible: visibilityFilters,
@@ -143,24 +147,24 @@ class _RestaurantCardState extends State<RestaurantCard> {
         //height: 50 * SizeConfig.blockSizeVertical!,
         decoration: BoxDecoration(
           color: whiteColor,
-          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
           boxShadow: [
             BoxShadow(
               color: shadow,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Container(
+            SizedBox(
               height: 25 * SizeConfig.blockSizeVertical!,
               width: double.infinity,
               child: Stack(
                 children: [
                   ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(16.0),
                         topRight: Radius.circular(16.0)),
                     child: Container(
@@ -180,23 +184,21 @@ class _RestaurantCardState extends State<RestaurantCard> {
                         left: 82 * SizeConfig.blockSizeHorizontal!),
                     child: Stack(
                       children: [
-                        Container(
-                          child: CircleAvatar(
-                            backgroundColor: whiteColor,
-                            radius: 4 * SizeConfig.blockSizeHorizontal!,
-                          ),
+                        CircleAvatar(
+                          backgroundColor: whiteColor,
+                          radius: 4 * SizeConfig.blockSizeHorizontal!,
                         ),
-                        Container(
+                        SizedBox(
                           width: 8 * SizeConfig.blockSizeHorizontal!,
                           height: 8 * SizeConfig.blockSizeHorizontal!,
                           child: GestureDetector(
                             onTap: () {
                               setState(() {
-                                isFavourite = !isFavourite;
+                                isFavorite = !isFavorite;
                               });
                             },
                             child: Icon(
-                              isFavourite
+                              isFavorite
                                   ? Icons.turned_in
                                   : Icons.turned_in_not,
                               color: orangeColor,
@@ -231,7 +233,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                     padding: EdgeInsets.only(
                                       top: 0.5 * SizeConfig.blockSizeVertical!,
                                     ),
-                                    child: Icon(Icons.attach_money,
+                                    child: const Icon(Icons.attach_money,
                                         color: orangeColor),
                                   ),
                                   Padding(
@@ -240,7 +242,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                       left:
                                           3.5 * SizeConfig.blockSizeHorizontal!,
                                     ),
-                                    child: Icon(Icons.attach_money,
+                                    child: const Icon(Icons.attach_money,
                                         color: lightTextColor),
                                   ),
                                   Padding(
@@ -248,7 +250,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                       top: 0.5 * SizeConfig.blockSizeVertical!,
                                       left: 7 * SizeConfig.blockSizeHorizontal!,
                                     ),
-                                    child: Icon(Icons.attach_money,
+                                    child: const Icon(Icons.attach_money,
                                         color: lightTextColor),
                                   ),
                                 ],
@@ -268,7 +270,8 @@ class _RestaurantCardState extends State<RestaurantCard> {
                             children: [
                               Tab(
                                 icon: widget.restaurantType == 'GRCR'
-                                    ? Icon(Icons.timer, color: orangeColor)
+                                    ? const Icon(Icons.timer,
+                                        color: orangeColor)
                                     : widget.isDelivery == true &&
                                             widget.restaurantType == 'RSTR'
                                         ? Image.asset(
@@ -281,7 +284,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                                 'assets/icons/distance.png',
                                                 width: 7 *
                                                     SizeConfig
-                                                        .blockSizeHorizontal,
+                                                        .blockSizeHorizontal!,
                                                 color: orangeColor)
                                             : null,
                                 //Image.asset('assets/icons/distance.png', width: 7 * SizeConfig.blockSizeHorizontal!, color: orangeColor),
@@ -294,7 +297,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                         ? S().distance(distance)
                                         : widget.isDineOut == true
                                             ? S().distance(distance)
-                                            : null,
+                                            : '',
                                 //duration,
                                 //S().distance(distance),
                                 //'$distance k',
@@ -344,7 +347,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                                     padding: EdgeInsets.only(
                                         left: 2 *
                                             SizeConfig.blockSizeHorizontal!),
-                                    child: Icon(Icons.location_on,
+                                    child: const Icon(Icons.location_on,
                                         color: primaryColor, size: 20),
                                   ),
                                 ),
@@ -376,7 +379,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: orangeColor,
                       ),
@@ -393,7 +396,7 @@ class _RestaurantCardState extends State<RestaurantCard> {
               padding: EdgeInsets.symmetric(
                   horizontal: 2 * SizeConfig.blockSizeHorizontal!,
                   vertical: SizeConfig.blockSizeVertical!),
-              child: AutoSizeText(
+              child: const AutoSizeText(
                 'is simply dummy text of the printing and typesetting industry',
                 overflow: TextOverflow.ellipsis,
                 style: RestaurantDescription,

@@ -6,11 +6,14 @@ import 'package:foodCourier/generated/l10n.dart';
 import 'package:foodCourier/main.dart';
 
 class DrawerContents extends StatelessWidget {
-  final int bottomNavigationIndex;
-  final Function callbackBottomNavigationBar;
+  int bottomNavigationIndex;
+  Function callbackBottomNavigationBar;
 
   DrawerContents(
-      {this.bottomNavigationIndex, this.callbackBottomNavigationBar});
+      {Key? key,
+      required this.bottomNavigationIndex,
+      required this.callbackBottomNavigationBar})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +47,7 @@ class DrawerContents extends StatelessWidget {
               onTap: () => Navigator.pushNamed(context, 'profile'),
               child: Row(
                 children: <Widget>[
-                  Icon(Icons.person, color: lightTextColor),
+                  const Icon(Icons.person, color: lightTextColor),
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
@@ -70,7 +73,7 @@ class DrawerContents extends StatelessWidget {
                   ]),
               child: Row(
                 children: <Widget>[
-                  Icon(Icons.layers, color: lightTextColor),
+                  const Icon(Icons.layers, color: lightTextColor),
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
@@ -94,7 +97,7 @@ class DrawerContents extends StatelessWidget {
                     onTap: () => Navigator.pushNamed(context, 'all orders'),
                     child: Row(
                       children: <Widget>[
-                        Icon(Icons.shopping_cart, color: lightTextColor),
+                        const Icon(Icons.shopping_cart, color: lightTextColor),
                         Flexible(
                           child: Container(
                             width: 27 * SizeConfig.blockSizeHorizontal!,
@@ -104,7 +107,7 @@ class DrawerContents extends StatelessWidget {
                             ),
                             child: Stack(
                               children: [
-                                Text(
+                                const Text(
                                   'My orders',
                                   overflow: TextOverflow.clip,
                                   style: blackSmallText20,
@@ -114,14 +117,14 @@ class DrawerContents extends StatelessWidget {
                                   right: 0,
                                   child: Stack(
                                     children: [
-                                      Icon(Icons.brightness_1,
+                                      const Icon(Icons.brightness_1,
                                           size: 15.0, color: orangeColor),
                                       Positioned(
                                           top: 0.7 *
                                               SizeConfig.blockSizeHorizontal!,
                                           right: 0.7 *
                                               SizeConfig.blockSizeHorizontal!,
-                                          child: Center(
+                                          child: const Center(
                                             child: Text(
                                               '11',
                                               style: cartLength,
@@ -138,12 +141,12 @@ class DrawerContents extends StatelessWidget {
                     ),
                   )
                 : Container(),
-            Divider(color: blackColor),
+            const Divider(color: blackColor),
             GestureDetector(
               onTap: () => Navigator.pushNamed(context, 'feedback'),
               child: Row(
                 children: <Widget>[
-                  Icon(Icons.feedback, color: lightTextColor),
+                  const Icon(Icons.feedback, color: lightTextColor),
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
@@ -165,7 +168,7 @@ class DrawerContents extends StatelessWidget {
               onTap: () {},
               child: Row(
                 children: <Widget>[
-                  Icon(Icons.error, color: lightTextColor),
+                  const Icon(Icons.error, color: lightTextColor),
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
@@ -188,7 +191,7 @@ class DrawerContents extends StatelessWidget {
               onTap: () {},
               child: Row(
                 children: <Widget>[
-                  Icon(Icons.live_help, color: lightTextColor),
+                  const Icon(Icons.live_help, color: lightTextColor),
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(
@@ -207,12 +210,12 @@ class DrawerContents extends StatelessWidget {
                 ],
               ),
             ),
-            Divider(color: blackColor),
+            const Divider(color: blackColor),
             GestureDetector(
               onTap: () => Navigator.pushNamed(context, 'languages'),
               child: Row(
                 children: <Widget>[
-                  Icon(Icons.g_translate, color: lightTextColor),
+                  const Icon(Icons.g_translate, color: lightTextColor),
                   Flexible(
                     child: Container(
                       margin: EdgeInsets.symmetric(

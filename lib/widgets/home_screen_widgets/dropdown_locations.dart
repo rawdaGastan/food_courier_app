@@ -9,7 +9,7 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/screens/map.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
-final List<String> cities = [
+List<String> cities = [
   'Current Location  ➤',
   'Pick on Map   🏴',
   'Cairo',
@@ -19,7 +19,7 @@ final List<String> cities = [
   'Giza',
 ];
 
-final List<String> cairoCityInside = [
+List<String> cairoCityInside = [
   ' • zaiton',
   ' • sahel',
   ' • rod elfarag',
@@ -29,11 +29,11 @@ final List<String> cairoCityInside = [
 ];
 
 Map<String, String> dropDownCities = {
-  'Current Location  ➤': "",
-  'Pick on Map   🏴': "",
-  'Alexandria': "city",
-  'Montaza 2': "town",
-  'Cairo': "city",
+  'Current Location  ➤': '',
+  'Pick on Map   🏴': '',
+  'Alexandria': 'city',
+  'Montaza 2': 'town',
+  'Cairo': 'city',
   '5th Settelment': 'town',
   'Nasr city': 'town',
   'heliopolis': 'town',
@@ -52,35 +52,35 @@ Map<String, String> dropDownCities = {
 };
 
 class DropdownLocationsTextField extends StatefulWidget {
-  final Function callbackFun;
+  Function callbackFun;
 
-  DropdownLocationsTextField(this.callbackFun);
+  DropdownLocationsTextField(this.callbackFun, {Key? key}) : super(key: key);
 
   @override
-  _State createState() => _State();
+  DropdownLocationsTextFieldState createState() =>
+      DropdownLocationsTextFieldState();
 }
 
-class _State extends State<DropdownLocationsTextField> {
-  PickResult addressSelectedPlace;
+class DropdownLocationsTextFieldState
+    extends State<DropdownLocationsTextField> {
+  PickResult? addressSelectedPlace;
   String currentLocation = '';
 
   String selectedCity = S().selectRegion;
-  String selectedCityType;
+  String selectedCityType = '';
 
   //bool showTown = false;
   bool dropDownLocationsVisibility = true;
 
   Future getCurrentLocationData() async {
     GeoCode geoCode = GeoCode();
-    Location location = new Location();
+    Location location = Location();
     await location.getCurrentLocation();
-    print(location.latitude);
-    print(location.longitude);
 
-    var address = await geoCode.reverseGeocoding(
+    Address address = await geoCode.reverseGeocoding(
         latitude: location.latitude, longitude: location.longitude);
 
-    this.widget.callbackFun(
+    widget.callbackFun(
         null, location, !dropDownLocationsVisibility, null, 'location');
     return address.streetAddress;
   }
@@ -129,7 +129,7 @@ class _State extends State<DropdownLocationsTextField> {
             borderRadius: BorderRadius.circular(8.0),
           ),
           child: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.close,
               color: primaryColor,
             ),
@@ -157,7 +157,7 @@ class _State extends State<DropdownLocationsTextField> {
             child: ListView.separated(
                 itemCount: dropDownCities.length,
                 separatorBuilder: (context, int) {
-                  return Divider();
+                  return const Divider();
                 },
                 itemBuilder: (context, index) {
                   return SizedBox(
@@ -172,7 +172,7 @@ class _State extends State<DropdownLocationsTextField> {
                                   child: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Icon(Icons.person_pin_circle,
+                                    const Icon(Icons.person_pin_circle,
                                         color: primaryColor),
                                     SizedBox(
                                         width: 5 *
@@ -206,7 +206,7 @@ class _State extends State<DropdownLocationsTextField> {
                               if (dropDownCities.keys.elementAt(index) ==
                                   'Pick on Map   🏴') {
                                 selectedCity =
-                                    addressSelectedPlace.formattedAddress;
+                                    addressSelectedPlace!.formattedAddress!;
                                 selectedCityType = 'location';
                               } else if (dropDownCities.keys.elementAt(index) ==
                                   'Current Location  ➤') {
@@ -218,7 +218,7 @@ class _State extends State<DropdownLocationsTextField> {
                                 selectedCityType =
                                     dropDownCities.values.elementAt(index);
                               }
-                              this.widget.callbackFun(
+                              widget.callbackFun(
                                   null,
                                   null,
                                   !dropDownLocationsVisibility,

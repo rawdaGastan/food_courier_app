@@ -9,30 +9,31 @@ import 'package:foodCourier/providers/order_provider.dart';
 import '../main.dart';
 
 class GoToCartButton extends StatefulWidget {
+  const GoToCartButton({Key? key}) : super(key: key);
+
   @override
-  _GoToCartButton createState() => _GoToCartButton();
+  GoToCartButtonState createState() => GoToCartButtonState();
 }
 
-class _GoToCartButton extends State<GoToCartButton> {
-  Cart cart;
+class GoToCartButtonState extends State<GoToCartButton> {
+  Cart? cart;
 
   getNumberOfItemsInCart() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      cart = await Provider.of<OrderProvider>(context, listen: false)
-          .viewCart(userToken);
-      setState(() {
-        cart = cart;
-      });
-    }
+    cart = await Provider.of<OrderProvider>(context, listen: false)
+        .viewCart(userToken);
+
+    setState(() {
+      cart = cart;
+    });
   }
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, this.getNumberOfItemsInCart);
+    Future.delayed(Duration.zero, getNumberOfItemsInCart);
   }
 
   @override
@@ -63,22 +64,22 @@ class _GoToCartButton extends State<GoToCartButton> {
                   Container(
                     height: 5 * SizeConfig.blockSizeVertical!,
                     width: 5 * SizeConfig.blockSizeVertical!,
-                    decoration: new BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: whiteColor,
                       shape: BoxShape.circle,
                     ),
                     alignment: Alignment.center,
                     child: Text(
-                      cart == null ? '0' : cart.items.length.toString(),
+                      cart == null ? '0' : cart!.items.length.toString(),
                       style: buttonText,
                     ),
                   ),
-                  Text(
+                  const Text(
                     'View cart',
                     style: buttonText,
                   ),
                   Text(
-                    cart == null ? '0' : '${cart.totalPrice} \$',
+                    cart == null ? '0' : '${cart!.totalPrice} \$',
                     style: buttonText,
                   ),
                   SizedBox(
