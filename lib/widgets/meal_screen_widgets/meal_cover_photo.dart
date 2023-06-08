@@ -12,35 +12,33 @@ import '../../main.dart';
 class MealCoverPhoto extends StatefulWidget {
   final String photoUrl;
 
-  MealCoverPhoto({this.photoUrl});
+  const MealCoverPhoto({Key? key, required this.photoUrl}) : super(key: key);
 
   @override
-  _MealCoverPhotoState createState() => _MealCoverPhotoState();
+  MealCoverPhotoState createState() => MealCoverPhotoState();
 }
 
-class _MealCoverPhotoState extends State<MealCoverPhoto> {
-  bool isFavourite = false;
+class MealCoverPhotoState extends State<MealCoverPhoto> {
+  bool isFavorite = false;
   int myCartLength = 0;
-  Cart cart;
+  Cart? cart;
 
   Future<int> getNumberOfItemsInCart() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      cart = await Provider.of<OrderProvider>(context, listen: false)
-          .viewCart(userToken);
-      setState(() {
-        myCartLength = cart.items.length;
-      });
-    }
+    cart = await Provider.of<OrderProvider>(context, listen: false)
+        .viewCart(userToken);
+    setState(() {
+      myCartLength = cart!.items.length;
+    });
     return myCartLength;
   }
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, this.getNumberOfItemsInCart);
+    Future.delayed(Duration.zero, getNumberOfItemsInCart);
   }
 
   @override
@@ -65,7 +63,7 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
           child: Stack(
             children: [
               IconButton(
-                icon: Icon(Icons.brightness_1),
+                icon: const Icon(Icons.brightness_1),
                 color: whiteColor,
                 onPressed: () => Navigator.pop(context),
               ),
@@ -93,23 +91,21 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
             children: [
               Stack(
                 children: [
-                  Container(
-                    child: CircleAvatar(
-                      backgroundColor: whiteColor,
-                      radius: 4 * SizeConfig.blockSizeHorizontal!,
-                    ),
+                  CircleAvatar(
+                    backgroundColor: whiteColor,
+                    radius: 4 * SizeConfig.blockSizeHorizontal!,
                   ),
-                  Container(
+                  SizedBox(
                     width: 8 * SizeConfig.blockSizeHorizontal!,
                     height: 8 * SizeConfig.blockSizeHorizontal!,
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          isFavourite = !isFavourite;
+                          isFavorite = !isFavorite;
                         });
                       },
                       child: Icon(
-                        isFavourite ? Icons.turned_in : Icons.turned_in_not,
+                        isFavorite ? Icons.turned_in : Icons.turned_in_not,
                         color: orangeColor,
                       ),
                     ),
@@ -134,7 +130,7 @@ class _MealCoverPhotoState extends State<MealCoverPhoto> {
                           child: Stack(
                             children: [
                               IconButton(
-                                icon: Icon(Icons.shopping_cart,
+                                icon: const Icon(Icons.shopping_cart,
                                     color: primaryColor),
                                 onPressed: () {
                                   Navigator.pushNamed(context, 'order checkout',

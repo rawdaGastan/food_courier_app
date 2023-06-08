@@ -36,22 +36,18 @@ class OrderState extends State<Order> {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      _streamController.add(
-          await Provider.of<OrderProvider>(context, listen: false)
-              .viewCart(userToken));
-    }
+    _streamController.add(
+        await Provider.of<OrderProvider>(context, listen: false)
+            .viewCart(userToken));
   }
 
   createOrder() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      var response = await Provider.of<OrderProvider>(context, listen: false)
-          .createOrder(userToken);
-      if (response != null) Navigator.pushNamed(context, 'finish order');
-    }
+    var response = await Provider.of<OrderProvider>(context, listen: false)
+        .createOrder(userToken);
+    if (response != null) Navigator.pushNamed(context, 'finish order');
   }
 
   @override

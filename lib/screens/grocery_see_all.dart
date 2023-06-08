@@ -6,7 +6,7 @@ import 'package:foodCourier/controllers/push_notification.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
 import 'package:foodCourier/widgets/home_screen_widgets/drawer.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/filterBy_button_list.dart';
+import 'package:foodCourier/widgets/home_screen_widgets/filter_by_button_list.dart';
 import 'package:foodCourier/widgets/home_screen_widgets/dropdown_locations.dart';
 import 'package:foodCourier/widgets/home_screen_widgets/filter_bottom_sheet.dart';
 import 'package:foodCourier/widgets/home_screen_widgets/search_field.dart';
@@ -132,8 +132,8 @@ class GrocerySeeAllState extends State<GrocerySeeAll> {
   }
 
   callbackDropDownLocation(
-      PickResult addressSelectedPlace,
-      Location currentLocation,
+      PickResult? addressSelectedPlace,
+      Location? currentLocation,
       bool visibility,
       String selectedCity,
       String selectedCityType) {
@@ -200,7 +200,7 @@ class GrocerySeeAllState extends State<GrocerySeeAll> {
     });
   }
 
-  callbackFilters(String sortBy) {
+  callbackFilters(String? sortBy) {
     if (sortBy != null) {
       setState(() {
         allStoresWidget = AllStores(
@@ -234,7 +234,7 @@ class GrocerySeeAllState extends State<GrocerySeeAll> {
   }
 
   showRestaurantsByLocation() {
-    if (regionSelected != 'no region' && regionSelected != null) {
+    if (regionSelected != 'no region') {
       setState(() {
         allStoresWidget = AllStores(
           selectedRegion: regionSelected,

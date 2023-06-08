@@ -22,12 +22,14 @@ final List<String> iconNames = [
 ];
 
 class FilterByList extends StatefulWidget {
+  const FilterByList({Key? key}) : super(key: key);
+
   @override
-  _State createState() => _State();
+  FilterByListState createState() => FilterByListState();
 }
 
-class _State extends State<FilterByList> {
-  ScrollController _controller = ScrollController(initialScrollOffset: 0.0);
+class FilterByListState extends State<FilterByList> {
+  final ScrollController _controller = ScrollController(initialScrollOffset: 0.0);
 
   @override
   void initState() {

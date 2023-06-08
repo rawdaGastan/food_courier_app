@@ -9,44 +9,45 @@ import 'package:foodCourier/models/meal_value.dart';
 
 class MealReview extends StatefulWidget {
   final ScrollController _controller;
-  final String mealName;
-  MealReview(this._controller, this.mealName);
+  String mealName;
+
+  MealReview(this._controller, this.mealName, {Key? key}) : super(key: key);
 
   @override
-  _MealReviewState createState() => _MealReviewState();
+  MealReviewState createState() => MealReviewState();
 }
 
-class _MealReviewState extends State<MealReview> {
+class MealReviewState extends State<MealReview> {
   int rateByUser = 0;
   List<MealValue> mealValues = [];
 
-  String reviewText;
+  String reviewText = '';
   final inputController = TextEditingController();
 
   dummyMealValues() {
-    mealValues.add(new MealValue(
-        name: 'Protien', percentage: '10%', quantity: '12g', isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
+        name: 'Protein', percentage: '10%', quantity: '12g', isPrimary: true));
+    mealValues.add(MealValue(
         name: 'Total carbs',
         percentage: '10%',
         quantity: '12g',
         isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Total sugars',
         percentage: '10%',
         quantity: '10g',
         isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Dietary fiber',
         percentage: '10%',
         quantity: '6g',
         isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Sodium',
         percentage: '10%',
         quantity: '112mg',
         isPrimary: false));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Cholestrol',
         percentage: '10%',
         quantity: '70mg',
@@ -66,7 +67,7 @@ class _MealReviewState extends State<MealReview> {
         ListView(
           controller: widget._controller,
           children: [
-            Text(
+            const Text(
               'Rate and Review (16)',
               style: mealSubTitles,
             ),
@@ -79,7 +80,7 @@ class _MealReviewState extends State<MealReview> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Text('4.5', style: bigRatingText),
                         Text('/5', style: distanceAndRatingText),
@@ -88,14 +89,14 @@ class _MealReviewState extends State<MealReview> {
                     SizedBox(
                       height: 1 * SizeConfig.blockSizeVertical!,
                     ),
-                    Text(
+                    const Text(
                       '30 Reviews',
                       style: mealInfo,
                     ),
                     SizedBox(
                       height: 1 * SizeConfig.blockSizeVertical!,
                     ),
-                    Text(
+                    const Text(
                       '400 Votes',
                       style: mealInfo,
                     ),
@@ -106,27 +107,27 @@ class _MealReviewState extends State<MealReview> {
                   children: [
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
@@ -136,7 +137,7 @@ class _MealReviewState extends State<MealReview> {
                               left: 1 * SizeConfig.blockSizeHorizontal!),
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 30 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
                                 bottomLeft: Radius.circular(10.0)),
@@ -146,7 +147,7 @@ class _MealReviewState extends State<MealReview> {
                         Container(
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 10 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
                                 bottomRight: Radius.circular(10.0)),
@@ -157,22 +158,22 @@ class _MealReviewState extends State<MealReview> {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
@@ -182,7 +183,7 @@ class _MealReviewState extends State<MealReview> {
                               left: 1 * SizeConfig.blockSizeHorizontal!),
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 30 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
                                 bottomLeft: Radius.circular(10.0)),
@@ -192,7 +193,7 @@ class _MealReviewState extends State<MealReview> {
                         Container(
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 10 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
                                 bottomRight: Radius.circular(10.0)),
@@ -203,17 +204,17 @@ class _MealReviewState extends State<MealReview> {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
@@ -223,7 +224,7 @@ class _MealReviewState extends State<MealReview> {
                               left: 1 * SizeConfig.blockSizeHorizontal!),
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 30 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
                                 bottomLeft: Radius.circular(10.0)),
@@ -233,7 +234,7 @@ class _MealReviewState extends State<MealReview> {
                         Container(
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 10 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
                                 bottomRight: Radius.circular(10.0)),
@@ -244,12 +245,12 @@ class _MealReviewState extends State<MealReview> {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
                         ),
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
@@ -259,7 +260,7 @@ class _MealReviewState extends State<MealReview> {
                               left: 1 * SizeConfig.blockSizeHorizontal!),
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 30 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
                                 bottomLeft: Radius.circular(10.0)),
@@ -269,7 +270,7 @@ class _MealReviewState extends State<MealReview> {
                         Container(
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 10 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
                                 bottomRight: Radius.circular(10.0)),
@@ -280,7 +281,7 @@ class _MealReviewState extends State<MealReview> {
                     ),
                     Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.star,
                           color: orangeColor,
                           size: 15,
@@ -290,7 +291,7 @@ class _MealReviewState extends State<MealReview> {
                               left: 1 * SizeConfig.blockSizeHorizontal!),
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 30 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topLeft: Radius.circular(10.0),
                                 bottomLeft: Radius.circular(10.0)),
@@ -300,7 +301,7 @@ class _MealReviewState extends State<MealReview> {
                         Container(
                           height: 1 * SizeConfig.blockSizeVertical!,
                           width: 10 * SizeConfig.blockSizeHorizontal!,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.only(
                                 topRight: Radius.circular(10.0),
                                 bottomRight: Radius.circular(10.0)),
@@ -314,11 +315,11 @@ class _MealReviewState extends State<MealReview> {
               ],
             ),
             SizedBox(height: SizeConfig.blockSizeVertical!),
-            Divider(),
+            const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(
+                const Text(
                   'Tap to Rate:',
                   style: mealInfo,
                 ),
@@ -378,12 +379,12 @@ class _MealReviewState extends State<MealReview> {
             ),
             Row(
               children: [
-                Icon(
+                const Icon(
                   Icons.add_comment,
                   color: greyTextColor87,
                 ),
                 SizedBox(width: SizeConfig.blockSizeHorizontal!),
-                Text(
+                const Text(
                   'Write a Review',
                   style: mealSubTitles,
                 ),
@@ -408,12 +409,12 @@ class _MealReviewState extends State<MealReview> {
                             EdgeInsets.all(SizeConfig.blockSizeHorizontal!),
                         child: CircleAvatar(
                           radius: 3 * SizeConfig.blockSizeVertical!,
-                          backgroundImage: AssetImage(
+                          backgroundImage: const AssetImage(
                             'assets/icons/temp.png',
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                         height: 5 * SizeConfig.blockSizeVertical!,
                         width: 60 * SizeConfig.blockSizeHorizontal!,
                         child: TextFormField(
@@ -463,7 +464,7 @@ class _MealReviewState extends State<MealReview> {
                                       SizeConfig.blockSizeHorizontal!),
                                   child: CircleAvatar(
                                     radius: 3 * SizeConfig.blockSizeVertical!,
-                                    backgroundImage: AssetImage(
+                                    backgroundImage: const AssetImage(
                                       'assets/icons/temp.png',
                                     ),
                                   ),
@@ -476,12 +477,12 @@ class _MealReviewState extends State<MealReview> {
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 1 *
                                               SizeConfig.blockSizeHorizontal!),
-                                      child: AutoSizeText(
+                                      child: const AutoSizeText(
                                         'Noor ALshaer',
                                         style: RestaurantDescription,
                                       ),
                                     ),
-                                    Row(
+                                    const Row(
                                       children: [
                                         Icon(
                                           Icons.star,
@@ -514,13 +515,13 @@ class _MealReviewState extends State<MealReview> {
                                 ),
                               ],
                             ),
-                            AutoSizeText(
+                            const AutoSizeText(
                               '30Dec 2020',
                               style: mealInfo,
                             ),
                           ],
                         ),
-                        AutoSizeText(
+                        const AutoSizeText(
                           'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
                           style: RestaurantDescription,
                         ),

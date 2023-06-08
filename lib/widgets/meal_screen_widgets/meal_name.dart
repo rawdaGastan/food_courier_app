@@ -7,16 +7,17 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/models/meal.dart';
 
 class MealName extends StatefulWidget {
-  final Meal meal;
-  final String logoUrl;
+  Meal meal;
+  String logoUrl;
 
-  MealName({this.meal, this.logoUrl});
+  MealName({Key? key, required this.meal, required this.logoUrl})
+      : super(key: key);
 
   @override
-  _MealNameState createState() => _MealNameState();
+  MealNameState createState() => MealNameState();
 }
 
-class _MealNameState extends State<MealName> {
+class MealNameState extends State<MealName> {
   int serves = 2;
   int calories = 150;
 
@@ -80,7 +81,7 @@ class _MealNameState extends State<MealName> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Icon(
+                      const Icon(
                         Icons.star,
                         color: orangeColor,
                       ),
@@ -103,7 +104,7 @@ class _MealNameState extends State<MealName> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Price',
                           style: mealSubTitles,
                         ),
@@ -133,7 +134,7 @@ class _MealNameState extends State<MealName> {
                         children: [
                           GestureDetector(
                             child: Icon(
-                              widget.meal.isFavourite
+                              widget.meal.isFavorite
                                   ? Icons.favorite
                                   : Icons.favorite_border,
                               color: orangeColor,
@@ -146,7 +147,7 @@ class _MealNameState extends State<MealName> {
                           ),
                           Text(
                             widget.meal.numberOfLikes.toString(),
-                            style: favouriteNumberMeals,
+                            style: favoriteNumberMeals,
                             textAlign: TextAlign.center,
                           ),
                         ],
@@ -159,7 +160,7 @@ class _MealNameState extends State<MealName> {
                     Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             'Ingredients',
                             style: mealIngredientsStyle,
                           ),
@@ -180,7 +181,7 @@ class _MealNameState extends State<MealName> {
                         ]),
                   ],
                 ),
-                Text(
+                const Text(
                   'Meal Info',
                   style: mealSubTitles,
                 ),
@@ -196,7 +197,8 @@ class _MealNameState extends State<MealName> {
                         Row(
                           children: [
                             Image(
-                              image: AssetImage('assets/icons/serves.png'),
+                              image:
+                                  const AssetImage('assets/icons/serves.png'),
                               color: darkTextColor,
                               width: 5 * SizeConfig.blockSizeHorizontal!,
                             ),
@@ -208,7 +210,7 @@ class _MealNameState extends State<MealName> {
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           'Serves',
                           style: mealInfo,
                         ),
@@ -220,7 +222,8 @@ class _MealNameState extends State<MealName> {
                         Row(
                           children: [
                             Image(
-                              image: AssetImage('assets/icons/calories.png'),
+                              image:
+                                  const AssetImage('assets/icons/calories.png'),
                               color: darkTextColor,
                               width: 5 * SizeConfig.blockSizeHorizontal!,
                             ),
@@ -232,7 +235,7 @@ class _MealNameState extends State<MealName> {
                             ),
                           ],
                         ),
-                        Text(
+                        const Text(
                           'Calories',
                           style: mealInfo,
                         ),

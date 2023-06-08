@@ -18,7 +18,7 @@ class _MealDescriptionState extends State<MealDescription> {
 
   dummyMealValues() {
     mealValues.add(new MealValue(
-        name: 'Protien', percentage: '10%', quantity: '12g', isPrimary: true));
+        name: 'Protein', percentage: '10%', quantity: '12g', isPrimary: true));
     mealValues.add(new MealValue(
         name: 'Total carbs',
         percentage: '10%',
@@ -140,7 +140,7 @@ class _MealDescriptionState extends State<MealDescription> {
                       ),
                     ),
                     Text(
-                      ' Protien ',
+                      ' Protein ',
                       style: mealInfo,
                     ),
                     Text(

@@ -295,7 +295,7 @@ class _MealCardState extends State<MealCard> {
                                       },
                                     ),
                                     Text(snapshot.data.numberOfLikes.toString(),
-                                        style: favouriteNumberMeals,
+                                        style: favoriteNumberMeals,
                                         textAlign: TextAlign.center),
                                   ],
                                 ),
