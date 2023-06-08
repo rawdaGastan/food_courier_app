@@ -13,36 +13,34 @@ import 'package:foodCourier/models/cart.dart';
 class CoverPhotoList extends StatefulWidget {
   final List<String> photoUrls;
 
-  CoverPhotoList({this.photoUrls});
+  const CoverPhotoList({Key? key, required this.photoUrls}) : super(key: key);
 
   @override
-  _CoverPhotoListState createState() => _CoverPhotoListState();
+  CoverPhotoListState createState() => CoverPhotoListState();
 }
 
-class _CoverPhotoListState extends State<CoverPhotoList> {
+class CoverPhotoListState extends State<CoverPhotoList> {
   int myCartLength = 0;
-  Cart cart;
+  late Cart cart;
   int _index = 0;
-  bool isFavourite = false;
+  bool isFavorite = false;
 
   Future<int> getNumberOfItemsInCart() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      cart = await Provider.of<OrderProvider>(context, listen: false)
-          .viewCart(userToken);
-      setState(() {
-        myCartLength = cart.items.length;
-      });
-    }
+    cart = await Provider.of<OrderProvider>(context, listen: false)
+        .viewCart(userToken);
+    setState(() {
+      myCartLength = cart.items.length;
+    });
     return myCartLength;
   }
 
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, this.getNumberOfItemsInCart);
+    Future.delayed(Duration.zero, getNumberOfItemsInCart);
   }
 
   @override
@@ -80,7 +78,7 @@ class _CoverPhotoListState extends State<CoverPhotoList> {
           child: Stack(
             children: [
               IconButton(
-                icon: Icon(Icons.brightness_1),
+                icon: const Icon(Icons.brightness_1),
                 color: whiteColor,
                 onPressed: () => Navigator.pop(context),
               ),
@@ -108,23 +106,21 @@ class _CoverPhotoListState extends State<CoverPhotoList> {
             children: [
               Stack(
                 children: [
-                  Container(
-                    child: CircleAvatar(
-                      backgroundColor: whiteColor,
-                      radius: 4 * SizeConfig.blockSizeHorizontal!,
-                    ),
+                  CircleAvatar(
+                    backgroundColor: whiteColor,
+                    radius: 4 * SizeConfig.blockSizeHorizontal!,
                   ),
-                  Container(
+                  SizedBox(
                     width: 8 * SizeConfig.blockSizeHorizontal!,
                     height: 8 * SizeConfig.blockSizeHorizontal!,
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          isFavourite = !isFavourite;
+                          isFavorite = !isFavorite;
                         });
                       },
                       child: Icon(
-                        isFavourite ? Icons.turned_in : Icons.turned_in_not,
+                        isFavorite ? Icons.turned_in : Icons.turned_in_not,
                         color: orangeColor,
                       ),
                     ),
@@ -149,7 +145,7 @@ class _CoverPhotoListState extends State<CoverPhotoList> {
                           child: Stack(
                             children: [
                               IconButton(
-                                icon: Icon(Icons.shopping_cart,
+                                icon: const Icon(Icons.shopping_cart,
                                     color: primaryColor),
                                 onPressed: () {
                                   Navigator.pushNamed(context, 'order checkout',
@@ -195,7 +191,7 @@ class _CoverPhotoListState extends State<CoverPhotoList> {
           child: DotsIndicator(
             dotsCount: widget.photoUrls.length,
             position: _index,
-            decorator: DotsDecorator(
+            decorator: const DotsDecorator(
               color: primaryColor, // Inactive color
               activeColor: whiteColor,
             ),

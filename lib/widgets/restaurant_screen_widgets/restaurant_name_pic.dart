@@ -12,13 +12,18 @@ class RestaurantName extends StatelessWidget {
   final double distance;
   final String duration;
 
-  RestaurantName({this.distance, this.duration, this.restaurant});
+  const RestaurantName(
+      {Key? key,
+      required this.distance,
+      required this.duration,
+      required this.restaurant})
+      : super(key: key);
 
   String getAddress(List<String> restaurantAddressList) {
-    var restaurantAddress = StringBuffer();
-    restaurantAddressList.forEach((item) {
+    StringBuffer restaurantAddress = StringBuffer();
+    for (String item in restaurantAddressList) {
       restaurantAddress.write('$item ');
-    });
+    }
     return restaurantAddress.toString();
   }
 
@@ -64,7 +69,7 @@ class RestaurantName extends StatelessWidget {
                           child: RichText(
                             text: TextSpan(
                               children: [
-                                WidgetSpan(
+                                const WidgetSpan(
                                   child: Icon(Icons.location_on,
                                       color: primaryColor, size: 20),
                                 ),
@@ -85,7 +90,7 @@ class RestaurantName extends StatelessWidget {
                     Container(
                       width: 15 * SizeConfig.blockSizeHorizontal!,
                       height: 6 * SizeConfig.blockSizeVertical!,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         shape: BoxShape.circle,
                         color: whiteColor,
                         boxShadow: [
@@ -102,23 +107,24 @@ class RestaurantName extends StatelessWidget {
                               top: SizeConfig.blockSizeVertical!,
                               left: SizeConfig.blockSizeHorizontal!,
                             ),
-                            child: Icon(Icons.attach_money, color: orangeColor),
+                            child: const Icon(Icons.attach_money,
+                                color: orangeColor),
                           ),
                           Padding(
                             padding: EdgeInsets.only(
                               top: SizeConfig.blockSizeVertical!,
                               left: 4 * SizeConfig.blockSizeHorizontal!,
                             ),
-                            child:
-                                Icon(Icons.attach_money, color: lightTextColor),
+                            child: const Icon(Icons.attach_money,
+                                color: lightTextColor),
                           ),
                           Padding(
                             padding: EdgeInsets.only(
                               top: SizeConfig.blockSizeVertical!,
                               left: 7 * SizeConfig.blockSizeHorizontal!,
                             ),
-                            child:
-                                Icon(Icons.attach_money, color: lightTextColor),
+                            child: const Icon(Icons.attach_money,
+                                color: lightTextColor),
                           ),
                         ],
                       ),
@@ -147,7 +153,7 @@ class RestaurantName extends StatelessWidget {
                                 ? S().distance(distance)
                                 : restaurant.type == 'DINE'
                                     ? S().distance(distance)
-                                    : null,
+                                    : '',
                         //S().distance(distance),
                         //'$distance k',
                         textScaleFactor: 1.0,
@@ -172,7 +178,7 @@ class RestaurantName extends StatelessWidget {
                             size: 4 * SizeConfig.blockSizeHorizontal!,
                             color: primaryColor,
                           ),
-                          Text(
+                          const Text(
                             ' Opened',
                             textScaleFactor: 1.0,
                             style: ratingTextBlack,
@@ -193,7 +199,7 @@ class RestaurantName extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Icon(
+                          const Icon(
                             Icons.star,
                             color: orangeColor,
                           ),

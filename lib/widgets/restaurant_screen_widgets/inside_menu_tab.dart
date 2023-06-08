@@ -22,45 +22,46 @@ Map<String, int> tags = {
 class RestaurantInsideMenu extends StatefulWidget {
   final ScrollController _controller;
   final String restaurantName;
-  final selectedIndexOfBottomBar;
-  final callbackNavigationBottomBar;
+  final int selectedIndexOfBottomBar;
+  final Function callbackNavigationBottomBar;
   final String restaurantLogoUrl;
   final int restaurantID;
-  RestaurantInsideMenu(
+
+  const RestaurantInsideMenu(
       this._controller,
       this.restaurantName,
       this.selectedIndexOfBottomBar,
       this.callbackNavigationBottomBar,
       this.restaurantLogoUrl,
-      this.restaurantID);
+      this.restaurantID,
+      {Key? key})
+      : super(key: key);
 
   @override
-  _RestaurantInsideMenuState createState() => _RestaurantInsideMenuState();
+  RestaurantInsideMenuState createState() => RestaurantInsideMenuState();
 }
 
-class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
+class RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
   int selectedTabIndex = 0;
 
-  StreamController _streamController;
-  Stream _stream;
+  late StreamController _streamController;
+  late Stream _stream;
 
   @override
   void initState() {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getMealsDataFromProvider);
+    Future.delayed(Duration.zero, getMealsDataFromProvider);
   }
 
   getMealsDataFromProvider() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      _streamController.add(
-          await Provider.of<MealsProvider>(context, listen: false)
-              .loadAllMeals(widget.restaurantName, userToken));
-    }
+    _streamController.add(
+        await Provider.of<MealsProvider>(context, listen: false)
+            .loadAllMeals(widget.restaurantName, userToken));
   }
 
   // if(scrollInfo.metrics.pixels <
@@ -70,7 +71,7 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
   void change_selected_index_basedOn_scrollPosition(
       ScrollNotification scrollInfo) {
     double currentOffset, nextOffset, lastOffset;
-    int currentIndex;
+    int currentIndex = 0;
 
     // get index of occurrence for current scroll position
     for (int i = 0; i < tags.length - 1; i++) {
@@ -91,12 +92,13 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
               SizeConfig.blockSizeVertical!) +
           ((tags.length - 1) * 4.22 * SizeConfig.blockSizeVertical!) +
           ((tags.length - 1) * 16);
-      if (scrollInfo.metrics.pixels >= lastOffset)
+      if (scrollInfo.metrics.pixels >= lastOffset) {
         currentIndex = tags.length - 1;
+      }
     }
 
     setState(() {
-      selectedTabIndex = currentIndex == null ? 0 : currentIndex;
+      selectedTabIndex = currentIndex;
     });
   }
 
@@ -105,7 +107,7 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
     return NotificationListener<ScrollNotification>(
         onNotification: (ScrollNotification scrollInfo) {
           change_selected_index_basedOn_scrollPosition(scrollInfo);
-          return;
+          return true;
         },
         child: Stack(
           children: [
@@ -133,7 +135,7 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                                       horizontal:
                                           2 * SizeConfig.blockSizeHorizontal!),
                                   height: 6 * SizeConfig.blockSizeVertical!,
-                                  decoration: BoxDecoration(
+                                  decoration: const BoxDecoration(
                                     color: secondaryColor,
                                   ),
                                   child: ListView.builder(
@@ -164,15 +166,15 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                                                         .elementAt(i) *
                                                     32 *
                                                     SizeConfig
-                                                        .blockSizeVertical) +
+                                                        .blockSizeVertical!) +
                                                 (i *
                                                     4.22 *
                                                     SizeConfig
-                                                        .blockSizeVertical) +
+                                                        .blockSizeVertical!) +
                                                 (i * 16);
                                             widget._controller.animateTo(index,
-                                                duration:
-                                                    Duration(milliseconds: 500),
+                                                duration: const Duration(
+                                                    milliseconds: 500),
                                                 curve: Curves.fastOutSlowIn);
                                           },
                                         ),
@@ -194,13 +196,13 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                                                     padding: EdgeInsets.only(
                                                         left: 6 *
                                                             SizeConfig
-                                                                .blockSizeHorizontal,
+                                                                .blockSizeHorizontal!,
                                                         top: 8.0,
                                                         bottom: 8.0),
                                                     child: AutoSizeText(
                                                       tags.keys.firstWhere(
                                                           (k) => tags[k] == i,
-                                                          orElse: () => null),
+                                                          orElse: () => ''),
                                                       style: mealCategoryStyle,
                                                     ),
                                                   ),
@@ -237,7 +239,7 @@ class _RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                             ],
                           );
                         } else {
-                          return Center(
+                          return const Center(
                             child: CircularProgressIndicator(),
                           );
                         }

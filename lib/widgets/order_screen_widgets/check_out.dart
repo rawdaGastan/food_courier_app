@@ -10,11 +10,13 @@ import 'package:foodCourier/providers/order_provider.dart';
 import '../../main.dart';
 
 class CheckOut extends StatefulWidget {
+  const CheckOut({Key? key}) : super(key: key);
+
   @override
-  _CheckOutState createState() => _CheckOutState();
+  CheckOutState createState() => CheckOutState();
 }
 
-class _CheckOutState extends State<CheckOut> {
+class CheckOutState extends State<CheckOut> {
   int paymentIndex = 0;
   @override
   void initState() {
@@ -25,10 +27,8 @@ class _CheckOutState extends State<CheckOut> {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      await Provider.of<OrderProvider>(context, listen: false)
-          .setPaymentMethod(userToken, paymentMethod);
-    }
+    await Provider.of<OrderProvider>(context, listen: false)
+        .setPaymentMethod(userToken, paymentMethod);
   }
 
   @override
@@ -40,7 +40,7 @@ class _CheckOutState extends State<CheckOut> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Check out',
             style: buttonText,
           ),
@@ -49,8 +49,8 @@ class _CheckOutState extends State<CheckOut> {
               top: SizeConfig.blockSizeVertical!,
               left: 3 * SizeConfig.blockSizeVertical!,
             ),
-            child: Text(
-              "Payment Method",
+            child: const Text(
+              'Payment Method',
               style: pickUpAndDeliveryTime,
             ),
           ),
@@ -63,7 +63,7 @@ class _CheckOutState extends State<CheckOut> {
             child: DefaultTabController(
               length: foodCourier().remoteConfigService.paymentFeature ? 2 : 1,
               child: Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: secondaryColor,
                   borderRadius: BorderRadius.all(Radius.circular(25.0)),
                 ),
@@ -71,7 +71,7 @@ class _CheckOutState extends State<CheckOut> {
                 child: TabBar(
                   tabs: foodCourier().remoteConfigService.paymentFeature
                       ? [
-                          Tab(
+                          const Tab(
                             child: AutoSizeText(
                               'Credit card',
                               maxLines: 1,
@@ -79,7 +79,7 @@ class _CheckOutState extends State<CheckOut> {
                               textAlign: TextAlign.center,
                             ),
                           ),
-                          Tab(
+                          const Tab(
                             child: AutoSizeText(
                               'Cash',
                               maxLines: 1,
@@ -89,7 +89,7 @@ class _CheckOutState extends State<CheckOut> {
                           ),
                         ]
                       : [
-                          Tab(
+                          const Tab(
                             child: AutoSizeText(
                               'Cash',
                               maxLines: 1,
@@ -109,7 +109,7 @@ class _CheckOutState extends State<CheckOut> {
                     });
                   },
                   isScrollable: false,
-                  indicator: BoxDecoration(
+                  indicator: const BoxDecoration(
                     color: primaryColor,
                     borderRadius: BorderRadius.all(Radius.circular(25.0)),
                   ),
@@ -131,7 +131,7 @@ class _CheckOutState extends State<CheckOut> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text(
                                 'Card number',
                                 style: pickUpAndDeliveryTime,
                               ),
@@ -140,18 +140,17 @@ class _CheckOutState extends State<CheckOut> {
                                 onChanged: (String input) {},
                                 textAlign: TextAlign.left,
                                 style: fillFieldText,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   hintText: '.... ..... .....',
                                   hintStyle: fieldText,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide:
-                                        new BorderSide(color: lightTextColor),
+                                        BorderSide(color: lightTextColor),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        new BorderSide(color: primaryColor),
+                                    borderSide: BorderSide(color: primaryColor),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)),
                                   ),
@@ -173,7 +172,7 @@ class _CheckOutState extends State<CheckOut> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'Exp',
                                     style: pickUpAndDeliveryTime,
                                   ),
@@ -183,18 +182,18 @@ class _CheckOutState extends State<CheckOut> {
                                     onChanged: (String input) {},
                                     textAlign: TextAlign.left,
                                     style: fillFieldText,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       hintText: 'mm',
                                       hintStyle: fieldText,
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: new BorderSide(
-                                            color: lightTextColor),
+                                        borderSide:
+                                            BorderSide(color: lightTextColor),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide:
-                                            new BorderSide(color: primaryColor),
+                                            BorderSide(color: primaryColor),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
@@ -208,7 +207,7 @@ class _CheckOutState extends State<CheckOut> {
                             Container(
                               margin: EdgeInsets.only(
                                   top: 4 * SizeConfig.blockSizeVertical!),
-                              child: Text(
+                              child: const Text(
                                 '/',
                                 style: pickUpAndDeliveryTime,
                               ),
@@ -225,18 +224,17 @@ class _CheckOutState extends State<CheckOut> {
                                 onChanged: (String input) {},
                                 textAlign: TextAlign.left,
                                 style: fillFieldText,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   hintText: 'yy',
                                   hintStyle: fieldText,
                                   enabledBorder: OutlineInputBorder(
                                     borderSide:
-                                        new BorderSide(color: lightTextColor),
+                                        BorderSide(color: lightTextColor),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)),
                                   ),
                                   focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        new BorderSide(color: primaryColor),
+                                    borderSide: BorderSide(color: primaryColor),
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)),
                                   ),
@@ -254,7 +252,7 @@ class _CheckOutState extends State<CheckOut> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     'CVC',
                                     style: pickUpAndDeliveryTime,
                                   ),
@@ -264,18 +262,18 @@ class _CheckOutState extends State<CheckOut> {
                                     onChanged: (String input) {},
                                     textAlign: TextAlign.left,
                                     style: fillFieldText,
-                                    decoration: InputDecoration(
+                                    decoration: const InputDecoration(
                                       hintText: '...',
                                       hintStyle: fieldText,
                                       enabledBorder: OutlineInputBorder(
-                                        borderSide: new BorderSide(
-                                            color: lightTextColor),
+                                        borderSide:
+                                            BorderSide(color: lightTextColor),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),
                                       focusedBorder: OutlineInputBorder(
                                         borderSide:
-                                            new BorderSide(color: primaryColor),
+                                            BorderSide(color: primaryColor),
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(10)),
                                       ),

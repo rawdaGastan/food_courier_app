@@ -4,15 +4,18 @@ import 'package:foodCourier/constants/colors.dart';
 
 class TagTab extends StatefulWidget {
   final String tag;
-  final Function animate;
+  final void Function()? animate;
   final bool isSelected;
-  TagTab({this.tag, this.animate, this.isSelected});
+
+  const TagTab(
+      {Key? key, required this.tag, this.animate, required this.isSelected})
+      : super(key: key);
 
   @override
-  _TabState createState() => _TabState();
+  TabState createState() => TabState();
 }
 
-class _TabState extends State<TagTab> {
+class TabState extends State<TagTab> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

@@ -19,55 +19,57 @@ class MealCard extends StatefulWidget {
   final Function callbackNavigationBottomBar;
   final String restaurantLogoUrl;
   final int restaurantID;
-  MealCard(
-      {this.meal,
-      this.selectedIndexOfBottomBar,
-      this.callbackNavigationBottomBar,
-      this.restaurantLogoUrl,
-      this.restaurantID});
+
+  const MealCard(
+      {Key? key,
+      required this.meal,
+      this.selectedIndexOfBottomBar = 0,
+      required this.callbackNavigationBottomBar,
+      required this.restaurantLogoUrl,
+      required this.restaurantID})
+      : super(key: key);
 
   @override
-  _MealCardState createState() => _MealCardState();
+  MealCardState createState() => MealCardState();
 }
 
-class _MealCardState extends State<MealCard> {
-  StreamController _streamController;
-  Stream _stream;
+class MealCardState extends State<MealCard> {
+  late StreamController _streamController;
+  late Stream _stream;
 
   @override
   void initState() {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getCurrentMeal);
+    Future.delayed(Duration.zero, getCurrentMeal);
   }
 
   getCurrentMeal() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      _streamController.add(
-          await Provider.of<MealsProvider>(context, listen: false)
-              .getSpecificMeal(widget.meal.id, userToken));
-    }
+    _streamController.add(
+        await Provider.of<MealsProvider>(context, listen: false)
+            .getSpecificMeal(widget.meal.id, userToken));
   }
 
   String getPrice(Map<int, List<dynamic>> supplierPrices, int supplierID) {
-    int price;
+    int price = 0;
     for (int i = 0; i < supplierPrices.length; i++) {
-      if (supplierPrices.values.elementAt(i)[0] == supplierID)
+      if (supplierPrices.values.elementAt(i)[0] == supplierID) {
         price = supplierPrices.values.elementAt(i)[1];
+      }
     }
-    print('priceeeeeeeeeeeeeeeeee $supplierID');
     return price.toString();
   }
 
   int getProductID(Map<int, List<dynamic>> supplierPrices, int supplierID) {
-    int product;
+    int product = 0;
     for (int i = 0; i < supplierPrices.length; i++) {
-      if (supplierPrices.values.elementAt(i)[0] == 1)
+      if (supplierPrices.values.elementAt(i)[0] == 1) {
         product = supplierPrices.keys.elementAt(i);
+      }
     }
     return product;
   }
@@ -75,7 +77,7 @@ class _MealCardState extends State<MealCard> {
   displayDialog(context, text) => showDialog(
         context: context,
         builder: (context) => AlertDialog(
-          content: Container(
+          content: SizedBox(
             height: 20 * SizeConfig.blockSizeVertical!,
             child: Column(
               children: [
@@ -103,7 +105,7 @@ class _MealCardState extends State<MealCard> {
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Combined',
                           style: blackSmallText17,
                         ),
@@ -118,7 +120,7 @@ class _MealCardState extends State<MealCard> {
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                           ),
                         ),
-                        child: Text('New order', style: blackSmallText17),
+                        child: const Text('New order', style: blackSmallText17),
                         onPressed: () {}),
                   ]),
             ),
@@ -174,7 +176,7 @@ class _MealCardState extends State<MealCard> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Container(
+                              SizedBox(
                                 width: 40 * SizeConfig.blockSizeHorizontal!,
                                 child: AutoSizeText(
                                   snapshot.data.name,
@@ -185,7 +187,7 @@ class _MealCardState extends State<MealCard> {
                                       .remoteConfigService
                                       .orderingFeature)
                                   ? IconButton(
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Icons.add_circle,
                                         color: primaryColor,
                                       ),
@@ -210,7 +212,7 @@ class _MealCardState extends State<MealCard> {
                                 width: 60 * SizeConfig.blockSizeHorizontal!,
                                 margin: EdgeInsets.only(
                                     bottom: SizeConfig.blockSizeHorizontal!),
-                                child: AutoSizeText(
+                                child: const AutoSizeText(
                                   'is simply dummy text of the printing and typesetting industry.',
                                   style: RestaurantDescription,
                                 ),
@@ -221,7 +223,7 @@ class _MealCardState extends State<MealCard> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               snapshot.data.labelNames != null
-                                  ? new Expanded(
+                                  ? Expanded(
                                       child: GridView.builder(
                                         itemCount:
                                             snapshot.data.labelNames.length < 7
@@ -229,7 +231,7 @@ class _MealCardState extends State<MealCard> {
                                                     .data.labelNames.length
                                                 : 6,
                                         shrinkWrap: true,
-                                        physics: ScrollPhysics(),
+                                        physics: const ScrollPhysics(),
                                         gridDelegate:
                                             SliverGridDelegateWithFixedCrossAxisCount(
                                           crossAxisCount: 3,
@@ -309,7 +311,7 @@ class _MealCardState extends State<MealCard> {
                 ),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }

@@ -23,17 +23,15 @@ addItemTOCart(context, int productID, int quantity) async {
   String userToken =
       await Provider.of<AuthenticationProvider>(context, listen: false)
           .userToken;
-  if (userToken != null) {
-    var response = await Provider.of<OrderProvider>(context, listen: false)
-        .addToCart(userToken, productID, quantity);
-    if (response != null) Navigator.pop(context);
-  }
+  var response = await Provider.of<OrderProvider>(context, listen: false)
+      .addToCart(userToken, productID, quantity);
+  if (response != null) Navigator.pop(context);
 }
 
 void addItemBottomSheet(context, Meal meal, int productID) {
   int itemQuantity = 0;
   showModalBottomSheet(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topRight: Radius.circular(40), topLeft: Radius.circular(40)),
       ),
@@ -46,7 +44,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                 EdgeInsets.symmetric(horizontal: SizeConfig.blockSizeVertical!),
             height: 90 * SizeConfig.blockSizeVertical!,
             alignment: Alignment.center,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: whiteColor,
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(40), topLeft: Radius.circular(40)),
@@ -61,11 +59,11 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       IconButton(
-                        icon: Icon(Icons.close_rounded),
+                        icon: const Icon(Icons.close_rounded),
                         onPressed: () => Navigator.pop(context),
                       ),
                       IconButton(
-                        icon: Icon(Icons.error_outline),
+                        icon: const Icon(Icons.error_outline),
                         onPressed: () {},
                       ),
                     ],
@@ -77,7 +75,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Container(
+                      SizedBox(
                         width: 70 * SizeConfig.blockSizeHorizontal!,
                         child: AutoSizeText(
                           meal.name,
@@ -108,7 +106,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                   height: 25 * SizeConfig.blockSizeVertical!,
                   width: SizeConfig.screenWidth,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    borderRadius: const BorderRadius.all(Radius.circular(20)),
                     image: DecorationImage(
                       image: CachedNetworkImageProvider(meal.photoUrls[0]),
                       fit: BoxFit.cover,
@@ -121,8 +119,8 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                       Padding(
                         padding:
                             EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal!),
-                        child: Text(
-                          'lorem ipsed',
+                        child: const Text(
+                          'lorem ipsec',
                           style: ItemAddOn,
                         ),
                       ),
@@ -135,15 +133,15 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                       Padding(
                         padding:
                             EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal!),
-                        child: Text(
-                          'Prefrences',
+                        child: const Text(
+                          'Preferences',
                           style: ItemAddOn,
                         ),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 3 * SizeConfig.blockSizeHorizontal!),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
@@ -170,7 +168,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                         child: TextFormField(
                           textAlign: TextAlign.left,
                           style: fillFieldText,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'e.g. extra spicy,etc.',
                             hintStyle: fieldText,
                             enabledBorder: OutlineInputBorder(
@@ -199,7 +197,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           IconButton(
-                            icon: Icon(Icons.remove_circle_outline,
+                            icon: const Icon(Icons.remove_circle_outline,
                                 color: lightTextColor, size: 30),
                             onPressed: () => setState(() => itemQuantity > 0
                                 ? itemQuantity--
@@ -210,7 +208,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                             style: mealPrice,
                           ),
                           IconButton(
-                            icon: Icon(Icons.add_circle_outline,
+                            icon: const Icon(Icons.add_circle_outline,
                                 color: lightTextColor, size: 30),
                             onPressed: () => setState(() => itemQuantity++),
                           ),
@@ -232,7 +230,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                         ),
                         onPressed: () =>
                             addItemTOCart(context, productID, itemQuantity),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
