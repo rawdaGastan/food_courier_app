@@ -16,24 +16,26 @@ import 'package:foodCourier/providers/authentication_provider.dart';
 import 'package:provider/provider.dart';
 
 class Registration extends StatefulWidget {
+  const Registration({Key? key}) : super(key: key);
+
   @override
-  _State createState() => _State();
+  RegistrationState createState() => RegistrationState();
 }
 
-class _State extends State<Registration> {
+class RegistrationState extends State<Registration> {
   bool _isEnabled = true;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  //TextEditingController _controller = new TextEditingController(text: '');
+  //TextEditingController _controller = TextEditingController(text: '');
 
   final numericRegex = RegExp(r'^-?(([0-9]*)|(([0-9]*)\.([0-9]*)))$');
   bool isMobile = false;
   String phoneOrEmail = S().emailOrPhone;
   //'Email/Phone Number';
-  String emailOrPhoneValue = "";
-  CountryCode countryCode;
+  String emailOrPhoneValue = '';
+  late CountryCode countryCode;
 
   @override
   void initState() {
@@ -42,15 +44,15 @@ class _State extends State<Registration> {
   }
 
   getMobileNumber() async {
-    final SmsAutoFill _autoFill = SmsAutoFill();
-    final completePhoneNumber = await _autoFill.hint;
-    if (completePhoneNumber != null)
+    final SmsAutoFill autoFill = SmsAutoFill();
+    final completePhoneNumber = await autoFill.hint;
+    if (completePhoneNumber != null) {
       setState(() {
         isMobile = true;
         _emailController.text = completePhoneNumber.substring(3);
         emailOrPhoneValue = completePhoneNumber;
       });
-    print(completePhoneNumber);
+    }
   }
 
   displayDialog(context, title, text) => showDialog(
@@ -71,22 +73,22 @@ class _State extends State<Registration> {
               children: <Widget>[
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 25.0,
                     fontStyle: FontStyle.italic,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
                 Text(
                   text,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 15.0,
                     fontStyle: FontStyle.italic,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: 10.0),
+                const SizedBox(height: 10.0),
               ],
             ),
           ),
@@ -94,11 +96,11 @@ class _State extends State<Registration> {
       );
 
   signUp() async {
-    if (emailOrPhoneValue != null && isMobile == true) {
+    if (emailOrPhoneValue != '' && isMobile == true) {
       String error =
           await Provider.of<AuthenticationProvider>(context, listen: false)
               .mobileVerify(emailOrPhoneValue);
-      if (error == null) {
+      if (error == '') {
         Navigator.push(
           context,
           MaterialPageRoute(
@@ -108,14 +110,15 @@ class _State extends State<Registration> {
             ),
           ),
         );
-      } else
+      } else {
         displayDialog(context, 'error', error);
+      }
     } else {
       var email = _emailController.text;
       var password = _passwordController.text;
       var response =
           await Provider.of<AuthenticationProvider>(context, listen: false)
-              .register(email, password, password, "empty");
+              .register(email, password, password, 'empty');
       List<String> responseList = [
         'verificationSent',
         'email',
@@ -127,20 +130,22 @@ class _State extends State<Registration> {
       ];
 
       if (response != null) {
-        if (response == responseList[0])
+        if (response == responseList[0]) {
           Navigator.pushNamed(context, 'login');
-        else {
+        } else {
           List<String> errorDialogContent = [];
           for (int i = 1; i < responseList.length; i++) {
-            if (response[responseList[i]] != null)
+            if (response[responseList[i]] != null) {
               errorDialogContent.add(
                   '${responseList[i]} : ${response[responseList[i]].join('\n')}');
+            }
           }
           displayDialog(
-              context, "Invalid registration", errorDialogContent.join('\n'));
+              context, 'Invalid registration', errorDialogContent.join('\n'));
         }
-      } else
-        displayDialog(context, "Error", "An unknown error occurred.");
+      } else {
+        displayDialog(context, 'Error', 'An unknown error occurred.');
+      }
     }
   }
 
@@ -244,23 +249,23 @@ class _State extends State<Registration> {
                       }
                     },
                     prefix: isMobile
-                        ? Container(
+                        ? SizedBox(
                             height: 3 * SizeConfig.blockSizeVertical!,
                             width: 30 * SizeConfig.blockSizeHorizontal!,
                             child: CountryCodePicker(
                               onInit: (countryCode) {
-                                this.countryCode = countryCode;
+                                this.countryCode = countryCode!;
                               },
                               onChanged: (countryCode) {},
                               initialSelection: 'EG',
-                              favorite: ['+20', 'EG'],
+                              favorite: const ['+20', 'EG'],
                               showCountryOnly: false,
                               showOnlyCountryWhenClosed: false,
                               alignLeft: false,
                               textStyle: fillFieldText,
                             ),
                           )
-                        : null,
+                        : Container(),
                     controller: _emailController,
                     isObscure: false,
                     label: phoneOrEmail,
@@ -280,7 +285,6 @@ class _State extends State<Registration> {
                       horizontal: 5 * SizeConfig.blockSizeHorizontal!),
                   child: InputField(
                     onChanged: (String input) {},
-                    prefix: null,
                     controller: _passwordController,
                     label: S().password,
                     //'Password',
@@ -303,11 +307,11 @@ class _State extends State<Registration> {
                   label: S().signUp,
                   action: _isEnabled
                       ? () async {
-                          if (formKey.currentState.validate()) {
+                          if (formKey.currentState!.validate()) {
                             signUp();
                           }
                         }
-                      : null,
+                      : () {},
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -318,7 +322,7 @@ class _State extends State<Registration> {
                         activeColor: blueTextColor,
                         onChanged: (_) {
                           setState(() {
-                            this._isEnabled = !this._isEnabled;
+                            _isEnabled = !_isEnabled;
                           });
                         }),
                     Padding(

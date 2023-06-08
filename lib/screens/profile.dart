@@ -13,23 +13,25 @@ import 'map.dart';
 import 'package:foodCourier/providers/user_provider.dart';
 
 class Profile extends StatefulWidget {
+  const Profile({Key? key}) : super(key: key);
+
   @override
-  _ProfileState createState() => _ProfileState();
+  ProfileState createState() => ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
-  TextEditingController nameController = new TextEditingController();
-  TextEditingController ageController = new TextEditingController();
-  TextEditingController mobileController = new TextEditingController();
-  TextEditingController emailController = new TextEditingController();
-  TextEditingController homeAddressController = new TextEditingController();
-  TextEditingController workAddressController = new TextEditingController();
-  TextEditingController dietPeriodController = new TextEditingController();
+class ProfileState extends State<Profile> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController ageController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController homeAddressController = TextEditingController();
+  TextEditingController workAddressController = TextEditingController();
+  TextEditingController dietPeriodController = TextEditingController();
 
-  PickResult addressSelectedPlace;
-  PickResult workSelectedPlace;
+  late PickResult addressSelectedPlace;
+  late PickResult workSelectedPlace;
 
-  User user;
+  late User user;
 
   String dropdownValue = S().now;
   List<String> dietPeriods = [S().now, S().week, S().month, S().year];
@@ -38,7 +40,7 @@ class _ProfileState extends State<Profile> {
         context: context,
         builder: (context) => AlertDialog(
           contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeHorizontal!),
-          content: Container(
+          content: SizedBox(
             height: 24 * SizeConfig.blockSizeVertical!,
             child: ListView.builder(
               shrinkWrap: true,
@@ -58,7 +60,7 @@ class _ProfileState extends State<Profile> {
                       color: dropdownValue == dietPeriods[index]
                           ? primaryColor
                           : secondaryColor,
-                      border: Border(
+                      border: const Border(
                         bottom: BorderSide(color: primaryColor, width: 1.0),
                       ),
                     ),
@@ -80,29 +82,25 @@ class _ProfileState extends State<Profile> {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      await Provider.of<UserProvider>(context, listen: false)
-          .getUserData(userToken);
-      user = Provider.of<UserProvider>(context, listen: false).user;
-      emailController.text = user.email;
-      mobileController.text = user.phone;
-    }
+    await Provider.of<UserProvider>(context, listen: false)
+        .getUserData(userToken);
+    user = Provider.of<UserProvider>(context, listen: false).user;
+    emailController.text = user.email;
+    mobileController.text = user.phone;
   }
 
   showProfile() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      await Provider.of<UserProvider>(context, listen: false)
-          .getProfile(userToken);
-      user = Provider.of<UserProvider>(context, listen: false).user;
-      emailController.text = user.email;
-      mobileController.text = user.phone;
-      nameController.text = user.firstName + user.lastName;
-      ageController.text = user.dateOfBirth;
-      dietPeriodController.text = user.durationOfDiet;
-    }
+    await Provider.of<UserProvider>(context, listen: false)
+        .getProfile(userToken);
+    user = Provider.of<UserProvider>(context, listen: false).user;
+    emailController.text = user.email;
+    mobileController.text = user.phone;
+    nameController.text = user.firstName + user.lastName;
+    ageController.text = user.dateOfBirth;
+    dietPeriodController.text = user.durationOfDiet;
   }
 
   updateProfile() async {
@@ -111,19 +109,16 @@ class _ProfileState extends State<Profile> {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      print(nameController.text.split(" "));
-      if (nameController.text.split(" ").length > 1) {
-        firstName = nameController.text.split(" ")[0];
-        lastName = nameController.text.split(" ")[1];
-      } else {
-        firstName = nameController.text.split(" ")[0];
-      }
-      var response = await Provider.of<UserProvider>(context, listen: false)
-          .updateUserData(userToken, firstName, lastName, ageController.text,
-              dietPeriodController.text);
-      if (response != null) Navigator.pushNamed(context, 'preferences reg');
+    if (nameController.text.split(' ').length > 1) {
+      firstName = nameController.text.split(' ')[0];
+      lastName = nameController.text.split(' ')[1];
+    } else {
+      firstName = nameController.text.split(' ')[0];
     }
+    var response = await Provider.of<UserProvider>(context, listen: false)
+        .updateUserData(userToken, firstName, lastName, ageController.text,
+            dietPeriodController.text);
+    if (response != null) Navigator.pushNamed(context, 'preferences reg');
   }
 
   @override
@@ -178,7 +173,7 @@ class _ProfileState extends State<Profile> {
                   child: CircleAvatar(
                     radius: 10 * SizeConfig.blockSizeHorizontal!,
                     backgroundColor: backgroundImages,
-                    backgroundImage: AssetImage(
+                    backgroundImage: const AssetImage(
                       'assets/icons/temp.png',
                     ),
                   ),
@@ -212,7 +207,6 @@ class _ProfileState extends State<Profile> {
               ),
               InputField(
                 label: '',
-                prefix: null,
                 isObscure: false,
                 controller: nameController,
                 onChanged: (input) {},
@@ -230,7 +224,6 @@ class _ProfileState extends State<Profile> {
               ),
               InputField(
                 label: '',
-                prefix: null,
                 isObscure: false,
                 controller: ageController,
                 onChanged: (input) {},
@@ -246,7 +239,6 @@ class _ProfileState extends State<Profile> {
               ),
               InputField(
                 label: '',
-                prefix: null,
                 isObscure: false,
                 controller: mobileController,
                 onChanged: (input) {},
@@ -262,7 +254,6 @@ class _ProfileState extends State<Profile> {
               ),
               InputField(
                 label: '',
-                prefix: null,
                 isObscure: false,
                 controller: emailController,
                 onChanged: (input) {},
@@ -281,14 +272,14 @@ class _ProfileState extends State<Profile> {
                       style: blackSmallText15,
                     ),
                     IconButton(
-                      icon: new Icon(Icons.my_location),
+                      icon: const Icon(Icons.my_location),
                       color: locationIconColor,
                       onPressed: () async {
                         addressSelectedPlace = await openMap(context);
                         setState(() {
                           addressSelectedPlace = addressSelectedPlace;
                           homeAddressController.text =
-                              addressSelectedPlace.formattedAddress;
+                              addressSelectedPlace.formattedAddress as String;
                         });
                       },
                     ),
@@ -310,7 +301,6 @@ class _ProfileState extends State<Profile> {
               ),
               InputField(
                 label: '',
-                prefix: null,
                 isObscure: false,
                 controller: homeAddressController,
                 onChanged: (input) {},
@@ -329,14 +319,14 @@ class _ProfileState extends State<Profile> {
                       style: blackSmallText15,
                     ),
                     IconButton(
-                      icon: new Icon(Icons.my_location),
+                      icon: const Icon(Icons.my_location),
                       color: locationIconColor,
                       onPressed: () async {
                         workSelectedPlace = await openMap(context);
                         setState(() {
                           workSelectedPlace = workSelectedPlace;
                           workAddressController.text =
-                              addressSelectedPlace.formattedAddress;
+                              addressSelectedPlace.formattedAddress as String;
                         });
                       },
                     ),
@@ -357,8 +347,7 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               InputField(
-                label: "",
-                prefix: null,
+                label: '',
                 isObscure: false,
                 controller: workAddressController,
                 onChanged: (input) {},
@@ -381,7 +370,7 @@ class _ProfileState extends State<Profile> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    new Expanded(
+                    Expanded(
                       child: InputField(
                         label: '',
                         isObscure: false,
@@ -393,20 +382,20 @@ class _ProfileState extends State<Profile> {
                       onTap: () {
                         displayDialog(context);
                       },
-                      child: new Container(
-                        decoration: BoxDecoration(
+                      child: Container(
+                        decoration: const BoxDecoration(
                           border: Border(
                             bottom: BorderSide(color: primaryColor, width: 2.0),
                           ),
                         ),
-                        //margin: new EdgeInsets.all(10.0),
+                        //margin: EdgeInsets.all(10.0),
                         child: Row(
                           children: [
                             Text(
                               dropdownValue,
                               style: blackSmallText14,
                             ),
-                            Icon(
+                            const Icon(
                               Icons.keyboard_arrow_down,
                               size: 24,
                             ),

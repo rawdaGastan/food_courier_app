@@ -169,10 +169,10 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
                   ),
                   Container(
                     key: _fabKey,
-                    child: FilterByList(),
                     margin: EdgeInsets.only(
                         top: 4 * SizeConfig.blockSizeVertical!,
                         bottom: SizeConfig.blockSizeVertical!),
+                    child: FilterByList(),
                     /*decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
                       color: secondaryColor
@@ -180,7 +180,7 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
                   ),
                   Container(
                     key: _tileKey,
-                    child: RestrictionsList(null),
+                    child: RestrictionsList(() {}),
                   ),
                 ],
               ),

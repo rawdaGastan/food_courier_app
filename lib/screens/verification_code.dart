@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -10,20 +9,19 @@ import 'package:foodCourier/providers/authentication_provider.dart';
 import 'package:provider/provider.dart';
 
 class VerificationCodeScreen extends StatefulWidget {
-  final bool isRegisteredUser;
-  final String emailOrPhoneValue;
-  VerificationCodeScreen(
-      {this.isRegisteredUser = false, this.emailOrPhoneValue = ""});
+  bool isRegisteredUser;
+  String emailOrPhoneValue;
+
+  VerificationCodeScreen({Key? key, this.isRegisteredUser = false, this.emailOrPhoneValue = ''}) : super(key: key);
 
   @override
-  _VerificationCodeScreenState createState() => _VerificationCodeScreenState();
+  VerificationCodeScreenState createState() => VerificationCodeScreenState();
 }
 
-class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
-  String _code;
-  TextEditingController _controller;
+class VerificationCodeScreenState extends State<VerificationCodeScreen> {
+  String _code = '';
+  final TextEditingController _controller = TextEditingController();
 
-  Timer _timer;
   int _start = 180;
 
   @override
@@ -34,21 +32,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
   }
 
   void startTimer() {
-    const oneSec = const Duration(seconds: 1);
-    _timer = new Timer.periodic(
-      oneSec,
-      (Timer timer) {
-        if (_start == 0) {
-          setState(() {
-            timer.cancel();
-          });
-        } else {
-          setState(() {
-            _start--;
-          });
-        }
-      },
-    );
+    const oneSec = Duration(seconds: 1);
   }
 
   convertToMinutes(int seconds) {
@@ -141,7 +125,7 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                 controller: _controller,
                 obscureText: false,
                 animationType: AnimationType.fade,
-                animationDuration: Duration(milliseconds: 300),
+                animationDuration: const Duration(milliseconds: 300),
                 cursorColor: primaryColor,
                 pinTheme: PinTheme(
                   shape: PinCodeFieldShape.box,
@@ -161,12 +145,12 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen> {
                   setState(() {
                     _code = value;
                   });
-                  if (_code != null) {
+                  if (_code != '') {
                     String error = await Provider.of<AuthenticationProvider>(
                             context,
                             listen: false)
                         .mobileLogin(_code);
-                    if (error == null) {
+                    if (error == '') {
                       displayDialog(
                           context, 'Done', 'Your mobile number is verified');
                       if (widget.isRegisteredUser) {

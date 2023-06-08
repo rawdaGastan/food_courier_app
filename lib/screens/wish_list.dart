@@ -9,15 +9,17 @@ import 'package:foodCourier/widgets/wish_list_widget/stores_wish_list.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class WishList extends StatefulWidget {
+  const WishList({Key? key}) : super(key: key);
+
   @override
-  _WishListState createState() => _WishListState();
+  WishListState createState() => WishListState();
 }
 
-class _WishListState extends State<WishList> {
+class WishListState extends State<WishList> {
   final ScrollController _controller = ScrollController();
-  int selectedIndexOfBottomBar;
+  int selectedIndexOfBottomBar = 0;
   bool gotIndexFromNavigationBar = false;
-  Function callbackNavigationBottomBar;
+  Function callbackNavigationBottomBar = () {};
 
   void _onItemTapped(int index) {
     setState(() {
@@ -30,7 +32,7 @@ class _WishListState extends State<WishList> {
 
   @override
   Widget build(BuildContext context) {
-    List defaults = ModalRoute.of(context).settings.arguments;
+    List defaults = ModalRoute.of(context)!.settings.arguments as List;
     if (!gotIndexFromNavigationBar) {
       selectedIndexOfBottomBar = defaults[0];
       callbackNavigationBottomBar = defaults[1];
@@ -74,12 +76,12 @@ class _WishListState extends State<WishList> {
             //'Delivery',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_grocery_store),
+            icon: const Icon(Icons.local_grocery_store),
             label: S().grocery,
             //'Grocery',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.room_service),
+            icon: const Icon(Icons.room_service),
             label: S().dineOut,
             //'Dineout',
           ),
@@ -112,7 +114,7 @@ class _WishListState extends State<WishList> {
                               spreadRadius: 5,
                               blurRadius: 7,
                               offset:
-                                  Offset(0, 2), // changes position of shadow
+                                  const Offset(0, 2), // changes position of shadow
                             ),
                           ],
                         ),
@@ -126,7 +128,7 @@ class _WishListState extends State<WishList> {
                                 style: buttonText,
                               ),
                             ),
-                            Tab(
+                            const Tab(
                               child: AutoSizeText(
                                 'Stores',
                                 //'Meal',

@@ -13,18 +13,20 @@ import 'package:foodCourier/widgets/go_to_cart_button.dart';
 import 'package:foodCourier/widgets/home_screen_widgets/filter_bottom_sheet.dart';
 
 class RestaurantScreen extends StatefulWidget {
+  const RestaurantScreen({Key? key}) : super(key: key);
+
   @override
-  _RestaurantScreenState createState() => _RestaurantScreenState();
+  RestaurantScreenState createState() => RestaurantScreenState();
 }
 
-class _RestaurantScreenState extends State<RestaurantScreen> {
-  bool isFavourite = false;
-  int selectedIndexOfBottomBar;
+class RestaurantScreenState extends State<RestaurantScreen> {
+  bool isFavorite = false;
+  int selectedIndexOfBottomBar = 0;
   bool gotIndexFromNavigationBar = false;
-  Function callbackNavigationBottomBar;
+  Function callbackNavigationBottomBar = () {};
 
-  Function callbackFilters;
-  Function callbackRestriction;
+  Function callbackFilters = () {};
+  Function callbackRestriction = () {};
 
   SlidingUpPanelController panelController = SlidingUpPanelController();
 
@@ -38,7 +40,7 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List defaults = ModalRoute.of(context).settings.arguments;
+    List defaults = ModalRoute.of(context)!.settings.arguments as List;
     Restaurant restaurant = defaults[0];
     double distance = defaults[1];
     String duration = defaults[2];
@@ -50,183 +52,179 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
     callbackFilters = defaults[6];
     callbackRestriction = defaults[5];
 
-    if (restaurant != null) {
-      SizeConfig().init(context);
-      return Scaffold(
-        floatingActionButton: FloatingActionButton(
-          child: Image(
-            image: AssetImage('assets/icons/filter.png'),
-            color: whiteColor,
-            width: 7 * SizeConfig.blockSizeHorizontal!,
+    SizeConfig().init(context);
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: primaryColor,
+        onPressed: () {
+          filterBottomSheet(context, callbackFilters, callbackRestriction);
+        },
+        child: Image(
+          image: const AssetImage('assets/icons/filter.png'),
+          color: whiteColor,
+          width: 7 * SizeConfig.blockSizeHorizontal!,
+        ),
+        //Navigator.pushNamed(context, 'filter'),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: whiteColor,
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            activeIcon: Image.asset(
+              'assets/icons/delivery.png',
+              width: 8 * SizeConfig.blockSizeHorizontal!,
+            ),
+            icon: Image.asset(
+              'assets/icons/delivery.png',
+              color: lightTextColor,
+              width: 8 * SizeConfig.blockSizeHorizontal!,
+            ),
+            //icon: Icon(Icons.delivery_dining),
+            label: S().delivery,
+            //'Delivery',
           ),
-          backgroundColor: primaryColor,
-          onPressed: () {
-            filterBottomSheet(context, callbackFilters, callbackRestriction);
-          },
-          //Navigator.pushNamed(context, 'filter'),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: whiteColor,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              activeIcon: Image.asset(
-                'assets/icons/delivery.png',
-                width: 8 * SizeConfig.blockSizeHorizontal!,
-              ),
-              icon: Image.asset(
-                'assets/icons/delivery.png',
-                color: lightTextColor,
-                width: 8 * SizeConfig.blockSizeHorizontal!,
-              ),
-              //icon: Icon(Icons.delivery_dining),
-              label: S().delivery,
-              //'Delivery',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.local_grocery_store),
-              label: S().grocery,
-              //'Grocery',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.room_service),
-              label: S().dineOut,
-              //'Dineout',
-            ),
-          ],
-          currentIndex: selectedIndexOfBottomBar,
-          selectedItemColor: primaryColor,
-          unselectedItemColor: lightTextColor,
-          onTap: _onItemTapped,
-        ),
-        body: Stack(
-          children: <Widget>[
-            CoverPhotoList(photoUrls: restaurant.photoUrls),
-            SlidingUpPanelWidget(
-              panelController: panelController,
-              /*decoration: ShapeDecoration(
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.local_grocery_store),
+            label: S().grocery,
+            //'Grocery',
+          ),
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.room_service),
+            label: S().dineOut,
+            //'Dineout',
+          ),
+        ],
+        currentIndex: selectedIndexOfBottomBar,
+        selectedItemColor: primaryColor,
+        unselectedItemColor: lightTextColor,
+        onTap: _onItemTapped,
+      ),
+      body: Stack(
+        children: <Widget>[
+          CoverPhotoList(photoUrls: restaurant.photoUrls),
+          SlidingUpPanelWidget(
+            panelController: panelController,
+            /*decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(18.0),
                   ),
                 ),
               ),*/
-              anchor: 0.67,
-              controlHeight: 100 * SizeConfig.blockSizeVertical!,
-              //minHeight: 67 * SizeConfig.blockSizeVertical!,
-              //maxHeight: 100 * SizeConfig.blockSizeVertical!,
-              child: Stack(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: whiteColor,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(18.0),
-                      ),
-                    ),
-                    child: RestaurantProfile(distance, duration, restaurant),
-                  ),
-                  Padding(
-                    padding: restaurant.labelNames.length > 0
-                        ? EdgeInsets.only(
-                            top: 24 * SizeConfig.blockSizeVertical!)
-                        : EdgeInsets.only(
-                            top: 17 * SizeConfig.blockSizeVertical!),
-                    child: DefaultTabController(
-                      length: 3,
-                      child: Column(
-                        children: <Widget>[
-                          Container(
-                            decoration: BoxDecoration(
-                              color: whiteColor,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: secondaryColor,
-                                  spreadRadius: 5,
-                                  blurRadius: 7,
-                                  offset: Offset(
-                                      0, 2), // changes position of shadow
-                                ),
-                              ],
-                            ),
-                            height: 7 * SizeConfig.blockSizeVertical!,
-                            child: TabBar(
-                              tabs: [
-                                Tab(
-                                  child: AutoSizeText(
-                                    S().menu,
-                                    maxLines: 1,
-                                    style: restaurantBarText,
-                                  ),
-                                ),
-                                Tab(
-                                  child: AutoSizeText(
-                                    S().restaurantInfo,
-                                    maxLines: 1,
-                                    style: restaurantBarText,
-                                    textAlign: TextAlign.center,
-                                  ),
-                                ),
-                                Tab(
-                                  child: AutoSizeText(
-                                    S().reviews,
-                                    maxLines: 1,
-                                    style: restaurantBarText,
-                                  ),
-                                ),
-                              ],
-                              isScrollable: false,
-                              indicatorColor: primaryColor,
-                              indicatorWeight: 4,
-                              labelPadding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      3 * SizeConfig.blockSizeHorizontal!),
-                            ),
-                          ),
-                          Expanded(
-                            child: TabBarView(
-                              children: <Widget>[
-                                Container(),
-                                Container(),
-                                Container(),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
+            anchor: 0.67,
+            controlHeight: 100 * SizeConfig.blockSizeVertical!,
+            //minHeight: 67 * SizeConfig.blockSizeVertical!,
+            //maxHeight: 100 * SizeConfig.blockSizeVertical!,
+            child: Stack(
+              children: [
+                Container(
+                  decoration: const BoxDecoration(
+                    color: whiteColor,
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(18.0),
                     ),
                   ),
-                  DraggableScrollableSheet(
-                    minChildSize: restaurant.labelNames.length > 0 ? 0.73 : 0.8,
-                    initialChildSize:
-                        restaurant.labelNames.length > 0 ? 0.73 : 0.8,
-                    maxChildSize: 1.0,
-                    expand: true,
-                    builder: (_, scrollController) => ListView(
-                      controller: scrollController,
-                      children: [
+                  child: RestaurantProfile(distance, duration, restaurant),
+                ),
+                Padding(
+                  padding: restaurant.labelNames.isNotEmpty
+                      ? EdgeInsets.only(top: 24 * SizeConfig.blockSizeVertical!)
+                      : EdgeInsets.only(
+                          top: 17 * SizeConfig.blockSizeVertical!),
+                  child: DefaultTabController(
+                    length: 3,
+                    child: Column(
+                      children: <Widget>[
                         Container(
-                          height: 95 * SizeConfig.blockSizeVertical!,
-                          width: double.infinity,
-                          color: whiteColor,
-                          child: RestaurantInsideMenu(
-                              scrollController,
-                              restaurant.name,
-                              selectedIndexOfBottomBar,
-                              callbackNavigationBottomBar,
-                              restaurant.logoUrl,
-                              restaurant.id),
-                        )
+                          decoration: const BoxDecoration(
+                            color: whiteColor,
+                            boxShadow: [
+                              BoxShadow(
+                                color: secondaryColor,
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset:
+                                    Offset(0, 2), // changes position of shadow
+                              ),
+                            ],
+                          ),
+                          height: 7 * SizeConfig.blockSizeVertical!,
+                          child: TabBar(
+                            tabs: [
+                              Tab(
+                                child: AutoSizeText(
+                                  S().menu,
+                                  maxLines: 1,
+                                  style: restaurantBarText,
+                                ),
+                              ),
+                              Tab(
+                                child: AutoSizeText(
+                                  S().restaurantInfo,
+                                  maxLines: 1,
+                                  style: restaurantBarText,
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
+                              Tab(
+                                child: AutoSizeText(
+                                  S().reviews,
+                                  maxLines: 1,
+                                  style: restaurantBarText,
+                                ),
+                              ),
+                            ],
+                            isScrollable: false,
+                            indicatorColor: primaryColor,
+                            indicatorWeight: 4,
+                            labelPadding: EdgeInsets.symmetric(
+                                horizontal:
+                                    3 * SizeConfig.blockSizeHorizontal!),
+                          ),
+                        ),
+                        Expanded(
+                          child: TabBarView(
+                            children: <Widget>[
+                              Container(),
+                              Container(),
+                              Container(),
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
-                ],
-              ),
+                ),
+                DraggableScrollableSheet(
+                  minChildSize: restaurant.labelNames.isNotEmpty ? 0.73 : 0.8,
+                  initialChildSize:
+                      restaurant.labelNames.isNotEmpty ? 0.73 : 0.8,
+                  maxChildSize: 1.0,
+                  expand: true,
+                  builder: (_, scrollController) => ListView(
+                    controller: scrollController,
+                    children: [
+                      Container(
+                        height: 95 * SizeConfig.blockSizeVertical!,
+                        width: double.infinity,
+                        color: whiteColor,
+                        child: RestaurantInsideMenu(
+                            scrollController,
+                            restaurant.name,
+                            selectedIndexOfBottomBar,
+                            callbackNavigationBottomBar,
+                            restaurant.logoUrl,
+                            restaurant.id),
+                      )
+                    ],
+                  ),
+                ),
+              ],
             ),
-            GoToCartButton(),
-          ],
-        ),
-      );
-    } else
-      return Container();
+          ),
+          GoToCartButton(),
+        ],
+      ),
+    );
   }
 }

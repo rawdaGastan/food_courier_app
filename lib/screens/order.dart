@@ -12,22 +12,24 @@ import 'package:foodCourier/widgets/order_screen_widgets/check_out.dart';
 import 'package:foodCourier/widgets/order_screen_widgets/order_info.dart';
 
 class Order extends StatefulWidget {
+  const Order({Key? key}) : super(key: key);
+
   @override
-  _OrderState createState() => _OrderState();
+  OrderState createState() => OrderState();
 }
 
-class _OrderState extends State<Order> {
+class OrderState extends State<Order> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  StreamController _streamController;
-  Stream _stream;
+  late StreamController _streamController;
+  late Stream _stream;
 
   @override
   void initState() {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getCart);
+    Future.delayed(Duration.zero, getCart);
   }
 
   getCart() async {
@@ -68,13 +70,13 @@ class _OrderState extends State<Order> {
           ),
         ),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'My order',
           style: titleText,
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.delete, color: lightTextColor),
+            icon: const Icon(Icons.delete, color: lightTextColor),
             onPressed: () {},
           ),
         ],
@@ -94,7 +96,7 @@ class _OrderState extends State<Order> {
             ),
             CheckOut(),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: secondaryColor,
                 borderRadius: BorderRadius.vertical(
                   top: Radius.circular(18.0),
@@ -112,7 +114,7 @@ class _OrderState extends State<Order> {
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('Summery', style: paymentSummary),
+                          const Text('Summery', style: paymentSummary),
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2 * SizeConfig.blockSizeVertical!,
@@ -120,7 +122,7 @@ class _OrderState extends State<Order> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   'Subtotal',
                                   style: pickUpAndDeliveryTime,
                                 ),
@@ -134,7 +136,7 @@ class _OrderState extends State<Order> {
                           Padding(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 2 * SizeConfig.blockSizeVertical!),
-                            child: Row(
+                            child: const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
@@ -155,7 +157,7 @@ class _OrderState extends State<Order> {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
+                                const Text(
                                   'Total',
                                   style: buttonText,
                                 ),
@@ -169,7 +171,7 @@ class _OrderState extends State<Order> {
                         ],
                       );
                     } else {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }

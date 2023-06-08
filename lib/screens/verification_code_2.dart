@@ -9,29 +9,26 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class VerificationCodeScreen2 extends StatefulWidget {
-  final bool isRegisteredUser;
-  final String emailOrPhoneValue;
-  VerificationCodeScreen2(
-      {this.isRegisteredUser = false, this.emailOrPhoneValue = ""});
+  final bool isRegisteredUser = false;
+  final String emailOrPhoneValue = '';
+  const VerificationCodeScreen2({Key? key}) : super(key: key);
 
   @override
-  _VerificationCodeScreenState createState() => _VerificationCodeScreenState();
+  VerificationCodeScreenState createState() => VerificationCodeScreenState();
 }
 
-class _VerificationCodeScreenState extends State<VerificationCodeScreen2>
+class VerificationCodeScreenState extends State<VerificationCodeScreen2>
     with CodeAutoFill {
-  String _code;
-  String _signature;
-  bool _onEditing, _isDone = false;
-  TextEditingController _controller;
+  String _code = '';
+  String _signature = '';
 
-  Timer _timer;
+  late Timer _timer;
   int _start = 180;
 
   @override
   void codeUpdated() {
     setState(() {
-      _code = code;
+      _code = code as String;
     });
   }
 
@@ -57,8 +54,8 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen2>
   }
 
   void startTimer() {
-    const oneSec = const Duration(seconds: 1);
-    _timer = new Timer.periodic(
+    const oneSec = Duration(seconds: 1);
+    _timer = Timer.periodic(
       oneSec,
       (Timer timer) {
         if (_start == 0) {
@@ -158,14 +155,14 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen2>
                   horizontal: 20 * SizeConfig.blockSizeHorizontal!),
               child: PinFieldAutoFill(
                 decoration: BoxLooseDecoration(
-                  bgColorBuilder: _code != null
-                      ? FixedColorBuilder(secondaryColor)
-                      : FixedColorBuilder(whiteColor),
+                  bgColorBuilder: _code != ''
+                      ? const FixedColorBuilder(secondaryColor)
+                      : const FixedColorBuilder(whiteColor),
                   textStyle: titleText,
                   //strokeColorBuilder: FixedColorBuilder(Colors.black.withOpacity(0.3)),
-                  strokeColorBuilder: _code == null
-                      ? FixedColorBuilder(lightTextColor)
-                      : FixedColorBuilder(whiteColor),
+                  strokeColorBuilder: _code == ''
+                      ? const FixedColorBuilder(lightTextColor)
+                      : const FixedColorBuilder(whiteColor),
                   gapSpace: 10.0,
                 ),
                 currentCode: _code,
@@ -184,11 +181,6 @@ class _VerificationCodeScreenState extends State<VerificationCodeScreen2>
                 onCodeChanged: (_) {},
                 codeLength: 6,
               ),
-            ),
-            Center(
-              child: (_onEditing == true)
-                  ? Text(S().enterFullCode, style: errorText)
-                  : Text(''),
             ),
             SizedBox(
               height: 4 * SizeConfig.blockSizeVertical!,
