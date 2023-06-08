@@ -12,46 +12,48 @@ import 'package:foodCourier/providers/filters_api_provider.dart';
 import 'package:foodCourier/widgets/grocery_widgets/coffee_card.dart';
 
 class Coffee extends StatefulWidget {
-  final PickResult addressSelectedPlace;
-  final Location currentLocation;
+  PickResult? addressSelectedPlace;
+  Location? currentLocation;
 
-  final String searchInput;
-  final String sortBy;
-  final String selectedRegion;
-  final String selectedRegionType;
-  final String restaurantType;
-  final bool isDelivery;
+  String? searchInput;
+  String? sortBy;
+  String? selectedRegion;
+  String? selectedRegionType;
+  String restaurantType;
+  bool isDelivery;
 
-  final int bottomNavigationIndex;
-  final Function callbackBottomNavigationBar;
+  int bottomNavigationIndex;
+  Function callbackBottomNavigationBar;
 
-  final Function callbackFilters;
-  final Function callbackRestriction;
+  Function callbackFilters;
+  Function callbackRestriction;
 
   Coffee(
-      {this.addressSelectedPlace,
+      {Key? key,
+      this.addressSelectedPlace,
       this.currentLocation,
       this.searchInput,
       this.sortBy,
-      this.restaurantType,
-      this.isDelivery,
-      this.bottomNavigationIndex,
-      this.callbackBottomNavigationBar,
+      required this.restaurantType,
+      required this.isDelivery,
+      required this.bottomNavigationIndex,
+      required this.callbackBottomNavigationBar,
       this.selectedRegion,
       this.selectedRegionType,
-      this.callbackFilters,
-      this.callbackRestriction});
+      required this.callbackFilters,
+      required this.callbackRestriction})
+      : super(key: key);
 
   @override
-  _State createState() => _State();
+  CoffeeState createState() => CoffeeState();
 }
 
-class _State extends State<Coffee> {
-  StreamController _streamController;
-  Stream _stream;
+class CoffeeState extends State<Coffee> {
+  late StreamController _streamController;
+  late Stream _stream;
 
-  double distance;
-  String duration;
+  double distance = 0.0;
+  String duration = '';
   GeoCode geoCode = GeoCode();
 
   @override
@@ -59,7 +61,7 @@ class _State extends State<Coffee> {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getDataFromProvider);
+    Future.delayed(Duration.zero, getDataFromProvider);
   }
 
   getDataFromProvider() async {
@@ -68,87 +70,75 @@ class _State extends State<Coffee> {
             .userToken;
 
     //delivery, grocery or dine out
-    String restaurantType;
-    if (widget.isDelivery != null && widget.isDelivery)
+    String restaurantType = '';
+    if (widget.isDelivery) {
       restaurantType = 'delivery';
+    }
 
-    print(restaurantType);
-
-    if (userToken != null) {
-      if (widget.searchInput != null) {
-        _streamController.sink.add(
-            await Provider.of<AllFiltersProvider>(context, listen: false)
-                .searchRestaurant(
-                    widget.searchInput, userToken, restaurantType));
-      } else if (widget.sortBy != null) {
-        if (widget.sortBy == 'distance')
-          widget.addressSelectedPlace == null
-              ? widget.currentLocation == null
-                  ? _streamController.sink.add(
-                      await Provider.of<AllFiltersProvider>(context, listen: false)
-                          .sortRestaurantByDistance(
-                              userToken, 0, 0, restaurantType))
-                  : _streamController.sink.add(
-                      await Provider.of<AllFiltersProvider>(context, listen: false)
-                          .sortRestaurantByDistance(
-                              userToken,
-                              widget.currentLocation.latitude,
-                              widget.currentLocation.longitude,
-                              restaurantType))
-              : _streamController.sink.add(await Provider.of<AllFiltersProvider>(context, listen: false)
-                  .sortRestaurantByDistance(userToken, widget.addressSelectedPlace.geometry.location.lat, widget.addressSelectedPlace.geometry.location.lng, restaurantType));
-        else
-          _streamController.sink.add(
-              await Provider.of<AllFiltersProvider>(context, listen: false)
-                  .sortRestaurantBy(userToken, widget.sortBy, restaurantType));
-      } else if (widget.selectedRegion != 'no region' &&
-          widget.selectedRegion != null) {
-        if (widget.selectedRegionType != 'location')
-          _streamController.sink.add(
-              await Provider.of<AllFiltersProvider>(context, listen: false)
-                  .showRestaurantByLocation(userToken, widget.selectedRegion,
-                      widget.selectedRegionType, restaurantType));
-        else {
-          if (widget.addressSelectedPlace != null) {
-            _streamController.sink.add(
-                await Provider.of<AllFiltersProvider>(context, listen: false)
-                    .showRestaurantByLocation(
+    if (widget.searchInput != null) {
+      _streamController.sink.add(await Provider.of<AllFiltersProvider>(context,
+              listen: false)
+          .searchRestaurant(widget.searchInput!, userToken, restaurantType));
+    } else if (widget.sortBy != null) {
+      if (widget.sortBy == 'distance') {
+        widget.addressSelectedPlace == null
+            ? widget.currentLocation == null
+                ? _streamController.sink.add(await Provider.of<AllFiltersProvider>(context, listen: false)
+                    .sortRestaurantByDistance(userToken, 0, 0, restaurantType))
+                : _streamController.sink.add(await Provider.of<AllFiltersProvider>(context, listen: false)
+                    .sortRestaurantByDistance(
                         userToken,
-                        widget
-                            .addressSelectedPlace.addressComponents[3].longName,
-                        'town',
-                        restaurantType));
-          } else if (widget.currentLocation != null) {
-            var address = await geoCode.reverseGeocoding(
-                latitude: widget.currentLocation.latitude,
-                longitude: widget.currentLocation.longitude);
-            _streamController.sink.add(
-                await Provider.of<AllFiltersProvider>(context, listen: false)
-                    .showRestaurantByLocation(
-                        userToken, address.city, 'town', restaurantType));
-          }
-        }
+                        widget.currentLocation!.latitude,
+                        widget.currentLocation!.longitude,
+                        restaurantType))
+            : _streamController.sink.add(await Provider.of<AllFiltersProvider>(context, listen: false)
+                .sortRestaurantByDistance(
+                    userToken,
+                    widget.addressSelectedPlace!.geometry!.location.lat,
+                    widget.addressSelectedPlace!.geometry!.location.lng,
+                    restaurantType));
       } else {
         _streamController.sink.add(
             await Provider.of<AllFiltersProvider>(context, listen: false)
-                .loadData(userToken, restaurantType));
+                .sortRestaurantBy(userToken, widget.sortBy!, restaurantType));
       }
+    } else if (widget.selectedRegion != 'no region' &&
+        widget.selectedRegion != null) {
+      if (widget.selectedRegionType != 'location') {
+        _streamController.sink.add(
+            await Provider.of<AllFiltersProvider>(context, listen: false)
+                .showRestaurantByLocation(userToken, widget.selectedRegion!,
+                    widget.selectedRegionType!, restaurantType));
+      } else {
+        if (widget.addressSelectedPlace != null) {
+          _streamController.sink.add(
+              await Provider.of<AllFiltersProvider>(context, listen: false)
+                  .showRestaurantByLocation(
+                      userToken,
+                      widget
+                          .addressSelectedPlace!.addressComponents![3].longName,
+                      'town',
+                      restaurantType));
+        } else if (widget.currentLocation != null) {
+          var address = await geoCode.reverseGeocoding(
+              latitude: widget.currentLocation!.latitude,
+              longitude: widget.currentLocation!.longitude);
+          _streamController.sink.add(
+              await Provider.of<AllFiltersProvider>(context, listen: false)
+                  .showRestaurantByLocation(
+                      userToken, address.city!, 'town', restaurantType));
+        }
+      }
+    } else {
+      _streamController.sink.add(
+          await Provider.of<AllFiltersProvider>(context, listen: false)
+              .loadData(userToken, restaurantType));
     }
   }
 
   callBackDistance(double dis, String dur) {
-    if (dis != null) {
-      distance = dis;
-      /* setState(() {
-      distance = dis;
-    });*/
-    }
-    if (dur != null) {
-      duration = dur;
-      /* setState(() {
-      duration = dur;
-    });*/
-    }
+    distance = dis;
+    duration = dur;
   }
 
   @override
@@ -204,7 +194,7 @@ class _State extends State<Coffee> {
                 ),
               );
             } else {
-              return Center(
+              return const Center(
                 child: CircularProgressIndicator(),
               );
             }

@@ -12,8 +12,8 @@ import 'package:foodCourier/models/restaurant.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class StoreCard extends StatefulWidget {
-  final PickResult addressSelectedPlace;
-  final Location currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
   final String restaurantType;
   final Restaurant restaurant;
@@ -21,33 +21,35 @@ class StoreCard extends StatefulWidget {
 
   final Function callbackFun;
 
-  StoreCard(
-      {this.restaurant,
+  const StoreCard(
+      {Key? key,
+      required this.restaurant,
       this.addressSelectedPlace,
       this.currentLocation,
-      this.restaurantType,
-      this.isDelivery,
-      this.callbackFun});
+      required this.restaurantType,
+      required this.isDelivery,
+      required this.callbackFun})
+      : super(key: key);
 
   @override
-  _State createState() => _State();
+  StoreCardState createState() => StoreCardState();
 }
 
-class _State extends State<StoreCard> {
+class StoreCardState extends State<StoreCard> {
   bool freeDelivery = true;
 
-  LatLng restaurantLocation = new LatLng(31.2696584, 29.9930304);
-  String duration = "";
-  String lastDuration = "";
+  LatLng restaurantLocation = const LatLng(31.2696584, 29.9930304);
+  String duration = '';
+  String lastDuration = '';
 
   getDuration() async {
     if (widget.addressSelectedPlace != null) {
-      var response = await calculateTimeBetweenLocations(
+      String? response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.addressSelectedPlace.geometry.location.lat,
-          widget.addressSelectedPlace.geometry.location.lng);
-      duration = response;
+          widget.addressSelectedPlace!.geometry!.location.lat,
+          widget.addressSelectedPlace!.geometry!.location.lng);
+      duration = response!;
       if (lastDuration != duration) {
         setState(() {
           duration = response;
@@ -55,12 +57,12 @@ class _State extends State<StoreCard> {
         });
       }
     } else if (widget.currentLocation != null) {
-      var response = await calculateTimeBetweenLocations(
+      String? response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.currentLocation.latitude,
-          widget.currentLocation.longitude);
-      duration = response;
+          widget.currentLocation!.latitude,
+          widget.currentLocation!.longitude);
+      duration = response!;
       if (lastDuration != duration) {
         setState(() {
           duration = response;
@@ -77,184 +79,181 @@ class _State extends State<StoreCard> {
     getDuration();
 
     return Container(
-      child: Container(
-        margin: EdgeInsets.only(
-          left: SizeConfig.blockSizeHorizontal!,
-          right: SizeConfig.blockSizeHorizontal!,
-        ),
-        width: 65 * SizeConfig.blockSizeHorizontal!,
-        decoration: BoxDecoration(
-          color: whiteColor,
-          borderRadius: BorderRadius.circular(10.0),
-          border: Border.all(
-              color: lightTextColor,
-              width: 0.2 * SizeConfig.blockSizeHorizontal!),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 2 * SizeConfig.blockSizeHorizontal!,
-                vertical: SizeConfig.blockSizeVertical!,
-              ),
-              child: Row(
-                children: [
-                  CircleAvatar(
-                    radius: 3.5 * SizeConfig.blockSizeVertical!,
-                    backgroundImage:
-                        CachedNetworkImageProvider(widget.restaurant.logoUrl),
+      margin: EdgeInsets.only(
+        left: SizeConfig.blockSizeHorizontal!,
+        right: SizeConfig.blockSizeHorizontal!,
+      ),
+      width: 65 * SizeConfig.blockSizeHorizontal!,
+      decoration: BoxDecoration(
+        color: whiteColor,
+        borderRadius: BorderRadius.circular(10.0),
+        border: Border.all(
+            color: lightTextColor,
+            width: 0.2 * SizeConfig.blockSizeHorizontal!),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(
+              horizontal: 2 * SizeConfig.blockSizeHorizontal!,
+              vertical: SizeConfig.blockSizeVertical!,
+            ),
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 3.5 * SizeConfig.blockSizeVertical!,
+                  backgroundImage:
+                      CachedNetworkImageProvider(widget.restaurant.logoUrl),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 2 * SizeConfig.blockSizeHorizontal!,
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(
-                      left: 2 * SizeConfig.blockSizeHorizontal!,
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        AutoSizeText(
-                          S().name(widget.restaurant.name),
-                          style: restaurantName,
-                        ),
-                        SizedBox(
-                          height: SizeConfig.blockSizeVertical!,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Icon(
-                              Icons.star,
-                              color: orangeColor,
-                              size: 4 * SizeConfig.blockSizeHorizontal!,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      AutoSizeText(
+                        S().name(widget.restaurant.name),
+                        style: restaurantName,
+                      ),
+                      SizedBox(
+                        height: SizeConfig.blockSizeVertical!,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Icon(
+                            Icons.star,
+                            color: orangeColor,
+                            size: 4 * SizeConfig.blockSizeHorizontal!,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: SizeConfig.blockSizeHorizontal!,
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: SizeConfig.blockSizeHorizontal!,
-                              ),
-                              child: AutoSizeText(
-                                S().rating(widget.restaurant.rating),
-                                style: groceryStoreRating,
-                              ),
+                            child: AutoSizeText(
+                              S().rating(widget.restaurant.rating),
+                              style: groceryStoreRating,
                             ),
-                            Padding(
-                              padding: EdgeInsets.only(
-                                left: SizeConfig.blockSizeHorizontal!,
-                              ),
-                              child: AutoSizeText(
-                                '|',
-                                style: groceryStoreRating,
-                              ),
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(
+                              left: SizeConfig.blockSizeHorizontal!,
                             ),
-                            Stack(
-                              children: [
-                                Icon(
-                                  Icons.attach_money,
-                                  color: primaryColor,
-                                  size: 4 * SizeConfig.blockSizeHorizontal!,
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 2 * SizeConfig.blockSizeHorizontal!,
-                                  ),
-                                  child: Icon(
-                                    Icons.attach_money,
-                                    color: lightTextColor,
-                                    size: 4 * SizeConfig.blockSizeHorizontal!,
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.only(
-                                    left: 4 * SizeConfig.blockSizeHorizontal!,
-                                  ),
-                                  child: Icon(
-                                    Icons.attach_money,
-                                    color: lightTextColor,
-                                    size: 4 * SizeConfig.blockSizeHorizontal!,
-                                  ),
-                                ),
-                              ],
+                            child: const AutoSizeText(
+                              '|',
+                              style: groceryStoreRating,
                             ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 0.5 * SizeConfig.blockSizeVertical!,
-                        ),
-                        Row(
-                          children: [
-                            AutoSizeText(
-                              freeDelivery ? 'With in: ' : 'With in        : ',
-                              style: groceryStoreDelivery,
-                            ),
-                            AutoSizeText(
-                              '$duration',
-                              style: groceryStoreDeliveryTime,
-                            ),
-                          ],
-                        ),
-                        freeDelivery
-                            ? Container()
-                            : Row(
-                                children: [
-                                  AutoSizeText(
-                                    'Delivery fee: ',
-                                    style: groceryStoreDelivery,
-                                  ),
-                                  AutoSizeText(
-                                    'EGP 10',
-                                    style: groceryStoreDeliveryTime,
-                                  ),
-                                ],
-                              ),
-                        SizedBox(
-                          height: 0.5 * SizeConfig.blockSizeVertical!,
-                        ),
-                        RichText(
-                          text: TextSpan(
+                          ),
+                          Stack(
                             children: [
-                              WidgetSpan(
+                              Icon(
+                                Icons.attach_money,
+                                color: primaryColor,
+                                size: 4 * SizeConfig.blockSizeHorizontal!,
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 2 * SizeConfig.blockSizeHorizontal!,
+                                ),
                                 child: Icon(
-                                  Icons.location_on,
-                                  color: primaryColor,
+                                  Icons.attach_money,
+                                  color: lightTextColor,
                                   size: 4 * SizeConfig.blockSizeHorizontal!,
                                 ),
                               ),
-                              TextSpan(
-                                text:
-                                    '${S().city(widget.restaurant.city)} - ${S().town(widget.restaurant.town)}',
-                                style: groceryStoreLocation,
+                              Padding(
+                                padding: EdgeInsets.only(
+                                  left: 4 * SizeConfig.blockSizeHorizontal!,
+                                ),
+                                child: Icon(
+                                  Icons.attach_money,
+                                  color: lightTextColor,
+                                  size: 4 * SizeConfig.blockSizeHorizontal!,
+                                ),
                               ),
                             ],
                           ),
-                        ),
-                        SizedBox(height: 0.45 * SizeConfig.blockSizeVertical!),
-                        freeDelivery
-                            ? RichText(
-                                text: TextSpan(
-                                  children: [
-                                    WidgetSpan(
-                                      child: Icon(
-                                        Icons.outlined_flag,
-                                        color: orangeColor,
-                                        size:
-                                            5 * SizeConfig.blockSizeHorizontal!,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: ' Free delivery',
-                                      style: groceryStoreFreeDelivery,
-                                    ),
-                                  ],
+                        ],
+                      ),
+                      SizedBox(
+                        height: 0.5 * SizeConfig.blockSizeVertical!,
+                      ),
+                      Row(
+                        children: [
+                          AutoSizeText(
+                            freeDelivery ? 'With in: ' : 'With in        : ',
+                            style: groceryStoreDelivery,
+                          ),
+                          AutoSizeText(
+                            duration,
+                            style: groceryStoreDeliveryTime,
+                          ),
+                        ],
+                      ),
+                      freeDelivery
+                          ? Container()
+                          : const Row(
+                              children: [
+                                AutoSizeText(
+                                  'Delivery fee: ',
+                                  style: groceryStoreDelivery,
                                 ),
-                              )
-                            : Container(),
-                      ],
-                    ),
+                                AutoSizeText(
+                                  'EGP 10',
+                                  style: groceryStoreDeliveryTime,
+                                ),
+                              ],
+                            ),
+                      SizedBox(
+                        height: 0.5 * SizeConfig.blockSizeVertical!,
+                      ),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            WidgetSpan(
+                              child: Icon(
+                                Icons.location_on,
+                                color: primaryColor,
+                                size: 4 * SizeConfig.blockSizeHorizontal!,
+                              ),
+                            ),
+                            TextSpan(
+                              text:
+                                  '${S().city(widget.restaurant.city)} - ${S().town(widget.restaurant.town)}',
+                              style: groceryStoreLocation,
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 0.45 * SizeConfig.blockSizeVertical!),
+                      freeDelivery
+                          ? RichText(
+                              text: TextSpan(
+                                children: [
+                                  WidgetSpan(
+                                    child: Icon(
+                                      Icons.outlined_flag,
+                                      color: orangeColor,
+                                      size: 5 * SizeConfig.blockSizeHorizontal!,
+                                    ),
+                                  ),
+                                  const TextSpan(
+                                    text: ' Free delivery',
+                                    style: groceryStoreFreeDelivery,
+                                  ),
+                                ],
+                              ),
+                            )
+                          : Container(),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

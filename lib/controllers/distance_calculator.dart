@@ -62,7 +62,7 @@ String parseResponse(String responseBody) {
   return distanceInKm_2Digits;
 }
 
-calculateTimeBetweenLocations(
+Future<String?> calculateTimeBetweenLocations(
     latitude1, longitude1, latitude2, longitude2) async {
   final url = Uri.parse(
       'https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=$latitude1,$longitude1&destinations=$latitude2,$longitude2&key=$theApiKey');

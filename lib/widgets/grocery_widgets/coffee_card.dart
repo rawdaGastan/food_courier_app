@@ -13,31 +13,33 @@ import 'package:foodCourier/models/restaurant.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class CoffeeCard extends StatefulWidget {
-  final PickResult addressSelectedPlace;
-  final Location currentLocation;
+  PickResult? addressSelectedPlace;
+  Location? currentLocation;
 
-  final String restaurantType;
-  final Restaurant restaurant;
-  final bool isDelivery;
+  String restaurantType;
+  Restaurant restaurant;
+  bool isDelivery;
 
-  final Function callbackFun;
+  Function callbackFun;
 
   bool seeAllCoffee;
 
   CoffeeCard(
-      {this.restaurant,
+      {Key? key,
+      required this.restaurant,
       this.addressSelectedPlace,
       this.currentLocation,
-      this.restaurantType,
-      this.isDelivery,
-      this.callbackFun,
-      this.seeAllCoffee});
+      this.restaurantType = '',
+      required this.isDelivery,
+      required this.callbackFun,
+      required this.seeAllCoffee})
+      : super(key: key);
 
   @override
-  _State createState() => _State();
+  CoffeeCardState createState() => CoffeeCardState();
 }
 
-class _State extends State<CoffeeCard> {
+class CoffeeCardState extends State<CoffeeCard> {
   bool showLabelDetails = false;
   List<String> labelNames = [
     'oily',
@@ -51,38 +53,39 @@ class _State extends State<CoffeeCard> {
 
   bool specialOffers = true;
 
-  LatLng restaurantLocation = new LatLng(31.2696584, 29.9930304);
-  String duration = "";
-  String lastDuration = "";
+  LatLng restaurantLocation = const LatLng(31.2696584, 29.9930304);
+  String duration = '';
+  String lastDuration = '';
 
   getDuration() async {
     if (widget.addressSelectedPlace != null) {
       var response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.addressSelectedPlace.geometry.location.lat,
-          widget.addressSelectedPlace.geometry.location.lng);
-      duration = response;
+          widget.addressSelectedPlace!.geometry!.location.lat,
+          widget.addressSelectedPlace!.geometry!.location.lng);
+      duration = response ?? '';
       if (lastDuration != duration) {
         setState(() {
-          duration = response;
+          duration = response ?? '';
           lastDuration = duration;
         });
       }
-    } else if (widget.currentLocation != null) {
-      var response = await calculateTimeBetweenLocations(
+    } else {
+      String? response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.currentLocation.latitude,
-          widget.currentLocation.longitude);
-      duration = response;
+          widget.currentLocation!.latitude,
+          widget.currentLocation!.longitude);
+      duration = response ?? '';
       if (lastDuration != duration) {
         setState(() {
-          duration = response;
+          duration = response ?? '';
           lastDuration = duration;
         });
       }
     }
+
     widget.callbackFun(null, duration);
   }
 
@@ -91,7 +94,7 @@ class _State extends State<CoffeeCard> {
       context: context,
       builder: (context) => AlertDialog(
         contentPadding: EdgeInsets.all(0 * SizeConfig.blockSizeVertical!),
-        content: Container(
+        content: SizedBox(
           height: 35 * SizeConfig.blockSizeVertical!,
           child: Stack(
             children: [
@@ -100,7 +103,7 @@ class _State extends State<CoffeeCard> {
                 children: [
                   Container(
                     margin: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
-                    child: AutoSizeText(
+                    child: const AutoSizeText(
                       'Labels',
                       style: restaurantName,
                     ), // Modify this till it fills the color properly
@@ -109,15 +112,16 @@ class _State extends State<CoffeeCard> {
                     children: <Widget>[
                       Positioned.fill(
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               shape: BoxShape.circle, color: greyTextColor87),
                           margin: EdgeInsets.all(1.5 *
                               SizeConfig
-                                  .blockSizeVertical), // Modify this till it fills the color properly
+                                  .blockSizeVertical!), // Modify this till it fills the color properly
                         ),
                       ),
                       IconButton(
-                        icon: Icon(Icons.close_rounded, color: whiteColor),
+                        icon:
+                            const Icon(Icons.close_rounded, color: whiteColor),
                         onPressed: () => Navigator.pop(context),
                       ),
                     ],
@@ -135,7 +139,7 @@ class _State extends State<CoffeeCard> {
                     itemCount: /*widget.restaurant.labelNames.length*/
                         labelNames.length,
                     shrinkWrap: true,
-                    physics: ScrollPhysics(),
+                    physics: const ScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                       childAspectRatio: MediaQuery.of(context).size.width /
@@ -184,7 +188,7 @@ class _State extends State<CoffeeCard> {
                   backGroundColor: detailsColor,
                   child: Row(
                     children: [
-                      Icon(Icons.error, color: greyTextColor87),
+                      const Icon(Icons.error, color: greyTextColor87),
                       Text(
                         '   Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
                         maxLines: 3,
@@ -212,7 +216,7 @@ class _State extends State<CoffeeCard> {
         right: SizeConfig.blockSizeHorizontal!,
       ),
       width: 50 * SizeConfig.blockSizeHorizontal!,
-      height: /*widget.restaurant.labelNames.length*/ labelNames.length != 0
+      height: /*widget.restaurant.labelNames.length*/ labelNames.isNotEmpty
           ? 43 * SizeConfig.blockSizeVertical!
           : 33 * SizeConfig.blockSizeVertical!,
       decoration: BoxDecoration(
@@ -220,7 +224,7 @@ class _State extends State<CoffeeCard> {
         borderRadius: BorderRadius.circular(10.0),
         border: Border.all(
             color: whiteColor, width: 0.2 * SizeConfig.blockSizeHorizontal!),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             color: secondaryColor,
             offset: Offset(3, 5), // changes position of shadow
@@ -236,7 +240,7 @@ class _State extends State<CoffeeCard> {
                   width: 50 * SizeConfig.blockSizeHorizontal!,
                   height: 15 * SizeConfig.blockSizeVertical!,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.vertical(
+                    borderRadius: const BorderRadius.vertical(
                       top: Radius.circular(10.0),
                     ),
                     border: Border.all(
@@ -256,25 +260,23 @@ class _State extends State<CoffeeCard> {
                     left: 3 * SizeConfig.blockSizeHorizontal!),
                 child: Stack(
                   children: [
-                    Container(
-                      child: CircleAvatar(
-                        backgroundColor: whiteColor,
-                        radius: 4 * SizeConfig.blockSizeHorizontal!,
-                      ),
+                    CircleAvatar(
+                      backgroundColor: whiteColor,
+                      radius: 4 * SizeConfig.blockSizeHorizontal!,
                     ),
                     widget.seeAllCoffee
-                        ? Container(
+                        ? SizedBox(
                             width: 8 * SizeConfig.blockSizeHorizontal!,
                             height: 8 * SizeConfig.blockSizeHorizontal!,
-                            child: Icon(
+                            child: const Icon(
                               Icons.playlist_add,
                               color: lightTextColor,
                             ),
                           )
-                        : Container(
+                        : SizedBox(
                             width: 8 * SizeConfig.blockSizeHorizontal!,
                             height: 8 * SizeConfig.blockSizeHorizontal!,
-                            child: Icon(
+                            child: const Icon(
                               Icons.playlist_add_check,
                               color: orangeColor,
                             ),
@@ -320,7 +322,7 @@ class _State extends State<CoffeeCard> {
                       padding: EdgeInsets.only(
                         left: SizeConfig.blockSizeHorizontal!,
                       ),
-                      child: AutoSizeText(
+                      child: const AutoSizeText(
                         '|',
                         style: groceryStoreRating,
                       ),
@@ -329,7 +331,7 @@ class _State extends State<CoffeeCard> {
                       padding: EdgeInsets.only(
                         left: SizeConfig.blockSizeHorizontal!,
                       ),
-                      child: AutoSizeText(
+                      child: const AutoSizeText(
                         'Multi supplier',
                         style: groceryStoreRating,
                       ),
@@ -339,7 +341,7 @@ class _State extends State<CoffeeCard> {
                 SizedBox(
                   height: 0.5 * SizeConfig.blockSizeVertical!,
                 ),
-                AutoSizeText(
+                const AutoSizeText(
                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
                   style: groceryStoreDelivery,
                   maxLines: 2,
@@ -347,7 +349,7 @@ class _State extends State<CoffeeCard> {
                 SizedBox(
                   height: 0.5 * SizeConfig.blockSizeVertical!,
                 ),
-                /*widget.restaurant.labelNames.length*/ labelNames.length != 0
+                /*widget.restaurant.labelNames.length*/ labelNames.isNotEmpty
                     ? Expanded(
                         child: GridView.builder(
                           itemCount: /*widget.restaurant.labelNames.length*/
@@ -356,7 +358,7 @@ class _State extends State<CoffeeCard> {
                                   : /*widget.restaurant.labelNames.length*/ labelNames
                                       .length,
                           shrinkWrap: true,
-                          physics: ScrollPhysics(),
+                          physics: const ScrollPhysics(),
                           gridDelegate:
                               SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
@@ -375,10 +377,11 @@ class _State extends State<CoffeeCard> {
                                               color: greyTextColor87,
                                               width: 0.2 *
                                                   SizeConfig
-                                                      .blockSizeHorizontal),
+                                                      .blockSizeHorizontal!),
                                           shape: BoxShape.circle),
                                       child: GestureDetector(
-                                        child: Icon(Icons.more_horiz_rounded,
+                                        child: const Icon(
+                                            Icons.more_horiz_rounded,
                                             color: greyTextColor87),
                                         onTap: () {
                                           displayRateOrderDialog(context);
@@ -421,7 +424,7 @@ class _State extends State<CoffeeCard> {
                                 size: 5 * SizeConfig.blockSizeHorizontal!,
                               ),
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: ' Special offers',
                               style: groceryStoreFreeDelivery,
                             ),

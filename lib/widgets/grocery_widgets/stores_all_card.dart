@@ -14,35 +14,37 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class AllStoresCard extends StatefulWidget {
-  final PickResult addressSelectedPlace;
-  final Location currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
   final Restaurant restaurant;
   final bool isDelivery;
 
   final Function callbackFun;
 
-  AllStoresCard(
-      {this.restaurant,
+  const AllStoresCard(
+      {Key? key,
+      required this.restaurant,
       this.addressSelectedPlace,
       this.currentLocation,
-      this.isDelivery,
-      this.callbackFun});
+      required this.isDelivery,
+      required this.callbackFun})
+      : super(key: key);
 
   @override
-  _State createState() => _State();
+  AllStoresCardState createState() => AllStoresCardState();
 }
 
-class _State extends State<AllStoresCard> {
+class AllStoresCardState extends State<AllStoresCard> {
   //dummy
-  LatLng restaurantLocation = new LatLng(31.2696584, 29.9930304);
+  LatLng restaurantLocation = const LatLng(31.2696584, 29.9930304);
   double distance = 1.7;
   double lastDistance = 1.7;
 
-  String duration = "";
-  String lastDuration = "";
+  String duration = '';
+  String lastDuration = '';
 
-  bool isFavourite = false;
+  bool isFavorite = false;
 
   bool freeDelivery = false;
 
@@ -51,8 +53,8 @@ class _State extends State<AllStoresCard> {
       var response = await calculateDistanceBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.addressSelectedPlace.geometry.location.lat,
-          widget.addressSelectedPlace.geometry.location.lng);
+          widget.addressSelectedPlace!.geometry!.location.lat,
+          widget.addressSelectedPlace!.geometry!.location.lng);
       distance = double.parse(response);
       if (lastDistance != distance) {
         setState(() {
@@ -64,8 +66,8 @@ class _State extends State<AllStoresCard> {
       var response = await calculateDistanceBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.currentLocation.latitude,
-          widget.currentLocation.longitude);
+          widget.currentLocation!.latitude,
+          widget.currentLocation!.longitude);
       distance = double.parse(response);
       if (lastDistance != distance) {
         setState(() {
@@ -79,12 +81,12 @@ class _State extends State<AllStoresCard> {
 
   getDuration() async {
     if (widget.addressSelectedPlace != null) {
-      var response = await calculateTimeBetweenLocations(
+      String? response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.addressSelectedPlace.geometry.location.lat,
-          widget.addressSelectedPlace.geometry.location.lng);
-      duration = response;
+          widget.addressSelectedPlace!.geometry!.location.lat,
+          widget.addressSelectedPlace!.geometry!.location.lng);
+      duration = response!;
       if (lastDuration != duration) {
         setState(() {
           duration = response;
@@ -92,12 +94,12 @@ class _State extends State<AllStoresCard> {
         });
       }
     } else if (widget.currentLocation != null) {
-      var response = await calculateTimeBetweenLocations(
+      String? response = await calculateTimeBetweenLocations(
           restaurantLocation.latitude,
           restaurantLocation.longitude,
-          widget.currentLocation.latitude,
-          widget.currentLocation.longitude);
-      duration = response;
+          widget.currentLocation!.latitude,
+          widget.currentLocation!.longitude);
+      duration = response!;
       if (lastDuration != duration) {
         setState(() {
           duration = response;
@@ -125,7 +127,7 @@ class _State extends State<AllStoresCard> {
     if (Provider.of<TypeFilterProvider>(context)
                 .getTypeOfCurrentFilterApplied ==
             'Normal' &&
-        widget.restaurant.labelNames.length == 0) visibilityFilters = true;
+        widget.restaurant.labelNames.isEmpty) visibilityFilters = true;
 
     return Visibility(
       visible: visibilityFilters,
@@ -138,11 +140,11 @@ class _State extends State<AllStoresCard> {
         //height: 50 * SizeConfig.blockSizeVertical!,
         decoration: BoxDecoration(
           color: whiteColor,
-          borderRadius: BorderRadius.all(Radius.circular(12.0)),
+          borderRadius: const BorderRadius.all(Radius.circular(12.0)),
           boxShadow: [
             BoxShadow(
               color: shadow,
-              offset: Offset(0, 3), // changes position of shadow
+              offset: const Offset(0, 3), // changes position of shadow
             ),
           ],
         ),
@@ -152,11 +154,11 @@ class _State extends State<AllStoresCard> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Container(
+                SizedBox(
                   height: 18 * SizeConfig.blockSizeVertical!,
                   width: double.infinity,
                   child: ClipRRect(
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         topLeft: Radius.circular(10.0),
                         topRight: Radius.circular(10.0)),
                     child: Container(
@@ -266,7 +268,7 @@ class _State extends State<AllStoresCard> {
                   padding: EdgeInsets.symmetric(
                       horizontal: 4 * SizeConfig.blockSizeHorizontal!,
                       vertical: 0.5 * SizeConfig.blockSizeVertical!),
-                  child: AutoSizeText(
+                  child: const AutoSizeText(
                     'is simply dummy text of the printing and typesetting industry',
                     overflow: TextOverflow.ellipsis,
                     style: groceryStoreLocation,
@@ -279,18 +281,18 @@ class _State extends State<AllStoresCard> {
                       vertical: 0.5 * SizeConfig.blockSizeVertical!),
                   child: Row(
                     children: [
-                      AutoSizeText(
+                      const AutoSizeText(
                         'With in: ',
                         style: groceryStoreDelivery,
                       ),
                       AutoSizeText(
-                        '$duration',
+                        duration,
                         style: groceryStoreDeliveryTime,
                       ),
                       SizedBox(width: 3 * SizeConfig.blockSizeHorizontal!),
                       freeDelivery
                           ? Container()
-                          : Row(
+                          : const Row(
                               children: [
                                 AutoSizeText(
                                   'Delivery fee: ',
@@ -343,7 +345,7 @@ class _State extends State<AllStoresCard> {
                                 size: 5 * SizeConfig.blockSizeHorizontal!,
                               ),
                             ),
-                            TextSpan(
+                            const TextSpan(
                               text: ' Free delivery',
                               style: groceryStoreFreeDelivery,
                             ),

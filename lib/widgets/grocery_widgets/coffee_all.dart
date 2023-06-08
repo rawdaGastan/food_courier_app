@@ -14,34 +14,34 @@ import 'package:foodCourier/controllers/location.dart';
 import 'dart:async';
 
 class AllCoffee extends StatefulWidget {
-  final PickResult? addressSelectedPlace;
-  final Location? currentLocation;
+  PickResult? addressSelectedPlace;
+  Location? currentLocation;
 
-  final String? searchInput;
-  final String? sortBy;
-  final String? selectedRegion;
-  final String? selectedRegionType;
-  final bool? isDelivery;
+  String? searchInput;
+  String? sortBy;
+  String selectedRegion;
+  String selectedRegionType;
+  bool isDelivery;
 
-  final int? bottomNavigationIndex;
-  final Function? callbackBottomNavigationBar;
+  int bottomNavigationIndex;
+  Function callbackBottomNavigationBar;
 
-  final Function? callbackFilters;
-  final Function? callbackRestriction;
+  Function callbackFilters;
+  Function callbackRestriction;
 
-  const AllCoffee(
+  AllCoffee(
       {Key? key,
-      addressSelectedPlace,
-      currentLocation,
-      searchInput,
-      sortBy,
-      isDelivery,
-      bottomNavigationIndex,
-      callbackBottomNavigationBar,
-      selectedRegion,
-      selectedRegionType,
-      callbackFilters,
-      callbackRestriction})
+      this.addressSelectedPlace,
+      this.currentLocation,
+      this.searchInput,
+      this.sortBy,
+      required this.isDelivery,
+      required this.bottomNavigationIndex,
+      required this.callbackBottomNavigationBar,
+      required this.selectedRegion,
+      required this.selectedRegionType,
+      required this.callbackFilters,
+      required this.callbackRestriction})
       : super(key: key);
 
   @override
@@ -81,7 +81,7 @@ class AllCoffeeState extends State<AllCoffee> {
 
     //delivery, grocery or dine out
     String restaurantType = '';
-    if (widget.isDelivery != null && widget.isDelivery == true) {
+    if (widget.isDelivery == true) {
       restaurantType = 'delivery';
     }
 
@@ -120,8 +120,8 @@ class AllCoffeeState extends State<AllCoffee> {
       if (widget.selectedRegionType != 'location') {
         _streamController.add(
             await Provider.of<AllFiltersProvider>(context, listen: false)
-                .showRestaurantByLocation(userToken, widget.selectedRegion!,
-                    widget.selectedRegionType!, restaurantType));
+                .showRestaurantByLocation(userToken, widget.selectedRegion,
+                    widget.selectedRegionType, restaurantType));
       } else {
         if (widget.addressSelectedPlace != null) {
           _streamController.add(await Provider.of<AllFiltersProvider>(context,
@@ -225,13 +225,13 @@ class AllCoffeeState extends State<AllCoffee> {
                                   ? widget.currentLocation == null
                                       ? CoffeeCard(
                                           restaurant: snapshot.data[index],
-                                          isDelivery: widget.isDelivery!,
+                                          isDelivery: widget.isDelivery,
                                           callbackFun: callBackDistance,
                                           seeAllCoffee: true,
                                         )
                                       : CoffeeCard(
                                           restaurant: snapshot.data[index],
-                                          isDelivery: widget.isDelivery!,
+                                          isDelivery: widget.isDelivery,
                                           currentLocation:
                                               widget.currentLocation!,
                                           callbackFun: callBackDistance,
@@ -239,7 +239,7 @@ class AllCoffeeState extends State<AllCoffee> {
                                         )
                                   : CoffeeCard(
                                       restaurant: snapshot.data[index],
-                                      isDelivery: widget.isDelivery!,
+                                      isDelivery: widget.isDelivery,
                                       addressSelectedPlace:
                                           widget.addressSelectedPlace!,
                                       callbackFun: callBackDistance,
