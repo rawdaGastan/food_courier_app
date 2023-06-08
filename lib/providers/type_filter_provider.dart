@@ -27,15 +27,15 @@ class TypeFilterProvider extends ChangeNotifier {
     TypeFilter('Vegan', false),
   ];*/
 
-  static String labelsListString = foodCourier().remoteConfigService.labelsList;
+  static String labelsListString = FoodCourier().remoteConfigService.labelsList;
   static List<String> labelsList = labelsListString.split(',');
 
   static String restrictionListString =
-      foodCourier().remoteConfigService.restrictionList;
+      FoodCourier().remoteConfigService.restrictionList;
   static List<String> restrictionList = restrictionListString.split(',');
 
   static String restrictionListTypeString =
-      foodCourier().remoteConfigService.restrictionListTypes;
+      FoodCourier().remoteConfigService.restrictionListTypes;
   static List<String> restrictionListType =
       restrictionListTypeString.split(',');
 

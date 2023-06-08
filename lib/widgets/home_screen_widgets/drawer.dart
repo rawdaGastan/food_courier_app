@@ -92,7 +92,7 @@ class DrawerContents extends StatelessWidget {
                 ],
               ),
             ),
-            foodCourier().remoteConfigService.orderingFeature
+            FoodCourier().remoteConfigService.orderingFeature
                 ? GestureDetector(
                     onTap: () => Navigator.pushNamed(context, 'all orders'),
                     child: Row(

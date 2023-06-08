@@ -38,7 +38,7 @@ class GoToCartButtonState extends State<GoToCartButton> {
 
   @override
   Widget build(BuildContext context) {
-    return foodCourier().remoteConfigService.orderingFeature
+    return FoodCourier().remoteConfigService.orderingFeature
         ? Container(
             height: 8 * SizeConfig.blockSizeVertical!,
             padding: EdgeInsets.symmetric(

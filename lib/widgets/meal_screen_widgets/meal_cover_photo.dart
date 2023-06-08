@@ -122,7 +122,7 @@ class MealCoverPhotoState extends State<MealCoverPhoto> {
                     color: whiteColor,
                     onPressed: () {},
                   ),
-                  foodCourier().remoteConfigService.orderingFeature
+                  FoodCourier().remoteConfigService.orderingFeature
                       ? GestureDetector(
                           onTap: () {
                             Navigator.pushNamed(context, 'order checkout');

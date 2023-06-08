@@ -4,7 +4,7 @@ import 'package:foodCourier/models/type_filter.dart';
 import '../../main.dart';
 import 'cuisine_filter_button.dart';
 
-String cuisineListString = foodCourier().remoteConfigService.cuisinesList;
+String cuisineListString = FoodCourier().remoteConfigService.cuisinesList;
 List<String> cuisineList = cuisineListString.split(',');
 
 final List<TypeFilter> restrictByList = [

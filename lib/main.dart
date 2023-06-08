@@ -45,26 +45,29 @@ Future<void> main() async {
   await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(true);
   FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
 
-  runApp(foodCourier());
+  runApp(FoodCourier());
 }
 
-class foodCourier extends StatefulWidget {
+class FoodCourier extends StatefulWidget {
   final RemoteConfigService remoteConfigService =
       locator<RemoteConfigService>();
 
-  _foodCourierState createState() => _foodCourierState();
-  static _foodCourierState of(BuildContext context) =>
-      context.findAncestorStateOfType<_foodCourierState>();
+  FoodCourier({Key? key}) : super(key: key);
+
+  @override
+  FoodCourierState createState() => FoodCourierState();
+
+  static FoodCourierState? of(BuildContext context) =>
+      context.findAncestorStateOfType<FoodCourierState>();
 }
 
-class _foodCourierState extends State<foodCourier> {
-  Locale _locale;
+class FoodCourierState extends State<FoodCourier> {
+  late Locale _locale;
 
   void setLocale(Locale value) async {
     await S.load(value);
     setState(() {
       _locale = value;
-      print(_locale);
     });
   }
 
@@ -127,32 +130,32 @@ class _foodCourierState extends State<foodCourier> {
         initialRoute: '/',
         routes: {
           '/': (context) => Splash(), //Splash(),
-          'home': (context) => Home(),
-          'restaurant': (context) => RestaurantScreen(),
-          'register': (context) => Registration(),
+          'home': (context) => const Home(),
+          'restaurant': (context) => const RestaurantScreen(),
+          'register': (context) => const Registration(),
           'login': (context) => LoginScreen(),
-          'forgot pass': (context) => ForgotPass(),
+          'forgot pass': (context) => const ForgotPass(),
           'verify': (context) => VerificationCodeScreen(),
-          'pInfo reg': (context) => PersonalInfoRegistration(),
-          'preferences reg': (context) => PreferencesRegistration(),
-          'reset pass': (context) => ResetPassword(),
-          'feedback': (context) => FeedBack(),
-          'profile': (context) => Profile(),
-          'wish list': (context) => WishList(),
+          'pInfo reg': (context) => const PersonalInfoRegistration(),
+          'preferences reg': (context) => const PreferencesRegistration(),
+          'reset pass': (context) => const ResetPassword(),
+          'feedback': (context) => const FeedBack(),
+          'profile': (context) => const Profile(),
+          'wish list': (context) => const WishList(),
           'languages': (context) => Languages(),
           'meal': (context) => MealScreen(),
-          'order': (context) => Order(),
-          'order checkout': (context) => OrderCheckout(),
-          'all orders': (context) => AllOrdersScreen(),
+          'order': (context) => const Order(),
+          'order checkout': (context) => const OrderCheckout(),
+          'all orders': (context) => const AllOrdersScreen(),
           'track order': (context) => TrackOrderScreen(),
           'finish order': (context) => FinishedOrderScreen(),
           'order details': (context) => OrderDetailsScreen(),
-          'grocery see all': (context) => GrocerySeeAll(),
+          'grocery see all': (context) => const GrocerySeeAll(),
         },
         builder: (context, _) {
           return MediaQuery(
-            child: _,
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+            child: const SizedBox(),
           );
         },
       ),

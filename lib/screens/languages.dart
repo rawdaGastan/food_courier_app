@@ -51,8 +51,7 @@ class Languages extends StatelessWidget {
                 style: titleText,
               ),
               onTap: () {
-                foodCourier
-                    .of(context)
+                FoodCourier.of(context)!
                     .setLocale(languagesSupported.values.elementAt(index));
                 Navigator.pop(context);
               },

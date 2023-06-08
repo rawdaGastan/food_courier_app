@@ -312,7 +312,7 @@ class HomeState extends State<Home> {
     );
 
     double extraPadding = 0;
-    foodCourier().remoteConfigService.groceryFeature && _selectedIndex == 1
+    FoodCourier().remoteConfigService.groceryFeature && _selectedIndex == 1
         ? extraPadding = 10 * SizeConfig.blockSizeVertical!
         : extraPadding = 0;
     EdgeInsets widgetOptionsPadding = EdgeInsets.only(
@@ -346,7 +346,7 @@ class HomeState extends State<Home> {
             callbackRestriction: restaurantsMenuWidget.callbackRestriction,
         ),
       ),*/
-      foodCourier().remoteConfigService.groceryFeature
+      FoodCourier().remoteConfigService.groceryFeature
           ? Container(
               padding: widgetOptionsPadding,
               child: GroceryView(
@@ -568,7 +568,7 @@ class HomeState extends State<Home> {
             widgetOptions.elementAt(_selectedIndex),
             Padding(
               padding: groceryTabBarPadding,
-              child: foodCourier().remoteConfigService.groceryFeature &&
+              child: FoodCourier().remoteConfigService.groceryFeature &&
                       _selectedIndex == 1
                   ? GroceryTabBar()
                   : Container(),

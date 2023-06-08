@@ -183,7 +183,7 @@ class MealCardState extends State<MealCard> {
                                   style: mealName,
                                 ),
                               ),
-                              (foodCourier()
+                              (FoodCourier()
                                       .remoteConfigService
                                       .orderingFeature)
                                   ? IconButton(

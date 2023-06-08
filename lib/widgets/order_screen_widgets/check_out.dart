@@ -61,7 +61,7 @@ class CheckOutState extends State<CheckOut> {
               left: SizeConfig.blockSizeVertical!,
             ),
             child: DefaultTabController(
-              length: foodCourier().remoteConfigService.paymentFeature ? 2 : 1,
+              length: FoodCourier().remoteConfigService.paymentFeature ? 2 : 1,
               child: Container(
                 decoration: const BoxDecoration(
                   color: secondaryColor,
@@ -69,7 +69,7 @@ class CheckOutState extends State<CheckOut> {
                 ),
                 height: 6 * SizeConfig.blockSizeVertical!,
                 child: TabBar(
-                  tabs: foodCourier().remoteConfigService.paymentFeature
+                  tabs: FoodCourier().remoteConfigService.paymentFeature
                       ? [
                           const Tab(
                             child: AutoSizeText(
@@ -100,7 +100,7 @@ class CheckOutState extends State<CheckOut> {
                         ],
                   onTap: (index) {
                     setState(() {
-                      foodCourier().remoteConfigService.paymentFeature
+                      FoodCourier().remoteConfigService.paymentFeature
                           ? (index == 0)
                               ? setPayment('Credit card')
                               : setPayment('Cash')
@@ -121,7 +121,7 @@ class CheckOutState extends State<CheckOut> {
               ),
             ),
           ),
-          foodCourier().remoteConfigService.paymentFeature
+          FoodCourier().remoteConfigService.paymentFeature
               ? (paymentIndex == 0)
                   ? Column(
                       children: [
