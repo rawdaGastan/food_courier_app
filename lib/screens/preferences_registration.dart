@@ -23,89 +23,28 @@ List<String> tabsIcons = [
 ];
 
 class PreferencesRegistration extends StatefulWidget {
+  const PreferencesRegistration({Key? key}) : super(key: key);
+
   @override
-  _PreferencesRegistrationState createState() =>
-      _PreferencesRegistrationState();
+  PreferencesRegistrationState createState() => PreferencesRegistrationState();
 }
 
-class _PreferencesRegistrationState extends State<PreferencesRegistration> {
+class PreferencesRegistrationState extends State<PreferencesRegistration> {
   int chosenType = 0; // Gluten Free
 
   final SharedPreferencesClass sharedPreferencesClass =
       locator<SharedPreferencesClass>();
 
-  GlobalKey _fabKey = GlobalObjectKey("fab");
-  GlobalKey _tileKey = GlobalObjectKey("tile_2");
-
-  void showCoachMarkFAB() async {
-    CoachMark coachMarkFAB = CoachMark();
-    RenderBox target = _fabKey.currentContext.findRenderObject();
-    Rect markRect = target.localToGlobal(Offset.zero) & target.size;
-    markRect = markRect.inflate(5.0);
-
-    await sharedPreferencesClass.isFirstTime().then((isFirstTime) => {
-          (isFirstTime)
-              ? coachMarkFAB.show(
-                  targetContext: _fabKey.currentContext,
-                  markRect: markRect,
-                  markShape: BoxShape.rectangle,
-                  children: [
-                    Positioned(
-                        top:
-                            markRect.top - (10 * SizeConfig.blockSizeVertical!),
-                        right: 5 * SizeConfig.blockSizeHorizontal!,
-                        left: 5 * SizeConfig.blockSizeHorizontal!,
-                        child: Text(
-                          "click here to choose type of the restaurant",
-                          style: const TextStyle(
-                            fontSize: 24.0,
-                            color: whiteColor,
-                          ),
-                          textAlign: TextAlign.center,
-                        ))
-                  ],
-                  duration: null,
-                  onClose: () {
-                    //Timer(Duration(seconds: 3), () => showCoachMarkTile());
-                  })
-              : null
-        });
-  }
-
-  void showCoachMarkTile() {
-    CoachMark coachMarkTile = CoachMark();
-    RenderBox target = _tileKey.currentContext.findRenderObject();
-
-    Rect markRect = target.localToGlobal(Offset.zero) & target.size;
-    markRect = markRect.inflate(5.0);
-
-    coachMarkTile.show(
-      targetContext: _tileKey.currentContext,
-      markRect: markRect,
-      markShape: BoxShape.rectangle,
-      children: [
-        Positioned(
-            top: markRect.bottom + 15.0,
-            right: 2 * SizeConfig.blockSizeHorizontal!,
-            left: 2 * SizeConfig.blockSizeHorizontal!,
-            child: Text(
-              "click here to set your food restrictions",
-              style: const TextStyle(
-                fontSize: 24.0,
-                fontStyle: FontStyle.italic,
-                color: whiteColor,
-              ),
-              textAlign: TextAlign.center,
-            ))
-      ],
-      duration: null,
-      //duration: Duration(seconds: 3)
-    );
-  }
+  final GlobalKey _fabKey = const GlobalObjectKey('fab');
+  final GlobalKey _tileKey = const GlobalObjectKey('tile_2');
+  final GlobalKey _showCaseKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(seconds: 1), () => showCoachMarkFAB());
+    sharedPreferencesClass.isFirstTime().then((isFirstTime) => {
+          Timer(const Duration(seconds: 1),
+              () => ShowCaseWidget.of(context).startShowCase([_showCaseKey]))
+        });
 
     return Scaffold(
       backgroundColor: whiteColor,
@@ -153,6 +92,12 @@ class _PreferencesRegistrationState extends State<PreferencesRegistration> {
       body: SafeArea(
         child: Column(
           children: <Widget>[
+            Showcase(
+              key: _showCaseKey,
+              title: 'Restrictions',
+              description: 'click here to set your food restrictions',
+              child: Container(),
+            ),
             Expanded(
               child: ListView(
                 children: <Widget>[

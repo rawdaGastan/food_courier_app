@@ -31,6 +31,8 @@ class HomeState extends State<Home> {
   final GlobalKey _navigationBarKey = const GlobalObjectKey('navigationBar');
 
   final GlobalKey<ScaffoldState> _drawerKey = GlobalKey();
+  final GlobalKey _showCaseKey = GlobalKey();
+
   bool filtersVisibility = true;
   bool dropDownLocationsVisibility = true;
   String regionSelected = 'no region';
@@ -56,13 +58,12 @@ class HomeState extends State<Home> {
   }
 
   void showNotification() async {
-    print('again');
     if (PushNotification().onBackground) {
       sharedPreferencesClass
           .setBackgroundNotification(PushNotification().onBackground);
       PushNotification().onBackground = !PushNotification().onBackground;
     }
-    print(PushNotification().onBackground);
+
     await sharedPreferencesClass.showBackgroundNotification().then(
         (showNotification) => {
               (showNotification!)
@@ -129,41 +130,6 @@ class HomeState extends State<Home> {
         ),
       );
 
-  void showCoachMarkFAB() async {
-    CoachMark coachMarkFAB = CoachMark();
-    RenderObject? target = _navigationBarKey.currentContext?.findRenderObject();
-    Rect markRect = target?.localToGlobal(Offset.zero) & target.size;
-    markRect = markRect.inflate(5.0);
-
-    await sharedPreferencesClass.isFirstTime().then((isFirstTime) => {
-          (isFirstTime)
-              ? coachMarkFAB.show(
-                  targetContext: _navigationBarKey.currentContext,
-                  markRect: markRect,
-                  markShape: BoxShape.rectangle,
-                  children: [
-                    Positioned(
-                        top:
-                            markRect.top - (10 * SizeConfig.blockSizeVertical!),
-                        right: 5 * SizeConfig.blockSizeHorizontal!,
-                        left: 5 * SizeConfig.blockSizeHorizontal!,
-                        child: const Text(
-                          'click here to choose type of the restaurant',
-                          style: TextStyle(
-                            fontSize: 24.0,
-                            color: whiteColor,
-                          ),
-                          textAlign: TextAlign.center,
-                        ))
-                  ],
-                  duration: null,
-                  onClose: () {
-                    //Timer(Duration(seconds: 3), () => showCoachMarkTile());
-                  })
-              : null
-        });
-  }
-
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -173,8 +139,8 @@ class HomeState extends State<Home> {
   }
 
   callbackDropDownLocation(
-      PickResult addressSelectedPlace,
-      Location currentLocation,
+      PickResult? addressSelectedPlace,
+      Location? currentLocation,
       bool visibility,
       String selectedCity,
       String selectedCityType) {
@@ -245,7 +211,7 @@ class HomeState extends State<Home> {
     });
   }
 
-  callbackFilters(String sortBy) {
+  callbackFilters(String? sortBy) {
     if (sortBy != null) {
       setState(() {
         restaurantsMenuWidget = RestaurantsMenu(
@@ -300,7 +266,7 @@ class HomeState extends State<Home> {
   }*/
 
   showRestaurantsByLocation() {
-    if (regionSelected != 'no region' && regionSelected != null) {
+    if (regionSelected != 'no region' && regionSelected != '') {
       setState(() {
         restaurantsMenuWidget = RestaurantsMenu(
           selectedRegion: regionSelected,
@@ -325,7 +291,12 @@ class HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     showRestaurantsByLocation();
-    Timer(const Duration(seconds: 1), () => showCoachMarkFAB());
+
+    sharedPreferencesClass.isFirstTime().then((isFirstTime) => {
+          Timer(const Duration(seconds: 1),
+              () => ShowCaseWidget.of(context).startShowCase([_showCaseKey]))
+        });
+
     showNotification();
     // _getFullStorySession();
     SizeConfig().init(context);
@@ -522,6 +493,12 @@ class HomeState extends State<Home> {
       body: SafeArea(
         child: Stack(
           children: [
+            Showcase(
+              key: _showCaseKey,
+              title: 'Restaurant types',
+              description: 'click here to choose type of the restaurant',
+              child: Container(),
+            ),
             Column(
               children: <Widget>[
                 Visibility(
