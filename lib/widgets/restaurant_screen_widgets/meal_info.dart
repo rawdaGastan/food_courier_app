@@ -16,17 +16,17 @@ import '../../main.dart';
 class MealCard extends StatefulWidget {
   final Meal meal;
   final int selectedIndexOfBottomBar;
-  final Function callbackNavigationBottomBar;
-  final String restaurantLogoUrl;
-  final int restaurantID;
+  final Function? callbackNavigationBottomBar;
+  final String? restaurantLogoUrl;
+  final int? restaurantID;
 
   const MealCard(
       {Key? key,
       required this.meal,
       this.selectedIndexOfBottomBar = 0,
       required this.callbackNavigationBottomBar,
-      required this.restaurantLogoUrl,
-      required this.restaurantID})
+      this.restaurantLogoUrl = '',
+      this.restaurantID = 0})
       : super(key: key);
 
   @override
@@ -197,7 +197,7 @@ class MealCardState extends State<MealCard> {
                                             snapshot.data,
                                             getProductID(
                                                 snapshot.data.supplierPrices,
-                                                widget.restaurantID));
+                                                widget.restaurantID!));
                                         /*displayDialog(context, 'You choose from another store, you can combine the '
                           'order with an extra  fee and time or make a new order');*/
                                       },
@@ -273,7 +273,7 @@ class MealCardState extends State<MealCard> {
                             children: [
                               AutoSizeText(
                                 getPrice(snapshot.data.supplierPrices,
-                                    widget.restaurantID),
+                                    widget.restaurantID!),
                                 style: mealPrice,
                               ),
                               Padding(

@@ -1,12 +1,12 @@
 class Meal {
   int id;
   String name = '', description = '', type;
-  int numberOfLikes;
+  int numberOfLikes = 0;
   bool isFavorite = false;
   List<String> ingredients = [];
-  String category;
-  double price;
-  String rating;
+  String category = '';
+  double price = 0.0;
+  String rating = '';
 
   Map<int, String> photos = {};
   List<String> photoUrls = [];
@@ -19,15 +19,15 @@ class Meal {
   Meal(
       {required this.id,
       required this.name,
-      required this.supplierPrices,
+      this.supplierPrices = const {},
       required this.description,
       required this.price,
-      required this.numberOfLikes,
+      this.numberOfLikes = 0,
       required this.type,
-      required this.ingredients,
-      required this.photos,
-      required this.category,
-      required this.rating,
+      this.ingredients = const [],
+      this.photos = const {},
+      this.category = '',
+      this.rating = '',
       required this.labels}) {
     labels.forEach((_, value) => labelNames.add(value));
     photos.forEach((_, value) => photoUrls.add(value));

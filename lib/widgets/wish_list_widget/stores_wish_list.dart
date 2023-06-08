@@ -5,8 +5,8 @@ import 'package:foodCourier/models/restaurant.dart';
 import 'package:foodCourier/widgets/grocery_widgets/stores_all_card.dart';
 
 class StoreWishList extends StatelessWidget {
-  bool isFavourite = true;
-  String duration;
+  bool isFavorite = true;
+  String duration = '';
   List<Restaurant> temp = [
     Restaurant(
       name: 'Store',
@@ -27,7 +27,7 @@ class StoreWishList extends StatelessWidget {
       labels: {},
       photos: {
         119:
-            "https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg"
+            'https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg'
       },
     ),
     Restaurant(
@@ -49,7 +49,7 @@ class StoreWishList extends StatelessWidget {
       labels: {},
       photos: {
         119:
-            "https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg"
+            'https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg'
       },
     ),
     Restaurant(
@@ -71,7 +71,7 @@ class StoreWishList extends StatelessWidget {
       labels: {},
       photos: {
         119:
-            "https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg"
+            'https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg'
       },
     ),
     Restaurant(
@@ -93,12 +93,14 @@ class StoreWishList extends StatelessWidget {
       labels: {},
       photos: {
         119:
-            "https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg"
+            'https://scontent-hbe1-1.xx.fbcdn.net/v/t1.0-9/151086294_732019560832468_3507742128333123628_n.jpg'
       },
     ),
   ];
 
-  callBackDistance(double dis, String dur) {
+  StoreWishList({Key? key}) : super(key: key);
+
+  callBackDistance(double dis, String? dur) {
     if (dur != null) {
       duration = dur;
       /* setState(() {
@@ -132,11 +134,11 @@ class StoreWishList extends StatelessWidget {
                       radius: 4 * SizeConfig.blockSizeHorizontal!,
                     ),
                   ),
-                  Container(
+                  SizedBox(
                     width: 8 * SizeConfig.blockSizeHorizontal!,
                     height: 8 * SizeConfig.blockSizeHorizontal!,
                     child: Icon(
-                      isFavourite ? Icons.turned_in : Icons.turned_in_not,
+                      isFavorite ? Icons.turned_in : Icons.turned_in_not,
                       color: orangeColor,
                     ),
                   ),
