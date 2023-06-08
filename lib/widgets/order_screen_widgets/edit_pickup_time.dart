@@ -5,14 +5,16 @@ import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class EditPickUpTime extends StatefulWidget {
+  const EditPickUpTime({Key? key}) : super(key: key);
+
   @override
-  _EditPickUpTimeState createState() => _EditPickUpTimeState();
+  EditPickUpTimeState createState() => EditPickUpTimeState();
 }
 
-class _EditPickUpTimeState extends State<EditPickUpTime> {
+class EditPickUpTimeState extends State<EditPickUpTime> {
   Map<String, String> days = {
     'Tuesday': '5/1',
-    'Wendesday': '6/1',
+    'Wednesday': '6/1',
     'Thursday': '7/1',
     'Friday': '8/1',
     'Saturday': '9/1',
@@ -38,27 +40,26 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
   }
 
   void _onItemFocus(int index) {
-    print(index);
     setState(() {
       _focusedIndex = index;
     });
   }
 
   void _onItemFocusTime(int index) {
-    print(index);
     setState(() {
       _focusedIndexTime = index;
     });
   }
 
   Widget _buildListItem(BuildContext context, int index) {
-    if (index == days.length)
-      return Center(
+    if (index == days.length) {
+      return const Center(
         child: CircularProgressIndicator(),
       );
+    }
 
-    if (_focusedIndex == index)
-      return Container(
+    if (_focusedIndex == index) {
+      return SizedBox(
         width: 16 * SizeConfig.blockSizeVertical!,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -74,8 +75,8 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
           ],
         ),
       );
-    else
-      return Container(
+    } else {
+      return SizedBox(
         width: 16 * SizeConfig.blockSizeVertical!,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -91,10 +92,11 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
           ],
         ),
       );
+    }
   }
 
   Widget _timeBuildListItem(BuildContext context, int index) {
-    return Container(
+    return SizedBox(
       height: 5 * SizeConfig.blockSizeVertical!,
       child: InkWell(
         child: Row(
@@ -107,7 +109,7 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
               color: _focusedIndexTime == index ? secondaryColor : whiteColor,
               child: Text(times.keys.elementAt(index), style: pickUpTime),
             ),
-            Text(' : ', style: pickUpTime),
+            const Text(' : ', style: pickUpTime),
             Container(
               alignment: Alignment.center,
               width: 20 * SizeConfig.blockSizeHorizontal!,
@@ -118,7 +120,7 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
           ],
         ),
         onTap: () {
-          sslKey.currentState.focusToItem(index);
+          sslKey.currentState!.focusToItem(index);
         },
       ),
     );
@@ -126,7 +128,7 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 25 * SizeConfig.blockSizeVertical!,
       child: Column(
         children: <Widget>[
@@ -139,7 +141,7 @@ class _EditPickUpTimeState extends State<EditPickUpTime> {
               dynamicItemSize: true,
             ),
           ),
-          Divider(),
+          const Divider(),
           Container(
             alignment: Alignment.center,
             height: 15 * SizeConfig.blockSizeVertical!,

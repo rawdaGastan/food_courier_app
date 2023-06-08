@@ -9,51 +9,47 @@ import 'package:foodCourier/providers/authentication_provider.dart';
 import 'package:foodCourier/providers/order_provider.dart';
 
 class ItemsList extends StatefulWidget {
+  const ItemsList({Key? key}) : super(key: key);
+
   @override
-  _ItemsListState createState() => _ItemsListState();
+  ItemsListState createState() => ItemsListState();
 }
 
-class _ItemsListState extends State<ItemsList> {
-  StreamController _streamController;
-  Stream _stream;
+class ItemsListState extends State<ItemsList> {
+  late StreamController _streamController;
+  late Stream _stream;
 
   @override
   void initState() {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getCart);
+    Future.delayed(Duration.zero, getCart);
   }
 
   getCart() async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      _streamController.add(
-          await Provider.of<OrderProvider>(context, listen: false)
-              .viewCart(userToken));
-    }
+    _streamController.add(
+        await Provider.of<OrderProvider>(context, listen: false)
+            .viewCart(userToken));
   }
 
   addItemTOCart(context, int productID, int quantity) async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      await Provider.of<OrderProvider>(context, listen: false)
-          .addToCart(userToken, productID, quantity);
-    }
+    await Provider.of<OrderProvider>(context, listen: false)
+        .addToCart(userToken, productID, quantity);
   }
 
   removeItem(int itemID) async {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      await Provider.of<OrderProvider>(context, listen: false)
-          .removeFromCart(userToken, itemID);
-    }
+    await Provider.of<OrderProvider>(context, listen: false)
+        .removeFromCart(userToken, itemID);
   }
 
   @override
@@ -64,7 +60,7 @@ class _ItemsListState extends State<ItemsList> {
           if (snapshot.hasData) {
             return Column(
               children: [
-                Container(
+                SizedBox(
                   height: snapshot.data.items.length *
                       6 *
                       SizeConfig.blockSizeVertical!,
@@ -81,11 +77,11 @@ class _ItemsListState extends State<ItemsList> {
                                     .toString(),
                                 style: ItemAddOn,
                               ),
-                              Text(
+                              const Text(
                                 ' x ',
                                 style: ItemAddOn,
                               ),
-                              Container(
+                              SizedBox(
                                 width: 15 * SizeConfig.blockSizeHorizontal!,
                                 child: Text(
                                   snapshot
@@ -103,7 +99,7 @@ class _ItemsListState extends State<ItemsList> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               IconButton(
-                                icon: Icon(Icons.add_circle_outline,
+                                icon: const Icon(Icons.add_circle_outline,
                                     color: lightTextColor, size: 20),
                                 onPressed: () => setState(() =>
                                     snapshot.data.items[index]['quantity']++),
@@ -114,7 +110,7 @@ class _ItemsListState extends State<ItemsList> {
                                 style: mealPrice,
                               ),
                               IconButton(
-                                icon: Icon(Icons.remove_circle_outline,
+                                icon: const Icon(Icons.remove_circle_outline,
                                     color: lightTextColor, size: 20),
                                 onPressed: () => setState(() =>
                                     snapshot.data.items[index]['quantity'] > 0
@@ -132,7 +128,8 @@ class _ItemsListState extends State<ItemsList> {
                                 style: mealPrice,
                               ),
                               IconButton(
-                                icon: Icon(Icons.delete, color: lightTextColor),
+                                icon: const Icon(Icons.delete,
+                                    color: lightTextColor),
                                 onPressed: () => removeItem(57),
                               ),
                             ],
@@ -146,7 +143,7 @@ class _ItemsListState extends State<ItemsList> {
               ],
             );
           } else {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }

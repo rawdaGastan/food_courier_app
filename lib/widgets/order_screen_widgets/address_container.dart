@@ -6,14 +6,18 @@ import 'package:foodCourier/controllers/size_config.dart';
 class AddressContainer extends StatefulWidget {
   final String address;
   final TextEditingController controller;
-  bool editAddress = false;
-  AddressContainer({this.address, this.controller});
+
+  const AddressContainer(
+      {Key? key, required this.address, required this.controller})
+      : super(key: key);
 
   @override
-  _AddressContainerState createState() => _AddressContainerState();
+  AddressContainerState createState() => AddressContainerState();
 }
 
-class _AddressContainerState extends State<AddressContainer> {
+class AddressContainerState extends State<AddressContainer> {
+  bool editAddress = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -32,16 +36,17 @@ class _AddressContainerState extends State<AddressContainer> {
             width: 75 * SizeConfig.blockSizeHorizontal!,
             child: TextFormField(
               controller: widget.controller,
-              enabled: widget.editAddress,
+              enabled: editAddress,
               style: fillFieldText,
               decoration: InputDecoration(
                 hintText: widget.address,
                 hintStyle: fieldText,
-                enabledBorder: new UnderlineInputBorder(
-                    borderSide: new BorderSide(color: lightTextColor)),
-                focusedBorder: new UnderlineInputBorder(
-                    borderSide: new BorderSide(color: primaryColor)),
-                contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 20.0, 10.0),
+                enabledBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: lightTextColor)),
+                focusedBorder: const UnderlineInputBorder(
+                    borderSide: BorderSide(color: primaryColor)),
+                contentPadding:
+                    const EdgeInsets.fromLTRB(10.0, 10.0, 20.0, 10.0),
               ),
             ),
           ),
@@ -50,13 +55,13 @@ class _AddressContainerState extends State<AddressContainer> {
             height: 6 * SizeConfig.blockSizeVertical!,
             color: primaryColor,
             child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.mode_edit,
                   color: whiteColor,
                 ),
                 onPressed: () {
                   setState(() {
-                    widget.editAddress = !widget.editAddress;
+                    editAddress = !editAddress;
                   });
                 }),
           ),
