@@ -75,7 +75,7 @@ class RestaurantName extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text: getAddress(restaurant.addressLines),
-                                  style: RestaurantAddress,
+                                  style: restaurantAddress,
                                 ),
                               ],
                             ),

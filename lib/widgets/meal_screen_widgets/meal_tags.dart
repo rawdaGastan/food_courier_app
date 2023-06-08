@@ -29,7 +29,7 @@ class MealTags extends StatelessWidget {
           //'temporary',
           mealTags[index],
           maxLines: 1,
-          style: RestaurantLabels,
+          style: restaurantLabels,
         )),
       ),
     );

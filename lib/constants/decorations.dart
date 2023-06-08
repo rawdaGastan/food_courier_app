@@ -5,19 +5,19 @@ import 'package:foodCourier/generated/l10n.dart';
 InputDecoration kMessageTextFieldDecoration = InputDecoration(
   filled: true,
   fillColor: Colors.white,
-  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  contentPadding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
   hintText: S().enterMsg,
   //'Type your message here...',
-  hintStyle: TextStyle(fontSize: 10.0, color: Color(0xFFB6C8BF)),
-  border: OutlineInputBorder(
+  hintStyle: const TextStyle(fontSize: 10.0, color: Color(0xFFB6C8BF)),
+  border: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10.0)),
       borderSide: BorderSide(color: Color(0xFFB6C8BF))),
-  focusedBorder: OutlineInputBorder(
+  focusedBorder: const OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(10.0)),
       borderSide: BorderSide(color: Color(0xFFB6C8BF))),
 );
 
-InputDecoration kReviewTextFieldDecoration = InputDecoration(
+InputDecoration kReviewTextFieldDecoration = const InputDecoration(
   filled: true,
   fillColor: Colors.white,
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),

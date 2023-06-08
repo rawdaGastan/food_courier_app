@@ -479,7 +479,7 @@ class MealReviewState extends State<MealReview> {
                                               SizeConfig.blockSizeHorizontal!),
                                       child: const AutoSizeText(
                                         'Noor ALshaer',
-                                        style: RestaurantDescription,
+                                        style: restaurantDescription,
                                       ),
                                     ),
                                     const Row(
@@ -523,7 +523,7 @@ class MealReviewState extends State<MealReview> {
                         ),
                         const AutoSizeText(
                           'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                          style: RestaurantDescription,
+                          style: restaurantDescription,
                         ),
                       ],
                     ),

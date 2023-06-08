@@ -75,11 +75,11 @@ class ItemsListState extends State<ItemsList> {
                               Text(
                                 snapshot.data.items[index]['quantity']
                                     .toString(),
-                                style: ItemAddOn,
+                                style: itemAddOn,
                               ),
                               const Text(
                                 ' x ',
-                                style: ItemAddOn,
+                                style: itemAddOn,
                               ),
                               SizedBox(
                                 width: 15 * SizeConfig.blockSizeHorizontal!,
@@ -89,7 +89,7 @@ class ItemsListState extends State<ItemsList> {
                                       .items[index]['item']['product']
                                           ['product_name']
                                       .toString(),
-                                  style: ItemAddOn,
+                                  style: itemAddOn,
                                   overflow: TextOverflow.ellipsis,
                                 ),
                               ),

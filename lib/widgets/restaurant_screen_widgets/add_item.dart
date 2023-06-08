@@ -121,7 +121,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                             EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal!),
                         child: const Text(
                           'lorem ipsec',
-                          style: ItemAddOn,
+                          style: itemAddOn,
                         ),
                       ),
                       Padding(
@@ -135,7 +135,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                             EdgeInsets.all(3 * SizeConfig.blockSizeHorizontal!),
                         child: const Text(
                           'Preferences',
-                          style: ItemAddOn,
+                          style: itemAddOn,
                         ),
                       ),
                       Padding(

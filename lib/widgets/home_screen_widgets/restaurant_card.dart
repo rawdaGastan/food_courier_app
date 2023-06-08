@@ -354,7 +354,7 @@ class RestaurantCardState extends State<RestaurantCard> {
                                 TextSpan(
                                   text:
                                       '${S().city(widget.restaurant.city)} - ${S().town(widget.restaurant.town)}',
-                                  style: RestaurantAddress,
+                                  style: restaurantAddress,
                                 ),
                               ],
                             ),
@@ -399,7 +399,7 @@ class RestaurantCardState extends State<RestaurantCard> {
               child: const AutoSizeText(
                 'is simply dummy text of the printing and typesetting industry',
                 overflow: TextOverflow.ellipsis,
-                style: RestaurantDescription,
+                style: restaurantDescription,
                 maxLines: 4,
               ),
             ),
@@ -423,7 +423,7 @@ class RestaurantCardState extends State<RestaurantCard> {
                   child: Center(
                     child: AutoSizeText(
                       S().labels(widget.restaurant.labelNames[index]),
-                      style: RestaurantLabels,
+                      style: restaurantLabels,
                     ),
                   ),
                 ),

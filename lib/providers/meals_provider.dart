@@ -51,7 +51,7 @@ class MealsProvider extends ChangeNotifier {
     } else {
       if (pageIndex == 1) _meals = [];
 
-      int nextIndex = response['next'];
+      int? nextIndex = response['next'];
       pageIndex = nextIndex ?? 1;
 
       List products = response['products'];

@@ -1,4 +1,5 @@
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:foodCourier/controllers/remote_config.dart';
 import 'package:foodCourier/locator.dart';
 import 'package:foodCourier/controllers/navigation_service.dart';
@@ -23,14 +24,13 @@ class DynamicLinkService {
     dynamicLinks.onLink.listen((dynamicLinkData) {
       _handleDeepLink(dynamicLinkData);
     }).onError((error) {
-      print('onLink error');
-      print(error.message);
+      logger.e('onLink error: ${error.message}');
     });
   }
 
   void _handleDeepLink(PendingDynamicLinkData data) async {
     final Uri deepLink = data.link;
-    print('_handleDeepLink | deeplink: $deepLink');
+    logger.d('_handleDeepLink | deeplink: $deepLink');
 
     var user = deepLink.pathSegments.contains('signin');
     var confirmEmail = deepLink.pathSegments.contains('confirm-email');
@@ -41,7 +41,6 @@ class DynamicLinkService {
       var key = deepLink.queryParameters['key'];
       if (key != null) {
         _navigationService.navigateWithArgsTo('pInfo reg', key);
-        print(key);
       } else {
         _navigationService.navigateTo('login');
       }
@@ -49,8 +48,8 @@ class DynamicLinkService {
       var key = deepLink.queryParameters['key'];
       if (key != null) {
         var response = await AuthenticationProvider().confirmEmail(key);
-        print('key $key');
-        print("confirm email response : $response");
+        logger.d('confirm email response : $response');
+
         if (response == 'confirmed') {
           _navigationService.navigateWithArgsTo('pInfo reg', key);
         } else {
@@ -66,15 +65,15 @@ class DynamicLinkService {
     //remote config to change the link
     String changedLink;
     await _remoteConfigService.initialise();
-    if (_remoteConfigService.changeConfirmEmailLink != "") {
+    if (_remoteConfigService.changeConfirmEmailLink != '') {
       changedLink = _remoteConfigService.changeConfirmEmailLink;
-      print('changedLink $changedLink');
+      logger.d('changedLink: $changedLink');
     }
 
     final DynamicLinkParameters parameters = DynamicLinkParameters(
       uriPrefix: 'https://foodCourier.page.link',
       link: Uri.parse('https://foodCourier.com/confirm?key=$key'),
-      androidParameters: AndroidParameters(
+      androidParameters: const AndroidParameters(
         packageName: 'com.example.foodCourier',
       ),
 
@@ -102,7 +101,7 @@ class DynamicLinkService {
     final ShortDynamicLink dynamicShortUrl =
         await dynamicLinks.buildShortLink(parameters);
     final Uri dynamicUrl = await dynamicLinks.buildLink(parameters);
-    print(dynamicShortUrl);
+    logger.d('dynamicShortUrl: $dynamicShortUrl');
     return dynamicUrl.toString();
   }
 }

@@ -9,10 +9,12 @@ import 'package:foodCourier/providers/authentication_provider.dart';
 import 'package:provider/provider.dart';
 
 class VerificationCodeScreen extends StatefulWidget {
-  bool isRegisteredUser;
-  String emailOrPhoneValue;
+  final bool isRegisteredUser;
+  final String emailOrPhoneValue;
 
-  VerificationCodeScreen({Key? key, this.isRegisteredUser = false, this.emailOrPhoneValue = ''}) : super(key: key);
+  const VerificationCodeScreen(
+      {Key? key, this.isRegisteredUser = false, this.emailOrPhoneValue = ''})
+      : super(key: key);
 
   @override
   VerificationCodeScreenState createState() => VerificationCodeScreenState();
@@ -22,17 +24,11 @@ class VerificationCodeScreenState extends State<VerificationCodeScreen> {
   String _code = '';
   final TextEditingController _controller = TextEditingController();
 
-  int _start = 180;
+  final int _start = 180;
 
   @override
   void initState() {
     super.initState();
-
-    //startTimer();
-  }
-
-  void startTimer() {
-    const oneSec = Duration(seconds: 1);
   }
 
   convertToMinutes(int seconds) {

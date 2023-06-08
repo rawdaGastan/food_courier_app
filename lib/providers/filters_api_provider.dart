@@ -151,7 +151,7 @@ class AllFiltersProvider extends ChangeNotifier {
         jsonDecode(await net.getSuppliers(pageIndex, token, restaurantType));
     if (pageIndex == 1) _tempMenu = [];
 
-    int nextIndex = response['next'];
+    int? nextIndex = response['next'];
     if (nextIndex != null) {
       pageIndex = nextIndex;
     } else {
@@ -169,7 +169,7 @@ class AllFiltersProvider extends ChangeNotifier {
         searchField, searchPageIndex, userToken, restaurantType));
     if (searchPageIndex == 1) _tempMenu = [];
 
-    int nextIndex = response['next'];
+    int? nextIndex = response['next'];
     if (nextIndex != null) {
       searchPageIndex = nextIndex;
     } else {
@@ -187,7 +187,7 @@ class AllFiltersProvider extends ChangeNotifier {
         sortPageIndex, sortBy, userToken, restaurantType));
     if (sortPageIndex == 1) _tempMenu = [];
 
-    int nextIndex = response['next'];
+    int? nextIndex = response['next'];
     if (nextIndex != null) {
       sortPageIndex = nextIndex;
     } else {
@@ -206,7 +206,7 @@ class AllFiltersProvider extends ChangeNotifier {
             longitude, userToken, restaurantType));
     if (sortDistancePageIndex == 1) _tempMenu = [];
 
-    int nextIndex = response['next'];
+    int? nextIndex = response['next'];
     if (nextIndex != null) {
       sortDistancePageIndex = nextIndex;
     } else {
@@ -225,7 +225,7 @@ class AllFiltersProvider extends ChangeNotifier {
             location, type, restaurantType));
     if (restaurantByCityPageIndex == 1) _tempMenu = [];
 
-    int nextIndex = response['next'];
+    int? nextIndex = response['next'];
     if (nextIndex != null) {
       restaurantByCityPageIndex = nextIndex;
     } else {

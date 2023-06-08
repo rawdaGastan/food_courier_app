@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:sms_autofill/sms_autofill.dart';
 import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/constants/colors.dart';
@@ -22,7 +23,6 @@ class VerificationCodeScreenState extends State<VerificationCodeScreen2>
   String _code = '';
   String _signature = '';
 
-  late Timer _timer;
   int _start = 180;
 
   @override
@@ -40,7 +40,7 @@ class VerificationCodeScreenState extends State<VerificationCodeScreen2>
     SmsAutoFill().getAppSignature.then((signature) {
       setState(() {
         _signature = signature;
-        print(_signature); // feknpwVtmrc
+        logger.d(_signature); // feknpwVtmrc
       });
     });
 
@@ -55,7 +55,7 @@ class VerificationCodeScreenState extends State<VerificationCodeScreen2>
 
   void startTimer() {
     const oneSec = Duration(seconds: 1);
-    _timer = Timer.periodic(
+    Timer.periodic(
       oneSec,
       (Timer timer) {
         if (_start == 0) {
@@ -173,7 +173,7 @@ class VerificationCodeScreenState extends State<VerificationCodeScreen2>
                     Navigator.pushNamed(context, 'reset pass');
                   } else {
                     // move to complete registration
-                    print(_code);
+                    logger.d(_code);
                     //await Provider.of<AuthenticationProvider>(context,listen: false).mobileCodeSent(widget.emailOrPhoneValue, '123456');
                     Navigator.pushNamed(context, 'pInfo reg');
                   }

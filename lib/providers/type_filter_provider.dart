@@ -47,7 +47,7 @@ class TypeFilterProvider extends ChangeNotifier {
   ];
 
   final Map<String, bool> _filterStatus = {
-    for (int i = 0; i < labelsList.length && labelsList != null; i++)
+    for (int i = 0; i < labelsList.length; i++)
       _allFilterStatus[i].type: _allFilterStatus[i].preferred
   };
 

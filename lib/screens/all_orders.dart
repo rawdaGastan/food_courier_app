@@ -55,7 +55,7 @@ class AllOrdersScreenState extends State<AllOrdersScreen> {
                 ),
                 Row(
                   children: [
-                    Text('$numberOfItems x ', style: ItemAddOn),
+                    Text('$numberOfItems x ', style: itemAddOn),
                     Text('$price \$', style: deliveryCost),
                   ],
                 ),
@@ -158,11 +158,11 @@ class AllOrdersScreenState extends State<AllOrdersScreen> {
                               ),
                               const Text(
                                 'Lorem Ipsum is simply dummy text',
-                                style: RestaurantDescription,
+                                style: restaurantDescription,
                               ),
                               const Row(
                                 children: [
-                                  Text('3x ', style: ItemAddOn),
+                                  Text('3x ', style: itemAddOn),
                                   Text('18.50 \$', style: deliveryCost),
                                 ],
                               ),
@@ -258,11 +258,11 @@ class AllOrdersScreenState extends State<AllOrdersScreen> {
                             ),
                             const Text(
                               'Lorem Ipsum is simply dummy text',
-                              style: RestaurantDescription,
+                              style: restaurantDescription,
                             ),
                             const Row(
                               children: [
-                                Text('3x ', style: ItemAddOn),
+                                Text('3x ', style: itemAddOn),
                                 Text('18.50 \$', style: deliveryCost),
                               ],
                             ),

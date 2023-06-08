@@ -28,7 +28,7 @@ class _OrderInfoState extends State<OrderInfo> {
                 children: [
                   Text(
                     'when will you be there ?',
-                    style: TextBold16,
+                    style: textBold16,
                     textAlign: TextAlign.center,
                   ),
                   Divider(),

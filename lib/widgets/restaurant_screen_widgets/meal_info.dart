@@ -214,7 +214,7 @@ class MealCardState extends State<MealCard> {
                                     bottom: SizeConfig.blockSizeHorizontal!),
                                 child: const AutoSizeText(
                                   'is simply dummy text of the printing and typesetting industry.',
-                                  style: RestaurantDescription,
+                                  style: restaurantDescription,
                                 ),
                               ),
                             ],

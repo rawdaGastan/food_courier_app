@@ -141,7 +141,7 @@ class RestaurantWishList extends StatelessWidget {
                                 ),
                                 TextSpan(
                                   text: 'Gaza Alremal Street ',
-                                  style: RestaurantAddress,
+                                  style: restaurantAddress,
                                 ),
                               ],
                             ),
@@ -157,7 +157,7 @@ class RestaurantWishList extends StatelessWidget {
                       right: 4 * SizeConfig.blockSizeHorizontal!),
                   child: AutoSizeText(
                     'is simply dummy text of the printing and typesetting industry.',
-                    style: RestaurantDescription,
+                    style: restaurantDescription,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 4,
                   ),
@@ -185,7 +185,7 @@ class RestaurantWishList extends StatelessWidget {
                         child: AutoSizeText(
                           'label',
                           //S().labels(widget.restaurant.labelNames[index]),
-                          style: RestaurantLabels,
+                          style: restaurantLabels,
                         ),
                       ),
                     ),

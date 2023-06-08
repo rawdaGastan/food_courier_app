@@ -38,11 +38,9 @@ class OrderCheckoutState extends State<OrderCheckout> {
     String userToken =
         await Provider.of<AuthenticationProvider>(context, listen: false)
             .userToken;
-    if (userToken != null) {
-      _streamController.add(
-          await Provider.of<OrderProvider>(context, listen: false)
-              .viewCart(userToken));
-    }
+    _streamController.add(
+        await Provider.of<OrderProvider>(context, listen: false)
+            .viewCart(userToken));
   }
 
   @override
@@ -113,7 +111,7 @@ class OrderCheckoutState extends State<OrderCheckout> {
                         ),
                         const Text(
                           'Add item',
-                          style: ItemAddOn,
+                          style: itemAddOn,
                         ),
                       ],
                     ),

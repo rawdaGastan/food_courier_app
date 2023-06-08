@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'dart:convert';
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:vector_math/vector_math.dart';
 import 'package:foodCourier/config/config.dart';
 import 'package:http/http.dart' as http;
@@ -24,7 +25,7 @@ double calculateDistance(latitude1, longitude1, latitude2, longitude2) {
 
   double distanceRounded = double.parse(distance.toStringAsFixed(2));
 
-  print("Result: $distanceRounded");
+  logger.d('Result: $distanceRounded');
 
   return distanceRounded;
 }
@@ -37,20 +38,20 @@ calculateDistanceBetweenLocations(
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
-    print('success');
+    logger.d('calculateDistanceBetweenLocations: success');
     String distance = parseResponse(response.body);
     //return response.body;
     return distance;
   } else {
-    print('Request failed with status: ${response.statusCode}.');
+    logger.e('Request failed with status: ${response.statusCode}');
   }
 }
 
 String parseResponse(String responseBody) {
   Map<String, dynamic> distanceResponse = jsonDecode(responseBody);
-  Map<String, dynamic> rows = distanceResponse["rows"][0];
-  Map<String, dynamic> elements = rows["elements"][0];
-  Map<String, dynamic> distance = elements["distance"];
+  Map<String, dynamic> rows = distanceResponse['rows'][0];
+  Map<String, dynamic> elements = rows['elements'][0];
+  Map<String, dynamic> distance = elements['distance'];
   String distanceMiles = distance['text']
       .toString()
       .substring(0, distance['text'].toString().indexOf(' '));
@@ -70,19 +71,19 @@ Future<String?> calculateTimeBetweenLocations(
   var response = await http.get(url);
 
   if (response.statusCode == 200) {
-    print('success');
     String duration = parseTime(response.body);
     return duration;
   } else {
-    print('Request failed with status: ${response.statusCode}.');
+    logger.e('Request failed with status: ${response.statusCode}');
+    return null;
   }
 }
 
 String parseTime(String responseBody) {
   Map<String, dynamic> distanceResponse = jsonDecode(responseBody);
-  Map<String, dynamic> rows = distanceResponse["rows"][0];
-  Map<String, dynamic> elements = rows["elements"][0];
-  Map<String, dynamic> duration = elements["duration"];
+  Map<String, dynamic> rows = distanceResponse['rows'][0];
+  Map<String, dynamic> elements = rows['elements'][0];
+  Map<String, dynamic> duration = elements['duration'];
 
   String timeDistance = duration['text'].toString();
   return timeDistance;

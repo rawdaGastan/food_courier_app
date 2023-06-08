@@ -328,7 +328,7 @@ class AllStoresCardState extends State<AllStoresCard> {
                       child: Center(
                         child: AutoSizeText(
                           S().labels(widget.restaurant.labelNames[index]),
-                          style: RestaurantLabels,
+                          style: restaurantLabels,
                         ),
                       ),
                     ),

@@ -40,7 +40,7 @@ class _FinishedOrderScreenState extends State<FinishedOrderScreen> {
             SizedBox(height: 2 * SizeConfig.blockSizeVertical!),
             Text(
               'Thank you',
-              style: ThankYou,
+              style: thankYou,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 2 * SizeConfig.blockSizeVertical!),

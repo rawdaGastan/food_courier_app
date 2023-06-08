@@ -4,22 +4,20 @@ import 'dart:convert';
 import 'package:foodCourier/models/user.dart';
 
 class UserProvider extends ChangeNotifier {
-  User _user = new User('', '', '', '', '', '');
+  final User _user = User('', '', '', '', '', '');
   User get user => _user;
 
   getUserData(String userToken) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response = jsonDecode(await net.getUser(userToken));
 
-    if (response != null) {
-      _user.setEmail = response['email'];
-      _user.setPhone = response['phone_number'];
-    }
+    _user.setEmail = response['email'];
+    _user.setPhone = response['phone_number'];
   }
 
   Future updateUserData(String userToken, firstName, lastName, dateOfBirth,
       durationOfDiet) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     var response = await net.updateUserData(
         userToken, firstName, lastName, dateOfBirth, durationOfDiet);
 
@@ -34,7 +32,7 @@ class UserProvider extends ChangeNotifier {
   }
 
   Future getProfile(String userToken) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     var response = await net.getProfile(userToken);
 
     if (response != null) {

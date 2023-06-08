@@ -11,7 +11,11 @@ import 'package:foodCourier/widgets/meal_screen_widgets/meal_profile.dart';
 import 'package:foodCourier/widgets/meal_screen_widgets/meal_description.dart';
 import 'package:foodCourier/widgets/meal_screen_widgets/meal_reviews.dart';
 
+import '../controllers/logger.dart';
+
 class MealScreen extends StatefulWidget {
+  const MealScreen({Key? key}) : super(key: key);
+
   @override
   MealScreenState createState() => MealScreenState();
 }
@@ -38,9 +42,10 @@ class MealScreenState extends State<MealScreen> {
   @override
   Widget build(BuildContext context) {
     List defaults = ModalRoute.of(context)!.settings.arguments as List;
-    Meal meal = defaults[0];
+    Meal? meal = defaults[0];
     String restaurantLogoUrl = defaults[3];
     int restaurantID = defaults[4];
+    logger.d(restaurantID);
     if (!gotIndexFromNavigationBar) {
       selectedIndexOfBottomBar = defaults[1];
       callbackNavigationBottomBar = defaults[2];

@@ -166,7 +166,7 @@ class CoffeeCardState extends State<CoffeeCard> {
                               child: Text(
                                 /*widget.restaurant.labelNames*/ labelNames[
                                     index],
-                                style: RestaurantLabels,
+                                style: restaurantLabels,
                               ),
                             ),
                           ),
@@ -403,7 +403,7 @@ class CoffeeCardState extends State<CoffeeCard> {
                                         child: Text(
                                           /*widget.restaurant.labelNames*/ labelNames[
                                               index],
-                                          style: RestaurantLabels,
+                                          style: restaurantLabels,
                                         ),
                                       ),
                                     ),

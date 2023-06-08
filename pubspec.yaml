@@ -9,6 +9,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  logger: ^1.4.0
   cupertino_icons: ^1.0.2
   dropdown_textfield: ^1.0.8
   provider: ^6.0.5
@@ -31,7 +32,6 @@ dependencies:
   flutter_emoji_feedback: ^0.1.2
   vector_math: ^2.1.4
   geocode: ^1.0.3
-  #intl_translation: ^0.17.10+1
   intl_utils: ^2.8.2
   dart_style: ^2.0.0
   showcaseview: ^2.0.3
@@ -47,7 +47,6 @@ dependencies:
   flutter_uxcam: ^2.4.0
   scroll_snap_list: ^0.9.1
   shared_preferences: ^2.1.1
-  #flutter_svg: 0.20.0-nullsafety.3
   facebook_app_events: ^0.19.0
   flutter_sliding_up_panel: ^2.0.1
 
@@ -80,7 +79,6 @@ flutter_intl:
 
 flutter:
   uses-material-design: true
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/logos/logo.png
     - assets/icons/filter.png

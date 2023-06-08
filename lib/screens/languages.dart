@@ -6,7 +6,7 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/constants/text_styles.dart';
 
 class Languages extends StatelessWidget {
-  Map<String, Locale> languagesSupported = {
+  final Map<String, Locale> languagesSupported = {
     S().arabic: const Locale.fromSubtags(languageCode: 'ar'),
     S().english: const Locale.fromSubtags(languageCode: 'en'),
     S().Deutsch: const Locale.fromSubtags(languageCode: 'de'),

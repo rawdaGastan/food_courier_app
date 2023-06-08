@@ -19,8 +19,8 @@ class AllCoffee extends StatefulWidget {
 
   String? searchInput;
   String? sortBy;
-  String selectedRegion;
-  String selectedRegionType;
+  String? selectedRegion;
+  String? selectedRegionType;
   bool isDelivery;
 
   int bottomNavigationIndex;
@@ -38,8 +38,8 @@ class AllCoffee extends StatefulWidget {
       required this.isDelivery,
       required this.bottomNavigationIndex,
       required this.callbackBottomNavigationBar,
-      required this.selectedRegion,
-      required this.selectedRegionType,
+      this.selectedRegion,
+      this.selectedRegionType,
       required this.callbackFilters,
       required this.callbackRestriction})
       : super(key: key);
@@ -120,8 +120,8 @@ class AllCoffeeState extends State<AllCoffee> {
       if (widget.selectedRegionType != 'location') {
         _streamController.add(
             await Provider.of<AllFiltersProvider>(context, listen: false)
-                .showRestaurantByLocation(userToken, widget.selectedRegion,
-                    widget.selectedRegionType, restaurantType));
+                .showRestaurantByLocation(userToken, widget.selectedRegion!,
+                    widget.selectedRegionType!, restaurantType));
       } else {
         if (widget.addressSelectedPlace != null) {
           _streamController.add(await Provider.of<AllFiltersProvider>(context,

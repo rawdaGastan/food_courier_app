@@ -11,6 +11,8 @@ import 'package:foodCourier/controllers/networking.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:foodCourier/locator.dart';
 
+import '../controllers/logger.dart';
+
 class AuthenticationProvider extends ChangeNotifier {
   final AnalyticsService _analyticsService = locator<AnalyticsService>();
   final FacebookAnalyticsService _facebookAnalyticsService =
@@ -32,9 +34,9 @@ class AuthenticationProvider extends ChangeNotifier {
       // Sign the user in (or link) with the credential
       UserCredential user =
           await auth.signInWithCredential(phoneAuthCredential);
-      print('user $user');
+      logger.d('user $user');
       String idToken = await auth.currentUser!.getIdToken();
-      print('idToken $idToken');
+      logger.d('idToken $idToken');
     } catch (e) {
       loginMobileError = e.toString();
     }
@@ -56,26 +58,25 @@ class AuthenticationProvider extends ChangeNotifier {
 
           // Sign the user in (or link) with the auto-generated credential
           //await auth.signInWithCredential(credential);
-          print('done');
         },
         verificationFailed: (FirebaseAuthException e) {
-          print(e.message);
+          logger.e('$e.message');
           if (e.code == 'invalid-phone-number') {
-            print('The provided phone number is not valid.');
+            logger.e('The provided phone number is not valid.');
             loginMobileError = 'The provided phone number is not valid';
           }
         },
         codeSent: (String verificationId, int? resendToken) async {
           //await Future.delayed(const Duration(seconds: 20), (){});
           verificationId = verificationId;
-          print('codeSent');
-          print('verificationId $verificationId');
-          print('resendToken $resendToken');
+          logger.d('codeSent');
+          logger.d('verificationId $verificationId');
+          logger.d('resendToken $resendToken');
         },
         timeout: const Duration(seconds: 5),
         codeAutoRetrievalTimeout: (String verificationId) {
           verificationId = verificationId;
-          print('verificationId $verificationId');
+          logger.d('verificationId $verificationId');
           // Auto-resolution timed out...
         },
       );
@@ -91,22 +92,22 @@ class AuthenticationProvider extends ChangeNotifier {
       // by default the login method has the next permissions ['email','public_profile']
       //permissions: ['email', 'public_profile', 'user_birthday', 'user_friends', 'user_gender', 'user_link']
       LoginResult res = await FacebookAuth.instance.login();
-      print(res.accessToken);
+      logger.d(res.accessToken);
       // get the user data
       final userData = await FacebookAuth.instance.getUserData();
       _facebookAnalyticsService.logEvent();
-      print(userData);
+      logger.d(userData);
     } catch (e) {
-      print(e);
+      logger.e(e);
       switch (e) {
         case LoginStatus.operationInProgress:
-          print('You have a previous login operation in progress');
+          logger.e('You have a previous login operation in progress');
           break;
         case LoginStatus.cancelled:
-          print('login cancelled');
+          logger.e('login cancelled');
           break;
         case LoginStatus.failed:
-          print('login failed');
+          logger.e('login failed');
           break;
       }
     }
@@ -122,12 +123,12 @@ class AuthenticationProvider extends ChangeNotifier {
       await googleSignIn.signOut();
       // by default the login method has the next permissions ['email','public_profile']
       GoogleSignInAccount? googleUser = await googleSignIn.signIn();
-      print(googleUser);
+      logger.e(googleUser);
       GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
-      print(googleAuth.idToken);
-      print(googleAuth.accessToken);
+      logger.e(googleAuth.idToken);
+      logger.e(googleAuth.accessToken);
     } catch (error) {
-      print(error);
+      logger.e(error);
     }
   }
 
@@ -158,7 +159,7 @@ class AuthenticationProvider extends ChangeNotifier {
     }
   }
 
-  refreshToken() async {
+  Future<String?> refreshToken() async {
     Networking net = Networking();
     var tokenRefresh = await storage.read(key: 'refresh');
     var res = await net.refreshToken(tokenRefresh!);
@@ -168,6 +169,7 @@ class AuthenticationProvider extends ChangeNotifier {
       storage.write(key: 'jwt', value: accessToken);
       return 'jwt';
     }
+    return null;
   }
 
   isLoggedIn() async {
@@ -186,7 +188,7 @@ class AuthenticationProvider extends ChangeNotifier {
             .isAfter(DateTime.now())) {
           return 'home';
         } else {
-          String res = await refreshToken();
+          String? res = await refreshToken();
           if (res != null) {
             return 'home';
           } else {
@@ -214,7 +216,7 @@ class AuthenticationProvider extends ChangeNotifier {
     }
   }
 
-  confirmEmail(String key) async {
+  Future<String> confirmEmail(String key) async {
     Networking net = Networking();
     var res = await net.confirmEmail(key);
 
@@ -223,6 +225,8 @@ class AuthenticationProvider extends ChangeNotifier {
     if (confirmed != null) {
       return 'confirmed';
     }
+
+    return 'unconfirmed';
   }
 
   sendResetPassEmail(String email) async {

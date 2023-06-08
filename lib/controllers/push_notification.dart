@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/constants/text_styles.dart';
@@ -17,23 +18,23 @@ class PushNotification {
   //final GlobalKey<NavigatorState> navigatorKey = GlobalKey(debugLabel: "Main Navigator");
 
   void _tokenRefresh(String newToken) async {
-    print(" New FCM Token $newToken");
+    logger.d('New FCM Token $newToken');
   }
 
   void _tokenRefreshFailure(error) {
-    print("FCM token refresh failed with error $error");
+    logger.e('FCM token refresh failed with error $error');
   }
 
   Future<void> _firebaseMessagingBackgroundHandler(
       RemoteMessage message) async {
     SharedPreferences.setMockInitialValues({});
-    print('onBackgroundMessage : $message');
+    logger.d('onBackgroundMessage : $message');
     PushNotification().onBackground = true;
-    print('onBackground : ${PushNotification().onBackground}');
+    logger.d('onBackground : ${PushNotification().onBackground}');
   }
 
   void showFlutterNotification(RemoteMessage message) {
-    print('onMessage : $message');
+    logger.d('onMessage : $message');
     _insideAppNotification(message);
   }
 
@@ -41,7 +42,7 @@ class PushNotification {
     FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
     FirebaseMessaging.onMessage.listen(showFlutterNotification);
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
-      print('A new onMessageOpenedApp event was published!');
+      logger.d('A new onMessageOpenedApp event was published!');
       _serializeAndNavigate(message);
       _insideAppNotification(message);
     });
