@@ -3,15 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/shared_preferences.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/providers/type_filter_provider.dart';
-import 'package:foodCourier/widgets/filters_screen_widgets/cuisine_filter.dart';
-import 'package:foodCourier/widgets/filters_screen_widgets/restrictions_check_list.dart';
-import 'package:foodCourier/widgets/filters_screen_widgets/sort_by_radio_list.dart';
-import 'package:foodCourier/generated/l10n.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/shared_preferences.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/providers/type_filter_provider.dart';
+import 'package:food_courier/widgets/filters_screen_widgets/cuisine_filter.dart';
+import 'package:food_courier/widgets/filters_screen_widgets/restrictions_check_list.dart';
+import 'package:food_courier/widgets/filters_screen_widgets/sort_by_radio_list.dart';
+import 'package:food_courier/generated/l10n.dart';
 
 import '../../locator.dart';
 

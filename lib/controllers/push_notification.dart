@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:foodCourier/controllers/logger.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
+import 'package:food_courier/controllers/logger.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/main_button.dart';
 import 'dart:io';
 import '../locator.dart';
 import 'navigation_service.dart';

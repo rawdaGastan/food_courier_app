@@ -1,9 +1,9 @@
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
-import 'package:foodCourier/controllers/logger.dart';
-import 'package:foodCourier/controllers/remote_config.dart';
-import 'package:foodCourier/locator.dart';
-import 'package:foodCourier/controllers/navigation_service.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
+import 'package:food_courier/controllers/logger.dart';
+import 'package:food_courier/controllers/remote_config.dart';
+import 'package:food_courier/locator.dart';
+import 'package:food_courier/controllers/navigation_service.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
 
 class DynamicLinkService {
   FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;

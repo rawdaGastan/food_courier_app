@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:foodCourier/models/restriction.dart';
-import 'package:foodCourier/models/type_filter.dart';
+import 'package:food_courier/models/restriction.dart';
+import 'package:food_courier/models/type_filter.dart';
 
 import '../main.dart';
 /*

@@ -3,14 +3,14 @@ import 'dart:async';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:showcaseview/showcaseview.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/shared_preferences.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/filters_screen_widgets/restrictions_check_list.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/filter_by_button_list.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
-import 'package:foodCourier/generated/l10n.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/controllers/shared_preferences.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/widgets/filters_screen_widgets/restrictions_check_list.dart';
+import 'package:food_courier/widgets/home_screen_widgets/filter_by_button_list.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/main_button.dart';
+import 'package:food_courier/generated/l10n.dart';
 
 import '../locator.dart';
 

@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
 
 class RestaurantWishList extends StatelessWidget {
   const RestaurantWishList({Key? key}) : super(key: key);

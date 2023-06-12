@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:foodCourier/controllers/ordering_network.dart';
+import 'package:food_courier/controllers/ordering_network.dart';
 import 'dart:convert';
-import 'package:foodCourier/models/cart.dart';
+import 'package:food_courier/models/cart.dart';
 
 class OrderProvider extends ChangeNotifier {
   late Cart _cart;

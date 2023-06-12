@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/generated/l10n.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/generated/l10n.dart';
 
 InputDecoration kMessageTextFieldDecoration = InputDecoration(
   filled: true,

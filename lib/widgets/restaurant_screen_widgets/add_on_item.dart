@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
 
 final Map<String, String> addOnItemsList = {
   'Lorem Ipsum is simply dummy text 1': '+3.50 \$',

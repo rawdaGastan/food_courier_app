@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:foodCourier/controllers/networking.dart';
+import 'package:food_courier/controllers/networking.dart';
 import 'dart:convert';
-import 'package:foodCourier/models/user.dart';
+import 'package:food_courier/models/user.dart';
 
 class UserProvider extends ChangeNotifier {
   final User _user = User('', '', '', '', '', '');

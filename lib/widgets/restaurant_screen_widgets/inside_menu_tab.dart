@@ -1,15 +1,15 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/tag_tab.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/tag_tab.dart';
 import 'meal_info.dart';
 import 'package:flutter_sticky_header/flutter_sticky_header.dart';
 import 'dart:async';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/providers/meals_provider.dart';
+import 'package:food_courier/providers/meals_provider.dart';
 
 // map of tag and index of occurrence in meals to control scroll position
 Map<String, int> tags = {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
-import 'package:foodCourier/config/config.dart';
+import 'package:food_courier/config/config.dart';
 
 const kInitialPosition = LatLng(-33.8567844, 151.213108);
 

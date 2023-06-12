@@ -2,16 +2,16 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/models/user.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/input_text_field.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
-import 'package:foodCourier/screens/map.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/providers/user_provider.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/models/user.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/input_text_field.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/main_button.dart';
+import 'package:food_courier/screens/map.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/providers/user_provider.dart';
 
 class PersonalInfoRegistration extends StatefulWidget {
   const PersonalInfoRegistration({Key? key}) : super(key: key);

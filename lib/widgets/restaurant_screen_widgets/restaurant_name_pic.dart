@@ -1,11 +1,11 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/models/restaurant.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/models/restaurant.dart';
 
 class RestaurantName extends StatelessWidget {
   final Restaurant restaurant;

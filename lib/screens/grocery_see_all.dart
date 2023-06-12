@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/controllers/logger.dart';
+import 'package:food_courier/controllers/logger.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/push_notification.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/drawer.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/filter_by_button_list.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/dropdown_locations.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/filter_bottom_sheet.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/search_field.dart';
-import 'package:foodCourier/controllers/location.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/widgets/grocery_widgets/stores_all.dart';
-import 'package:foodCourier/widgets/grocery_widgets/coffee_all.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/push_notification.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/main_button.dart';
+import 'package:food_courier/widgets/home_screen_widgets/drawer.dart';
+import 'package:food_courier/widgets/home_screen_widgets/filter_by_button_list.dart';
+import 'package:food_courier/widgets/home_screen_widgets/dropdown_locations.dart';
+import 'package:food_courier/widgets/home_screen_widgets/filter_bottom_sheet.dart';
+import 'package:food_courier/widgets/home_screen_widgets/search_field.dart';
+import 'package:food_courier/controllers/location.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/widgets/grocery_widgets/stores_all.dart';
+import 'package:food_courier/widgets/grocery_widgets/coffee_all.dart';
 
 class GrocerySeeAll extends StatefulWidget {
   const GrocerySeeAll({Key? key}) : super(key: key);

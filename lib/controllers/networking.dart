@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:foodCourier/controllers/logger.dart';
+import 'package:food_courier/controllers/logger.dart';
 import 'package:http/http.dart' as http;
 
 class Networking {

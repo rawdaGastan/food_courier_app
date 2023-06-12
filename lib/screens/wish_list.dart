@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/wish_list_widget/meals_wish_list.dart';
-import 'package:foodCourier/widgets/wish_list_widget/restaurant_wish_list.dart';
-import 'package:foodCourier/widgets/wish_list_widget/stores_wish_list.dart';
-import 'package:foodCourier/generated/l10n.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/widgets/wish_list_widget/meals_wish_list.dart';
+import 'package:food_courier/widgets/wish_list_widget/restaurant_wish_list.dart';
+import 'package:food_courier/widgets/wish_list_widget/stores_wish_list.dart';
+import 'package:food_courier/generated/l10n.dart';
 
 class WishList extends StatefulWidget {
   const WishList({Key? key}) : super(key: key);

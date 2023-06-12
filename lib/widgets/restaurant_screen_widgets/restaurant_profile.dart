@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/restaurant_tags.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/restaurant_name_pic.dart';
-import 'package:foodCourier/models/restaurant.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/restaurant_tags.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/restaurant_name_pic.dart';
+import 'package:food_courier/models/restaurant.dart';
 
 class RestaurantProfile extends StatelessWidget {
   final Restaurant restaurant;

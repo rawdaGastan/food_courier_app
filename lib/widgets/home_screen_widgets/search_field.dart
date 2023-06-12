@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/generated/l10n.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/generated/l10n.dart';
 
 class SearchField extends StatelessWidget {
   final Function callbackFun;

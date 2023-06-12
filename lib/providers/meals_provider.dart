@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:foodCourier/controllers/networking.dart';
+import 'package:food_courier/controllers/networking.dart';
 import 'dart:convert';
-import 'package:foodCourier/models/meal.dart';
+import 'package:food_courier/models/meal.dart';
 
 class MealsProvider extends ChangeNotifier {
   static List<String> restrictions = [];

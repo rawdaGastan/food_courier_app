@@ -1,6 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/colors.dart';
+import 'package:food_courier/constants/colors.dart';
 
 class TagTab extends StatefulWidget {
   final String tag;

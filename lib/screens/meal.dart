@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sliding_up_panel/flutter_sliding_up_panel.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/models/meal.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/constants/text_styles.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/models/meal.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/constants/text_styles.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/widgets/meal_screen_widgets/meal_cover_photo.dart';
-import 'package:foodCourier/widgets/meal_screen_widgets/meal_profile.dart';
-import 'package:foodCourier/widgets/meal_screen_widgets/meal_description.dart';
-import 'package:foodCourier/widgets/meal_screen_widgets/meal_reviews.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/widgets/meal_screen_widgets/meal_cover_photo.dart';
+import 'package:food_courier/widgets/meal_screen_widgets/meal_profile.dart';
+import 'package:food_courier/widgets/meal_screen_widgets/meal_description.dart';
+import 'package:food_courier/widgets/meal_screen_widgets/meal_reviews.dart';
 
 import '../controllers/logger.dart';
 

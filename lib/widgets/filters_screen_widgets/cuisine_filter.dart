@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/models/type_filter.dart';
+import 'package:food_courier/models/type_filter.dart';
 
 import '../../main.dart';
 import 'cuisine_filter_button.dart';

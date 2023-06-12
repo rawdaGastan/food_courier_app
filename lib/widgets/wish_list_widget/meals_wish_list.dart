@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/meal_info.dart';
-import 'package:foodCourier/models/meal.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/meal_info.dart';
+import 'package:food_courier/models/meal.dart';
 
 List<Meal> meals = [
   Meal(

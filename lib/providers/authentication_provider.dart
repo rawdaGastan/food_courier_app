@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:foodCourier/controllers/analytics.dart';
-import 'package:foodCourier/controllers/facebook_analytics.dart';
-import 'package:foodCourier/controllers/networking.dart';
+import 'package:food_courier/controllers/analytics.dart';
+import 'package:food_courier/controllers/facebook_analytics.dart';
+import 'package:food_courier/controllers/networking.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:foodCourier/locator.dart';
+import 'package:food_courier/locator.dart';
 
 import '../controllers/logger.dart';
 

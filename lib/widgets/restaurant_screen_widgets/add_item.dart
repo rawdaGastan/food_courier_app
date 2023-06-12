@@ -2,13 +2,13 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/models/meal.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/providers/order_provider.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/add_on_item.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/models/meal.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/providers/order_provider.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/add_on_item.dart';
 
 showIngredients(list) {
   var concatenate = StringBuffer();

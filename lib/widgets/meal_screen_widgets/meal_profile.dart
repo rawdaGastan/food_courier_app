@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/models/meal.dart';
-import 'package:foodCourier/widgets/meal_screen_widgets/meal_tags.dart';
-import 'package:foodCourier/widgets/meal_screen_widgets/meal_name.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/models/meal.dart';
+import 'package:food_courier/widgets/meal_screen_widgets/meal_tags.dart';
+import 'package:food_courier/widgets/meal_screen_widgets/meal_name.dart';
 
 class MealProfile extends StatelessWidget {
   final Meal meal;

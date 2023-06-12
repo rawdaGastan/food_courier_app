@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/providers/order_provider.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
-import 'package:foodCourier/widgets/order_screen_widgets/check_out.dart';
-import 'package:foodCourier/widgets/order_screen_widgets/order_info.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/providers/order_provider.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/main_button.dart';
+import 'package:food_courier/widgets/order_screen_widgets/check_out.dart';
+import 'package:food_courier/widgets/order_screen_widgets/order_info.dart';
 
 class Order extends StatefulWidget {
   const Order({Key? key}) : super(key: key);

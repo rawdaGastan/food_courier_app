@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_sliding_up_panel/flutter_sliding_up_panel.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/inside_menu_tab.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/restaurant_cover_photo_list.dart';
-import 'package:foodCourier/widgets/restaurant_screen_widgets/restaurant_profile.dart';
-import 'package:foodCourier/models/restaurant.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/constants/text_styles.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/inside_menu_tab.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/restaurant_cover_photo_list.dart';
+import 'package:food_courier/widgets/restaurant_screen_widgets/restaurant_profile.dart';
+import 'package:food_courier/models/restaurant.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/constants/text_styles.dart';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/widgets/go_to_cart_button.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/filter_bottom_sheet.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/widgets/go_to_cart_button.dart';
+import 'package:food_courier/widgets/home_screen_widgets/filter_bottom_sheet.dart';
 
 class RestaurantScreen extends StatefulWidget {
   const RestaurantScreen({Key? key}) : super(key: key);

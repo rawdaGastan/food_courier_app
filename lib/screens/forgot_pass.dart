@@ -3,13 +3,13 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/input_text_field.dart';
-import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
-import 'package:foodCourier/generated/l10n.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/input_text_field.dart';
+import 'package:food_courier/widgets/authentication_screens_widgets/main_button.dart';
+import 'package:food_courier/generated/l10n.dart';
 //import 'package:google_tag_manager/google_tag_manager.dart' as gtm;
 
 class ForgotPass extends StatefulWidget {

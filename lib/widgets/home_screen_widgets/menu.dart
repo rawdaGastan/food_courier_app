@@ -3,12 +3,12 @@ import 'package:geocode/geocode.dart';
 
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/providers/filters_api_provider.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/controllers/location.dart';
+import 'package:food_courier/providers/filters_api_provider.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/controllers/location.dart';
 import 'dart:async';
 
-import 'package:foodCourier/widgets/home_screen_widgets/restaurant_card.dart';
+import 'package:food_courier/widgets/home_screen_widgets/restaurant_card.dart';
 
 // ignore: must_be_immutable
 class RestaurantsMenu extends StatefulWidget {

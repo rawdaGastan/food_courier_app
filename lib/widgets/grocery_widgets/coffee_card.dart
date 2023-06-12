@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_chat_bubble/chat_bubble.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/distance_calculator.dart';
-import 'package:foodCourier/controllers/location.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/models/restaurant.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/distance_calculator.dart';
+import 'package:food_courier/controllers/location.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/models/restaurant.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class CoffeeCard extends StatefulWidget {

@@ -2,13 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/providers/order_provider.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/providers/order_provider.dart';
 import '../../main.dart';
-import 'package:foodCourier/models/cart.dart';
+import 'package:food_courier/models/cart.dart';
 
 class CoverPhotoList extends StatefulWidget {
   final List<String> photoUrls;

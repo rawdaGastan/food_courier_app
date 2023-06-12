@@ -5,11 +5,11 @@ import 'package:geocode/geocode.dart';
 
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/controllers/location.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/providers/filters_api_provider.dart';
-import 'package:foodCourier/widgets/grocery_widgets/coffee_card.dart';
+import 'package:food_courier/controllers/location.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/providers/filters_api_provider.dart';
+import 'package:food_courier/widgets/grocery_widgets/coffee_card.dart';
 
 class Coffee extends StatefulWidget {
   final PickResult? addressSelectedPlace;

@@ -1,4 +1,4 @@
-import 'package:foodCourier/controllers/logger.dart';
+import 'package:food_courier/controllers/logger.dart';
 import 'package:geolocator/geolocator.dart';
 
 class Location {

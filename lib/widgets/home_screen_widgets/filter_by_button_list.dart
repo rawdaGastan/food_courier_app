@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/models/type_filter.dart';
-import 'package:foodCourier/providers/type_filter_provider.dart';
-import 'package:foodCourier/widgets/home_screen_widgets/selection_button.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/models/type_filter.dart';
+import 'package:food_courier/providers/type_filter_provider.dart';
+import 'package:food_courier/widgets/home_screen_widgets/selection_button.dart';
 
 final List<TypeFilter> filtersList = [
   TypeFilter('Normal', true),

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/providers/filters_api_provider.dart';
-import 'package:foodCourier/models/restriction.dart';
-import 'package:foodCourier/providers/type_filter_provider.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/providers/filters_api_provider.dart';
+import 'package:food_courier/models/restriction.dart';
+import 'package:food_courier/providers/type_filter_provider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class RestrictionCheckBox extends StatefulWidget {

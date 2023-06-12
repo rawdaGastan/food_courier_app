@@ -1,5 +1,5 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:foodCourier/controllers/logger.dart';
+import 'package:food_courier/controllers/logger.dart';
 
 const String _orderingFeature = 'ordering_feature';
 const String _paymentFeature = 'payment_feature';

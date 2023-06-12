@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/models/restaurant.dart';
-import 'package:foodCourier/widgets/grocery_widgets/stores_all_card.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/models/restaurant.dart';
+import 'package:food_courier/widgets/grocery_widgets/stores_all_card.dart';
 
 // ignore: must_be_immutable
 class StoreWishList extends StatelessWidget {

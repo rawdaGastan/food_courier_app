@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/size_config.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/controllers/size_config.dart';
 
 class EditPickUpTime extends StatefulWidget {
   const EditPickUpTime({Key? key}) : super(key: key);

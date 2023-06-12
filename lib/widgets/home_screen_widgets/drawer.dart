@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/main.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/constants/colors.dart';
+import 'package:food_courier/controllers/size_config.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/main.dart';
 
 class DrawerContents extends StatelessWidget {
   final int bottomNavigationIndex;

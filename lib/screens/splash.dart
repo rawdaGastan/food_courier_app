@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/dynamic_links.dart';
-import 'package:foodCourier/controllers/push_notification.dart';
-import 'package:foodCourier/controllers/size_config.dart';
+import 'package:food_courier/constants/text_styles.dart';
+import 'package:food_courier/controllers/dynamic_links.dart';
+import 'package:food_courier/controllers/push_notification.dart';
+import 'package:food_courier/controllers/size_config.dart';
 import '../locator.dart';
-import 'package:foodCourier/generated/l10n.dart';
-import 'package:foodCourier/providers/authentication_provider.dart';
-import 'package:foodCourier/constants/colors.dart';
+import 'package:food_courier/generated/l10n.dart';
+import 'package:food_courier/providers/authentication_provider.dart';
+import 'package:food_courier/constants/colors.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:foodCourier/providers/type_filter_provider.dart';
-import 'package:foodCourier/widgets/filters_screen_widgets/restriction_check_box.dart';
+import 'package:food_courier/providers/type_filter_provider.dart';
+import 'package:food_courier/widgets/filters_screen_widgets/restriction_check_box.dart';
 
 class RestrictionsList extends StatelessWidget {
   final Function callbackFun;
