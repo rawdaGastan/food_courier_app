@@ -14,17 +14,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class RestaurantCard extends StatefulWidget {
-  PickResult? addressSelectedPlace;
-  Location? currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  String restaurantType;
-  Restaurant restaurant;
-  bool isDelivery;
-  bool isDineOut;
+  final String restaurantType;
+  final Restaurant restaurant;
+  final bool isDelivery;
+  final bool isDineOut;
 
-  Function callbackFun;
+  final Function callbackFun;
 
-  RestaurantCard(
+  const RestaurantCard(
       {Key? key,
       required this.restaurant,
       this.addressSelectedPlace,

@@ -11,10 +11,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 
 class SelectionButton extends StatefulWidget {
   // because this button will be used both for restriction and cuisine filters
-  TypeFilter typeFilter;
-  String iconName;
+  final TypeFilter typeFilter;
+  final String iconName;
 
-  SelectionButton({
+  const SelectionButton({
     Key? key,
     required this.typeFilter,
     required this.iconName,

@@ -14,22 +14,22 @@ import 'package:foodCourier/controllers/location.dart';
 import 'dart:async';
 
 class AllCoffee extends StatefulWidget {
-  PickResult? addressSelectedPlace;
-  Location? currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  String? searchInput;
-  String? sortBy;
-  String? selectedRegion;
-  String? selectedRegionType;
-  bool isDelivery;
+  final String? searchInput;
+  final String? sortBy;
+  final String? selectedRegion;
+  final String? selectedRegionType;
+  final bool isDelivery;
 
-  int bottomNavigationIndex;
-  Function callbackBottomNavigationBar;
+  final int bottomNavigationIndex;
+  final Function callbackBottomNavigationBar;
 
-  Function callbackFilters;
-  Function callbackRestriction;
+  final Function callbackFilters;
+  final Function callbackRestriction;
 
-  AllCoffee(
+  const AllCoffee(
       {Key? key,
       this.addressSelectedPlace,
       this.currentLocation,
@@ -251,7 +251,7 @@ class AllCoffeeState extends State<AllCoffee> {
                       ],
                     ),
                   ),
-                  GroceryTabBar(),
+                  const GroceryTabBar(),
                 ],
               );
             } else {

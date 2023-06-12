@@ -11,7 +11,7 @@ class MealProfile extends StatelessWidget {
 
   final ScrollController _controller = ScrollController();
 
-  MealProfile(this.meal, this.logoUrl);
+  MealProfile(this.meal, this.logoUrl, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +28,11 @@ class MealProfile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
+              const Text(
                 'Labels',
                 style: mealSubTitles,
               ),
-              meal.labelNames.length > 0
+              meal.labelNames.isNotEmpty
                   ? SizedBox(
                       height: 7 * SizeConfig.blockSizeVertical!,
                       child: MealTags(meal.labelNames),

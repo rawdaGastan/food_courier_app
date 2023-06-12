@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:js_interop';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -97,7 +96,7 @@ class OrderCheckoutState extends State<OrderCheckout> {
                         top: SizeConfig.blockSizeVertical!,
                         bottom: SizeConfig.blockSizeVertical!,
                         left: 3 * SizeConfig.blockSizeVertical!),
-                    child: ItemsList(),
+                    child: const ItemsList(),
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(

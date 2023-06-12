@@ -10,17 +10,19 @@ final Map<String, String> addOnItemsList = {
 };
 
 class AddOnItemList extends StatefulWidget {
+  const AddOnItemList({Key? key}) : super(key: key);
+
   @override
-  _AddOnItemListState createState() => _AddOnItemListState();
+  AddOnItemListState createState() => AddOnItemListState();
 }
 
-class _AddOnItemListState extends State<AddOnItemList> {
+class AddOnItemListState extends State<AddOnItemList> {
   bool subItemChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      physics: ScrollPhysics(),
+      physics: const ScrollPhysics(),
       itemBuilder: (_, index) => Row(
         children: <Widget>[
           Checkbox(
@@ -32,17 +34,15 @@ class _AddOnItemListState extends State<AddOnItemList> {
                   subItemChecked = !subItemChecked;
                 });
               }),
-          Container(
+          SizedBox(
             width: 40 * SizeConfig.blockSizeHorizontal!,
             child: Text(
               addOnItemsList.keys.elementAt(index),
             ),
           ),
-          Spacer(),
-          Container(
-            child: Text(
-              addOnItemsList.values.elementAt(index),
-            ),
+          const Spacer(),
+          Text(
+            addOnItemsList.values.elementAt(index),
           ),
         ],
       ),

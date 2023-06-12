@@ -224,7 +224,7 @@ class RegistrationState extends State<Registration> {
                   label: S().google,
                   //'  Google',
                 ),
-                OrDivider(),
+                const OrDivider(),
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: 5 * SizeConfig.blockSizeHorizontal!),

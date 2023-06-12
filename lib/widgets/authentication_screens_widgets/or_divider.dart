@@ -4,6 +4,8 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class OrDivider extends StatelessWidget {
+  const OrDivider({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Row(children: <Widget>[
@@ -16,7 +18,7 @@ class OrDivider extends StatelessWidget {
               right: 5 * SizeConfig.blockSizeHorizontal!,
             ),
             //margin: const EdgeInsets.only(left: 10.0, right: 20.0),
-            child: Divider(
+            child: const Divider(
               color: lightTextColor,
               thickness: 1,
             )),
@@ -26,7 +28,7 @@ class OrDivider extends StatelessWidget {
           top: 4 * SizeConfig.blockSizeVertical!,
           bottom: 2 * SizeConfig.blockSizeVertical!,
         ),
-        child: Text("OR", style: fieldText),
+        child: const Text('OR', style: fieldText),
       ),
       Expanded(
         child: Container(
@@ -37,7 +39,7 @@ class OrDivider extends StatelessWidget {
               left: 5 * SizeConfig.blockSizeHorizontal!,
             ),
             //margin: const EdgeInsets.only(left: 20.0, right: 10.0),
-            child: Divider(
+            child: const Divider(
               color: lightTextColor,
               thickness: 1,
             )),

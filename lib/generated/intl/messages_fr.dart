@@ -44,7 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Ve": MessageLookupByLibrary.simpleMessage("Ve"),
         "aboutUs": MessageLookupByLibrary.simpleMessage("À propos de nous"),
         "agreeOf": MessageLookupByLibrary.simpleMessage(
-            "Je suis d\'accord avec notre "),
+            "Je suis d'accord avec notre "),
         "alreadyHaveAccount":
             MessageLookupByLibrary.simpleMessage("Vous avez déjà un compte? "),
         "and": MessageLookupByLibrary.simpleMessage(" et "),
@@ -65,13 +65,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "dayFeedback": MessageLookupByLibrary.simpleMessage("Mardi  "),
         "delivery": MessageLookupByLibrary.simpleMessage("Livraison"),
         "didNotReceiveCode":
-            MessageLookupByLibrary.simpleMessage("Je n\'ai pas reçu de code"),
+            MessageLookupByLibrary.simpleMessage("Je n'ai pas reçu de code"),
         "dietPeriod": MessageLookupByLibrary.simpleMessage(
             "Depuis combien de temps suivez-vous un régime?"),
-        "dineOut": MessageLookupByLibrary.simpleMessage("Dîner à l\'extérieur"),
+        "dineOut": MessageLookupByLibrary.simpleMessage("Dîner à l'extérieur"),
         "distance": m1,
         "doNotHaveAccount": MessageLookupByLibrary.simpleMessage(
-            "Vous n\'avez pas de compte? "),
+            "Vous n'avez pas de compte? "),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailOrPhone":
             MessageLookupByLibrary.simpleMessage("Email / numéro de téléphone"),
@@ -98,7 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "les mots de passe doivent avoir au moins un caractère spécial"),
         "faceBook": MessageLookupByLibrary.simpleMessage("  Facebook"),
         "feedback":
-            MessageLookupByLibrary.simpleMessage("Retour d\'information"),
+            MessageLookupByLibrary.simpleMessage("Retour d'information"),
         "filter": MessageLookupByLibrary.simpleMessage("Filtre"),
         "forgetPassword":
             MessageLookupByLibrary.simpleMessage("Mot de passe oublié ?"),
@@ -145,11 +145,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Envoyer des commentaires"),
         "sentToMobile": m5,
         "signIn": MessageLookupByLibrary.simpleMessage("se connecter"),
-        "signUp": MessageLookupByLibrary.simpleMessage("S\'inscrire"),
+        "signUp": MessageLookupByLibrary.simpleMessage("S'inscrire"),
         "skip": MessageLookupByLibrary.simpleMessage("Sauter"),
         "sortBy": MessageLookupByLibrary.simpleMessage("Trier par :"),
         "splashText": MessageLookupByLibrary.simpleMessage(
-            "Lorem Ipsum est simplement un texte factice de l\'industrie de l\'impression et de la composition. Lorem Ipsum est le texte factice standard de l\'industrie depuis les années 1500,"),
+            "Lorem Ipsum est simplement un texte factice de l'industrie de l'impression et de la composition. Lorem Ipsum est le texte factice standard de l'industrie depuis les années 1500,"),
         "terms": MessageLookupByLibrary.simpleMessage("Termes"),
         "timeFeedback": MessageLookupByLibrary.simpleMessage("20:21"),
         "town": m6,

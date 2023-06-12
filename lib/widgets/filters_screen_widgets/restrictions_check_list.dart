@@ -6,12 +6,12 @@ import 'package:foodCourier/widgets/filters_screen_widgets/restriction_check_box
 class RestrictionsList extends StatelessWidget {
   final Function callbackFun;
 
-  RestrictionsList(this.callbackFun);
+  const RestrictionsList(this.callbackFun, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: ScrollPhysics(),
+      physics: const ScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 4,
         /*childAspectRatio: MediaQuery.of(context).size.width /

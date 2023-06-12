@@ -85,7 +85,7 @@ class FoodCourierState extends State<FoodCourier> {
   Widget build(BuildContext context) {
     //uxcam
     /*FlutterUxcam.optIntoSchematicRecordings();
-    FlutterUxcam.startWithKey(UXCamKey);*/
+    FlutterUxcam.startWithKey(uxCamKey);*/
 
     return MultiProvider(
       providers: [
@@ -129,13 +129,13 @@ class FoodCourierState extends State<FoodCourier> {
         navigatorKey: locator<NavigationService>().navigationKey,
         initialRoute: '/',
         routes: {
-          '/': (context) => Splash(), //Splash(),
+          '/': (context) => const Splash(), //Splash(),
           'home': (context) => const Home(),
           'restaurant': (context) => const RestaurantScreen(),
           'register': (context) => const Registration(),
           'login': (context) => LoginScreen(),
           'forgot pass': (context) => const ForgotPass(),
-          'verify': (context) => VerificationCodeScreen(),
+          'verify': (context) => const VerificationCodeScreen(),
           'pInfo reg': (context) => const PersonalInfoRegistration(),
           'preferences reg': (context) => const PreferencesRegistration(),
           'reset pass': (context) => const ResetPassword(),
@@ -143,13 +143,13 @@ class FoodCourierState extends State<FoodCourier> {
           'profile': (context) => const Profile(),
           'wish list': (context) => const WishList(),
           'languages': (context) => Languages(),
-          'meal': (context) => MealScreen(),
+          'meal': (context) => const MealScreen(),
           'order': (context) => const Order(),
           'order checkout': (context) => const OrderCheckout(),
           'all orders': (context) => const AllOrdersScreen(),
-          'track order': (context) => TrackOrderScreen(),
-          'finish order': (context) => FinishedOrderScreen(),
-          'order details': (context) => OrderDetailsScreen(),
+          'track order': (context) => const TrackOrderScreen(),
+          'finish order': (context) => const FinishedOrderScreen(),
+          'order details': (context) => const OrderDetailsScreen(),
           'grocery see all': (context) => const GrocerySeeAll(),
         },
         builder: (context, _) {

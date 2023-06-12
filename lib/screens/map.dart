@@ -3,7 +3,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:foodCourier/config/config.dart';
 
-final kInitialPosition = LatLng(-33.8567844, 151.213108);
+const kInitialPosition = LatLng(-33.8567844, 151.213108);
 
 openMap(context) async {
   PickResult selectedPlace;

@@ -13,10 +13,12 @@ final List<TypeFilter> restrictByList = [
 ];
 
 class CuisineButtonList extends StatelessWidget {
+  const CuisineButtonList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: ScrollPhysics(),
+      physics: const ScrollPhysics(),
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
         childAspectRatio: MediaQuery.of(context).size.width /

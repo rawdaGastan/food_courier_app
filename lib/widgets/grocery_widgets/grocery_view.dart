@@ -14,23 +14,23 @@ import 'package:foodCourier/widgets/grocery_widgets/offers.dart';
 import 'package:foodCourier/widgets/grocery_widgets/coffee.dart';
 
 class GroceryView extends StatefulWidget {
-  PickResult? addressSelectedPlace;
-  Location? currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  String? searchInput;
-  String? sortBy;
-  String? selectedRegion;
-  String? selectedRegionType;
-  String restaurantType;
-  bool isDelivery;
+  final String? searchInput;
+  final String? sortBy;
+  final String? selectedRegion;
+  final String? selectedRegionType;
+  final String restaurantType;
+  final bool isDelivery;
 
-  int bottomNavigationIndex;
-  Function callbackBottomNavigationBar;
+  final int bottomNavigationIndex;
+  final Function callbackBottomNavigationBar;
 
-  Function callbackFilters;
-  Function callbackRestriction;
+  final Function callbackFilters;
+  final Function callbackRestriction;
 
-  GroceryView(
+  const GroceryView(
       {Key? key,
       this.addressSelectedPlace,
       this.currentLocation,
@@ -63,7 +63,7 @@ class GroceryViewState extends State<GroceryView> {
     super.initState();
     _streamController = StreamController.broadcast();
     _stream = _streamController.stream;
-    Future.delayed(Duration.zero, this.getDataFromProvider);
+    Future.delayed(Duration.zero, getDataFromProvider);
   }
 
   getDataFromProvider() async {
@@ -145,7 +145,7 @@ class GroceryViewState extends State<GroceryView> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: StreamBuilder(
           stream: _stream,

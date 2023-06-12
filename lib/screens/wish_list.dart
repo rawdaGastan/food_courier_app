@@ -155,9 +155,9 @@ class WishListState extends State<WishList> {
                       Expanded(
                         child: TabBarView(
                           children: <Widget>[
-                            RestaurantWishList(),
+                            const RestaurantWishList(),
                             StoreWishList(),
-                            MealsWishList(),
+                            const MealsWishList(),
                           ],
                         ),
                       ),

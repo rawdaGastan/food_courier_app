@@ -7,7 +7,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 class MealTags extends StatelessWidget {
   final List<String> mealTags;
 
-  MealTags(this.mealTags);
+  const MealTags(this.mealTags, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:foodCourier/constants/decorations.dart';
 import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
-import 'package:foodCourier/widgets/feedback_widgets/feedbackReview.dart';
+import 'package:foodCourier/widgets/feedback_widgets/feedback_review.dart';
 import 'package:foodCourier/widgets/feedback_widgets/message_container.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
@@ -111,7 +111,7 @@ class FeedBackState extends State<FeedBack> {
                 ),
               ),
             ),
-            FeedbackReview(),
+            const FeedbackReview(),
             Container(
               color: secondaryColor,
               height: 8 * SizeConfig.blockSizeVertical!,

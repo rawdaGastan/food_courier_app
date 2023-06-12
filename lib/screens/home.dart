@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:foodCourier/constants/text_styles.dart';
@@ -64,11 +65,12 @@ class HomeState extends State<Home> {
       PushNotification().onBackground = !PushNotification().onBackground;
     }
 
-    await sharedPreferencesClass.showBackgroundNotification().then(
-        (showNotification) => {
+    await sharedPreferencesClass
+        .showBackgroundNotification()
+        .then((showNotification) => {
               (showNotification!)
                   ? displayTrackOrderDialog(context)
-                  : print(showNotification)
+                  : logger.d(showNotification)
             });
   }
 
@@ -236,7 +238,7 @@ class HomeState extends State<Home> {
 
   callbackRestriction() {
     setState(() {
-      FilterByList();
+      const FilterByList();
     });
   }
 
@@ -560,7 +562,7 @@ class HomeState extends State<Home> {
                     padding: EdgeInsets.only(
                       top: 2 * SizeConfig.blockSizeVertical!,
                     ),
-                    child: FilterByList(),
+                    child: const FilterByList(),
                   ),
                 ), // navigation body
               ],
@@ -570,7 +572,7 @@ class HomeState extends State<Home> {
               padding: groceryTabBarPadding,
               child: FoodCourier().remoteConfigService.groceryFeature &&
                       _selectedIndex == 1
-                  ? GroceryTabBar()
+                  ? const GroceryTabBar()
                   : Container(),
             ),
           ],

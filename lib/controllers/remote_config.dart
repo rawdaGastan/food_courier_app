@@ -1,13 +1,14 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
+import 'package:foodCourier/controllers/logger.dart';
 
-const String _orderingFeature = "ordering_feature";
-const String _paymentFeature = "payment_feature";
-const String _groceryFeature = "grocery_feature";
-const String _restrictionList = "restriction_list";
-const String _restrictionListTypes = "restriction_list_types";
-const String _cuisinesList = "cuisines_list";
-const String _labelsList = "labels_list";
-const String _changeConfirmLink = "change_confirm_email_link";
+const String _orderingFeature = 'ordering_feature';
+const String _paymentFeature = 'payment_feature';
+const String _groceryFeature = 'grocery_feature';
+const String _restrictionList = 'restriction_list';
+const String _restrictionListTypes = 'restriction_list_types';
+const String _cuisinesList = 'cuisines_list';
+const String _labelsList = 'labels_list';
+const String _changeConfirmLink = 'change_confirm_email_link';
 
 class RemoteConfigService {
   final remoteConfig = FirebaseRemoteConfig.instance;
@@ -15,11 +16,11 @@ class RemoteConfigService {
     _orderingFeature: false,
     _paymentFeature: false,
     _groceryFeature: false,
-    _restrictionListTypes: "",
-    _restrictionList: "",
-    _cuisinesList: "",
-    _labelsList: "",
-    _changeConfirmLink: ""
+    _restrictionListTypes: '',
+    _restrictionList: '',
+    _cuisinesList: '',
+    _labelsList: '',
+    _changeConfirmLink: ''
   };
 
   bool get orderingFeature => remoteConfig.getBool(_orderingFeature);
@@ -40,7 +41,7 @@ class RemoteConfigService {
       await remoteConfig.setDefaults(defaults);
       await remoteConfig.fetchAndActivate();
     } catch (e) {
-      print(
+      logger.e(
           'unable to fetch remote config. Cashed or default values will be used $e');
     }
   }

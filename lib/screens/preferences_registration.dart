@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:showcaseview/showcaseview.dart';
 import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/constants/text_styles.dart';
-import 'package:foodCourier/controllers/sharedPreferences.dart';
+import 'package:foodCourier/controllers/shared_preferences.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/widgets/filters_screen_widgets/restrictions_check_list.dart';
 import 'package:foodCourier/widgets/home_screen_widgets/filter_by_button_list.dart';
@@ -117,7 +117,7 @@ class PreferencesRegistrationState extends State<PreferencesRegistration> {
                     margin: EdgeInsets.only(
                         top: 4 * SizeConfig.blockSizeVertical!,
                         bottom: SizeConfig.blockSizeVertical!),
-                    child: FilterByList(),
+                    child: const FilterByList(),
                     /*decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20.0),
                       color: secondaryColor

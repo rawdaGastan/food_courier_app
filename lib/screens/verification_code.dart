@@ -156,13 +156,15 @@ class VerificationCodeScreenState extends State<VerificationCodeScreen> {
                         // move to complete registration
                         Navigator.pushNamed(context, 'pInfo reg');
                       }
-                    } else
+                    } else {
                       displayDialog(context, 'error', error);
+                    }
                   }
                 },
                 onSubmitted: (value) {
-                  if (value.length < 6)
+                  if (value.length < 6) {
                     displayDialog(context, 'error', S().enterFullCode);
+                  }
                 },
                 appContext: context,
               ),

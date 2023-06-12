@@ -128,7 +128,7 @@ void addItemBottomSheet(context, Meal meal, int productID) {
                         padding: EdgeInsets.only(
                           bottom: 2 * SizeConfig.blockSizeVertical!,
                         ),
-                        child: AddOnItemList(),
+                        child: const AddOnItemList(),
                       ),
                       Padding(
                         padding:

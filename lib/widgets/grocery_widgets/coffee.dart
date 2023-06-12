@@ -12,23 +12,23 @@ import 'package:foodCourier/providers/filters_api_provider.dart';
 import 'package:foodCourier/widgets/grocery_widgets/coffee_card.dart';
 
 class Coffee extends StatefulWidget {
-  PickResult? addressSelectedPlace;
-  Location? currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  String? searchInput;
-  String? sortBy;
-  String? selectedRegion;
-  String? selectedRegionType;
-  String restaurantType;
-  bool isDelivery;
+  final String? searchInput;
+  final String? sortBy;
+  final String? selectedRegion;
+  final String? selectedRegionType;
+  final String restaurantType;
+  final bool isDelivery;
 
-  int bottomNavigationIndex;
-  Function callbackBottomNavigationBar;
+  final int bottomNavigationIndex;
+  final Function callbackBottomNavigationBar;
 
-  Function callbackFilters;
-  Function callbackRestriction;
+  final Function callbackFilters;
+  final Function callbackRestriction;
 
-  Coffee(
+  const Coffee(
       {Key? key,
       this.addressSelectedPlace,
       this.currentLocation,

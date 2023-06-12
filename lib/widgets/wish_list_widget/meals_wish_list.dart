@@ -40,11 +40,13 @@ List<Meal> meals = [
 ];
 
 class MealsWishList extends StatefulWidget {
+  const MealsWishList({Key? key}) : super(key: key);
+
   @override
-  _MealsWishListState createState() => _MealsWishListState();
+  MealsWishListState createState() => MealsWishListState();
 }
 
-class _MealsWishListState extends State<MealsWishList> {
+class MealsWishListState extends State<MealsWishList> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(

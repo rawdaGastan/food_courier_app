@@ -4,10 +4,11 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/models/restaurant.dart';
 import 'package:foodCourier/widgets/grocery_widgets/stores_all_card.dart';
 
+// ignore: must_be_immutable
 class StoreWishList extends StatelessWidget {
-  bool isFavorite = true;
+  final bool isFavorite = true;
   String duration = '';
-  List<Restaurant> temp = [
+  final List<Restaurant> temp = [
     Restaurant(
       name: 'Store',
       type: 'GRCR',
@@ -128,11 +129,9 @@ class StoreWishList extends StatelessWidget {
               ),
               child: Stack(
                 children: [
-                  Container(
-                    child: CircleAvatar(
-                      backgroundColor: whiteColor,
-                      radius: 4 * SizeConfig.blockSizeHorizontal!,
-                    ),
+                  CircleAvatar(
+                    backgroundColor: whiteColor,
+                    radius: 4 * SizeConfig.blockSizeHorizontal!,
                   ),
                   SizedBox(
                     width: 8 * SizeConfig.blockSizeHorizontal!,

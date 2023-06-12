@@ -5,11 +5,13 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/widgets/authentication_screens_widgets/main_button.dart';
 
 class FinishedOrderScreen extends StatefulWidget {
+  const FinishedOrderScreen({Key? key}) : super(key: key);
+
   @override
-  _FinishedOrderScreenState createState() => _FinishedOrderScreenState();
+  FinishedOrderScreenState createState() => FinishedOrderScreenState();
 }
 
-class _FinishedOrderScreenState extends State<FinishedOrderScreen> {
+class FinishedOrderScreenState extends State<FinishedOrderScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -28,23 +30,23 @@ class _FinishedOrderScreenState extends State<FinishedOrderScreen> {
               vertical: 2 * SizeConfig.blockSizeVertical!),
           children: [
             SizedBox(height: 10 * SizeConfig.blockSizeVertical!),
-            Container(
+            SizedBox(
               width: 30 * SizeConfig.blockSizeHorizontal!,
               height: 30 * SizeConfig.blockSizeVertical!,
-              child: Image(
+              child: const Image(
                 image: AssetImage(
                   'assets/icons/balloons.png',
                 ),
               ),
             ),
             SizedBox(height: 2 * SizeConfig.blockSizeVertical!),
-            Text(
+            const Text(
               'Thank you',
               style: thankYou,
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 2 * SizeConfig.blockSizeVertical!),
-            Text(
+            const Text(
               'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
               ' Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,',
               style: pickUpAndDeliveryTime,

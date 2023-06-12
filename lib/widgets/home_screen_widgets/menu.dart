@@ -10,23 +10,24 @@ import 'dart:async';
 
 import 'package:foodCourier/widgets/home_screen_widgets/restaurant_card.dart';
 
+// ignore: must_be_immutable
 class RestaurantsMenu extends StatefulWidget {
-  PickResult? addressSelectedPlace;
-  Location? currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  String? searchInput;
-  String? sortBy;
-  String? selectedRegion;
-  String? selectedRegionType;
-  String restaurantType;
-  bool isDelivery;
-  bool isDineOut;
+  final String? searchInput;
+  final String? sortBy;
+  final String? selectedRegion;
+  final String? selectedRegionType;
+  final String restaurantType;
+  final bool isDelivery;
+  final bool isDineOut;
 
-  int bottomNavigationIndex;
-  Function callbackBottomNavigationBar;
+  final int bottomNavigationIndex;
+  final Function callbackBottomNavigationBar;
 
-  Function callbackFilters;
-  Function callbackRestriction;
+  final Function callbackFilters;
+  final Function callbackRestriction;
 
   bool bottomBarTapped;
 
@@ -53,7 +54,7 @@ class RestaurantsMenu extends StatefulWidget {
 }
 
 class RestaurantsMenuState extends State<RestaurantsMenu> {
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
 
   late StreamController _streamController;
   late Stream _stream;
@@ -165,7 +166,6 @@ class RestaurantsMenuState extends State<RestaurantsMenu> {
 
   @override
   Widget build(BuildContext context) {
-    print('reload data');
     Future.delayed(Duration.zero, getDataFromProvider);
 
     if (widget.bottomBarTapped) {

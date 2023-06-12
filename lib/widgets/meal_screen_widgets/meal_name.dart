@@ -7,10 +7,10 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/models/meal.dart';
 
 class MealName extends StatefulWidget {
-  Meal meal;
-  String logoUrl;
+  final Meal meal;
+  final String logoUrl;
 
-  MealName({Key? key, required this.meal, required this.logoUrl})
+  const MealName({Key? key, required this.meal, required this.logoUrl})
       : super(key: key);
 
   @override

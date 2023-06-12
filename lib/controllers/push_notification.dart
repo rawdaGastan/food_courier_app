@@ -2,7 +2,6 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:foodCourier/controllers/logger.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/controllers/size_config.dart';
@@ -17,17 +16,8 @@ class PushNotification {
   bool onBackground = false;
   //final GlobalKey<NavigatorState> navigatorKey = GlobalKey(debugLabel: "Main Navigator");
 
-  void _tokenRefresh(String newToken) async {
-    logger.d('New FCM Token $newToken');
-  }
-
-  void _tokenRefreshFailure(error) {
-    logger.e('FCM token refresh failed with error $error');
-  }
-
   Future<void> _firebaseMessagingBackgroundHandler(
       RemoteMessage message) async {
-    SharedPreferences.setMockInitialValues({});
     logger.d('onBackgroundMessage : $message');
     PushNotification().onBackground = true;
     logger.d('onBackground : ${PushNotification().onBackground}');

@@ -9,9 +9,10 @@ import 'package:foodCourier/models/meal_value.dart';
 
 class MealReview extends StatefulWidget {
   final ScrollController _controller;
-  String mealName;
+  final String mealName;
 
-  MealReview(this._controller, this.mealName, {Key? key}) : super(key: key);
+  const MealReview(this._controller, this.mealName, {Key? key})
+      : super(key: key);
 
   @override
   MealReviewState createState() => MealReviewState();

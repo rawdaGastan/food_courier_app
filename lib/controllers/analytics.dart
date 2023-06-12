@@ -39,23 +39,4 @@ class AnalyticsService {
       _message = message;
     });*/
   }
-
-  Future<void> _testSetCurrentScreen() async {
-    await _analytics.setCurrentScreen(
-      screenName: 'Analytics Demo',
-      screenClassOverride: 'AnalyticsDemo',
-    );
-    setMessage('setCurrentScreen succeeded');
-  }
-
-  Future<void> _testSetAnalyticsCollectionEnabled() async {
-    await _analytics.setAnalyticsCollectionEnabled(false);
-    await _analytics.setAnalyticsCollectionEnabled(true);
-    setMessage('setAnalyticsCollectionEnabled succeeded');
-  }
-
-  Future<void> _testSetSessionTimeoutDuration() async {
-    await _analytics.android?.setSessionTimeoutDuration(2000000);
-    setMessage('setSessionTimeoutDuration succeeded');
-  }
 }

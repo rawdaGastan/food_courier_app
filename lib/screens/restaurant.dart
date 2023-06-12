@@ -222,7 +222,7 @@ class RestaurantScreenState extends State<RestaurantScreen> {
               ],
             ),
           ),
-          GoToCartButton(),
+          const GoToCartButton(),
         ],
       ),
     );

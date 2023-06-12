@@ -5,7 +5,7 @@ import 'package:showcaseview/showcaseview.dart';
 import 'package:provider/provider.dart';
 import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/constants/colors.dart';
-import 'package:foodCourier/controllers/sharedPreferences.dart';
+import 'package:foodCourier/controllers/shared_preferences.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/providers/type_filter_provider.dart';
 import 'package:foodCourier/widgets/filters_screen_widgets/cuisine_filter.dart';
@@ -80,7 +80,7 @@ void filterBottomSheet(
                       padding: EdgeInsets.only(
                         bottom: 2 * SizeConfig.blockSizeVertical!,
                       ),
-                      child: CuisineButtonList(),
+                      child: const CuisineButtonList(),
                     ),
                     Container(
                       key: _restrictionKey,

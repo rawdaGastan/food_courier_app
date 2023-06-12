@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';
 import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/constants/colors.dart';
@@ -56,12 +57,12 @@ class GrocerySeeAllState extends State<GrocerySeeAll> {
           .setBackgroundNotification(PushNotification().onBackground);
       PushNotification().onBackground = !PushNotification().onBackground;
     }
-    print(PushNotification().onBackground);
-    await sharedPreferencesClass.showBackgroundNotification().then(
-        (showNotification) => {
+    await sharedPreferencesClass
+        .showBackgroundNotification()
+        .then((showNotification) => {
               (showNotification!)
                   ? displayTrackOrderDialog(context)
-                  : print(showNotification)
+                  : logger.d(showNotification)
             });
   }
 
@@ -223,7 +224,7 @@ class GrocerySeeAllState extends State<GrocerySeeAll> {
 
   callbackRestriction() {
     setState(() {
-      FilterByList();
+      const FilterByList();
     });
   }
 

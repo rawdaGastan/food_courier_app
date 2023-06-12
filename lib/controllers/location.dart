@@ -1,3 +1,4 @@
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:geolocator/geolocator.dart';
 
 class Location {
@@ -14,7 +15,7 @@ class Location {
       _latitude = position.latitude;
       _longitude = position.longitude;
     } on Exception catch (e) {
-      print(e);
+      logger.e(e);
       _latitude = defaultValue;
       _longitude = defaultValue;
     }

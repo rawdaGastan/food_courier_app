@@ -52,9 +52,10 @@ Map<String, String> dropDownCities = {
 };
 
 class DropdownLocationsTextField extends StatefulWidget {
-  Function callbackFun;
+  final Function callbackFun;
 
-  DropdownLocationsTextField(this.callbackFun, {Key? key}) : super(key: key);
+  const DropdownLocationsTextField(this.callbackFun, {Key? key})
+      : super(key: key);
 
   @override
   DropdownLocationsTextFieldState createState() =>
@@ -156,7 +157,7 @@ class DropdownLocationsTextFieldState
             alignment: Alignment.center,
             child: ListView.separated(
                 itemCount: dropDownCities.length,
-                separatorBuilder: (context, int) {
+                separatorBuilder: (context, n) {
                   return const Divider();
                 },
                 itemBuilder: (context, index) {
@@ -168,8 +169,7 @@ class DropdownLocationsTextFieldState
                           child: dropDownCities.values.elementAt(index) !=
                                   'town'
                               ? Text(dropDownCities.keys.elementAt(index))
-                              : Container(
-                                  child: Row(
+                              : Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     const Icon(Icons.person_pin_circle,
@@ -179,7 +179,7 @@ class DropdownLocationsTextFieldState
                                             SizeConfig.blockSizeHorizontal!),
                                     Text(dropDownCities.keys.elementAt(index))
                                   ],
-                                )),
+                                ),
                           onTap: () async {
                             if (dropDownCities.keys.elementAt(index) ==
                                 'Current Location  ➤') {
@@ -194,7 +194,7 @@ class DropdownLocationsTextFieldState
                               setState(() {
                                 addressSelectedPlace = addressSelectedPlace;
                               });
-                              this.widget.callbackFun(
+                              widget.callbackFun(
                                   addressSelectedPlace,
                                   null,
                                   !dropDownLocationsVisibility,

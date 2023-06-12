@@ -5,8 +5,8 @@ class FacebookAnalyticsService {
 
   Future logEvent() async {
     await facebookAppEvents.logEvent(
-      name: "test_event",
-      parameters: {"value": 10, "subname": "exampleStringValue"},
+      name: 'test_event',
+      parameters: {'value': 10, 'subname': 'exampleStringValue'},
     );
   }
 }

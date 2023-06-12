@@ -10,11 +10,13 @@ import 'package:foodCourier/providers/authentication_provider.dart';
 import 'package:foodCourier/constants/colors.dart';
 
 class Splash extends StatefulWidget {
+  const Splash({Key? key}) : super(key: key);
+
   @override
-  _SplashState createState() => _SplashState();
+  SplashState createState() => SplashState();
 }
 
-class _SplashState extends State<Splash> {
+class SplashState extends State<Splash> {
   final PushNotification _pushNotification = locator<PushNotification>();
   final DynamicLinkService _dynamicLinkService = locator<DynamicLinkService>();
 
@@ -48,7 +50,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: splashBackground,
         image: DecorationImage(
           image: AssetImage('assets/logos/logo.png'),
@@ -61,7 +63,7 @@ class _SplashState extends State<Splash> {
   void bottomSheet(context) {
     SizeConfig().init(context);
     showModalBottomSheet(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.only(
               topRight: Radius.circular(20), topLeft: Radius.circular(20)),
         ),
@@ -71,7 +73,7 @@ class _SplashState extends State<Splash> {
           return Container(
             padding: EdgeInsets.all(5 * SizeConfig.blockSizeVertical!),
             height: 40 * SizeConfig.blockSizeVertical!,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: secondaryColor,
               borderRadius: BorderRadius.only(
                   topRight: Radius.circular(20), topLeft: Radius.circular(20)),

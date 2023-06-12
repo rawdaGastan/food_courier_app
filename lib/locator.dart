@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:foodCourier/controllers/sharedPreferences.dart';
+import 'package:foodCourier/controllers/shared_preferences.dart';
 
 import 'controllers/analytics.dart';
 import 'controllers/dynamic_links.dart';

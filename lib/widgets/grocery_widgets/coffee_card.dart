@@ -13,18 +13,18 @@ import 'package:foodCourier/models/restaurant.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
 class CoffeeCard extends StatefulWidget {
-  PickResult? addressSelectedPlace;
-  Location? currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  String restaurantType;
-  Restaurant restaurant;
-  bool isDelivery;
+  final String restaurantType;
+  final Restaurant restaurant;
+  final bool isDelivery;
 
-  Function callbackFun;
+  final Function callbackFun;
 
-  bool seeAllCoffee;
+  final bool seeAllCoffee;
 
-  CoffeeCard(
+  const CoffeeCard(
       {Key? key,
       required this.restaurant,
       this.addressSelectedPlace,

@@ -5,11 +5,13 @@ import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class OffersTabBar extends StatefulWidget {
+  const OffersTabBar({Key? key}) : super(key: key);
+
   @override
-  _TabBarState createState() => _TabBarState();
+  TabBarState createState() => TabBarState();
 }
 
-class _TabBarState extends State<OffersTabBar> {
+class TabBarState extends State<OffersTabBar> {
   List<String> offers = [
     'Up 50% off',
     'Up 20% off',
@@ -30,7 +32,7 @@ class _TabBarState extends State<OffersTabBar> {
           child: DefaultTabController(
             length: offers.length,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: whiteColor,
                 boxShadow: [
                   BoxShadow(
@@ -70,7 +72,7 @@ class _TabBarState extends State<OffersTabBar> {
             top: 2 * SizeConfig.blockSizeVertical!,
           ),
           child: IconButton(
-              icon: Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu, color: primaryColor),
               onPressed: () {
                 setState(() {
                   showOffersMenu = !showOffersMenu;
@@ -106,7 +108,7 @@ class _TabBarState extends State<OffersTabBar> {
                           style: restaurantBarText.copyWith(
                               fontWeight: FontWeight.normal),
                         ),
-                        Text(
+                        const Text(
                           '2 items',
                           style: groceryStoreLocation,
                         ),

@@ -5,11 +5,13 @@ import 'package:foodCourier/constants/text_styles.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class GroceryTabBar extends StatefulWidget {
+  const GroceryTabBar({Key? key}) : super(key: key);
+
   @override
-  _GroceryTabBarState createState() => _GroceryTabBarState();
+  GroceryTabBarState createState() => GroceryTabBarState();
 }
 
-class _GroceryTabBarState extends State<GroceryTabBar> {
+class GroceryTabBarState extends State<GroceryTabBar> {
   List<String> categories = [
     'Fruits & Vegetables',
     'Fruits & Vegetables',
@@ -30,7 +32,7 @@ class _GroceryTabBarState extends State<GroceryTabBar> {
           child: DefaultTabController(
             length: categories.length,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: whiteColor,
                 boxShadow: [
                   BoxShadow(
@@ -70,7 +72,7 @@ class _GroceryTabBarState extends State<GroceryTabBar> {
             top: 2 * SizeConfig.blockSizeVertical!,
           ),
           child: IconButton(
-              icon: Icon(Icons.menu, color: primaryColor),
+              icon: const Icon(Icons.menu, color: primaryColor),
               onPressed: () {
                 setState(() {
                   showMenu = !showMenu;
@@ -106,7 +108,7 @@ class _GroceryTabBarState extends State<GroceryTabBar> {
                           style: restaurantBarText.copyWith(
                               fontWeight: FontWeight.normal),
                         ),
-                        Text(
+                        const Text(
                           '2 items',
                           style: groceryStoreLocation,
                         ),

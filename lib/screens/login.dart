@@ -17,6 +17,8 @@ class LoginScreen extends StatefulWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
+  LoginScreen({Key? key}) : super(key: key);
+
   @override
   LoginScreenState createState() => LoginScreenState();
 }
@@ -149,7 +151,7 @@ class LoginScreenState extends State<LoginScreen> {
                   //'  Google',
                   //color: Colors.orange[400],
                 ),
-                OrDivider(),
+                const OrDivider(),
                 Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: 5 * SizeConfig.blockSizeHorizontal!),

@@ -1,5 +1,5 @@
 class TypeFilter {
-  String _type;
+  final String _type;
   bool _preferred = true;
 
   TypeFilter(this._type, this._preferred); // for types like vegan ...

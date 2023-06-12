@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:http/http.dart' as http;
 
 class Networking {
@@ -26,10 +27,10 @@ class Networking {
         headers: {'Content-Type': 'application/json'},
         body: jsonBody);
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.d('Request failed with status: ${response.statusCode}.');
       return response.body;
     }
   }
@@ -37,12 +38,12 @@ class Networking {
   Future<String> login(String email, String password) async {
     var response = await http.post(Uri.parse('${apiUrl}dj-rest-auth/login/'),
         body: {'email': email, 'password': password});
-    print(response.body);
+    logger.d(response.body);
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
       return response.body;
     }
   }
@@ -53,10 +54,10 @@ class Networking {
       'refresh': refresh,
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
       return response.body;
     }
   }
@@ -66,10 +67,10 @@ class Networking {
         Uri.parse('${apiUrl}users/dj-rest-auth/registration/verify-email/'),
         body: {'key': key});
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
       return response.body;
     }
   }
@@ -80,10 +81,10 @@ class Networking {
       'email': email,
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
       return response.body;
     }
   }
@@ -99,10 +100,10 @@ class Networking {
           'token': token,
         });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
       return response.body;
     }
   }
@@ -115,10 +116,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -135,10 +136,10 @@ class Networking {
       'duration_of_diet': durationOfDiet,
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -149,10 +150,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -168,10 +169,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -186,10 +187,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -204,10 +205,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -222,10 +223,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -240,10 +241,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -258,10 +259,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -274,10 +275,10 @@ class Networking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 200) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }

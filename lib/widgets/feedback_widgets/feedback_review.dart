@@ -5,6 +5,8 @@ import 'package:foodCourier/controllers/size_config.dart';
 import 'package:foodCourier/generated/l10n.dart';
 
 class FeedbackReview extends StatelessWidget {
+  const FeedbackReview({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,35 +36,35 @@ class FeedbackReview extends StatelessWidget {
               CircleAvatar(
                 radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   'assets/icons/horrible.png',
                 ),
               ),
               CircleAvatar(
                 radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   'assets/icons/bad.png',
                 ),
               ),
               CircleAvatar(
                 radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   'assets/icons/normal.png',
                 ),
               ),
               CircleAvatar(
                 radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   'assets/icons/good.png',
                 ),
               ),
               CircleAvatar(
                 radius: 7 * SizeConfig.blockSizeHorizontal!,
                 backgroundColor: backgroundImages,
-                backgroundImage: AssetImage(
+                backgroundImage: const AssetImage(
                   'assets/icons/excellent.png',
                 ),
               ),

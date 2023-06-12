@@ -185,42 +185,39 @@ class RestaurantInsideMenuState extends State<RestaurantInsideMenu> {
                                 sliver: SliverList(
                                   delegate: SliverChildBuilderDelegate(
                                     (context, i) => (tags.containsValue(i))
-                                        ? Container(
-                                            child: Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Align(
-                                                  alignment: Alignment.topLeft,
-                                                  child: Padding(
-                                                    padding: EdgeInsets.only(
-                                                        left: 6 *
-                                                            SizeConfig
-                                                                .blockSizeHorizontal!,
-                                                        top: 8.0,
-                                                        bottom: 8.0),
-                                                    child: AutoSizeText(
-                                                      tags.keys.firstWhere(
-                                                          (k) => tags[k] == i,
-                                                          orElse: () => ''),
-                                                      style: mealCategoryStyle,
-                                                    ),
+                                        ? Column(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      left: 6 *
+                                                          SizeConfig
+                                                              .blockSizeHorizontal!,
+                                                      top: 8.0,
+                                                      bottom: 8.0),
+                                                  child: AutoSizeText(
+                                                    tags.keys.firstWhere(
+                                                        (k) => tags[k] == i,
+                                                        orElse: () => ''),
+                                                    style: mealCategoryStyle,
                                                   ),
                                                 ),
-                                                MealCard(
-                                                  meal: snapshot.data[i],
-                                                  selectedIndexOfBottomBar: widget
-                                                      .selectedIndexOfBottomBar,
-                                                  callbackNavigationBottomBar:
-                                                      widget
-                                                          .callbackNavigationBottomBar,
-                                                  restaurantLogoUrl:
-                                                      widget.restaurantLogoUrl,
-                                                  restaurantID:
-                                                      widget.restaurantID,
-                                                ),
-                                              ],
-                                            ),
+                                              ),
+                                              MealCard(
+                                                meal: snapshot.data[i],
+                                                selectedIndexOfBottomBar: widget
+                                                    .selectedIndexOfBottomBar,
+                                                callbackNavigationBottomBar: widget
+                                                    .callbackNavigationBottomBar,
+                                                restaurantLogoUrl:
+                                                    widget.restaurantLogoUrl,
+                                                restaurantID:
+                                                    widget.restaurantID,
+                                              ),
+                                            ],
                                           )
                                         : MealCard(
                                             meal: snapshot.data[i],

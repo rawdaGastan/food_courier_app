@@ -44,19 +44,21 @@ class ResetPasswordState extends State<ResetPassword> {
     ];
 
     if (response != null) {
-      if (response == responseList[0])
+      if (response == responseList[0]) {
         Navigator.pushNamed(context, 'login');
-      else {
+      } else {
         List<String> errorDialogContent = [];
         for (int i = 1; i < responseList.length; i++) {
-          if (response[responseList[i]] != null)
+          if (response[responseList[i]] != null) {
             errorDialogContent.add(
                 '${responseList[i]} : ${response[responseList[i]].join('\n')}');
+          }
         }
         displayDialog(context, 'Invalid reset', errorDialogContent.join('\n'));
       }
-    } else
+    } else {
       displayDialog(context, 'Error', 'An unknown error occurred.');
+    }
   }
 
   @override

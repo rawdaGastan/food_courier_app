@@ -4,11 +4,13 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class TrackOrderScreen extends StatefulWidget {
+  const TrackOrderScreen({Key? key}) : super(key: key);
+
   @override
-  _TrackOrderScreenState createState() => _TrackOrderScreenState();
+  TrackOrderScreenState createState() => TrackOrderScreenState();
 }
 
-class _TrackOrderScreenState extends State<TrackOrderScreen> {
+class TrackOrderScreenState extends State<TrackOrderScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -32,13 +34,13 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
           ),
         ),
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Track order',
           style: titleText,
         ),
         actions: [
           TextButton(
-            child: Text('Cancel', style: saveText),
+            child: const Text('Cancel', style: saveText),
             onPressed: () {},
           ),
         ],
@@ -50,8 +52,8 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
               horizontal: 3 * SizeConfig.blockSizeVertical!,
               vertical: 2 * SizeConfig.blockSizeVertical!),
           children: [
-            Text('Order number :    3254', style: pickUpAndDeliveryTime),
-            Row(
+            const Text('Order number :    3254', style: pickUpAndDeliveryTime),
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
@@ -67,43 +69,46 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
             SizedBox(
               height: 2 * SizeConfig.blockSizeVertical!,
             ),
-            Divider(),
+            const Divider(),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   children: [
-                    Icon(Icons.brightness_1, size: 30.0, color: primaryColor),
+                    const Icon(Icons.brightness_1,
+                        size: 30.0, color: primaryColor),
                     Container(
                         alignment: Alignment.center,
                         height: 5 * SizeConfig.blockSizeVertical!,
-                        child: VerticalDivider(
+                        child: const VerticalDivider(
                           thickness: 2,
                           color: primaryColor,
                         )),
-                    Icon(Icons.brightness_1, size: 30.0, color: primaryColor),
+                    const Icon(Icons.brightness_1,
+                        size: 30.0, color: primaryColor),
                     Container(
                         alignment: Alignment.center,
                         height: 5 * SizeConfig.blockSizeVertical!,
-                        child: VerticalDivider(
+                        child: const VerticalDivider(
                           thickness: 2,
                           color: primaryColor,
                         )),
-                    Icon(Icons.brightness_1, size: 30.0, color: orangeColor),
+                    const Icon(Icons.brightness_1,
+                        size: 30.0, color: orangeColor),
                     Container(
                         alignment: Alignment.center,
                         height: 5 * SizeConfig.blockSizeVertical!,
-                        child: VerticalDivider(
+                        child: const VerticalDivider(
                           thickness: 2,
                           color: orangeColor,
                         )),
-                    Icon(Icons.brightness_1_outlined, size: 30.0),
+                    const Icon(Icons.brightness_1_outlined, size: 30.0),
                     Container(
                         alignment: Alignment.center,
                         height: 5 * SizeConfig.blockSizeVertical!,
-                        child:
-                            VerticalDivider(thickness: 2, color: blackColor)),
-                    Icon(
+                        child: const VerticalDivider(
+                            thickness: 2, color: blackColor)),
+                    const Icon(
                       Icons.brightness_1_outlined,
                       size: 30.0,
                     ),
@@ -120,13 +125,15 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                     SizedBox(
                       height: 2 * SizeConfig.blockSizeVertical!,
                     ),
-                    Text('Order Placed', style: totalPayment),
-                    Text('We have received your order', style: deliveryCost),
+                    const Text('Order Placed', style: totalPayment),
+                    const Text('We have received your order',
+                        style: deliveryCost),
                     SizedBox(
                       height: 2 * SizeConfig.blockSizeVertical!,
                     ),
-                    Text('Order Confirmed ', style: totalPayment),
-                    Text('your order has been confirmed', style: deliveryCost),
+                    const Text('Order Confirmed ', style: totalPayment),
+                    const Text('your order has been confirmed',
+                        style: deliveryCost),
                     SizedBox(
                       height: 2 * SizeConfig.blockSizeVertical!,
                     ),
@@ -171,7 +178,7 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                       SizedBox(
                         width: 2 * SizeConfig.blockSizeHorizontal!,
                       ),
-                      Text('Complaint', style: pickUpAndDeliveryTime),
+                      const Text('Complaint', style: pickUpAndDeliveryTime),
                     ],
                   ),
                 ),
@@ -179,9 +186,9 @@ class _TrackOrderScreenState extends State<TrackOrderScreen> {
                   onPressed: () {},
                   textColor: whiteColor,
                   color: primaryColor,
-                  child: Icon(Icons.call),
                   padding: EdgeInsets.all(2 * SizeConfig.blockSizeVertical!),
-                  shape: CircleBorder(),
+                  shape: const CircleBorder(),
+                  child: const Icon(Icons.call),
                 ),
               ],
             ),

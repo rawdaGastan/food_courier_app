@@ -5,6 +5,8 @@ import 'package:foodCourier/constants/colors.dart';
 import 'package:foodCourier/controllers/size_config.dart';
 
 class RestaurantWishList extends StatelessWidget {
+  const RestaurantWishList({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -13,7 +15,7 @@ class RestaurantWishList extends StatelessWidget {
       itemBuilder: (_, index) => Container(
         margin: EdgeInsets.all(2 * SizeConfig.blockSizeHorizontal!),
         height: 23 * SizeConfig.blockSizeVertical!,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           color: whiteColor,
         ),
         child: Stack(
@@ -41,7 +43,7 @@ class RestaurantWishList extends StatelessWidget {
                     ),
                     //height: 5 * SizeConfig.blockSizeVertical!,
                     width: 16 * SizeConfig.blockSizeHorizontal!,
-                    child: Row(
+                    child: const Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Icon(
@@ -60,7 +62,7 @@ class RestaurantWishList extends StatelessWidget {
                   Container(
                     width: 15 * SizeConfig.blockSizeHorizontal!,
                     height: 6 * SizeConfig.blockSizeVertical!,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: whiteColor,
                       boxShadow: [
@@ -77,23 +79,24 @@ class RestaurantWishList extends StatelessWidget {
                             top: SizeConfig.blockSizeVertical!,
                             left: SizeConfig.blockSizeHorizontal!,
                           ),
-                          child: Icon(Icons.attach_money, color: primaryColor),
+                          child: const Icon(Icons.attach_money,
+                              color: primaryColor),
                         ),
                         Padding(
                           padding: EdgeInsets.only(
                             top: SizeConfig.blockSizeVertical!,
                             left: 4 * SizeConfig.blockSizeHorizontal!,
                           ),
-                          child:
-                              Icon(Icons.attach_money, color: lightTextColor),
+                          child: const Icon(Icons.attach_money,
+                              color: lightTextColor),
                         ),
                         Padding(
                           padding: EdgeInsets.only(
                             top: SizeConfig.blockSizeVertical!,
                             left: 7 * SizeConfig.blockSizeHorizontal!,
                           ),
-                          child:
-                              Icon(Icons.attach_money, color: lightTextColor),
+                          child: const Icon(Icons.attach_money,
+                              color: lightTextColor),
                         ),
                       ],
                     ),
@@ -109,7 +112,7 @@ class RestaurantWishList extends StatelessWidget {
                       padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal!),
                       child: CircleAvatar(
                         radius: 4 * SizeConfig.blockSizeVertical!,
-                        backgroundImage: AssetImage(
+                        backgroundImage: const AssetImage(
                           'assets/icons/temp.png',
                         ),
                       ),
@@ -121,7 +124,7 @@ class RestaurantWishList extends StatelessWidget {
                         Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: 1 * SizeConfig.blockSizeHorizontal!),
-                          child: AutoSizeText(
+                          child: const AutoSizeText(
                             'Restaurants name',
                             style: restaurantName,
                           ),
@@ -133,7 +136,7 @@ class RestaurantWishList extends StatelessWidget {
                           ),
                           width: 40 * SizeConfig.blockSizeHorizontal!,
                           child: RichText(
-                            text: TextSpan(
+                            text: const TextSpan(
                               children: [
                                 WidgetSpan(
                                   child: Icon(Icons.location_on,
@@ -155,7 +158,7 @@ class RestaurantWishList extends StatelessWidget {
                   margin: EdgeInsets.only(
                       left: 4 * SizeConfig.blockSizeHorizontal!,
                       right: 4 * SizeConfig.blockSizeHorizontal!),
-                  child: AutoSizeText(
+                  child: const AutoSizeText(
                     'is simply dummy text of the printing and typesetting industry.',
                     style: restaurantDescription,
                     overflow: TextOverflow.ellipsis,
@@ -181,7 +184,7 @@ class RestaurantWishList extends StatelessWidget {
                         color: secondaryColor,
                         borderRadius: BorderRadius.circular(8.0),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: AutoSizeText(
                           'label',
                           //S().labels(widget.restaurant.labelNames[index]),

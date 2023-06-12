@@ -51,7 +51,7 @@ class MessageContainer extends StatelessWidget {
                             bottom: SizeConfig.blockSizeVertical!),
                         backGroundColor: blueTextColor,
                         child: Text(
-                          '$text',
+                          text,
                           style: messageStyle.copyWith(color: Colors.white),
                         ),
                       ),
@@ -75,7 +75,7 @@ class MessageContainer extends StatelessWidget {
                     backGroundColor: msgContainerFromColor,
                     //margin: EdgeInsets.only(top: SizeConfig.blockSizeVertical!),
                     child: Text(
-                      '$text',
+                      text,
                       style: messageStyle.copyWith(color: Colors.black),
                     ),
                   ),

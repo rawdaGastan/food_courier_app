@@ -13,21 +13,22 @@ import 'package:foodCourier/controllers/location.dart';
 import 'dart:async';
 import 'package:foodCourier/widgets/grocery_widgets/offers_tab_bar.dart';
 
+// ignore: must_be_immutable
 class AllStores extends StatefulWidget {
-  PickResult? addressSelectedPlace;
-  Location? currentLocation;
+  final PickResult? addressSelectedPlace;
+  final Location? currentLocation;
 
-  String? searchInput;
-  String? sortBy;
-  String? selectedRegion;
-  String? selectedRegionType;
-  bool isDelivery;
+  final String? searchInput;
+  final String? sortBy;
+  final String? selectedRegion;
+  final String? selectedRegionType;
+  final bool isDelivery;
 
-  int bottomNavigationIndex;
-  Function callbackBottomNavigationBar;
+  final int bottomNavigationIndex;
+  final Function callbackBottomNavigationBar;
 
-  Function callbackFilters;
-  Function callbackRestriction;
+  final Function callbackFilters;
+  final Function callbackRestriction;
 
   bool offers;
 
@@ -250,7 +251,7 @@ class AllStoresState extends State<AllStores> {
                       ],
                     ),
                   ),
-                  widget.offers ? OffersTabBar() : Container(),
+                  widget.offers ? const OffersTabBar() : Container(),
                 ],
               );
             } else {

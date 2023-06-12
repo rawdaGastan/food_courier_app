@@ -85,12 +85,12 @@ class OrderState extends State<Order> {
               padding: EdgeInsets.symmetric(
                   horizontal: 3 * SizeConfig.blockSizeVertical!,
                   vertical: 2 * SizeConfig.blockSizeVertical!),
-              child: OrderInfo(),
+              child: const OrderInfo(),
             ),
             SizedBox(
               height: 2 * SizeConfig.blockSizeVertical!,
             ),
-            CheckOut(),
+            const CheckOut(),
             Container(
               decoration: const BoxDecoration(
                 color: secondaryColor,

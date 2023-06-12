@@ -41,7 +41,7 @@ class MealsProvider extends ChangeNotifier {
 
   Future<List<Meal>> loadAllMeals(
       String restaurantName, String userToken) async {
-    Networking net = new Networking();
+    Networking net = Networking();
     Map<String, dynamic> response = jsonDecode(
         await net.getMealsData(restaurantName, pageIndex, userToken));
     count = response['count'];
@@ -78,7 +78,7 @@ class MealsProvider extends ChangeNotifier {
 
   Future<Meal> getSpecificMeal(int id, String userToken) async {
     Meal meal;
-    Networking net = new Networking();
+    Networking net = Networking();
     List<dynamic> response =
         jsonDecode(await net.getSpecificMeal(id, userToken));
 

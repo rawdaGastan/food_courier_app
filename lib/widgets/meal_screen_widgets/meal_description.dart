@@ -7,39 +7,40 @@ import 'package:foodCourier/models/meal_value.dart';
 class MealDescription extends StatefulWidget {
   final ScrollController _controller;
   final String mealName;
-  MealDescription(this._controller, this.mealName);
+  const MealDescription(this._controller, this.mealName, {Key? key})
+      : super(key: key);
 
   @override
-  _MealDescriptionState createState() => _MealDescriptionState();
+  MealDescriptionState createState() => MealDescriptionState();
 }
 
-class _MealDescriptionState extends State<MealDescription> {
+class MealDescriptionState extends State<MealDescription> {
   List<MealValue> mealValues = [];
 
   dummyMealValues() {
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Protein', percentage: '10%', quantity: '12g', isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Total carbs',
         percentage: '10%',
         quantity: '12g',
         isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Total sugars',
         percentage: '10%',
         quantity: '10g',
         isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Dietary fiber',
         percentage: '10%',
         quantity: '6g',
         isPrimary: true));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Sodium',
         percentage: '10%',
         quantity: '112mg',
         isPrimary: false));
-    mealValues.add(new MealValue(
+    mealValues.add(MealValue(
         name: 'Cholestrol',
         percentage: '10%',
         quantity: '70mg',
@@ -59,7 +60,7 @@ class _MealDescriptionState extends State<MealDescription> {
         ListView(
           controller: widget._controller,
           children: [
-            Text(
+            const Text(
               'macronutrients',
               style: mealSubTitles,
             ),
@@ -94,16 +95,16 @@ class _MealDescriptionState extends State<MealDescription> {
                     Container(
                       height: 2 * SizeConfig.blockSizeHorizontal!,
                       width: 2 * SizeConfig.blockSizeHorizontal!,
-                      decoration: new BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: orangeColor,
                         shape: BoxShape.circle,
                       ),
                     ),
-                    Text(
+                    const Text(
                       ' Carb ',
                       style: mealInfo,
                     ),
-                    Text(
+                    const Text(
                       '0.3g',
                       style: mealPrice,
                     ),
@@ -114,16 +115,16 @@ class _MealDescriptionState extends State<MealDescription> {
                     Container(
                       height: 2 * SizeConfig.blockSizeHorizontal!,
                       width: 2 * SizeConfig.blockSizeHorizontal!,
-                      decoration: new BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: greyTextColor,
                         shape: BoxShape.circle,
                       ),
                     ),
-                    Text(
+                    const Text(
                       ' Fat ',
                       style: mealInfo,
                     ),
-                    Text(
+                    const Text(
                       '0.3g',
                       style: mealPrice,
                     ),
@@ -134,16 +135,16 @@ class _MealDescriptionState extends State<MealDescription> {
                     Container(
                       height: 2 * SizeConfig.blockSizeHorizontal!,
                       width: 2 * SizeConfig.blockSizeHorizontal!,
-                      decoration: new BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: primaryColor,
                         shape: BoxShape.circle,
                       ),
                     ),
-                    Text(
+                    const Text(
                       ' Protein ',
                       style: mealInfo,
                     ),
-                    Text(
+                    const Text(
                       '0.3g',
                       style: mealPrice,
                     ),
@@ -154,7 +155,7 @@ class _MealDescriptionState extends State<MealDescription> {
             SizedBox(
               height: SizeConfig.blockSizeVertical!,
             ),
-            Row(
+            const Row(
               children: [
                 Icon(
                   Icons.error_outline,
@@ -166,7 +167,7 @@ class _MealDescriptionState extends State<MealDescription> {
                 ),
               ],
             ),
-            Text(
+            const Text(
               'Nutritional Info',
               style: mealSubTitles,
             ),
@@ -177,7 +178,7 @@ class _MealDescriptionState extends State<MealDescription> {
               height: 8 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
                   horizontal: 3 * SizeConfig.blockSizeHorizontal!),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: secondaryColor,
                 border: Border(
                   top: BorderSide(color: blackColor, width: 1.0),
@@ -185,7 +186,7 @@ class _MealDescriptionState extends State<MealDescription> {
                   right: BorderSide(color: blackColor, width: 1.0),
                 ),
               ),
-              child: Row(
+              child: const Row(
                 children: [
                   Text(
                     'Calories         ',
@@ -202,7 +203,7 @@ class _MealDescriptionState extends State<MealDescription> {
               height: 6 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
                   horizontal: 3 * SizeConfig.blockSizeHorizontal!),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: secondaryColor,
                 border: Border(
                   top: BorderSide(color: blackColor, width: 3.0),
@@ -210,7 +211,7 @@ class _MealDescriptionState extends State<MealDescription> {
                   right: BorderSide(color: blackColor, width: 1.0),
                 ),
               ),
-              child: Column(
+              child: const Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -225,7 +226,7 @@ class _MealDescriptionState extends State<MealDescription> {
             Container(
               padding: EdgeInsets.symmetric(
                   horizontal: 3 * SizeConfig.blockSizeHorizontal!),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: secondaryColor,
                 border: Border(
                   left: BorderSide(color: blackColor, width: 1.0),
@@ -236,7 +237,7 @@ class _MealDescriptionState extends State<MealDescription> {
                 shrinkWrap: true,
                 itemCount: mealValues.length,
                 itemBuilder: (context, index) {
-                  return Container(
+                  return SizedBox(
                     height: 6 * SizeConfig.blockSizeVertical!,
                     child: Stack(
                       children: [
@@ -263,11 +264,11 @@ class _MealDescriptionState extends State<MealDescription> {
                                 mealValues[index].percentage,
                                 style: mealValuesInfo,
                               ),
-                              Icon(Icons.keyboard_arrow_up),
+                              const Icon(Icons.keyboard_arrow_up),
                             ],
                           ),
                         ),
-                        Align(
+                        const Align(
                           alignment: Alignment.bottomCenter,
                           child: Divider(),
                         ),
@@ -281,7 +282,7 @@ class _MealDescriptionState extends State<MealDescription> {
               height: 10 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
                   horizontal: 3 * SizeConfig.blockSizeHorizontal!),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: secondaryColor,
                 border: Border(
                   bottom: BorderSide(color: blackColor, width: 1.0),
@@ -289,7 +290,7 @@ class _MealDescriptionState extends State<MealDescription> {
                   right: BorderSide(color: blackColor, width: 1.0),
                 ),
               ),
-              child: Row(
+              child: const Row(
                 children: [
                   Icon(Icons.error_outline, color: lightTextColor),
                   Text(

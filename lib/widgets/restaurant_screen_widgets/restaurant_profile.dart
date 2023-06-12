@@ -11,7 +11,8 @@ class RestaurantProfile extends StatelessWidget {
 
   final ScrollController _controller = ScrollController();
 
-  RestaurantProfile(this.distance, this.duration, this.restaurant);
+  RestaurantProfile(this.distance, this.duration, this.restaurant, {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class RestaurantProfile extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              restaurant.labelNames.length > 0
+              restaurant.labelNames.isNotEmpty
                   ? SizedBox(
                       height: 7 * SizeConfig.blockSizeVertical!,
                       child: RestaurantTags(restaurant.labelNames),

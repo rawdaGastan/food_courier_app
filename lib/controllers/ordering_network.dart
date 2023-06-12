@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:foodCourier/controllers/logger.dart';
 import 'package:http/http.dart' as http;
 
 class OrderingNetworking {
@@ -16,10 +17,10 @@ class OrderingNetworking {
       'Authorization': 'Bearer $token',
     });
     if (response.statusCode == 201) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -27,19 +28,19 @@ class OrderingNetworking {
   Future addToCart(String token, int productID, int quantity) async {
     url = '$apiUrl${version}api/cart/add/';
 
-    var jsonBody = jsonEncode({"product": productID, "quantity": quantity});
+    var jsonBody = jsonEncode({'product': productID, 'quantity': quantity});
 
     var response = await http.post(Uri.parse(url),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
         },
         body: jsonBody);
     if (response.statusCode == 201) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -48,20 +49,20 @@ class OrderingNetworking {
     url = '$apiUrl${version}api/cart/remove/';
 
     var jsonBody = jsonEncode({
-      "item": productID,
+      'item': productID,
     });
 
     var response = await http.post(Uri.parse(url),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
         },
         body: jsonBody);
     if (response.statusCode == 201) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -69,19 +70,19 @@ class OrderingNetworking {
   Future setPayment(String token, String paymentMethod) async {
     url = '$apiUrl${version}api/cart/payment_method/set/';
 
-    var jsonBody = jsonEncode({"payment_method": paymentMethod});
+    var jsonBody = jsonEncode({'payment_method': paymentMethod});
 
     var response = await http.post(Uri.parse(url),
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           'Authorization': 'Bearer $token',
         },
         body: jsonBody);
     if (response.statusCode == 201) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }
@@ -96,10 +97,10 @@ class OrderingNetworking {
       },
     );
     if (response.statusCode == 201) {
-      print('success');
+      logger.d('success');
       return response.body;
     } else {
-      print('Request failed with status: ${response.statusCode}.');
+      logger.e('Request failed with status: ${response.statusCode}.');
     }
     return;
   }

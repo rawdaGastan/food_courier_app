@@ -6,10 +6,10 @@ import 'package:foodCourier/generated/l10n.dart';
 import 'package:foodCourier/main.dart';
 
 class DrawerContents extends StatelessWidget {
-  int bottomNavigationIndex;
-  Function callbackBottomNavigationBar;
+  final int bottomNavigationIndex;
+  final Function callbackBottomNavigationBar;
 
-  DrawerContents(
+  const DrawerContents(
       {Key? key,
       required this.bottomNavigationIndex,
       required this.callbackBottomNavigationBar})

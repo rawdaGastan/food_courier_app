@@ -63,13 +63,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "dayFeedback": MessageLookupByLibrary.simpleMessage("Tuesday  "),
         "delivery": MessageLookupByLibrary.simpleMessage("Delivery"),
         "didNotReceiveCode":
-            MessageLookupByLibrary.simpleMessage("Didn\'t receive a code "),
+            MessageLookupByLibrary.simpleMessage("Did not receive a code "),
         "dietPeriod": MessageLookupByLibrary.simpleMessage(
             "How long have been following Diet ?"),
         "dineOut": MessageLookupByLibrary.simpleMessage("Dine out"),
         "distance": m1,
         "doNotHaveAccount":
-            MessageLookupByLibrary.simpleMessage("Don\'t have an account ? "),
+            MessageLookupByLibrary.simpleMessage("Do not have an account ? "),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailOrPhone":
             MessageLookupByLibrary.simpleMessage("Email/Phone Number"),
@@ -142,7 +142,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "skip": MessageLookupByLibrary.simpleMessage("skip"),
         "sortBy": MessageLookupByLibrary.simpleMessage("Sort By :"),
         "splashText": MessageLookupByLibrary.simpleMessage(
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, "),
+            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "),
         "terms": MessageLookupByLibrary.simpleMessage("Terms"),
         "timeFeedback": MessageLookupByLibrary.simpleMessage("20:21"),
         "town": m6,

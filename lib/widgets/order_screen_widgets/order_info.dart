@@ -8,11 +8,13 @@ import 'package:foodCourier/widgets/order_screen_widgets/address_container.dart'
 import 'package:foodCourier/widgets/order_screen_widgets/edit_pickup_time.dart';
 
 class OrderInfo extends StatefulWidget {
+  const OrderInfo({Key? key}) : super(key: key);
+
   @override
-  _OrderInfoState createState() => _OrderInfoState();
+  OrderInfoState createState() => OrderInfoState();
 }
 
-class _OrderInfoState extends State<OrderInfo> {
+class OrderInfoState extends State<OrderInfo> {
   int focusedDayIndex = 0;
   int deliveryOrPick = 0;
   int addressIndex = 0;
@@ -24,7 +26,7 @@ class _OrderInfoState extends State<OrderInfo> {
               height: 31 * SizeConfig.blockSizeVertical!,
               padding: EdgeInsets.symmetric(
                   horizontal: 3 * SizeConfig.blockSizeHorizontal!),
-              child: Column(
+              child: const Column(
                 children: [
                   Text(
                     'when will you be there ?',
@@ -50,7 +52,7 @@ class _OrderInfoState extends State<OrderInfo> {
         DefaultTabController(
           length: 2,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: secondaryColor,
               borderRadius: BorderRadius.all(Radius.circular(25.0)),
             ),
@@ -64,7 +66,7 @@ class _OrderInfoState extends State<OrderInfo> {
                     style: restaurantBarText,
                   ),
                 ),
-                Tab(
+                const Tab(
                   child: AutoSizeText(
                     'Pick up',
                     maxLines: 1,
@@ -79,7 +81,7 @@ class _OrderInfoState extends State<OrderInfo> {
                 });
               },
               isScrollable: false,
-              indicator: BoxDecoration(
+              indicator: const BoxDecoration(
                 color: primaryColor,
                 borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
@@ -102,7 +104,7 @@ class _OrderInfoState extends State<OrderInfo> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Column(
+                    const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('\$ 0,00', style: deliveryCost),
@@ -112,11 +114,11 @@ class _OrderInfoState extends State<OrderInfo> {
                     Container(
                         alignment: Alignment.center,
                         height: 7 * SizeConfig.blockSizeVertical!,
-                        child: VerticalDivider(
+                        child: const VerticalDivider(
                           thickness: 1,
                           color: lightTextColor,
                         )),
-                    Column(
+                    const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text('38 - 48', style: pickUpAndDeliveryTime),
@@ -140,7 +142,7 @@ class _OrderInfoState extends State<OrderInfo> {
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: 2.5 * SizeConfig.blockSizeHorizontal!),
-                      child: Text('6 Pm', style: pickUpAndDeliveryTime),
+                      child: const Text('6 Pm', style: pickUpAndDeliveryTime),
                     ),
                     Container(
                       alignment: Alignment.center,
@@ -149,7 +151,7 @@ class _OrderInfoState extends State<OrderInfo> {
                           horizontal: 3 * SizeConfig.blockSizeHorizontal!),
                       width: 60 * SizeConfig.blockSizeHorizontal!,
                       color: secondaryColor,
-                      child: AutoSizeText(
+                      child: const AutoSizeText(
                         'This is a Pickup order Today at 6pm You\'ll need to go to Mid Atlantic Seafood to pick up this order: 6500 New Hampshire Avenue',
                         style: mealInfo,
                       ),
@@ -159,7 +161,7 @@ class _OrderInfoState extends State<OrderInfo> {
                       height: 10 * SizeConfig.blockSizeVertical!,
                       color: primaryColor,
                       child: IconButton(
-                          icon: Icon(
+                          icon: const Icon(
                             Icons.mode_edit,
                             color: whiteColor,
                           ),
@@ -176,13 +178,13 @@ class _OrderInfoState extends State<OrderInfo> {
         DefaultTabController(
           length: 3,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: secondaryColor,
               borderRadius: BorderRadius.all(Radius.circular(25.0)),
             ),
             height: 6 * SizeConfig.blockSizeVertical!,
             child: TabBar(
-              tabs: [
+              tabs: const [
                 Tab(
                   child: AutoSizeText(
                     'Home',
@@ -213,7 +215,7 @@ class _OrderInfoState extends State<OrderInfo> {
                 });
               },
               isScrollable: false,
-              indicator: BoxDecoration(
+              indicator: const BoxDecoration(
                 color: primaryColor,
                 borderRadius: BorderRadius.all(Radius.circular(25.0)),
               ),
