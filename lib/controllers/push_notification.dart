@@ -202,10 +202,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState!
-                                  .setState(() {
-                                rateByUser = 1;
-                              });
+                              rateByUser = 1;
                             }),
                         IconButton(
                             icon: Icon(
@@ -214,10 +211,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState!
-                                  .setState(() {
-                                rateByUser = 2;
-                              });
+                              rateByUser = 2;
                             }),
                         IconButton(
                             icon: Icon(
@@ -226,10 +220,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState!
-                                  .setState(() {
-                                rateByUser = 3;
-                              });
+                              rateByUser = 3;
                             }),
                         IconButton(
                             icon: Icon(
@@ -238,10 +229,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState!
-                                  .setState(() {
-                                rateByUser = 4;
-                              });
+                              rateByUser = 4;
                             }),
                         IconButton(
                             icon: Icon(
@@ -250,10 +238,7 @@ class PushNotification {
                                     : Icons.star_border,
                                 color: orangeColor),
                             onPressed: () {
-                              _navigationService.navigationKey.currentState!
-                                  .setState(() {
-                                rateByUser = 5;
-                              });
+                              rateByUser = 5;
                             }),
                       ],
                     ),
