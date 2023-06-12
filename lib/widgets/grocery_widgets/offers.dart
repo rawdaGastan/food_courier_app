@@ -31,7 +31,8 @@ class Offers extends StatefulWidget {
   Function callbackRestriction;
 
   Offers(
-      {Key? key, this.addressSelectedPlace,
+      {Key? key,
+      this.addressSelectedPlace,
       this.currentLocation,
       this.searchInput,
       this.sortBy,
@@ -42,7 +43,8 @@ class Offers extends StatefulWidget {
       this.selectedRegion,
       this.selectedRegionType,
       required this.callbackFilters,
-      required this.callbackRestriction}) : super(key: key);
+      required this.callbackRestriction})
+      : super(key: key);
 
   @override
   OffersState createState() => OffersState();

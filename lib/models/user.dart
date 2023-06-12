@@ -1,14 +1,13 @@
-class User{
-
+class User {
   String firstName, lastName, dateOfBirth, durationOfDiet, email, phone;
 
   User(
-      this.firstName,
-      this.lastName,
-      this.dateOfBirth,
-      this.durationOfDiet,
-      this.email,
-      this.phone,
+    this.firstName,
+    this.lastName,
+    this.dateOfBirth,
+    this.durationOfDiet,
+    this.email,
+    this.phone,
   );
 
   set setFirstName(String value) {
@@ -34,6 +33,4 @@ class User{
   set setPhone(String value) {
     phone = value;
   }
-  
-
 }

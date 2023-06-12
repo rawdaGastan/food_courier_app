@@ -29,7 +29,8 @@ class FilterByList extends StatefulWidget {
 }
 
 class FilterByListState extends State<FilterByList> {
-  final ScrollController _controller = ScrollController(initialScrollOffset: 0.0);
+  final ScrollController _controller =
+      ScrollController(initialScrollOffset: 0.0);
 
   @override
   void initState() {

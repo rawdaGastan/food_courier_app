@@ -114,13 +114,13 @@ class GroceryViewState extends State<GroceryView> {
                     widget.selectedRegionType!, restaurantType));
       } else {
         if (widget.addressSelectedPlace != null) {
-          _streamController.add(
-              await Provider.of<AllFiltersProvider>(context, listen: false)
-                  .showRestaurantByLocation(
-                      userToken,
-                      widget.addressSelectedPlace!.addressComponents![3].longName,
-                      'town',
-                      restaurantType));
+          _streamController.add(await Provider.of<AllFiltersProvider>(context,
+                  listen: false)
+              .showRestaurantByLocation(
+                  userToken,
+                  widget.addressSelectedPlace!.addressComponents![3].longName,
+                  'town',
+                  restaurantType));
         } else if (widget.currentLocation != null) {
           var address = await geoCode.reverseGeocoding(
               latitude: widget.currentLocation!.latitude,

@@ -113,8 +113,8 @@ class WishListState extends State<WishList> {
                               color: shadow,
                               spreadRadius: 5,
                               blurRadius: 7,
-                              offset:
-                                  const Offset(0, 2), // changes position of shadow
+                              offset: const Offset(
+                                  0, 2), // changes position of shadow
                             ),
                           ],
                         ),
