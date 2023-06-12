@@ -78,7 +78,7 @@ class OrderCheckoutState extends State<OrderCheckout> {
       ),
       backgroundColor: whiteColor,
       body: SafeArea(
-        child: cart.isNull
+        child: cart == null
             ? ListView(
                 children: [
                   SizedBox(
